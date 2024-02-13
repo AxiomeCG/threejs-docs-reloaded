@@ -1,11 +1,11 @@
 [page:Loader] →
 
-# [name]
+# CubeTextureLoader
 
-[name] can be used to load cube maps. The loader returns an instance of
-[page:CubeTexture] and expects the cube map to be defined as six separate
-images representing the sides of a cube. Other cube map definitions like
-vertical and horizontal cross, column and row layouts are not supported.
+CubeTextureLoader can be used to load cube maps. The loader returns an
+instance of [page:CubeTexture] and expects the cube map to be defined as six
+separate images representing the sides of a cube. Other cube map definitions
+like vertical and horizontal cross, column and row layouts are not supported.
 
 The loaded [page:CubeTexture] is in sRGB color space. Meaning the
 [page:Texture.colorSpace colorSpace] property is set to `THREE.SRGBColorSpace`
@@ -15,17 +15,9 @@ by default.
 
   
 ```ts  
-const scene = new THREE.Scene();  
-scene.background = new THREE.CubeTextureLoader()  
-.setPath( 'textures/cubeMaps/' )  
-.load( [  
-'px.png',  
-'nx.png',  
-'py.png',  
-'ny.png',  
-'pz.png',  
-'nz.png'  
-] );  
+const scene = new THREE.Scene();scene.background = new
+THREE.CubeTextureLoader() .setPath( 'textures/cubeMaps/' ) .load( [ 'px.png',
+'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );  
 ```  
 
 ## Examples
@@ -36,13 +28,13 @@ scene.background = new THREE.CubeTextureLoader()
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function CubeTextureLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new CubeTextureLoader.
 
 ## Properties
 
@@ -52,8 +44,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:CubeTexture load]( [param:String urls], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( urls: String, onLoad: Function, onProgress: Function,
+onError: Function ): CubeTexture;
 
 [page:String urls] — array of 6 urls to images, one for each side of the
 CubeTexture. The urls should be specified in the following order: pos-x,

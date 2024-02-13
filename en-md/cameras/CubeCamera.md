@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# CubeCamera
 
 Creates 6 cameras that render to a [page:WebGLCubeRenderTarget].
 
@@ -8,30 +8,16 @@ Creates 6 cameras that render to a [page:WebGLCubeRenderTarget].
 
   
 ```ts  
-  
-// Create cube render target  
-const cubeRenderTarget = new THREE.WebGLCubeRenderTarget( 128, {
-generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter } );  
-  
-// Create cube camera  
-const cubeCamera = new THREE.CubeCamera( 1, 100000, cubeRenderTarget );  
-scene.add( cubeCamera );  
-  
-// Create car  
-const chromeMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff,
-envMap: cubeRenderTarget.texture } );  
-const car = new THREE.Mesh( carGeometry, chromeMaterial );  
-scene.add( car );  
-  
-// Update the render target cube  
-car.visible = false;  
-cubeCamera.position.copy( car.position );  
-cubeCamera.update( renderer, scene );  
-  
-// Render the scene  
-car.visible = true;  
+// Create cube render target const cubeRenderTarget = new
+THREE.WebGLCubeRenderTarget( 128, { generateMipmaps: true, minFilter:
+THREE.LinearMipmapLinearFilter } ); // Create cube camera const cubeCamera =
+new THREE.CubeCamera( 1, 100000, cubeRenderTarget ); scene.add( cubeCamera );
+// Create car const chromeMaterial = new THREE.MeshLambertMaterial( { color:
+0xffffff, envMap: cubeRenderTarget.texture } ); const car = new THREE.Mesh(
+carGeometry, chromeMaterial ); scene.add( car ); // Update the render target
+cube car.visible = false; cubeCamera.position.copy( car.position );
+cubeCamera.update( renderer, scene ); // Render the scene car.visible = true;
 renderer.render( scene, camera );  
-  
 ```  
 
 ## Examples
@@ -40,8 +26,8 @@ renderer.render( scene, camera );
 
 ## Constructor
 
-### [name]( [param:Number near], [param:Number far],
-[param:WebGLCubeRenderTarget renderTarget] )
+###  function CubeCamera( near: Number, far: Number, renderTarget:
+WebGLCubeRenderTarget ): void;
 
 near -- The near clipping distance.  
 far -- The far clipping distance.  
@@ -54,7 +40,7 @@ PerspectiveCameras] that render to a [page:WebGLCubeRenderTarget].
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> WebGLCubeRenderTarget renderTarget; <br/>
+###  WebGLCubeRenderTarget renderTarget;
 
 The destination cube render target.
 
@@ -62,8 +48,7 @@ The destination cube render target.
 
 See the base [page:Object3D] class for common methods.
 
-### [method:undefined update]( [param:WebGLRenderer renderer], [param:Scene
-scene] )
+###  function update( renderer: WebGLRenderer, scene: Scene ): undefined;
 
 renderer -- The current WebGL renderer  
 scene -- The current scene

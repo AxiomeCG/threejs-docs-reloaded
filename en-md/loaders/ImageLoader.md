@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# ImageLoader
 
 A loader for loading an [page:Image]. This is used internally by the
 [page:CubeTextureLoader], [page:ObjectLoader] and [page:TextureLoader].
@@ -9,30 +9,13 @@ A loader for loading an [page:Image]. This is used internally by the
 
   
 ```ts  
-// instantiate a loader  
-const loader = new THREE.ImageLoader();  
-  
-// load a image resource  
-loader.load(  
-// resource URL  
-'textures/skyboxsun25degtest.png',  
-  
-// onLoad callback  
-function ( image ) {  
-// use the image, e.g. draw part of it on a canvas  
-const canvas = document.createElement( 'canvas' );  
-const context = canvas.getContext( '2d' );  
-context.drawImage( image, 100, 100 );  
-},  
-  
-// onProgress callback currently not supported  
-undefined,  
-  
-// onError callback  
-function () {  
-console.error( 'An error happened.' );  
-}  
-);  
+// instantiate a loader const loader = new THREE.ImageLoader(); // load a
+image resource loader.load( // resource URL 'textures/skyboxsun25degtest.png',
+// onLoad callback function ( image ) { // use the image, e.g. draw part of it
+on a canvas const canvas = document.createElement( 'canvas' ); const context =
+canvas.getContext( '2d' ); context.drawImage( image, 100, 100 ); }, //
+onProgress callback currently not supported undefined, // onError callback
+function () { console.error( 'An error happened.' ); } );  
 ```  
 
 Please note three.js r84 dropped support for ImageLoader progress events. For
@@ -47,13 +30,13 @@ this thread].
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function ImageLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new ImageLoader.
 
 ## Properties
 
@@ -63,8 +46,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:HTMLImageElement load]( [param:String url], [param:Function
-onLoad], [param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): HTMLImageElement;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-

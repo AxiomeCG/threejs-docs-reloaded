@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Camera] →
 
-# [name]
+# OrthographicCamera
 
 Camera that uses [link:https://en.wikipedia.org/wiki/Orthographic_projection
 orthographic projection].  
@@ -16,8 +16,7 @@ things.
   
 ```ts  
 const camera = new THREE.OrthographicCamera( width / - 2, width / 2, height /
-2, height / - 2, 1, 1000 );  
-scene.add( camera );  
+2, height / - 2, 1, 1000 ); scene.add( camera );  
 ```  
 
 ## Examples
@@ -33,8 +32,8 @@ scene.add( camera );
 
 ## Constructor
 
-### [name]( [param:Number left], [param:Number right], [param:Number top],
-[param:Number bottom], [param:Number near], [param:Number far] )
+###  function OrthographicCamera( left: Number, right: Number, top: Number,
+bottom: Number, near: Number, far: Number ): void;
 
 left — Camera frustum left plane.  
 right — Camera frustum right plane.  
@@ -53,25 +52,25 @@ Note that after making changes to most of these properties you will have to
 call [page:OrthographicCamera.updateProjectionMatrix .updateProjectionMatrix]
 for the changes to take effect.
 
-### <br/> Float bottom; <br/>
+###  Float bottom;
 
 Camera frustum bottom plane.
 
-### <br/> Float far; <br/>
+###  Float far;
 
 Camera frustum far plane. Default is `2000`.  
   
 Must be greater than the current value of [page:.near near] plane.
 
-### <br/> Boolean isOrthographicCamera; <br/>
+###  Boolean isOrthographicCamera;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type OrthographicCamera.
 
-### <br/> Float left; <br/>
+###  Float left;
 
 Camera frustum left plane.
 
-### <br/> Float near; <br/>
+###  Float near;
 
 Camera frustum near plane. Default is `0.1`.  
   
@@ -79,20 +78,20 @@ The valid range is between `0` and the current value of the [page:.far far]
 plane. Note that, unlike for the [page:PerspectiveCamera], `0` is a valid
 value for an OrthographicCamera's near plane.
 
-### <br/> Float right; <br/>
+###  Float right;
 
 Camera frustum right plane.
 
-### <br/> Float top; <br/>
+###  Float top;
 
 Camera frustum top plane.
 
-### <br/> Object view; <br/>
+###  Object view;
 
 Set by [page:OrthographicCamera.setViewOffset setViewOffset]. Default is
 `null`.
 
-### <br/> number zoom; <br/>
+###  number zoom;
 
 Gets or sets the zoom factor of the camera. Default is `1`.
 
@@ -100,9 +99,8 @@ Gets or sets the zoom factor of the camera. Default is `1`.
 
 See the base [page:Camera] class for common methods.
 
-### [method:undefined setViewOffset]( [param:Float fullWidth], [param:Float
-fullHeight], [param:Float x], [param:Float y], [param:Float width],
-[param:Float height] )
+###  function setViewOffset( fullWidth: Float, fullHeight: Float, x: Float, y:
+Float, width: Float, height: Float ): undefined;
 
 fullWidth — full width of multiview setup  
 fullHeight — full height of multiview setup  
@@ -116,16 +114,16 @@ viewing frustum]. This is useful for multi-window or multi-monitor/multi-
 machine setups. For an example on how to use it see
 [page:PerspectiveCamera.setViewOffset PerspectiveCamera].
 
-### [method:undefined clearViewOffset]()
+###  function clearViewOffset( ): undefined;
 
 Removes any offset set by the .setViewOffset method.
 
-### [method:undefined updateProjectionMatrix]()
+###  function updateProjectionMatrix( ): undefined;
 
 Updates the camera projection matrix. Must be called after any change of
 parameters.
 
-### [method:Object toJSON]([param:Object meta])
+###  function toJSON( meta: Object ): Object;
 
 meta -- object containing metadata such as textures or images in objects'
 descendants.  

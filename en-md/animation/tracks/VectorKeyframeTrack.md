@@ -1,12 +1,13 @@
 [page:KeyframeTrack] →
 
-# [name]
+# VectorKeyframeTrack
 
 A Track of vector keyframe values.
 
 ## Constructor
 
-###  [name]( [param:String name], [param:Array times], [param:Array values] )
+###  function VectorKeyframeTrack( name: String, times: Array, values: Array
+): void;
 
 [page:String name] - (required) identifier for the KeyframeTrack.  
 [page:Array times] - (required) array of keyframe times.  
@@ -20,7 +21,7 @@ array of vector components.
 
 See [page:KeyframeTrack] for inherited properties.
 
-### <br/> String ValueTypeName; <br/>
+###  String ValueTypeName;
 
 String 'vector'.
 

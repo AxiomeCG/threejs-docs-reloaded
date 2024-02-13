@@ -1,6 +1,6 @@
 [page:Material] →
 
-# [name]
+# MeshStandardMaterial
 
 A standard physically based material, using Metallic-Roughness workflow.  
   
@@ -19,7 +19,8 @@ will react 'correctly' under all lighting scenarios.
   
 In practice this gives a more accurate and realistic looking result than the
 [page:MeshLambertMaterial] or [page:MeshPhongMaterial], at the cost of being
-somewhat more computationally expensive. [name] uses per-fragment shading.  
+somewhat more computationally expensive. MeshStandardMaterial uses per-
+fragment shading.  
   
 Note that for best results you should always specify an [page:.envMap
 environment map] when using this material.  
@@ -28,8 +29,8 @@ For a non-technical introduction to the concept of PBR and how to set up a PBR
 material, check out these articles by the people at
 [link:https://www.marmoset.co marmoset]:
 
-  * [link:https://www.marmoset.co/posts/basic-theory-of-physically-based-rendering/ Basic Theory of Physically Based Rendering] 
-  * [link:https://www.marmoset.co/posts/physically-based-rendering-and-you-can-too/ Physically Based Rendering and You Can Too] 
+  * [link:https://www.marmoset.co/posts/basic-theory-of-physically-based-rendering/ Basic Theory of Physically Based Rendering]
+  * [link:https://www.marmoset.co/posts/physically-based-rendering-and-you-can-too/ Physically Based Rendering and You Can Too]
 
 Technical details of the approach used in three.js (and most other PBR
 systems) can be found is this
@@ -38,7 +39,7 @@ paper from Disney] (pdf), by Brent Burley.
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function MeshStandardMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -52,7 +53,7 @@ as a hexadecimal string and is `0xffffff` (white) by default.
 
 See the base [page:Material] class for common properties.
 
-### <br/> Texture alphaMap; <br/>
+###  Texture alphaMap;
 
 The alpha map is a grayscale texture that controls the opacity across the
 surface (black: fully transparent; white: fully opaque). Default is null.  
@@ -64,39 +65,41 @@ precision provided for green in DXT-compressed and uncompressed RGB 565
 formats. Luminance-only and luminance/alpha textures will also still work as
 expected.
 
-### <br/> Texture aoMap; <br/>
+###  Texture aoMap;
 
 The red channel of this texture is used as the ambient occlusion map. Default
 is null. The aoMap requires a second set of UVs.
 
-### <br/> Float aoMapIntensity; <br/>
+###  Float aoMapIntensity;
 
 Intensity of the ambient occlusion effect. Default is `1`. Zero is no
 occlusion effect.
 
-### <br/> Texture bumpMap; <br/>
+###  Texture bumpMap;
 
 The texture to create a bump map. The black and white values map to the
 perceived depth in relation to the lights. Bump doesn't actually affect the
 geometry of the object, only the lighting. If a normal map is defined this
 will be ignored.
 
-### <br/> Float bumpScale; <br/>
+###  Float bumpScale;
 
 How much the bump map affects the material. Typical ranges are 0-1. Default is
 `1`.
 
-### <br/> Color color; <br/>
+###  Color color;
 
 [page:Color] of the material, by default set to white (0xffffff).
 
-### <br/> Object defines; <br/>
+###  Object defines;
 
 An object of the form:  
-```ts { 'STANDARD': '' }; ```  
+```ts  
+{ 'STANDARD': '' };  
+```  
 This is used by the [page:WebGLRenderer] for selecting shaders.
 
-### <br/> Texture displacementMap; <br/>
+###  Texture displacementMap;
 
 The displacement map affects the position of the mesh's vertices. Unlike other
 maps which only affect the light and shade of the material the displaced
@@ -105,82 +108,82 @@ geometry. The displacement texture is an image where the value of each pixel
 (white being the highest) is mapped against, and repositions, the vertices of
 the mesh.
 
-### <br/> Float displacementScale; <br/>
+###  Float displacementScale;
 
 How much the displacement map affects the mesh (where black is no
 displacement, and white is maximum displacement). Without a displacement map
 set, this value is not applied. Default is `1`.
 
-### <br/> Float displacementBias; <br/>
+###  Float displacementBias;
 
 The offset of the displacement map's values on the mesh's vertices. Without a
 displacement map set, this value is not applied. Default is `0`.
 
-### <br/> Color emissive; <br/>
+###  Color emissive;
 
 Emissive (light) color of the material, essentially a solid color unaffected
 by other lighting. Default is black.
 
-### <br/> Texture emissiveMap; <br/>
+###  Texture emissiveMap;
 
 Set emissive (glow) map. Default is null. The emissive map color is modulated
 by the emissive color and the emissive intensity. If you have an emissive map,
 be sure to set the emissive color to something other than black.
 
-### <br/> Float emissiveIntensity; <br/>
+###  Float emissiveIntensity;
 
-Intensity of the emissive light. Modulates the emissive color. Default is 1\.
+Intensity of the emissive light. Modulates the emissive color. Default is 1.
 
-### <br/> Texture envMap; <br/>
+###  Texture envMap;
 
 The environment map. To ensure a physically correct rendering, you should only
 add environment maps which were preprocessed by [page:PMREMGenerator]. Default
 is null.
 
-### <br/> Float envMapIntensity; <br/>
+###  Float envMapIntensity;
 
 Scales the effect of the environment map by multiplying its color.
 
-### <br/> Boolean flatShading; <br/>
+###  Boolean flatShading;
 
 Define whether the material is rendered with flat shading. Default is false.
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Whether the material is affected by fog. Default is `true`.
 
-### <br/> Boolean isMeshStandardMaterial; <br/>
+###  Boolean isMeshStandardMaterial;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type MeshStandardMaterial.
 
-### <br/> Texture lightMap; <br/>
+###  Texture lightMap;
 
 The light map. Default is null. The lightMap requires a second set of UVs.
 
-### <br/> Float lightMapIntensity; <br/>
+###  Float lightMapIntensity;
 
 Intensity of the baked light. Default is `1`.
 
-### <br/> Texture map; <br/>
+###  Texture map;
 
 The color map. May optionally include an alpha channel, typically combined
 with [page:Material.transparent .transparent] or [page:Material.alphaTest
 .alphaTest]. Default is null. The texture map color is modulated by the
 diffuse [page:.color].
 
-### <br/> Float metalness; <br/>
+###  Float metalness;
 
 How much the material is like a metal. Non-metallic materials such as wood or
 stone use `0.0`, metallic use `1.0`, with nothing (usually) in between.
 Default is `0.0`. A value between `0.0` and `1.0` could be used for a rusty
 metal look. If metalnessMap is also provided, both values are multiplied.
 
-### <br/> Texture metalnessMap; <br/>
+###  Texture metalnessMap;
 
 The blue channel of this texture is used to alter the metalness of the
 material.
 
-### <br/> Texture normalMap; <br/>
+###  Texture normalMap;
 
 The texture to create a normal map. The RGB values affect the surface normal
 for each pixel fragment and change the way the color is lit. Normal maps do
@@ -189,35 +192,35 @@ material has a normal map authored using the left handed convention, the y
 component of normalScale should be negated to compensate for the different
 handedness.
 
-### <br/> Integer normalMapType; <br/>
+###  Integer normalMapType;
 
 The type of normal map.  
   
 Options are [page:constant THREE.TangentSpaceNormalMap] (default), and
 [page:constant THREE.ObjectSpaceNormalMap].
 
-### <br/> Vector2 normalScale; <br/>
+###  Vector2 normalScale;
 
 How much the normal map affects the material. Typical ranges are 0-1. Default
 is a [page:Vector2] set to (1,1).
 
-### <br/> Float roughness; <br/>
+###  Float roughness;
 
 How rough the material appears. `0.0` means a smooth mirror reflection, `1.0`
 means fully diffuse. Default is `1.0`. If roughnessMap is also provided, both
 values are multiplied.
 
-### <br/> Texture roughnessMap; <br/>
+###  Texture roughnessMap;
 
 The green channel of this texture is used to alter the roughness of the
 material.
 
-### <br/> Boolean wireframe; <br/>
+###  Boolean wireframe;
 
 Render geometry as wireframe. Default is `false` (i.e. render as flat
 polygons).
 
-### <br/> String wireframeLinecap; <br/>
+###  String wireframeLinecap;
 
 Define appearance of line ends. Possible values are "butt", "round" and
 "square". Default is 'round'.  
@@ -227,7 +230,7 @@ This corresponds to the
 2D Canvas lineCap] property and it is ignored by the [page:WebGLRenderer
 WebGL] renderer.
 
-### <br/> String wireframeLinejoin; <br/>
+###  String wireframeLinejoin;
 
 Define appearance of line joints. Possible values are "round", "bevel" and
 "miter". Default is 'round'.  
@@ -237,7 +240,7 @@ This corresponds to the
 2D Canvas lineJoin] property and it is ignored by the [page:WebGLRenderer
 WebGL] renderer.
 
-### <br/> Float wireframeLinewidth; <br/>
+###  Float wireframeLinewidth;
 
 Controls wireframe thickness. Default is `1`.  
   

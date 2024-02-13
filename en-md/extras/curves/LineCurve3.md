@@ -1,12 +1,12 @@
 [page:Curve] →
 
-# [name]
+# LineCurve3
 
 A curve representing a 3d line segment.
 
 ## Constructor
 
-### [name]( [param:Vector3 v1], [param:Vector3 v2] )
+###  function LineCurve3( v1: Vector3, v2: Vector3 ): void;
 
 [page:Vector3 v1] – The start point.  
 [page:Vector3 v2] - The end point.
@@ -15,11 +15,11 @@ A curve representing a 3d line segment.
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Vector3 v1; <br/>
+###  Vector3 v1;
 
 The start point.
 
-### <br/> Vector3 v2; <br/>
+###  Vector3 v2;
 
 The end point.
 

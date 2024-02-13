@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Light] →
 
-# [name]
+# LightProbe
 
 Light probes are an alternative way of adding light to a 3D scene. Unlike
 classical light sources (e.g. directional, point or spot lights), light probes
@@ -26,14 +26,14 @@ environment map.
 
 ## Constructor
 
-### [name]( [param:SphericalHarmonics3 sh], [param:Float intensity] )
+###  function LightProbe( sh: SphericalHarmonics3, intensity: Float ): void;
 
 [page:SphericalHarmonics3 sh] - (optional) An instance of
 [page:SphericalHarmonics3].  
 [page:Float intensity] - (optional) Numeric value of the light probe's
 intensity. Default is `1`.  
   
-Creates a new [name].
+Creates a new LightProbe.
 
 ## Properties
 
@@ -41,11 +41,11 @@ See the base [page:Light Light] class for common properties. The
 [page:Light.color color] property is currently not evaluated and thus has no
 effect.
 
-### <br/> Boolean isLightProbe; <br/>
+###  Boolean isLightProbe;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type LightProbe.
 
-### <br/> SphericalHarmonics3 sh; <br/>
+###  SphericalHarmonics3 sh;
 
 A light probe uses spherical harmonics to encode lighting information.
 

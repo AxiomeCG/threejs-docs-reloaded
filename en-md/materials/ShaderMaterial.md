@@ -1,48 +1,38 @@
 [page:Material] →
 
-# [name]
+# ShaderMaterial
 
 A material rendered with custom shaders. A shader is a small program written
 in [link:https://www.khronos.org/files/opengles_shading_language.pdf GLSL]
 that runs on the GPU. You may want to use a custom shader if you need to:
 
-  * implement an effect not included with any of the built-in [page:Material materials] 
-  * combine many objects into a single [page:BufferGeometry] in order to improve performance 
+  * implement an effect not included with any of the built-in [page:Material materials]
+  * combine many objects into a single [page:BufferGeometry] in order to improve performance
 
 There are the following notes to bear in mind when using a `ShaderMaterial`:
 
-  * A `ShaderMaterial` will only be rendered properly by [page:WebGLRenderer], since the GLSL code in the [link:https://en.wikipedia.org/wiki/Shader#Vertex_shaders vertexShader] and [link:https://en.wikipedia.org/wiki/Shader#Pixel_shaders fragmentShader] properties must be compiled and run on the GPU using WebGL. 
-  * As of THREE r72, directly assigning attributes in a ShaderMaterial is no longer supported. A [page:BufferGeometry] instance must be used instead, using [page:BufferAttribute] instances to define custom attributes. 
-  * As of THREE r77, [page:WebGLRenderTarget] or [page:WebGLCubeRenderTarget] instances are no longer supposed to be used as uniforms. Their [page:Texture texture] property must be used instead. 
-  * Built in attributes and uniforms are passed to the shaders along with your code. If you don't want the [page:WebGLProgram] to add anything to your shader code, you can use [page:RawShaderMaterial] instead of this class. 
-  * You can use the directive #pragma unroll_loop_start and #pragma unroll_loop_end in order to unroll a `for` loop in GLSL by the shader preprocessor. The directive has to be placed right above the loop. The loop formatting has to correspond to a defined standard. 
-    * The loop has to be [link:https://en.wikipedia.org/wiki/Normalized_loop normalized]. 
+  * A `ShaderMaterial` will only be rendered properly by [page:WebGLRenderer], since the GLSL code in the [link:https://en.wikipedia.org/wiki/Shader#Vertex_shaders vertexShader] and [link:https://en.wikipedia.org/wiki/Shader#Pixel_shaders fragmentShader] properties must be compiled and run on the GPU using WebGL.
+  * As of THREE r72, directly assigning attributes in a ShaderMaterial is no longer supported. A [page:BufferGeometry] instance must be used instead, using [page:BufferAttribute] instances to define custom attributes.
+  * As of THREE r77, [page:WebGLRenderTarget] or [page:WebGLCubeRenderTarget] instances are no longer supposed to be used as uniforms. Their [page:Texture texture] property must be used instead.
+  * Built in attributes and uniforms are passed to the shaders along with your code. If you don't want the [page:WebGLProgram] to add anything to your shader code, you can use [page:RawShaderMaterial] instead of this class.
+  * You can use the directive #pragma unroll_loop_start and #pragma unroll_loop_end in order to unroll a `for` loop in GLSL by the shader preprocessor. The directive has to be placed right above the loop. The loop formatting has to correspond to a defined standard.
+    * The loop has to be [link:https://en.wikipedia.org/wiki/Normalized_loop normalized].
     * The loop variable has to be *i*.
-    * The value `UNROLLED_LOOP_INDEX` will be replaced with the explicitly value of *i* for the given iteration and can be used in preprocessor statements. 
+    * The value `UNROLLED_LOOP_INDEX` will be replaced with the explicitly value of *i* for the given iteration and can be used in preprocessor statements.
   
 ```ts  
-#pragma unroll_loop_start  
-for ( int i = 0; i < 10; i ++ ) {  
-// ...  
-}  
-#pragma unroll_loop_end  
+#pragma unroll_loop_start for ( int i = 0; i < 10; i ++ ) { // ... } #pragma
+unroll_loop_end  
 ```  
 
 ## Code Example
 
   
 ```ts  
-const material = new THREE.ShaderMaterial( {  
-  
-uniforms: {  
-time: { value: 1.0 },  
-resolution: { value: new THREE.Vector2() }  
-},  
-  
-vertexShader: document.getElementById( 'vertexShader' ).textContent,  
-fragmentShader: document.getElementById( 'fragmentShader' ).textContent  
-  
-} );  
+const material = new THREE.ShaderMaterial( { uniforms: { time: { value: 1.0 },
+resolution: { value: new THREE.Vector2() } }, vertexShader:
+document.getElementById( 'vertexShader' ).textContent, fragmentShader:
+document.getElementById( 'fragmentShader' ).textContent } );  
 ```  
 
 ## Examples
@@ -77,15 +67,15 @@ points3]
 
 You can specify two different types of shaders for each material:
 
-  * The vertex shader runs first; it receives `attributes`, calculates / manipulates the position of each individual vertex, and passes additional data (`varying`s) to the fragment shader. 
-  * The fragment ( or pixel ) shader runs second; it sets the color of each individual "fragment" (pixel) rendered to the screen. 
+  * The vertex shader runs first; it receives `attributes`, calculates / manipulates the position of each individual vertex, and passes additional data (`varying`s) to the fragment shader.
+  * The fragment ( or pixel ) shader runs second; it sets the color of each individual "fragment" (pixel) rendered to the screen.
 
 There are three types of variables in shaders: uniforms, attributes, and
 varyings:
 
-  * `Uniforms` are variables that have the same value for all vertices - lighting, fog, and shadow maps are examples of data that would be stored in uniforms. Uniforms can be accessed by both the vertex shader and the fragment shader. 
-  * `Attributes` are variables associated with each vertex---for instance, the vertex position, face normal, and vertex color are all examples of data that would be stored in attributes. Attributes can `only` be accessed within the vertex shader. 
-  * `Varyings` are variables that are passed from the vertex shader to the fragment shader. For each fragment, the value of each varying will be smoothly interpolated from the values of adjacent vertices. 
+  * `Uniforms` are variables that have the same value for all vertices - lighting, fog, and shadow maps are examples of data that would be stored in uniforms. Uniforms can be accessed by both the vertex shader and the fragment shader.
+  * `Attributes` are variables associated with each vertex---for instance, the vertex position, face normal, and vertex color are all examples of data that would be stored in attributes. Attributes can `only` be accessed within the vertex shader.
+  * `Varyings` are variables that are passed from the vertex shader to the fragment shader. For each fragment, the value of each varying will be smoothly interpolated from the values of adjacent vertices.
 
 Note that `within` the shader itself, uniforms and attributes act like
 constants; you can only modify their values by passing different values to the
@@ -127,13 +117,13 @@ vertices in your [page:BufferGeometry], your typed array value must be created
 with a length of 3000 * 3, or 9000 (one value per-component). A table of each
 data type's size is shown below for reference:
 
-Attribute sizes GLSL type | JavaScript type | Size  
+Attribute sizesGLSL type| JavaScript type| Size  
 ---|---|---  
-float | [page:Number] | 1  
-vec2 | [page:Vector2 THREE.Vector2] | 2  
-vec3 | [page:Vector3 THREE.Vector3] | 3  
-vec3 | [page:Color THREE.Color] | 3  
-vec4 | [page:Vector4 THREE.Vector4] | 4  
+float| [page:Number]| 1  
+vec2| [page:Vector2 THREE.Vector2]| 2  
+vec3| [page:Vector3 THREE.Vector3]| 3  
+vec3| [page:Color THREE.Color]| 3  
+vec4| [page:Vector4 THREE.Vector4]| 4  
   
 Note that attribute buffers are `not` refreshed automatically when their
 values change. To update custom attributes, set the `needsUpdate` flag to true
@@ -142,10 +132,7 @@ further details).
 
 To declare a custom [page:Uniform], use the `uniforms` property:  
 ```ts  
-uniforms: {  
-time: { value: 1.0 },  
-resolution: { value: new THREE.Vector2() }  
-}  
+uniforms: { time: { value: 1.0 }, resolution: { value: new THREE.Vector2() } }  
 ```  
 
 You're recommended to update custom [page:Uniform] values depending on
@@ -157,7 +144,7 @@ render a [page:Scene scene] with their own private [page:Camera cameras].
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function ShaderMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -167,89 +154,78 @@ any property inherited from [page:Material]) can be passed in here.
 
 See the base [page:Material] class for common properties.
 
-### <br/> Boolean clipping; <br/>
+###  Boolean clipping;
 
 Defines whether this material supports clipping; true to let the renderer pass
 the clippingPlanes uniform. Default is false.
 
-### <br/> Object defaultAttributeValues; <br/>
+###  Object defaultAttributeValues;
 
 When the rendered geometry doesn't include these attributes but the material
 does, these default values will be passed to the shaders. This avoids errors
 when buffer data is missing.  
 ```ts  
-this.defaultAttributeValues = {  
-'color': [ 1, 1, 1 ],  
-'uv': [ 0, 0 ],  
-'uv1': [ 0, 0 ]  
-};  
+this.defaultAttributeValues = { 'color': [ 1, 1, 1 ], 'uv': [ 0, 0 ], 'uv1': [
+0, 0 ] };  
 ```  
 
-### <br/> Object defines; <br/>
+###  Object defines;
 
 Defines custom constants using `#define` directives within the GLSL code for
 both the vertex shader and the fragment shader; each key/value pair yields
 another directive:  
 ```ts  
-defines: {  
-FOO: 15,  
-BAR: true  
-}  
+defines: { FOO: 15, BAR: true }  
 ```  
 yields the lines  
 ```ts  
-#define FOO 15  
-#define BAR true  
+#define FOO 15 #define BAR true  
 ```  
 in the GLSL code.
 
-### <br/> Object extensions; <br/>
+###  Object extensions;
 
 An object with the following properties:  
 ```ts  
-this.extensions = {  
-derivatives: false, // set to use derivatives  
-fragDepth: false, // set to use fragment depth values  
-drawBuffers: false, // set to use draw buffers  
-shaderTextureLOD: false // set to use  
-shader texture LOD  
-};  
+this.extensions = { derivatives: false, // set to use derivatives fragDepth:
+false, // set to use fragment depth values drawBuffers: false, // set to use
+draw buffers shaderTextureLOD: false // set to use shader texture LOD };  
 ```  
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Define whether the material color is affected by global fog settings; true to
 pass fog uniforms to the shader. Default is false.
 
-### <br/> String fragmentShader; <br/>
+###  String fragmentShader;
 
 Fragment shader GLSL code. This is the actual code for the shader. In the
 example above, the `vertexShader` and `fragmentShader` code is extracted from
 the DOM; it could be passed as a string directly or loaded via AJAX instead.
 
-### <br/> String glslVersion; <br/>
+###  String glslVersion;
 
 Defines the GLSL version of custom shader code. Only relevant for WebGL 2 in
 order to define whether to specify GLSL 3.0 or not. Valid values are
 `THREE.GLSL1` or `THREE.GLSL3`. Default is `null`.
 
-### <br/> String index0AttributeName; <br/>
+###  String index0AttributeName;
 
 If set, this calls [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WebGLRenderingContext/bindAttribLocation
 gl.bindAttribLocation] to bind a generic vertex index to an attribute
 variable. Default is undefined.
 
-### <br/> Boolean isShaderMaterial; <br/>
+###  Boolean isShaderMaterial;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type ShaderMaterial.
 
-### <br/> Boolean lights; <br/>
+###  Boolean lights;
 
 Defines whether this material uses lighting; true to pass uniform data related
 to lighting to this shader. Default is false.
 
-### <br/> Float linewidth; <br/>
+###  Float linewidth;
 
 Controls wireframe thickness. Default is `1`.  
   
@@ -258,52 +234,47 @@ Due to limitations of the
 OpenGL Core Profile] with the [page:WebGLRenderer WebGL] renderer on most
 platforms linewidth will always be `1` regardless of the set value.
 
-### <br/> Boolean flatShading; <br/>
+###  Boolean flatShading;
 
 Define whether the material is rendered with flat shading. Default is false.
 
-### <br/> Object uniforms; <br/>
+###  Object uniforms;
 
 An object of the form:  
 ```ts  
-{  
-"uniform1": { value: 1.0 },  
-"uniform2": { value: 2 }  
-}  
+{ "uniform1": { value: 1.0 }, "uniform2": { value: 2 } }  
 ```  
 specifying the uniforms to be passed to the shader code; keys are uniform
 names, values are definitions of the form  
 ```ts  
-{  
-value: 1.0  
-}  
+{ value: 1.0 }  
 ```  
 where `value` is the value of the uniform. Names must match the name of the
 uniform, as defined in the GLSL code. Note that uniforms are refreshed on
 every frame, so updating the value of the uniform will immediately update the
 value available to the GLSL code.
 
-### <br/> Boolean uniformsNeedUpdate; <br/>
+###  Boolean uniformsNeedUpdate;
 
 Can be used to force a uniform update while changing uniforms in
 [page:Object3D.onBeforeRender](). Default is `false`.
 
-### <br/> Boolean vertexColors; <br/>
+###  Boolean vertexColors;
 
 Defines whether vertex coloring is used. Default is `false`.
 
-### <br/> String vertexShader; <br/>
+###  String vertexShader;
 
 Vertex shader GLSL code. This is the actual code for the shader. In the
 example above, the `vertexShader` and `fragmentShader` code is extracted from
 the DOM; it could be passed as a string directly or loaded via AJAX instead.
 
-### <br/> Boolean wireframe; <br/>
+###  Boolean wireframe;
 
 Render geometry as wireframe (using GL_LINES instead of GL_TRIANGLES). Default
 is false (i.e. render as flat polygons).
 
-### <br/> Float wireframeLinewidth; <br/>
+###  Float wireframeLinewidth;
 
 Controls wireframe thickness. Default is `1`.  
   
@@ -316,7 +287,7 @@ platforms linewidth will always be `1` regardless of the set value.
 
 See the base [page:Material] class for common methods.
 
-### [method:ShaderMaterial clone]()
+###  function clone( ): ShaderMaterial;
 
 Generates a shallow copy of this material. Note that the vertexShader and
 fragmentShader are copied `by reference`, as are the definitions of the

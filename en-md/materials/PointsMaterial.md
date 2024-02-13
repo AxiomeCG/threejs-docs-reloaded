@@ -1,6 +1,6 @@
 [page:Material] →
 
-# [name]
+# PointsMaterial
 
 The default material used by [page:Points].
 
@@ -8,22 +8,14 @@ The default material used by [page:Points].
 
   
 ```ts  
-const vertices = [];  
-  
-for ( let i = 0; i < 10000; i ++ ) {  
-const x = THREE.MathUtils.randFloatSpread( 2000 );  
-const y = THREE.MathUtils.randFloatSpread( 2000 );  
-const z = THREE.MathUtils.randFloatSpread( 2000 );  
-  
-vertices.push( x, y, z );  
-}  
-  
-const geometry = new THREE.BufferGeometry();  
-geometry.setAttribute( 'position', new THREE.Float32BufferAttribute( vertices,
-3 ) );  
-const material = new THREE.PointsMaterial( { color: 0x888888 } );  
-const points = new THREE.Points( geometry, material );  
-scene.add( points );  
+const vertices = []; for ( let i = 0; i < 10000; i ++ ) { const x =
+THREE.MathUtils.randFloatSpread( 2000 ); const y =
+THREE.MathUtils.randFloatSpread( 2000 ); const z =
+THREE.MathUtils.randFloatSpread( 2000 ); vertices.push( x, y, z ); } const
+geometry = new THREE.BufferGeometry(); geometry.setAttribute( 'position', new
+THREE.Float32BufferAttribute( vertices, 3 ) ); const material = new
+THREE.PointsMaterial( { color: 0x888888 } ); const points = new THREE.Points(
+geometry, material ); scene.add( points );  
 ```  
 
 ## Examples
@@ -45,7 +37,7 @@ points / interleaved]
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function PointsMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -59,7 +51,7 @@ as a hexadecimal string and is `0xffffff` (white) by default.
 
 See the base [page:Material] class for common properties.
 
-### <br/> Texture alphaMap; <br/>
+###  Texture alphaMap;
 
 The alpha map is a grayscale texture that controls the opacity across the
 surface (black: fully transparent; white: fully opaque). Default is null.  
@@ -71,21 +63,21 @@ precision provided for green in DXT-compressed and uncompressed RGB 565
 formats. Luminance-only and luminance/alpha textures will also still work as
 expected.
 
-### <br/> Color color; <br/>
+###  Color color;
 
 [page:Color] of the material, by default set to white (0xffffff).
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Whether the material is affected by fog. Default is `true`.
 
-### <br/> Texture map; <br/>
+###  Texture map;
 
 Sets the color of the points using data from a [page:Texture]. May optionally
 include an alpha channel, typically combined with [page:Material.transparent
 .transparent] or [page:Material.alphaTest .alphaTest].
 
-### <br/> Number size; <br/>
+###  Number size;
 
 Defines the size of the points in pixels. Default is `1.0`.  
 Will be capped if it exceeds the hardware dependent parameter
@@ -93,7 +85,7 @@ Will be capped if it exceeds the hardware dependent parameter
 US/docs/Web/API/WebGLRenderingContext/getParameter
 gl.ALIASED_POINT_SIZE_RANGE].
 
-### <br/> Boolean sizeAttenuation; <br/>
+###  Boolean sizeAttenuation;
 
 Specify whether points' size is attenuated by the camera depth. (Perspective
 camera only.) Default is true.

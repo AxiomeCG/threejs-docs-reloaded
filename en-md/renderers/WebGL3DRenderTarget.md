@@ -1,13 +1,13 @@
 [page:WebGLRenderTarget] →
 
-# [name]
+# WebGL3DRenderTarget
 
 Represents a three-dimensional render target.
 
 ## Constructor
 
-###  [name]( [param:Number width], [param:Number height], [param:Number depth]
-)
+###  function WebGL3DRenderTarget( width: Number, height: Number, depth:
+Number ): void;
 
 [page:Number width] - the width of the render target, in pixels. Default is
 `1`.  
@@ -15,17 +15,17 @@ Represents a three-dimensional render target.
 `1`.  
 [page:Number depth] - the depth of the render target. Default is `1`.  
   
-Creates a new [name].
+Creates a new WebGL3DRenderTarget.
 
 ## Properties
 
 ### See [page:WebGLRenderTarget] for inherited properties
 
-### <br/> number depth; <br/>
+###  number depth;
 
 The depth of the render target.
 
-### <br/> Data3DTexture texture; <br/>
+###  Data3DTexture texture;
 
 The texture property is overwritten with an instance of [page:Data3DTexture].
 

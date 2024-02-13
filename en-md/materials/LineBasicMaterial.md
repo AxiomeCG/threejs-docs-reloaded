@@ -1,6 +1,6 @@
 [page:Material] →
 
-# [name]
+# LineBasicMaterial
 
 A material for drawing wireframe-style geometries.
 
@@ -8,12 +8,9 @@ A material for drawing wireframe-style geometries.
 
   
 ```ts  
-const material = new THREE.LineBasicMaterial( {  
-color: 0xffffff,  
-linewidth: 1,  
-linecap: 'round', //ignored by WebGLRenderer  
-linejoin: 'round' //ignored by WebGLRenderer  
-} );  
+const material = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 1,
+linecap: 'round', //ignored by WebGLRenderer linejoin: 'round' //ignored by
+WebGLRenderer } );  
 ```  
 
 ## Examples
@@ -35,7 +32,7 @@ buffergeometry]
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function LineBasicMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -49,15 +46,15 @@ as a hexadecimal string and is `0xffffff` (white) by default.
 
 See the base [page:Material] class for common properties.
 
-### <br/> Color color; <br/>
+###  Color color;
 
 [page:Color] of the material, by default set to white (0xffffff).
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Whether the material is affected by fog. Default is `true`.
 
-### <br/> Float linewidth; <br/>
+###  Float linewidth;
 
 Controls line thickness. Default is `1`.  
   
@@ -66,7 +63,7 @@ Due to limitations of the
 OpenGL Core Profile] with the [page:WebGLRenderer WebGL] renderer on most
 platforms linewidth will always be `1` regardless of the set value.
 
-### <br/> String linecap; <br/>
+###  String linecap;
 
 Define appearance of line ends. Possible values are 'butt', 'round' and
 'square'. Default is 'round'.  
@@ -76,7 +73,7 @@ This corresponds to the
 2D Canvas lineCap] property and it is ignored by the [page:WebGLRenderer
 WebGL] renderer.
 
-### <br/> String linejoin; <br/>
+###  String linejoin;
 
 Define appearance of line joints. Possible values are 'round', 'bevel' and
 'miter'. Default is 'round'.  
@@ -86,7 +83,7 @@ This corresponds to the
 2D Canvas lineJoin] property and it is ignored by the [page:WebGLRenderer
 WebGL] renderer.
 
-### <br/> Texture map; <br/>
+###  Texture map;
 
 Sets the color of the lines using data from a [page:Texture].
 

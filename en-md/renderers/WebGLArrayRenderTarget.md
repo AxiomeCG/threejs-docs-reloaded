@@ -1,6 +1,6 @@
 [page:WebGLRenderTarget] →
 
-# [name]
+# WebGLArrayRenderTarget
 
 This type of render target represents an array of textures.
 
@@ -10,8 +10,8 @@ This type of render target represents an array of textures.
 
 ## Constructor
 
-###  [name]( [param:Number width], [param:Number height], [param:Number depth]
-)
+###  function WebGLArrayRenderTarget( width: Number, height: Number, depth:
+Number ): void;
 
 [page:Number width] - the width of the render target, in pixels. Default is
 `1`.  
@@ -20,17 +20,17 @@ This type of render target represents an array of textures.
 [page:Number depth] - the depth/layer count of the render target. Default is
 `1`.  
   
-Creates a new [name].
+Creates a new WebGLArrayRenderTarget.
 
 ## Properties
 
 ### See [page:WebGLRenderTarget] for inherited properties
 
-### <br/> number depth; <br/>
+###  number depth;
 
 The depth of the render target.
 
-### <br/> DataArrayTexture texture; <br/>
+###  DataArrayTexture texture;
 
 The texture property is overwritten with an instance of
 [page:DataArrayTexture].

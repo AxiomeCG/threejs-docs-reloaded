@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Line] →
 
-# [name]
+# LineSegments
 
 A series of lines drawn between pairs of vertices.  
   
@@ -12,7 +12,8 @@ US/docs/Web/API/WebGLRenderingContext/drawElements gl.LINE_STRIP].
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Material material] )
+###  function LineSegments( geometry: BufferGeometry, material: Material ):
+void;
 
 [page:BufferGeometry geometry] — Pair(s) of vertices representing each line
 segment(s).  
@@ -23,9 +24,9 @@ segment(s).
 
 See the base [page:Line] class for common properties.
 
-### <br/> Boolean isLineSegments; <br/>
+###  Boolean isLineSegments;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type LineSegments.
 
 ## Methods
 

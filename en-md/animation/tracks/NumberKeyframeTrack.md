@@ -1,12 +1,13 @@
 [page:KeyframeTrack] →
 
-# [name]
+# NumberKeyframeTrack
 
 A Track of numeric keyframe values.
 
 ## Constructor
 
-###  [name]( [param:String name], [param:Array times], [param:Array values] )
+###  function NumberKeyframeTrack( name: String, times: Array, values: Array
+): void;
 
 [page:String name] - (required) identifier for the KeyframeTrack.  
 [page:Array times] - (required) array of keyframe times.  
@@ -19,7 +20,7 @@ A Track of numeric keyframe values.
 
 See [page:KeyframeTrack] for inherited properties.
 
-### <br/> String ValueTypeName; <br/>
+###  String ValueTypeName;
 
 String 'number'.
 

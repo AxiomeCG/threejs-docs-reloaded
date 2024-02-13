@@ -8,36 +8,60 @@ from bs4 import BeautifulSoup, NavigableString
 
 def parse_method_declaration(text):
     # Extract method name and parameters, handling potential line breaks and multiple parameters
-    method_match = re.search(r'\[method:this (\w+)\]', text)
+    method_match = re.search(r'\[method:(\w+) (\w+)\]', text)
     params_matches = re.findall(r'\[param:(\w+) (\w+)\]', text.replace('\n', ' '))
 
     if method_match:
-        method_name = method_match.group(1)
+        method_return_type = method_match.group(1)
+        method_name = method_match.group(2)
         params_list = ', '.join(
-            f"{param_name}: {param_type}" + ("?" if "Boolean" in param_type else "") for param_type, param_name in
+            f"{param_name}: {param_type}" for param_type, param_name in
             params_matches)
-        return f"<br/>\nfunction {method_name}( {params_list} ): {method_name};\n<br/>"
+        return f"\nfunction {method_name}( {params_list} ): {method_return_type};\n"
     return None
 
 
-def convert_custom_links_to_ts(soup):
+def convert_custom_links_to_ts(soup, relative_path_to_root=None):
+
+    print("relative_path_to_root", relative_path_to_root)
     # Iterate through all text nodes to find patterns
     for content in soup.find_all(string=True):
         if isinstance(content, NavigableString):
+
             updated_content = content
+
+            updated_content = updated_content.strip().replace('\n', '').replace('\t', ' ').strip()
 
             # Handle property pattern
             prop_matches = re.finditer(r'\[property:(\w+) (\w+)\]', content)
             for match in prop_matches:
                 prop_type, prop_name = match.groups()
-                ts_declaration = f"<br/>\n{prop_type} {prop_name};\n<br/>"
+                ts_declaration = f"\n{prop_type} {prop_name};\n"
                 updated_content = updated_content.replace(match.group(0), ts_declaration)
 
-            # Handle method pattern, accounting for multiple parameters and line breaks
-            if '[method:this' in content:
-                method_declaration = parse_method_declaration(content)
+
+            if '[name](' in content:
+                updated_content = updated_content.replace('[name](', "[method:void [name]](")
+                token = re.search(r'(\w+).html', relative_path_to_root)
+                if token and token.group(1): updated_content = updated_content.replace('[name]', token.group(1))
+                print("updated_content", updated_content, "token", token.group(1))
+                method_declaration = parse_method_declaration(updated_content)
+                print("method_declaration", method_declaration)
                 if method_declaration:
-                    updated_content = updated_content.replace(content, method_declaration)
+                    updated_content = updated_content.replace(updated_content, method_declaration)
+
+            # Replace by the name of the file
+            if '[name]' in updated_content:
+                token = re.search(r'\\(\w+).html', relative_path_to_root)
+                if(token): updated_content = updated_content.replace('[name]', token.group(1))
+
+            # Handle method pattern, accounting for multiple parameters and line breaks
+            if '[method:' in content:
+                method_declaration = parse_method_declaration(updated_content)
+                if method_declaration:
+                    updated_content = updated_content.replace(updated_content, method_declaration)
+
+
 
             # Only replace content if changes were made
             if updated_content != content:
@@ -49,7 +73,7 @@ def replace_code_tags(soup):
         code_text = code.get_text(separator="\n")
         code_lines = code_text.split('\n')
         code_with_br = '<br/>'.join(code_lines)
-        markdown_code = "<br/>\n```ts\n" + code_with_br + "\n```\n<br/>"
+        markdown_code = "<br/>\n```ts\n<br/>" + code_with_br + "\n<br/>\n```\n<br/>"
         new_code = BeautifulSoup(markdown_code, 'html.parser')
         code.replace_with(new_code)
 
@@ -58,12 +82,14 @@ def convert_html_to_markdown(html_content, relative_path_to_root):
     soup = BeautifulSoup(html_content, 'html.parser')
 
     # Convert custom links to TypeScript format
-    convert_custom_links_to_ts(soup)
+    convert_custom_links_to_ts(soup, relative_path_to_root)
 
     replace_code_tags(soup)
 
     h = html2text.HTML2Text()
     h.ignore_links = False
+
+    #print("debug", str(soup))
     return h.handle(str(soup))
 
 

@@ -1,19 +1,19 @@
 [page:BufferAttribute] →
 
-# [name]
+# InstancedBufferAttribute
 
 An instanced version of [page:BufferAttribute].
 
 ## Constructor
 
-### [name]( [param:TypedArray array], [param:Integer itemSize], [param:Boolean
-normalized], [param:Number meshPerAttribute] )
+###  function InstancedBufferAttribute( array: TypedArray, itemSize: Integer,
+normalized: Boolean, meshPerAttribute: Number ): void;
 
 ## Properties
 
 See [page:BufferAttribute] for inherited properties.
 
-### <br/> Number meshPerAttribute; <br/>
+###  Number meshPerAttribute;
 
 Defines how often a value of this buffer attribute should be repeated. A value
 of one means that each value of the instanced attribute is used for a single

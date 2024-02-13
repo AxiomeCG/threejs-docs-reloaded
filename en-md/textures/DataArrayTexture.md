@@ -1,13 +1,13 @@
 [page:Texture] →
 
-# [name]
+# DataArrayTexture
 
 Creates an array of textures directly from raw data, width and height and
 depth. This type of texture can only be used with a WebGL 2 rendering context.
 
 ## Constructor
 
-### [name]( data, width, height, depth )
+###  function DataArrayTexture( ): void;
 
 The data argument must be an [link:https://developer.mozilla.org/en-
 US/docs/Web/API/ArrayBufferView ArrayBufferView]. The properties inherited
@@ -31,36 +31,20 @@ be present.
 
 ## Code Example
 
-This creates a [name] where each texture has a different color.
+This creates a DataArrayTexture where each texture has a different color.
 
   
 ```ts  
-// create a buffer with color data  
-const width = 512;  
-const height = 512;  
-const depth = 100;  
-  
-const size = width * height;  
-const data = new Uint8Array( 4 * size * depth );  
-  
-for ( let i = 0; i < depth; i ++ ) {  
-const color = new THREE.Color( Math.random(), Math.random(), Math.random() );  
-const r = Math.floor( color.r * 255 );  
-const g = Math.floor( color.g * 255 );  
-const b = Math.floor( color.b * 255 );  
-  
-for ( let j = 0; j < size; j ++ ) {  
-const stride = ( i * size + j ) * 4;  
-data[ stride ] = r;  
-data[ stride + 1 ] = g;  
-data[ stride + 2 ] = b;  
-data[ stride + 3 ] = 255;  
-}  
-}  
-  
-// used the buffer to create a [name]  
-const texture = new THREE.DataArrayTexture( data, width, height, depth );  
-texture.needsUpdate = true;  
+// create a buffer with color data const width = 512; const height = 512;
+const depth = 100; const size = width * height; const data = new Uint8Array( 4
+* size * depth ); for ( let i = 0; i < depth; i ++ ) { const color = new
+THREE.Color( Math.random(), Math.random(), Math.random() ); const r =
+Math.floor( color.r * 255 ); const g = Math.floor( color.g * 255 ); const b =
+Math.floor( color.b * 255 ); for ( let j = 0; j < size; j ++ ) { const stride
+= ( i * size + j ) * 4; data[ stride ] = r; data[ stride + 1 ] = g; data[
+stride + 2 ] = b; data[ stride + 3 ] = 255; } } // used the buffer to create a
+DataArrayTexture const texture = new THREE.DataArrayTexture( data, width,
+height, depth ); texture.needsUpdate = true;  
 ```  
 
 ## Examples
@@ -73,24 +57,24 @@ texture2darray]
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean flipY; <br/>
+###  Boolean flipY;
 
 Whether the texture is flipped along the Y axis when uploaded to the GPU.
 Default is `false`.
 
-### <br/> Boolean generateMipmaps; <br/>
+###  Boolean generateMipmaps;
 
 Whether to generate mipmaps (if possible) for the texture. Default is `false`.
 
-### <br/> Object image; <br/>
+###  Object image;
 
 Overridden with a object holding data, width, height, and depth.
 
-### <br/> Boolean isDataArrayTexture; <br/>
+###  Boolean isDataArrayTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type DataArrayTexture.
 
-### <br/> number magFilter; <br/>
+###  number magFilter;
 
 How the texture is sampled when a texel covers more than one pixel. The
 default is [page:Textures THREE.NearestFilter], which uses the value of the
@@ -98,7 +82,7 @@ closest texel.
   
 See the [page:Textures texture constants] page for details.
 
-### <br/> number minFilter; <br/>
+###  number minFilter;
 
 How the texture is sampled when a texel covers less than one pixel. The
 default is [page:Textures THREE.NearestFilter], which uses the value of the
@@ -106,7 +90,7 @@ closest texel.
   
 See the [page:Textures texture constants] page for details.
 
-### <br/> number unpackAlignment; <br/>
+###  number unpackAlignment;
 
 `1` by default. Specifies the alignment requirements for the start of each
 pixel row in memory. The allowable values are 1 (byte-alignment), 2 (rows
@@ -114,7 +98,7 @@ aligned to even-numbered bytes), 4 (word-alignment), and 8 (rows start on
 double-word boundaries). See [link:https://registry.khronos.org/OpenGL-
 Refpages/es3.0/html/glPixelStorei.xhtml glPixelStorei] for more information.
 
-### <br/> number wrapR; <br/>
+###  number wrapR;
 
 This defines how the texture is wrapped in the depth direction.  
 The default is [page:Textures THREE.ClampToEdgeWrapping], where the edge is

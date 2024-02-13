@@ -1,6 +1,6 @@
 [page:Material] →
 
-# [name]
+# SpriteMaterial
 
 A material for a use with a [page:Sprite].
 
@@ -8,11 +8,9 @@ A material for a use with a [page:Sprite].
 
   
 ```ts  
-const map = new THREE.TextureLoader().load( 'textures/sprite.png' );  
-const material = new THREE.SpriteMaterial( { map: map, color: 0xffffff } );  
-  
-const sprite = new THREE.Sprite( material );  
-sprite.scale.set(200, 200, 1)  
+const map = new THREE.TextureLoader().load( 'textures/sprite.png' ); const
+material = new THREE.SpriteMaterial( { map: map, color: 0xffffff } ); const
+sprite = new THREE.Sprite( material ); sprite.scale.set(200, 200, 1)
 scene.add( sprite );  
 ```  
 
@@ -24,7 +22,7 @@ scene.add( sprite );
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function SpriteMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -39,7 +37,7 @@ clipped by using [page:Material.clippingPlanes].
 
 See the base [page:Material] class for common properties.
 
-### <br/> Texture alphaMap; <br/>
+###  Texture alphaMap;
 
 The alpha map is a grayscale texture that controls the opacity across the
 surface (black: fully transparent; white: fully opaque). Default is null.  
@@ -51,35 +49,35 @@ precision provided for green in DXT-compressed and uncompressed RGB 565
 formats. Luminance-only and luminance/alpha textures will also still work as
 expected.
 
-### <br/> Color color; <br/>
+###  Color color;
 
 [page:Color] of the material, by default set to white (0xffffff). The
 [page:.map] is multiplied by the color.
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Whether the material is affected by fog. Default is `true`.
 
-### <br/> Boolean isSpriteMaterial; <br/>
+###  Boolean isSpriteMaterial;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type SpriteMaterial.
 
-### <br/> Texture map; <br/>
+###  Texture map;
 
 The color map. May optionally include an alpha channel, typically combined
 with [page:Material.transparent .transparent] or [page:Material.alphaTest
 .alphaTest]. Default is null.
 
-### <br/> Radians rotation; <br/>
+###  Radians rotation;
 
 The rotation of the sprite in radians. Default is `0`.
 
-### <br/> Boolean sizeAttenuation; <br/>
+###  Boolean sizeAttenuation;
 
 Whether the size of the sprite is attenuated by the camera depth. (Perspective
 camera only.) Default is `true`.
 
-### <br/> Boolean transparent; <br/>
+###  Boolean transparent;
 
 Defines whether this material is transparent. Default is `true`.
 

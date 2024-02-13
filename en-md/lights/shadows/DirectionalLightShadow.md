@@ -1,6 +1,6 @@
 [page:LightShadow] →
 
-# [name]
+# DirectionalLightShadow
 
 This is used internally by [page:DirectionalLight DirectionalLights] for
 calculating shadows.  
@@ -13,56 +13,41 @@ light rays from a [page:DirectionalLight] are parallel.
 
   
 ```ts  
-//Create a WebGLRenderer and turn on shadows in the renderer  
-const renderer = new THREE.WebGLRenderer();  
-renderer.shadowMap.enabled = true;  
+//Create a WebGLRenderer and turn on shadows in the renderer const renderer =
+new THREE.WebGLRenderer(); renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default
-THREE.PCFShadowMap  
-  
-//Create a DirectionalLight and turn on shadows for the light  
-const light = new THREE.DirectionalLight( 0xffffff, 1 );  
-light.position.set( 0, 1, 0 ); //default; light shining from top  
-light.castShadow = true; // default false  
-scene.add( light );  
-  
-//Set up shadow properties for the light  
-light.shadow.mapSize.width = 512; // default  
-light.shadow.mapSize.height = 512; // default  
-light.shadow.camera.near = 0.5; // default  
-light.shadow.camera.far = 500; // default  
-  
-//Create a sphere that cast shadows (but does not receive them)  
-const sphereGeometry = new THREE.SphereGeometry( 5, 32, 32 );  
-const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000 } );  
-const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );  
-sphere.castShadow = true; //default is false  
-sphere.receiveShadow = false; //default  
-scene.add( sphere );  
-  
-//Create a plane that receives shadows (but does not cast them)  
-const planeGeometry = new THREE.PlaneGeometry( 20, 20, 32, 32 );  
-const planeMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00 } )  
-const plane = new THREE.Mesh( planeGeometry, planeMaterial );  
-plane.receiveShadow = true;  
-scene.add( plane );  
-  
-//Create a helper for the shadow camera (optional)  
-const helper = new THREE.CameraHelper( light.shadow.camera );  
-scene.add( helper );  
+THREE.PCFShadowMap //Create a DirectionalLight and turn on shadows for the
+light const light = new THREE.DirectionalLight( 0xffffff, 1 );
+light.position.set( 0, 1, 0 ); //default; light shining from top
+light.castShadow = true; // default false scene.add( light ); //Set up shadow
+properties for the light light.shadow.mapSize.width = 512; // default
+light.shadow.mapSize.height = 512; // default light.shadow.camera.near = 0.5;
+// default light.shadow.camera.far = 500; // default //Create a sphere that
+cast shadows (but does not receive them) const sphereGeometry = new
+THREE.SphereGeometry( 5, 32, 32 ); const sphereMaterial = new
+THREE.MeshStandardMaterial( { color: 0xff0000 } ); const sphere = new
+THREE.Mesh( sphereGeometry, sphereMaterial ); sphere.castShadow = true;
+//default is false sphere.receiveShadow = false; //default scene.add( sphere
+); //Create a plane that receives shadows (but does not cast them) const
+planeGeometry = new THREE.PlaneGeometry( 20, 20, 32, 32 ); const planeMaterial
+= new THREE.MeshStandardMaterial( { color: 0x00ff00 } ) const plane = new
+THREE.Mesh( planeGeometry, planeMaterial ); plane.receiveShadow = true;
+scene.add( plane ); //Create a helper for the shadow camera (optional) const
+helper = new THREE.CameraHelper( light.shadow.camera ); scene.add( helper );  
 ```  
 
 ## Constructor
 
-### [name]( )
+###  function DirectionalLightShadow( ): void;
 
-Creates a new [name]. This is not intended to be called directly - it is
-called internally by [page:DirectionalLight].
+Creates a new DirectionalLightShadow. This is not intended to be called
+directly - it is called internally by [page:DirectionalLight].
 
 ## Properties
 
 See the base [page:LightShadow LightShadow] class for common properties.
 
-### <br/> Camera camera; <br/>
+###  Camera camera;
 
 The light's view of the world. This is used to generate a depth map of the
 scene; objects behind other objects from the light's perspective will be in
@@ -74,9 +59,9 @@ left] and [page:OrthographicCamera.bottom bottom] set to -5,
 set to `5`, the [page:OrthographicCamera.near near] clipping plane at `0.5`
 and the [page:OrthographicCamera.far far] clipping plane at `500`.
 
-### <br/> Boolean isDirectionalLightShadow; <br/>
+###  Boolean isDirectionalLightShadow;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type DirectionalLightShadow.
 
 ## Methods
 
@@ -84,6 +69,6 @@ See the base [page:LightShadow LightShadow] class for common methods.
 
 ## Source
 
-[link:https://github.com/mrdoob/three.js/blob/master/src/lights/[name].js
-src/lights/[name].js]
+[link:https://github.com/mrdoob/three.js/blob/master/src/lights/DirectionalLightShadow.js
+src/lights/DirectionalLightShadow.js]
 

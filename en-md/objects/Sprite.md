@@ -1,48 +1,48 @@
 [page:Object3D] →
 
-# [name]
+# Sprite
 
 A sprite is a plane that always faces towards the camera, generally with a
 partially transparent texture applied.  
   
 Sprites do not cast shadows, setting  
-```ts castShadow = true ```  
+```ts  
+castShadow = true  
+```  
 will have no effect.
 
 ## Code Example
 
   
 ```ts  
-const map = new THREE.TextureLoader().load( 'sprite.png' );  
-const material = new THREE.SpriteMaterial( { map: map } );  
-  
-const sprite = new THREE.Sprite( material );  
-scene.add( sprite );  
+const map = new THREE.TextureLoader().load( 'sprite.png' ); const material =
+new THREE.SpriteMaterial( { map: map } ); const sprite = new THREE.Sprite(
+material ); scene.add( sprite );  
 ```  
 
 ## Constructor
 
-### [name]( [param:Material material] )
+###  function Sprite( material: Material ): void;
 
 [page:Material material] - (optional) an instance of [page:SpriteMaterial].
 Default is a white [page:SpriteMaterial].  
   
-Creates a new [name].
+Creates a new Sprite.
 
 ## Properties
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Boolean isSprite; <br/>
+###  Boolean isSprite;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Sprite.
 
-### <br/> SpriteMaterial material; <br/>
+###  SpriteMaterial material;
 
 An instance of [page:SpriteMaterial], defining the object's appearance.
 Default is a white [page:SpriteMaterial].
 
-### <br/> Vector2 center; <br/>
+###  Vector2 center;
 
 The sprite's anchor point, and the point around which the sprite rotates. A
 value of (0.5, 0.5) corresponds to the midpoint of the sprite. A value of (0,
@@ -53,16 +53,15 @@ value of (0.5, 0.5) corresponds to the midpoint of the sprite. A value of (0,
 
 See the base [page:Object3D] class for common methods.
 
-### [method:Sprite clone]()
+###  function clone( ): Sprite;
 
 Returns a clone of this Sprite object and any descendants.
 
-### <br/> function copy( sprite: Sprite ): copy; <br/>
+###  function copy( sprite: Sprite ): this;
 
 Copies the properties of the passed sprite to this one.
 
-###  [method:undefined raycast]( [param:Raycaster raycaster], [param:Array
-intersects] )
+###  function raycast( raycaster: Raycaster, intersects: Array ): undefined;
 
 Get intersections between a casted ray and this sprite.
 [page:Raycaster.intersectObject]() will call this method. The raycaster must

@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# DirectionalLightHelper
 
 Helper object to assist with visualizing a [page:DirectionalLight]'s effect on
 the scene. This consists of plane and a line representing the light's position
@@ -10,15 +10,14 @@ and direction.
 
   
 ```ts  
-const light = new THREE.DirectionalLight( 0xFFFFFF );  
-const helper = new THREE.DirectionalLightHelper( light, 5 );  
-scene.add( helper );  
+const light = new THREE.DirectionalLight( 0xFFFFFF ); const helper = new
+THREE.DirectionalLightHelper( light, 5 ); scene.add( helper );  
 ```  
 
 ## Constructor
 
-###  [name]( [param:DirectionalLight light], [param:Number size], [param:Hex
-color] )
+###  function DirectionalLightHelper( light: DirectionalLight, size: Number,
+color: Hex ): void;
 
 [page:DirectionalLight light]-- The light to be visualized.  
   
@@ -31,24 +30,24 @@ color of the light.
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Line lightPlane; <br/>
+###  Line lightPlane;
 
 Contains the line mesh showing the location of the directional light.
 
-### <br/> DirectionalLight light; <br/>
+###  DirectionalLight light;
 
 Reference to the [page:DirectionalLight directionalLight] being visualized.
 
-### <br/> Object matrix; <br/>
+###  Object matrix;
 
 Reference to the light's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> Object matrixAutoUpdate; <br/>
+###  Object matrixAutoUpdate;
 
 See [page:Object3D.matrixAutoUpdate]. Set to `false` here as the helper is
 using the light's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> hex color; <br/>
+###  hex color;
 
 The color parameter passed in the constructor. Default is `undefined`. If this
 is changed, the helper's color will update the next time [page:.update update]
@@ -58,12 +57,12 @@ is called.
 
 See the base [page:Object3D] class for common properties.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the helper to match the position and direction of the [page:.light
 directionalLight] being visualized.

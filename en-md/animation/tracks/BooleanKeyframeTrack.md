@@ -1,12 +1,13 @@
 [page:KeyframeTrack] →
 
-# [name]
+# BooleanKeyframeTrack
 
 A Track of boolean keyframe values.
 
 ## Constructor
 
-###  [name]( [param:String name], [param:Array times], [param:Array values] )
+###  function BooleanKeyframeTrack( name: String, times: Array, values: Array
+): void;
 
 [page:String name] - (required) identifier for the KeyframeTrack.  
 [page:Array times] - (required) array of keyframe times.  
@@ -16,16 +17,16 @@ A Track of boolean keyframe values.
 
 See [page:KeyframeTrack] for inherited properties.
 
-### <br/> Constant DefaultInterpolation; <br/>
+###  Constant DefaultInterpolation;
 
 The default interpolation type to use, [page:Animation InterpolateDiscrete].
 
-### <br/> Array ValueBufferType; <br/>
+###  Array ValueBufferType;
 
 A normal Array (no Float32Array in this case, unlike `ValueBufferType` of
 [page:KeyframeTrack]).
 
-### <br/> String ValueTypeName; <br/>
+###  String ValueTypeName;
 
 String 'bool'.
 

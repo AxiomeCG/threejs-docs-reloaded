@@ -1,4 +1,4 @@
-# [name]
+# Cache
 
 A simple caching system, used internally by [page:FileLoader].
 
@@ -7,7 +7,9 @@ A simple caching system, used internally by [page:FileLoader].
 To enable caching across all loaders that use [page:FileLoader], set
 
   
-```ts THREE.Cache.enabled = true. ```  
+```ts  
+THREE.Cache.enabled = true.  
+```  
 
 ## Examples
 
@@ -18,17 +20,17 @@ gpu]
 
 ## Properties
 
-### <br/> Boolean enabled; <br/>
+###  Boolean enabled;
 
 Whether caching is enabled. Default is `false`.
 
-### <br/> Object files; <br/>
+###  Object files;
 
 An [page:Object object] that holds cached files.
 
 ## Methods
 
-### [method:undefined add]( [param:String key], [param:Object file] )
+###  function add( key: String, file: Object ): undefined;
 
 [page:String key] — the [page:String key] to reference the cached file by.  
 [page:Object file] — The file to be cached.  
@@ -36,20 +38,20 @@ An [page:Object object] that holds cached files.
 Adds a cache entry with a key to reference the file. If this key already holds
 a file, it is overwritten.
 
-### [method:Any get]( [param:String key] )
+###  function get( key: String ): Any;
 
 [page:String key] — A string key  
   
 Get the value of [page:String key]. If the key does not exist `undefined` is
 returned.
 
-### [method:undefined remove]( [param:String key] )
+###  function remove( key: String ): undefined;
 
 [page:String key] — A string key that references a cached file.  
   
 Remove the cached file associated with the key.
 
-### [method:undefined clear]()
+###  function clear( ): undefined;
 
 Remove all values from the cache.
 

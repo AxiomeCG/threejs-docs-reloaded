@@ -1,13 +1,13 @@
 [page:Curve] →
 
-# [name]
+# CurvePath
 
 An abstract base class extending [page:Curve]. A CurvePath is simply an array
 of connected curves, but retains the api of a curve.
 
 ## Constructor
 
-### [name]()
+###  function CurvePath( ): void;
 
 The constructor take no parameters.
 
@@ -15,11 +15,11 @@ The constructor take no parameters.
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Array curves; <br/>
+###  Array curves;
 
 The array of [page:Curve Curves].
 
-### <br/> Boolean autoClose; <br/>
+###  Boolean autoClose;
 
 Whether or not to automatically close the path.
 
@@ -27,20 +27,20 @@ Whether or not to automatically close the path.
 
 See the base [page:Curve] class for common methods.
 
-### [method:undefined add]( [param:Curve curve] )
+###  function add( curve: Curve ): undefined;
 
 Add a curve to the [page:.curves] array.
 
-### [method:undefined closePath]()
+###  function closePath( ): undefined;
 
 Adds a [page:LineCurve lineCurve] to close the path.
 
-### [method:Array getCurveLengths]()
+###  function getCurveLengths( ): Array;
 
 Get list of cumulative curve lengths of the curves in the [page:.curves]
 array.
 
-### [method:Array getPoints]( [param:Integer divisions] )
+###  function getPoints( divisions: Integer ): Array;
 
 divisions -- number of pieces to divide the curve into. Default is `12`.  
   
@@ -50,7 +50,7 @@ for optimization and quality purposes, the actual sampling resolution for each
 curve depends on its type. For example, for a [page:LineCurve], the returned
 number of points is always just 2.
 
-### [method:Array getSpacedPoints]( [param:Integer divisions] )
+###  function getSpacedPoints( divisions: Integer ): Array;
 
 divisions -- number of pieces to divide the curve into. Default is `40`.  
   

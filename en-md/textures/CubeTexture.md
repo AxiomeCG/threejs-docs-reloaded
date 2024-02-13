@@ -1,6 +1,6 @@
 [page:Texture] →
 
-# [name]
+# CubeTexture
 
 Creates a cube texture made up of six images.
 
@@ -8,23 +8,15 @@ Creates a cube texture made up of six images.
 
   
 ```ts  
-const loader = new THREE.CubeTextureLoader();  
-loader.setPath( 'textures/cube/pisa/' );  
-  
-const textureCube = loader.load( [  
-'px.png', 'nx.png',  
-'py.png', 'ny.png',  
-'pz.png', 'nz.png'  
-] );  
-  
-const material = new THREE.MeshBasicMaterial( { color: 0xffffff, envMap:
-textureCube } );  
+const loader = new THREE.CubeTextureLoader(); loader.setPath(
+'textures/cube/pisa/' ); const textureCube = loader.load( [ 'px.png',
+'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] ); const material = new
+THREE.MeshBasicMaterial( { color: 0xffffff, envMap: textureCube } );  
 ```  
 
 ## Constructor
 
-###  [name]( images, mapping, wrapS, wrapT, magFilter, minFilter, format,
-type, anisotropy, colorSpace )
+###  function CubeTexture( ): void;
 
 CubeTexture is almost equivalent in functionality and usage to [page:Texture].
 The only differences are that the images are an array of 6 images as opposed
@@ -36,14 +28,14 @@ THREE.CubeRefractionMapping]
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean flipY; <br/>
+###  Boolean flipY;
 
 If set to `true`, the texture is flipped along the vertical axis when uploaded
 to the GPU. Default is `false`.
 
-### <br/> Boolean isCubeTexture; <br/>
+###  Boolean isCubeTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type CubeTexture.
 
 ## Methods
 

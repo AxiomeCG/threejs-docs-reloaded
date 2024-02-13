@@ -1,4 +1,4 @@
-# [name]
+# Raycaster
 
 This class is designed to assist with
 [link:https://en.wikipedia.org/wiki/Ray_casting raycasting]. Raycasting is
@@ -9,41 +9,17 @@ over) amongst other things.
 
   
 ```ts  
-const raycaster = new THREE.Raycaster();  
-const pointer = new THREE.Vector2();  
-  
-function onPointerMove( event ) {  
-  
-// calculate pointer position in normalized device coordinates  
-// (-1 to +1) for both components  
-  
-pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;  
-pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;  
-  
-}  
-  
-function render() {  
-  
-// update the picking ray with the camera and pointer position  
-raycaster.setFromCamera( pointer, camera );  
-  
-// calculate objects intersecting the picking ray  
-const intersects = raycaster.intersectObjects( scene.children );  
-  
-for ( let i = 0; i < intersects.length; i ++ ) {  
-  
-intersects[ i ].object.material.color.set( 0xff0000 );  
-  
-}  
-  
-renderer.render( scene, camera );  
-  
-}  
-  
-window.addEventListener( 'pointermove', onPointerMove );  
-  
-window.requestAnimationFrame(render);  
-  
+const raycaster = new THREE.Raycaster(); const pointer = new THREE.Vector2();
+function onPointerMove( event ) { // calculate pointer position in normalized
+device coordinates // (-1 to +1) for both components pointer.x = (
+event.clientX / window.innerWidth ) * 2 - 1; pointer.y = - ( event.clientY /
+window.innerHeight ) * 2 + 1; } function render() { // update the picking ray
+with the camera and pointer position raycaster.setFromCamera( pointer, camera
+); // calculate objects intersecting the picking ray const intersects =
+raycaster.intersectObjects( scene.children ); for ( let i = 0; i <
+intersects.length; i ++ ) { intersects[ i ].object.material.color.set(
+0xff0000 ); } renderer.render( scene, camera ); } window.addEventListener(
+'pointermove', onPointerMove ); window.requestAnimationFrame(render);  
 ```  
 
 ## Examples
@@ -62,8 +38,8 @@ BufferGeometry]
 
 ## Constructor
 
-### [name]( [param:Vector3 origin], [param:Vector3 direction], [param:Float
-near], [param:Float far] )
+###  function Raycaster( origin: Vector3, direction: Vector3, near: Float,
+far: Float ): void;
 
 [page:Vector3 origin] — The origin vector where the ray casts from.  
 [page:Vector3 direction] — The direction vector that gives direction to the
@@ -77,56 +53,50 @@ This creates a new raycaster object.
 
 ## Properties
 
-### <br/> Float far; <br/>
+###  Float far;
 
 The far factor of the raycaster. This value indicates which objects can be
 discarded based on the distance. This value shouldn't be negative and should
 be larger than the near property.
 
-### <br/> Float near; <br/>
+###  Float near;
 
 The near factor of the raycaster. This value indicates which objects can be
 discarded based on the distance. This value shouldn't be negative and should
 be smaller than the far property.
 
-### <br/> Camera camera; <br/>
+###  Camera camera;
 
 The camera to use when raycasting against view-dependent objects such as
 billboarded objects like [page:Sprites]. This field can be set manually or is
 set when calling "setFromCamera". Defaults to null.
 
-### <br/> Layers layers; <br/>
+###  Layers layers;
 
-Used by [name] to selectively ignore 3D objects when performing intersection
-tests. The following code example ensures that only 3D objects on layer `1`
-will be honored by the instance of [name].  
+Used by Raycaster to selectively ignore 3D objects when performing
+intersection tests. The following code example ensures that only 3D objects on
+layer `1` will be honored by the instance of Raycaster.  
 ```ts  
-raycaster.layers.set( 1 );  
-object.layers.enable( 1 );  
+raycaster.layers.set( 1 ); object.layers.enable( 1 );  
 ```  
 
-### <br/> Object params; <br/>
+###  Object params;
 
 An object with the following properties:  
 ```ts  
-{  
-Mesh: {},  
-Line: { threshold: 1 },  
-LOD: {},  
-Points: { threshold: 1 },  
-Sprite: {}  
-}  
+{ Mesh: {}, Line: { threshold: 1 }, LOD: {}, Points: { threshold: 1 }, Sprite:
+{} }  
 ```  
 Where threshold is the precision of the raycaster when intersecting objects,
 in world units.
 
-### <br/> Ray ray; <br/>
+###  Ray ray;
 
 The [Page:Ray] used for the raycasting.
 
 ## Methods
 
-### [method:undefined set]( [param:Vector3 origin], [param:Vector3 direction])
+###  function set( origin: Vector3, direction: Vector3 ): undefined;
 
 [page:Vector3 origin] — The origin vector where the ray casts from.  
 [page:Vector3 direction] — The normalized direction vector that gives
@@ -135,8 +105,7 @@ direction to the ray.
 Updates the ray with a new origin and direction. Please note that this method
 only copies the values from the arguments.
 
-### [method:undefined setFromCamera]( [param:Vector2 coords], [param:Camera
-camera] )
+###  function setFromCamera( coords: Vector2, camera: Camera ): undefined;
 
 [page:Vector2 coords] — 2D coordinates of the mouse, in normalized device
 coordinates (NDC)---X and Y components should be between `-1` and `1`.  
@@ -144,8 +113,8 @@ coordinates (NDC)---X and Y components should be between `-1` and `1`.
 
 Updates the ray with a new origin and direction.
 
-### [method:Array intersectObject]( [param:Object3D object], [param:Boolean
-recursive], [param:Array optionalTarget] )
+###  function intersectObject( object: Object3D, recursive: Boolean,
+optionalTarget: Array ): Array;
 
 [page:Object3D object] — The object to check for intersection with the ray.  
 [page:Boolean recursive] — If true, it also checks all descendants. Otherwise
@@ -159,7 +128,9 @@ descendants. Intersections are returned sorted by distance, closest first. An
 array of intersections is returned...
 
   
-```ts [ { distance, point, face, faceIndex, object }, ... ] ```  
+```ts  
+[ { distance, point, face, faceIndex, object }, ... ]  
+```  
 
 [page:Float distance] – distance between the origin of the ray and the
 intersection  
@@ -178,10 +149,10 @@ passed object, when evaluating whether the ray intersects the object or not.
 This allows [page:Mesh meshes] to respond differently to ray casting than
 [page:Line lines] and [page:Points pointclouds].
 
-*Note* that for meshes, faces must be pointed towards the origin of the [page:.ray ray] in order to be detected; intersections of the ray passing through the back of a face will not be detected. To raycast against both faces of an object, you'll want to set the [page:Mesh.material material]'s [page:Material.side side] property to `THREE.DoubleSide`. 
+*Note* that for meshes, faces must be pointed towards the origin of the [page:.ray ray] in order to be detected; intersections of the ray passing through the back of a face will not be detected. To raycast against both faces of an object, you'll want to set the [page:Mesh.material material]'s [page:Material.side side] property to `THREE.DoubleSide`.
 
-### [method:Array intersectObjects]( [param:Array objects], [param:Boolean
-recursive], [param:Array optionalTarget] )
+###  function intersectObjects( objects: Array, recursive: Boolean,
+optionalTarget: Array ): Array;
 
 [page:Array objects] — The objects to check for intersection with the ray.  
 [page:Boolean recursive] — If true, it also checks all descendants of the

@@ -1,4 +1,4 @@
-# [name]
+# AnimationAction
 
 AnimationActions schedule the performance of the animations which are stored
 in [page:AnimationClip AnimationClips].  
@@ -10,8 +10,8 @@ the "Animation System" article in the "Next Steps" section of the manual.
 
 ## Constructor
 
-###  [name]( [param:AnimationMixer mixer], [param:AnimationClip clip],
-[param:Object3D localRoot] )
+###  function AnimationAction( mixer: AnimationMixer, clip: AnimationClip,
+localRoot: Object3D ): void;
 
 [page:AnimationMixer mixer] - the `AnimationMixer` that is controlled by this
 action.  
@@ -27,13 +27,13 @@ provides caching for better performance.
 
 ## Properties
 
-### <br/> Number blendMode; <br/>
+###  Number blendMode;
 
 Defines how the animation is blended/combined when two or more animations are
 simultaneously played. Valid values are *NormalAnimationBlendMode* (default)
 and *AdditiveAnimationBlendMode*.
 
-### <br/> Boolean clampWhenFinished; <br/>
+###  Boolean clampWhenFinished;
 
 If `clampWhenFinished` is set to true the animation will automatically be
 [page:.paused paused] on its last frame.  
@@ -47,7 +47,7 @@ Default is `false`.
 Note: `clampWhenFinished` has no impact if the action is interrupted (it has
 only an effect if its last loop has really finished).
 
-### <br/> Boolean enabled; <br/>
+###  Boolean enabled;
 
 Setting `enabled` to `false` disables this action, so that it has no impact.
 Default is `true`.  
@@ -62,7 +62,7 @@ action has not been deactivated in the meantime (by executing a [page:.stop
 stop] or [page:.reset reset] command), and neither [page:.weight weight] nor
 [page:.timeScale timeScale] is `0`.
 
-### <br/> Number loop; <br/>
+###  Number loop;
 
 The looping mode (can be changed with [page:.setLoop setLoop]). Default is
 [page:Animation THREE.LoopRepeat] (with an infinite number of
@@ -77,13 +77,13 @@ beginning,
 [page:Animation THREE.LoopPingPong] - playing the clip with the chosen number
 of `repetitions`, alternately playing forward and backward.
 
-### <br/> Boolean paused; <br/>
+###  Boolean paused;
 
 Setting `paused` to `true` pauses the execution of the action by setting the
 effective time scale to `0`. Default is `false`.  
   
 
-### <br/> Number repetitions; <br/>
+###  Number repetitions;
 
 The number of repetitions of the performed [page:AnimationClip] over the
 course of this action. Can be set via [page:.setLoop setLoop]. Default is
@@ -92,7 +92,7 @@ course of this action. Can be set via [page:.setLoop setLoop]. Default is
 Setting this number has no effect, if the [page:.loop loop mode] is set to
 [page:Animation THREE.LoopOnce].
 
-### <br/> Number time; <br/>
+###  Number time;
 
 The local time of this action (in seconds, starting with `0`).  
   
@@ -101,7 +101,7 @@ loop state). It can be scaled relatively to the global mixer time by changing
 [page:.timeScale timeScale] (using [page:.setEffectiveTimeScale
 setEffectiveTimeScale] or [page:.setDuration setDuration]).  
 
-### <br/> Number timeScale; <br/>
+###  Number timeScale;
 
 Scaling factor for the [page:.time time]. A value of `0` causes the animation
 to pause. Negative values cause the animation to play backwards. Default is
@@ -113,7 +113,7 @@ Properties/methods concerning `timeScale` (respectively `time`) are:
 [page:.setEffectiveTimeScale setEffectiveTimeScale], [page:.stopWarping
 stopWarping], [page:.syncWith syncWith], [page:.warp warp].
 
-### <br/> Number weight; <br/>
+###  Number weight;
 
 The degree of influence of this action (in the interval `[0, 1]`). Values
 between `0` (no impact) and `1` (full impact) can be used to blend between
@@ -125,20 +125,20 @@ crossFadeFrom], [page:.crossFadeTo crossFadeTo], [page:.enabled enabled],
 getEffectiveWeight], [page:.setEffectiveWeight setEffectiveWeight],
 [page:.stopFading stopFading].
 
-### <br/> Boolean zeroSlopeAtEnd; <br/>
+###  Boolean zeroSlopeAtEnd;
 
 Enables smooth interpolation without separate clips for start, loop and end.
 Default is `true`.
 
-### <br/> Boolean zeroSlopeAtStart; <br/>
+###  Boolean zeroSlopeAtStart;
 
 Enables smooth interpolation without separate clips for start, loop and end.
 Default is `true`.
 
 ## Methods
 
-### <br/> function crossFadeFrom( fadeOutAction: AnimationAction,
-durationInSeconds: Number, warpBoolean: Boolean? ): crossFadeFrom; <br/>
+###  function crossFadeFrom( fadeOutAction: AnimationAction,
+durationInSeconds: Number, warpBoolean: Boolean ): this;
 
 Causes this action to [page:.fadeIn fade in], fading out another action
 simultaneously, within the passed time interval. This method can be chained.  
@@ -149,8 +149,8 @@ the time scales) will be applied.
 Note: Like with `fadeIn`/`fadeOut`, the fading starts/ends with a weight of
 `1`.
 
-### <br/> function crossFadeTo( fadeInAction: AnimationAction,
-durationInSeconds: Number, warpBoolean: Boolean? ): crossFadeTo; <br/>
+###  function crossFadeTo( fadeInAction: AnimationAction, durationInSeconds:
+Number, warpBoolean: Boolean ): this;
 
 Causes this action to [page:.fadeOut fade out], fading in another action
 simultaneously, within the passed time interval. This method can be chained.  
@@ -161,45 +161,45 @@ the time scales) will be applied.
 Note: Like with `fadeIn`/`fadeOut`, the fading starts/ends with a weight of
 `1`.
 
-### <br/> function fadeIn( durationInSeconds: Number ): fadeIn; <br/>
+###  function fadeIn( durationInSeconds: Number ): this;
 
 Increases the [page:.weight weight] of this action gradually from `0` to `1`,
 within the passed time interval. This method can be chained.
 
-### <br/> function fadeOut( durationInSeconds: Number ): fadeOut; <br/>
+###  function fadeOut( durationInSeconds: Number ): this;
 
 Decreases the [page:.weight weight] of this action gradually from `1` to `0`,
 within the passed time interval. This method can be chained.
 
-### [method:Number getEffectiveTimeScale]()
+###  function getEffectiveTimeScale( ): Number;
 
 Returns the effective time scale (considering the current states of warping
 and [page:.paused paused]).
 
-### [method:Number getEffectiveWeight]()
+###  function getEffectiveWeight( ): Number;
 
 Returns the effective weight (considering the current states of fading and
 [page:.enabled enabled]).
 
-### [method:AnimationClip getClip]()
+###  function getClip( ): AnimationClip;
 
 Returns the clip which holds the animation data for this action.
 
-### [method:AnimationMixer getMixer]()
+###  function getMixer( ): AnimationMixer;
 
 Returns the mixer which is responsible for playing this action.
 
-### [method:Object3D getRoot]()
+###  function getRoot( ): Object3D;
 
 Returns the root object on which this action is performed.
 
-### <br/> function halt( durationInSeconds: Number ): halt; <br/>
+###  function halt( durationInSeconds: Number ): this;
 
 Decelerates this animation's speed to `0` by decreasing [page:.timeScale
 timeScale] gradually (starting from its current value), within the passed time
 interval. This method can be chained.
 
-### [method:Boolean isRunning]()
+###  function isRunning( ): Boolean;
 
 Returns true if the action’s [page:.time time] is currently running.  
   
@@ -213,14 +213,14 @@ Note: `isRunning` being true doesn’t necessarily mean that the animation can
 actually be seen. This is only the case, if [page:.weight weight] is
 additionally set to a non-zero value.
 
-### [method:Boolean isScheduled]()
+###  function isScheduled( ): Boolean;
 
 Returns true, if this action is activated in the mixer.  
   
 Note: This doesn’t necessarily mean that the animation is actually running
 (compare the additional conditions for [page:.isRunning isRunning]).
 
-### <br/> function play( ): play; <br/>
+###  function play( ): this;
 
 Tells the mixer to activate the action. This method can be chained.  
   
@@ -232,7 +232,7 @@ other settings ([page:.paused paused]=true, [page:.enabled enabled]=false,
 [page:.weight weight]=0, [page:.timeScale timeScale]=0) can prevent the
 animation from playing, too.
 
-### <br/> function reset( ): reset; <br/>
+###  function reset( ): this;
 
 Resets the action. This method can be chained.  
   
@@ -244,15 +244,13 @@ Note: .`reset` is always called by [page:.stop stop], but .`reset` doesn’t
 call .`stop` itself. This means: If you want both, resetting and stopping,
 don’t call .`reset`; call .`stop` instead.
 
-### <br/> function setDuration( durationInSeconds: Number ): setDuration;
-<br/>
+###  function setDuration( durationInSeconds: Number ): this;
 
 Sets the duration for a single loop of this action (by adjusting
 [page:.timeScale timeScale] and stopping any scheduled warping). This method
 can be chained.
 
-### <br/> function setEffectiveTimeScale( timeScale: Number ):
-setEffectiveTimeScale; <br/>
+###  function setEffectiveTimeScale( timeScale: Number ): this;
 
 Sets the [page:.timeScale timeScale] and stops any scheduled warping. This
 method can be chained.  
@@ -264,8 +262,7 @@ property) will also be set to this value; otherwise the effective time scale
 Note: .`paused` will not be switched to `true` automatically, if .`timeScale`
 is set to `0` by this method.
 
-### <br/> function setEffectiveWeight( weight: Number ): setEffectiveWeight;
-<br/>
+###  function setEffectiveWeight( weight: Number ): this;
 
 Sets the [page:.weight weight] and stops any scheduled fading. This method can
 be chained.  
@@ -277,13 +274,12 @@ property) will also be set to this value; otherwise the effective weight
 Note: .`enabled` will not be switched to `false` automatically, if .`weight`
 is set to `0` by this method.
 
-### <br/> function setLoop( loopMode: Number, repetitions: Number ): setLoop;
-<br/>
+###  function setLoop( loopMode: Number, repetitions: Number ): this;
 
 Sets the [page:.loop loop mode] and the number of [page:.repetitions
 repetitions]. This method can be chained.
 
-### <br/> function startAt( startTimeInSeconds: Number ): startAt; <br/>
+###  function startAt( startTimeInSeconds: Number ): this;
 
 Defines the time for a delayed start (usually passed as
 [page:AnimationMixer.time] + deltaTimeInSeconds). This method can be chained.  
@@ -293,7 +289,7 @@ chained with [page:.play play], or if the action has already been activated in
 the mixer (by a previous call of .`play`, without stopping or resetting it in
 the meantime).
 
-### <br/> function stop( ): stop; <br/>
+###  function stop( ): this;
 
 Tells the mixer to deactivate this action. This method can be chained.  
   
@@ -302,17 +298,17 @@ The action will be immediately stopped and completely [page:.reset reset].
 Note: You can stop all active actions on the same mixer in one go via
 [page:AnimationMixer.stopAllAction mixer.stopAllAction].
 
-### <br/> function stopFading( ): stopFading; <br/>
+###  function stopFading( ): this;
 
 Stops any scheduled [page:.fadeIn fading] which is applied to this action.
 This method can be chained.
 
-### <br/> function stopWarping( ): stopWarping; <br/>
+###  function stopWarping( ): this;
 
 Stops any scheduled [page:.warp warping] which is applied to this action. This
 method can be chained.
 
-### <br/> function syncWith( otherAction: AnimationAction ): syncWith; <br/>
+###  function syncWith( otherAction: AnimationAction ): this;
 
 Synchronizes this action with the passed other action. This method can be
 chained.  
@@ -324,8 +320,8 @@ action (stopping any scheduled warping).
 Note: Future changes of the other action's `time` and `timeScale` will not be
 detected.
 
-### <br/> function warp( startTimeScale: Number, endTimeScale: Number,
-durationInSeconds: Number ): warp; <br/>
+###  function warp( startTimeScale: Number, endTimeScale: Number,
+durationInSeconds: Number ): this;
 
 Changes the playback speed, within the passed time interval, by modifying
 [page:.timeScale timeScale] gradually from `startTimeScale` to `endTimeScale`.
@@ -339,9 +335,8 @@ the entire action has finished. You can react to them with:
   
 ```ts  
 mixer.addEventListener( 'loop', function( e ) { …} ); // properties of e:
-type, action and loopDelta  
-mixer.addEventListener( 'finished', function( e ) { …} ); // properties of e:
-type, action and direction  
+type, action and loopDelta mixer.addEventListener( 'finished', function( e ) {
+…} ); // properties of e: type, action and direction  
 ```  
 
 ## Source

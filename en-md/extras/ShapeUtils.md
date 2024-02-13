@@ -1,4 +1,4 @@
-# [name]
+# ShapeUtils
 
 A class containing utility functions for shapes.  
   
@@ -7,13 +7,13 @@ separately for x, y (and z, w if present) components of a vector.
 
 ## Methods
 
-### [method:Number area]( contour )
+###  function area( ): Number;
 
 contour -- 2D polygon. An array of THREE.Vector2()  
   
 Calculate area of a ( 2D ) contour polygon.
 
-### [method:Boolean isClockWise]( pts )
+###  function isClockWise( ): Boolean;
 
 pts -- points defining a 2D polygon  
   
@@ -23,7 +23,7 @@ for x, y components of a polygon.
 Used internally by [page:Path Path], [page:ExtrudeGeometry ExtrudeGeometry]
 and [page:ShapeGeometry ShapeGeometry].
 
-### [method:Array triangulateShape]( contour, holes )
+###  function triangulateShape( ): Array;
 
 contour -- 2D polygon. An array of [page:Vector2].  
 holes -- An array that holds arrays of [page:Vector2]s. Each array represents

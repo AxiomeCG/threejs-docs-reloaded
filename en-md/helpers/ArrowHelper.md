@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# ArrowHelper
 
 An 3D arrow object for visualizing directions.
 
@@ -8,17 +8,11 @@ An 3D arrow object for visualizing directions.
 
   
 ```ts  
-const dir = new THREE.Vector3( 1, 2, 0 );  
-  
-//normalize the direction vector (convert to vector of length 1)  
-dir.normalize();  
-  
-const origin = new THREE.Vector3( 0, 0, 0 );  
-const length = 1;  
-const hex = 0xffff00;  
-  
-const arrowHelper = new THREE.ArrowHelper( dir, origin, length, hex );  
-scene.add( arrowHelper );  
+const dir = new THREE.Vector3( 1, 2, 0 ); //normalize the direction vector
+(convert to vector of length 1) dir.normalize(); const origin = new
+THREE.Vector3( 0, 0, 0 ); const length = 1; const hex = 0xffff00; const
+arrowHelper = new THREE.ArrowHelper( dir, origin, length, hex ); scene.add(
+arrowHelper );  
 ```  
 
 ## Examples
@@ -27,9 +21,8 @@ scene.add( arrowHelper );
 
 ## Constructor
 
-###  [name]([param:Vector3 dir], [param:Vector3 origin], [param:Number
-length], [param:Number hex], [param:Number headLength], [param:Number
-headWidth] )
+###  function ArrowHelper( dir: Vector3, origin: Vector3, length: Number, hex:
+Number, headLength: Number, headWidth: Number ): void;
 
 [page:Vector3 dir] -- direction from origin. Must be a unit vector.  
 [page:Vector3 origin] -- Point at which the arrow starts.  
@@ -44,11 +37,11 @@ headWidth] )
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Line line; <br/>
+###  Line line;
 
 Contains the line part of the arrowHelper.
 
-### <br/> Mesh cone; <br/>
+###  Mesh cone;
 
 Contains the cone part of the arrowHelper.
 
@@ -56,14 +49,14 @@ Contains the cone part of the arrowHelper.
 
 See the base [page:Object3D] class for common methods.
 
-### [method:undefined setColor]([param:Color color])
+###  function setColor( color: Color ): undefined;
 
 color -- The desired color.  
   
 Sets the color of the arrowHelper.
 
-###  [method:undefined setLength]([param:Number length], [param:Number
-headLength], [param:Number headWidth])
+###  function setLength( length: Number, headLength: Number, headWidth: Number
+): undefined;
 
 length -- The desired length.  
 headLength -- The length of the head of the arrow.  
@@ -71,13 +64,13 @@ headWidth -- The width of the head of the arrow.
   
 Sets the length of the arrowhelper.
 
-### [method:undefined setDirection]([param:Vector3 dir])
+###  function setDirection( dir: Vector3 ): undefined;
 
 dir -- The desired direction. Must be a unit vector.  
   
 Sets the direction of the arrowhelper.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

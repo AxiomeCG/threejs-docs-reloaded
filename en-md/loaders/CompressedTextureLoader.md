@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# CompressedTextureLoader
 
 Abstract base class for block based textures loader (dds, pvr, ...). This uses
 the [page:FileLoader] internally for loading files.
@@ -15,13 +15,13 @@ PVRLoader] for examples of derived classes.
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function CompressedTextureLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new CompressedTextureLoader.
 
 ## Properties
 
@@ -31,8 +31,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:CompressedTexture load]( [param:String url], [param:Function
-onLoad], [param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): CompressedTexture;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-

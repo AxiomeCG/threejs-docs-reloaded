@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Light] →
 
-# [name]
+# HemisphereLight
 
 A light source positioned directly above the scene, with color fading from the
 sky color to the ground color.  
@@ -11,8 +11,8 @@ This light cannot be used to cast shadows.
 
   
 ```ts  
-const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );  
-scene.add( light );  
+const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ); scene.add(
+light );  
 ```  
 
 ## Examples
@@ -25,8 +25,8 @@ scene.add( light );
 
 ## Constructor
 
-###  [name]( [param:Integer skyColor], [param:Integer groundColor],
-[param:Float intensity] )
+###  function HemisphereLight( skyColor: Integer, groundColor: Integer,
+intensity: Float ): void;
 
 [page:Integer skyColor] - (optional) hexadecimal color of the sky. Default is
 0xffffff.  
@@ -35,27 +35,27 @@ Default is 0xffffff.
 [page:Float intensity] - (optional) numeric value of the light's
 strength/intensity. Default is `1`.  
   
-Creates a new [name].
+Creates a new HemisphereLight.
 
 ## Properties
 
 See the base [page:Light Light] class for common properties.
 
-### <br/> Float color; <br/>
+###  Float color;
 
 The light's sky color, as passed in the constructor. Default is a new
 [page:Color] set to white (0xffffff).
 
-### <br/> Float groundColor; <br/>
+###  Float groundColor;
 
 The light's ground color, as passed in the constructor. Default is a new
 [page:Color] set to white (0xffffff).
 
-### <br/> Boolean isHemisphereLight; <br/>
+###  Boolean isHemisphereLight;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type HemisphereLight.
 
-### <br/> Vector3 position; <br/>
+###  Vector3 position;
 
 This is set equal to [page:Object3D.DEFAULT_UP] (0, 1, 0), so that the light
 shines from the top down.
@@ -64,7 +64,7 @@ shines from the top down.
 
 See the base [page:Light Light] class for common methods.
 
-### <br/> function copy( source: HemisphereLight ): copy; <br/>
+###  function copy( source: HemisphereLight ): this;
 
 Copies the value of [page:.color color], [page:.intensity intensity] and
 [page:.groundColor groundColor] from the [page:Light source] light into this

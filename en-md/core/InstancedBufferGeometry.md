@@ -1,32 +1,32 @@
 [page:BufferGeometry] →
 
-# [name]
+# InstancedBufferGeometry
 
 An instanced version of [page:BufferGeometry].
 
 ## Constructor
 
-### [name]( )
+###  function InstancedBufferGeometry( ): void;
 
 ## Properties
 
 See [page:BufferGeometry] for inherited properties.
 
-### <br/> Number instanceCount; <br/>
+###  Number instanceCount;
 
 Default is `Infinity`.
 
-### <br/> Boolean isInstancedBufferGeometry; <br/>
+###  Boolean isInstancedBufferGeometry;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type InstancedBufferGeometry.
 
 ## Methods
 
 See [page:BufferGeometry] for inherited methods.
 
-### <br/> function copy( source: InstancedBufferGeometry ): copy; <br/>
+###  function copy( source: InstancedBufferGeometry ): this;
 
-Copies the given [name] to this instance.
+Copies the given InstancedBufferGeometry to this instance.
 
 ## Source
 

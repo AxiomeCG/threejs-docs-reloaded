@@ -1,11 +1,11 @@
-# [name]
+# Triangle
 
 A geometric triangle as defined by three [page:Vector3 Vector3s] representing
 its three corners.
 
 ## Constructor
 
-### [name]( [param:Vector3 a], [param:Vector3 b], [param:Vector3 c] )
+###  function Triangle( a: Vector3, b: Vector3, c: Vector3 ): void;
 
 [page:Vector3 a] - the first corner of the triangle. Default is a
 [page:Vector3] at `(0, 0, 0)`.  
@@ -14,60 +14,58 @@ its three corners.
 [page:Vector3 c] - the final corner of the triangle. Default is a
 [page:Vector3] at `(0, 0, 0)`.  
   
-Creates a new [name].
+Creates a new Triangle.
 
 ## Properties
 
-### <br/> Vector3 a; <br/>
+###  Vector3 a;
 
 The first corner of the triangle. Default is a [page:Vector3] at `(0, 0, 0)`.
 
-### <br/> Vector3 b; <br/>
+###  Vector3 b;
 
 The second corner of the triangle. Default is a [page:Vector3] at `(0, 0, 0)`.
 
-### <br/> Vector3 c; <br/>
+###  Vector3 c;
 
 The final corner of the triangle. Default is a [page:Vector3] at `(0, 0, 0)`.
 
 ## Methods
 
-### [method:Triangle clone]()
+###  function clone( ): Triangle;
 
 Returns a new triangle with the same [page:.a a], [page:.b b] and [page:.c c]
 properties as this one.
 
-###  [method:Vector3 closestPointToPoint]( [param:Vector3 point],
-[param:Vector3 target] )
+###  function closestPointToPoint( point: Vector3, target: Vector3 ): Vector3;
 
 [page:Vector3 point] - [page:Vector3]  
 [page:Vector3 target] — the result will be copied into this Vector3.  
   
 Returns the closest point on the triangle to [page:Vector3 point].
 
-### [method:Boolean containsPoint]( [param:Vector3 point] )
+###  function containsPoint( point: Vector3 ): Boolean;
 
 [page:Vector3 point] - [page:Vector3] to check.  
   
 Returns true if the passed point, when projected onto the plane of the
 triangle, lies within the triangle.
 
-### <br/> function copy( triangle: Triangle ): copy; <br/>
+###  function copy( triangle: Triangle ): this;
 
 Copies the values of the passed triangles's [page:.a a], [page:.b b] and
 [page:.c c] properties to this triangle.
 
-### [method:Boolean equals]( [param:Triangle triangle] )
+###  function equals( triangle: Triangle ): Boolean;
 
 Returns true if the two triangles have identical [page:.a a], [page:.b b] and
 [page:.c c] properties.
 
-### [method:Float getArea]()
+###  function getArea( ): Float;
 
 Return the area of the triangle.
 
-###  [method:Vector3 getBarycoord]( [param:Vector3 point], [param:Vector3
-target] )
+###  function getBarycoord( point: Vector3, target: Vector3 ): Vector3;
 
 [page:Vector3 point] - [page:Vector3]  
 [page:Vector3 target] — the result will be copied into this Vector3.  
@@ -78,28 +76,27 @@ barycentric coordinate] from the given vector.
 [link:http://commons.wikimedia.org/wiki/File:Barycentric_coordinates_1.png
 Picture of barycentric coordinates]
 
-### [method:Vector3 getMidpoint]( [param:Vector3 target] )
+###  function getMidpoint( target: Vector3 ): Vector3;
 
 [page:Vector3 target] — the result will be copied into this Vector3.  
   
 Calculate the midpoint of the triangle.
 
-### [method:Vector3 getNormal]( [param:Vector3 target] )
+###  function getNormal( target: Vector3 ): Vector3;
 
 [page:Vector3 target] — the result will be copied into this Vector3.  
   
 Calculate the [link:https://en.wikipedia.org/wiki/Normal_(geometry) normal
 vector] of the triangle.
 
-### [method:Plane getPlane]( [param:Plane target] )
+###  function getPlane( target: Plane ): Plane;
 
 [page:Plane target] — the result will be copied into this Plane.  
   
 Calculate a [page:Plane plane] based on the triangle. .
 
-###  [method:Vector getInterpolation]( [param:Vector3 point], [param:Vector3
-p1], [param:Vector3 p2], [param:Vector3 p3], [param:Vector v1], [param:Vector
-v2], [param:Vector v3], [param:Vector target] )
+###  function getInterpolation( point: Vector3, p1: Vector3, p2: Vector3, p3:
+Vector3, v1: Vector, v2: Vector, v3: Vector, target: Vector ): Vector;
 
 [page:Vector3 point] - Position of interpolated point.  
 [page:Vector3 p1] - Position of first vertex.  
@@ -113,26 +110,26 @@ v2], [param:Vector v3], [param:Vector target] )
 Returns the value barycentrically interpolated for the given point on the
 triangle.
 
-### [method:Boolean intersectsBox]( [param:Box3 box] )
+###  function intersectsBox( box: Box3 ): Boolean;
 
 [page:Box3 box] - Box to check for intersection against.  
   
 Determines whether or not this triangle intersects [page:Box3 box].
 
-### [method:Boolean isFrontFacing]( [param:Vector3 direction] )
+###  function isFrontFacing( direction: Vector3 ): Boolean;
 
 [page:Vector3 direction] - The direction to test.  
   
 Whether the triangle is oriented towards the given direction or not.
 
-### <br/> function set( a: Vector3, b: Vector3, c: Vector3 ): set; <br/>
+###  function set( a: Vector3, b: Vector3, c: Vector3 ): this;
 
 Sets the triangle's [page:.a a], [page:.b b] and [page:.c c] properties to the
 passed [page:Vector3 vector3s].  
 Please note that this method only copies the values from the given objects.
 
-### <br/> function setFromAttributeAndIndices( attribute: BufferAttribute, i0:
-Integer, i1: Integer, i2: Integer ): setFromAttributeAndIndices; <br/>
+###  function setFromAttributeAndIndices( attribute: BufferAttribute, i0:
+Integer, i1: Integer, i2: Integer ): this;
 
 attribute - [page:BufferAttribute] of vertex data  
 i0 - [page:Integer] index  
@@ -141,8 +138,8 @@ i2 - [page:Integer] index
   
 Sets the triangle's vertices from the buffer attribute vertex data.
 
-### <br/> function setFromPointsAndIndices( points: Array, i0: Integer, i1:
-Integer, i2: Integer ): setFromPointsAndIndices; <br/>
+###  function setFromPointsAndIndices( points: Array, i0: Integer, i1:
+Integer, i2: Integer ): this;
 
 points - [page:Array] of [page:Vector3]s  
 i0 - [page:Integer] index  

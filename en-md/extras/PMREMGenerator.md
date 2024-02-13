@@ -1,4 +1,4 @@
-# [name]
+# PMREMGenerator
 
 This class generates a Prefiltered, Mipmapped Radiance Environment Map (PMREM)
 from a cubeMap environment texture. This allows different levels of blur to be
@@ -13,26 +13,26 @@ of the provided texture. If your render has small dimensions or the shiny
 parts have a lot of curvature, you may still be able to get away with a
 smaller texture size.
 
-texture size | minimum roughness  
+texture size| minimum roughness  
 ---|---  
-16 | 0.21  
-32 | 0.15  
-64 | 0.11  
-128 | 0.076  
-256 | 0.054  
-512 | 0.038  
-1024 | 0.027  
+16| 0.21  
+32| 0.15  
+64| 0.11  
+128| 0.076  
+256| 0.054  
+512| 0.038  
+1024| 0.027  
   
 ## Constructor
 
-### [name]( [param:WebGLRenderer renderer] )
+###  function PMREMGenerator( renderer: WebGLRenderer ): void;
 
-This constructor creates a new [name].
+This constructor creates a new PMREMGenerator.
 
 ## Methods
 
-###  [method:WebGLRenderTarget fromScene]( [param:Scene scene], [param:Number
-sigma], [param:Number near], [param:Number far] )
+###  function fromScene( scene: Scene, sigma: Number, near: Number, far:
+Number ): WebGLRenderTarget;
 
 [page:Scene scene] - The given scene.  
 [page:Number sigma] - (optional) Specifies a blur radius in radians to be
@@ -44,31 +44,31 @@ Generates a PMREM from a supplied Scene, which can be faster than using an
 image if networking bandwidth is low. Optional near and far planes ensure the
 scene is rendered in its entirety (the cubeCamera is placed at the origin).
 
-###  [method:WebGLRenderTarget fromEquirectangular]( [param:Texture
-equirectangular] )
+###  function fromEquirectangular( equirectangular: Texture ):
+WebGLRenderTarget;
 
 [page:Texture equirectangular] - The equirectangular texture.  
   
 Generates a PMREM from an equirectangular texture.
 
-###  [method:WebGLRenderTarget fromCubemap]( [param:CubeTexture cubemap] )
+###  function fromCubemap( cubemap: CubeTexture ): WebGLRenderTarget;
 
 [page:CubeTexture cubemap] - The cubemap texture.  
   
 Generates a PMREM from an cubemap texture.
 
-### [method:undefined compileCubemapShader]()
+###  function compileCubemapShader( ): undefined;
 
 Pre-compiles the cubemap shader. You can get faster start-up by invoking this
 method during your texture's network fetch for increased concurrency.
 
-### [method:undefined compileEquirectangularShader]()
+###  function compileEquirectangularShader( ): undefined;
 
 Pre-compiles the equirectangular shader. You can get faster start-up by
 invoking this method during your texture's network fetch for increased
 concurrency.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

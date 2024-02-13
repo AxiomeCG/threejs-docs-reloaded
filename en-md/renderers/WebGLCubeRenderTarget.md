@@ -1,6 +1,6 @@
 [page:WebGLRenderTarget] →
 
-# [name]
+# WebGLCubeRenderTarget
 
 Used by the [page:CubeCamera] as its [page:WebGLRenderTarget].
 
@@ -10,7 +10,7 @@ See [page:CubeCamera] for examples.
 
 ## Constructor
 
-### [name]([param:Number size], [param:Object options])
+###  function WebGLCubeRenderTarget( size: Number, options: Object ): void;
 
 [page:Float size] - the size, in pixels. Default is `1`.  
 options - (optional) object that holds texture parameters for an auto-
@@ -30,7 +30,7 @@ following are valid options:
 [page:Boolean depthBuffer] - default is `true`.  
 [page:Boolean stencilBuffer] - default is `false`.  
   
-Creates a new [name]
+Creates a new WebGLCubeRenderTarget
 
 ## Properties
 
@@ -40,8 +40,8 @@ Creates a new [name]
 
 ### See [page:WebGLRenderTarget] for inherited methods
 
-### <br/> function fromEquirectangularTexture( renderer: WebGLRenderer,
-texture: Texture ): fromEquirectangularTexture; <br/>
+###  function fromEquirectangularTexture( renderer: WebGLRenderer, texture:
+Texture ): this;
 
 [page:WebGLRenderer renderer] — the renderer.  
 [page:Texture texture] — the equirectangular texture.
@@ -49,8 +49,8 @@ texture: Texture ): fromEquirectangularTexture; <br/>
 Use this method if you want to convert an equirectangular panorama to the
 cubemap format.
 
-###  [method:undefined clear]( [param:WebGLRenderer renderer], [param:Boolean
-color], [param:Boolean depth], [param:Boolean stencil] )
+###  function clear( renderer: WebGLRenderer, color: Boolean, depth: Boolean,
+stencil: Boolean ): undefined;
 
 Call this to clear the renderTarget's color, depth, and/or stencil buffers.
 The color buffer is set to the renderer's current clear color. Arguments

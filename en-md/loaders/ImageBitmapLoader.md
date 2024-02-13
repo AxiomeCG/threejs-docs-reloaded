@@ -1,13 +1,13 @@
 [page:Loader] →
 
-# [name]
+# ImageBitmapLoader
 
 A loader for loading an [page:Image] as an
 [link:https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap
 ImageBitmap]. An ImageBitmap provides an asynchronous and resource efficient
 pathway to prepare textures for rendering in WebGL.  
-Unlike [page:FileLoader], [name] does not avoid multiple concurrent requests
-to the same URL.
+Unlike [page:FileLoader], ImageBitmapLoader does not avoid multiple concurrent
+requests to the same URL.
 
 Note that [page:Texture.flipY] and [page:Texture.premultiplyAlpha] with
 [link:https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap
@@ -22,31 +22,14 @@ specification] for the detail.
 
   
 ```ts  
-// instantiate a loader  
-const loader = new THREE.ImageBitmapLoader();  
-  
-// set options if needed  
-loader.setOptions( { imageOrientation: 'flipY' } );  
-  
-// load a image resource  
-loader.load(  
-// resource URL  
-'textures/skyboxsun25degtest.png',  
-  
-// onLoad callback  
-function ( imageBitmap ) {  
-const texture = new THREE.CanvasTexture( imageBitmap );  
-const material = new THREE.MeshBasicMaterial( { map: texture } );  
-},  
-  
-// onProgress callback currently not supported  
-undefined,  
-  
-// onError callback  
-function ( err ) {  
-console.log( 'An error happened' );  
-}  
-);  
+// instantiate a loader const loader = new THREE.ImageBitmapLoader(); // set
+options if needed loader.setOptions( { imageOrientation: 'flipY' } ); // load
+a image resource loader.load( // resource URL
+'textures/skyboxsun25degtest.png', // onLoad callback function ( imageBitmap )
+{ const texture = new THREE.CanvasTexture( imageBitmap ); const material = new
+THREE.MeshBasicMaterial( { map: texture } ); }, // onProgress callback
+currently not supported undefined, // onError callback function ( err ) {
+console.log( 'An error happened' ); } );  
 ```  
 
 ## Examples
@@ -55,23 +38,23 @@ console.log( 'An error happened' );
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function ImageBitmapLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new ImageBitmapLoader.
 
 ## Properties
 
 See the base [page:Loader] class for common properties.
 
-### <br/> Boolean isImageBitmapLoader; <br/>
+###  Boolean isImageBitmapLoader;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type ImageBitmapLoader.
 
-### <br/> String options; <br/>
+###  String options;
 
 An optional object that sets options for the internally used
 [link:https://developer.mozilla.org/en-
@@ -82,8 +65,8 @@ factory method. Default is `undefined`.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:undefined load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): undefined;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-
@@ -97,7 +80,7 @@ not supported.
 Begin loading from url and return the [page:ImageBitmap image] object that
 will contain the data.
 
-### <br/> function setOptions( options: Object ): setOptions; <br/>
+###  function setOptions( options: Object ): this;
 
 Sets the options object for [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WindowOrWorkerGlobalScope/createImageBitmap

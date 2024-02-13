@@ -1,24 +1,19 @@
 [page:Interpolant] →
 
-# [name]
+# DiscreteInterpolant
 
 ## Code Example
 
   
 ```ts  
-const interpolant = new THREE.[name](  
-new Float32Array( 2 ),  
-new Float32Array( 2 ),  
-1,  
-new Float32Array( 1 )  
-);  
   
-interpolant.evaluate( 0.5 );  
+function DiscreteInterpolant( ): void;  
+  
 ```  
 
 ## Constructor
 
-###  [name]( parameterPositions, sampleValues, sampleSize, resultBuffer )
+###  function DiscreteInterpolant( ): void;
 
 parameterPositions -- array of positions  
 sampleValues -- array of samples  
@@ -28,19 +23,19 @@ resultBuffer -- buffer to store the interpolation results.
 
 ## Properties
 
-### <br/> null parameterPositions; <br/>
+###  null parameterPositions;
 
-### <br/> null resultBuffer; <br/>
+###  null resultBuffer;
 
-### <br/> null sampleValues; <br/>
+###  null sampleValues;
 
-### <br/> Object settings; <br/>
+###  Object settings;
 
-### <br/> null valueSize; <br/>
+###  null valueSize;
 
 ## Methods
 
-### [method:Array evaluate]( [param:Number t] )
+###  function evaluate( t: Number ): Array;
 
 Evaluate the interpolant at position *t*.
 

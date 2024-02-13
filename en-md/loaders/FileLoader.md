@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# FileLoader
 
 A low level class for loading resources with Fetch, used internally by most
 loaders. It can also be used directly to load any file type that does not have
@@ -10,33 +10,18 @@ a loader.
 
   
 ```ts  
-const loader = new THREE.FileLoader();  
-  
-//load a text file and output the result to the console  
-loader.load(  
-// resource URL  
-'example.txt',  
-  
-// onLoad callback  
-function ( data ) {  
-// output the text to the console  
-console.log( data )  
-},  
-  
-// onProgress callback  
-function ( xhr ) {  
-console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );  
-},  
-  
-// onError callback  
-function ( err ) {  
-console.error( 'An error happened' );  
-}  
-);  
+const loader = new THREE.FileLoader(); //load a text file and output the
+result to the console loader.load( // resource URL 'example.txt', // onLoad
+callback function ( data ) { // output the text to the console console.log(
+data ) }, // onProgress callback function ( xhr ) { console.log( (xhr.loaded /
+xhr.total * 100) + '% loaded' ); }, // onError callback function ( err ) {
+console.error( 'An error happened' ); } );  
 ```  
 
-*Note:* The cache must be enabled using   
-```ts THREE.Cache.enabled = true; ```  
+*Note:* The cache must be enabled using  
+```ts  
+THREE.Cache.enabled = true;  
+```  
 This is a global property and only needs to be set once to be used by all
 loaders that use FileLoader internally. [page:Cache Cache] is a cache module
 that holds the response from each request made through this loader, so each
@@ -44,7 +29,7 @@ file is requested once.
 
 ## Constructor
 
-### [name] ( [param:LoadingManager manager] )
+### FileLoader ( [param:LoadingManager manager] )
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:DefaultLoadingManager].
@@ -53,13 +38,13 @@ the loader to use. Default is [page:DefaultLoadingManager].
 
 See the base [page:Loader] class for common properties.
 
-### <br/> String mimeType; <br/>
+###  String mimeType;
 
 The expected [link:https://developer.mozilla.org/en-
 US/docs/Web/HTTP/Basics_of_HTTP/MIME_types mimeType]. See [page:.setMimeType].
 Default is `undefined`.
 
-### <br/> String responseType; <br/>
+###  String responseType;
 
 The expected response type. See [page:.setResponseType]. Default is
 `undefined`.
@@ -68,8 +53,8 @@ The expected response type. See [page:.setResponseType]. Default is
 
 See the base [page:Loader] class for common methods.
 
-###  [method:undefined load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): undefined;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-
@@ -85,15 +70,14 @@ server does not set the Content-Length header; .[page:Integer total] will be
   
 Load the URL and pass the response to the onLoad function.
 
-### <br/> function setMimeType( mimeType: String ): setMimeType; <br/>
+###  function setMimeType( mimeType: String ): this;
 
 Set the expected [link:https://developer.mozilla.org/en-
 US/docs/Web/HTTP/Basics_of_HTTP/MIME_types mimeType] of the file being loaded.
 Note that in many cases this will be determined automatically, so by default
 it is `undefined`.
 
-### <br/> function setResponseType( responseType: String ): setResponseType;
-<br/>
+###  function setResponseType( responseType: String ): this;
 
 Change the response type. Valid values are:  
 [page:String text] or empty string (default) - returns the data as

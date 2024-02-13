@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# TubeGeometry
 
 Creates a tube that extrudes along a 3d curve.
 
@@ -8,34 +8,20 @@ Creates a tube that extrudes along a 3d curve.
 
   
 ```ts  
-class CustomSinCurve extends THREE.Curve {  
-  
-constructor( scale = 1 ) {  
-super();  
-this.scale = scale;  
-}  
-  
-getPoint( t, optionalTarget = new THREE.Vector3() ) {  
-  
-const tx = t * 3 - 1.5;  
-const ty = Math.sin( 2 * Math.PI * t );  
-const tz = 0;  
-  
-return optionalTarget.set( tx, ty, tz ).multiplyScalar( this.scale );  
-}  
-}  
-  
-const path = new CustomSinCurve( 10 );  
-const geometry = new THREE.TubeGeometry( path, 20, 2, 8, false );  
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );  
-const mesh = new THREE.Mesh( geometry, material );  
-scene.add( mesh );  
+class CustomSinCurve extends THREE.Curve { constructor( scale = 1 ) { super();
+this.scale = scale; } getPoint( t, optionalTarget = new THREE.Vector3() ) {
+const tx = t * 3 - 1.5; const ty = Math.sin( 2 * Math.PI * t ); const tz = 0;
+return optionalTarget.set( tx, ty, tz ).multiplyScalar( this.scale ); } }
+const path = new CustomSinCurve( 10 ); const geometry = new
+THREE.TubeGeometry( path, 20, 2, 8, false ); const material = new
+THREE.MeshBasicMaterial( { color: 0x00ff00 } ); const mesh = new THREE.Mesh(
+geometry, material ); scene.add( mesh );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Curve path], [param:Integer tubularSegments], [param:Float
-radius], [param:Integer radialSegments], [param:Boolean closed])
+###  function TubeGeometry( path: Curve, tubularSegments: Integer, radius:
+Float, radialSegments: Integer, closed: Boolean ): void;
 
 path — [page:Curve] - A 3D path that inherits from the [page:Curve] base
 class. Default is a quadratic bezier curve.  
@@ -50,20 +36,20 @@ closed — [page:Boolean] Is the tube open or closed. Default is `false`.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.
 
-### <br/> Array tangents; <br/>
+###  Array tangents;
 
 An array of [page:Vector3] tangents
 
-### <br/> Array normals; <br/>
+###  Array normals;
 
 An array of [page:Vector3] normals
 
-### <br/> Array binormals; <br/>
+###  Array binormals;
 
 An array of [page:Vector3] binormals
 

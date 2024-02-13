@@ -14,9 +14,8 @@ revision number].
 
   
 ```ts  
-THREE.NoColorSpace = ""  
-THREE.SRGBColorSpace = "srgb"  
-THREE.LinearSRGBColorSpace = "srgb-linear"  
+THREE.NoColorSpace = ""THREE.SRGBColorSpace = "srgb"THREE.LinearSRGBColorSpace
+= "srgb-linear"  
 ```  
 
 [page:NoColorSpace] defines no specific color space. It is commonly used for
@@ -40,12 +39,8 @@ For further background and usage, see _Color management_.
 
   
 ```ts  
-THREE.MOUSE.LEFT  
-THREE.MOUSE.MIDDLE  
-THREE.MOUSE.RIGHT  
-THREE.MOUSE.ROTATE  
-THREE.MOUSE.DOLLY  
-THREE.MOUSE.PAN  
+THREE.MOUSE.LEFT THREE.MOUSE.MIDDLE THREE.MOUSE.RIGHT
+THREE.MOUSE.ROTATETHREE.MOUSE.DOLLY THREE.MOUSE.PAN  
 ```  
 
 The constants LEFT and ROTATE have the same underlying value. The constants
@@ -56,8 +51,8 @@ have the same underlying value.
 
   
 ```ts  
-THREE.TOUCH.ROTATE THREE.TOUCH.PAN THREE.TOUCH.DOLLY_PAN  
-THREE.TOUCH.DOLLY_ROTATE  
+THREE.TOUCH.ROTATE THREE.TOUCH.PAN
+THREE.TOUCH.DOLLY_PANTHREE.TOUCH.DOLLY_ROTATE  
 ```  
 
 ## Source

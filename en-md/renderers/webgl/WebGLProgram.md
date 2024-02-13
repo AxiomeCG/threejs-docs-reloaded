@@ -1,4 +1,4 @@
-# [name]
+# WebGLProgram
 
 Constructor for the GLSL program sent to vertex and fragment shaders,
 including default uniforms and attributes.
@@ -9,30 +9,17 @@ including default uniforms and attributes.
 
   
 ```ts  
-// = object.matrixWorld  
-uniform mat4 modelMatrix;  
-  
-// = camera.matrixWorldInverse * object.matrixWorld  
-uniform mat4 modelViewMatrix;  
-  
-// = camera.projectionMatrix  
-uniform mat4 projectionMatrix;  
-  
-// = camera.matrixWorldInverse  
-uniform mat4 viewMatrix;  
-  
-// = inverse transpose of modelViewMatrix  
-uniform mat3 normalMatrix;  
-  
-// = camera position in world space  
+// = object.matrixWorld uniform mat4 modelMatrix; // =
+camera.matrixWorldInverse * object.matrixWorld uniform mat4 modelViewMatrix;
+// = camera.projectionMatrix uniform mat4 projectionMatrix; // =
+camera.matrixWorldInverse uniform mat4 viewMatrix; // = inverse transpose of
+modelViewMatrix uniform mat3 normalMatrix; // = camera position in world space
 uniform vec3 cameraPosition;  
 ```  
   
 ```ts  
-// default vertex attributes provided by BufferGeometry  
-attribute vec3 position;  
-attribute vec3 normal;  
-attribute vec2 uv;  
+// default vertex attributes provided by BufferGeometry attribute vec3
+position; attribute vec3 normal; attribute vec2 uv;  
 ```  
 
 Note that you can therefore calculate the position of a vertex in the vertex
@@ -50,121 +37,90 @@ gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4( position,
 
   
 ```ts  
-#ifdef USE_TANGENT  
-attribute vec4 tangent;  
-#endif  
-#if defined( USE_COLOR_ALPHA )  
-// vertex color attribute with alpha  
-attribute vec4 color;  
-#elif defined( USE_COLOR )  
-// vertex color attribute  
-attribute vec3 color;  
+#ifdef USE_TANGENT attribute vec4 tangent; #endif #if defined( USE_COLOR_ALPHA
+) // vertex color attribute with alpha attribute vec4 color; #elif defined(
+USE_COLOR ) // vertex color attribute attribute vec3 color; #endif  
+```  
+  
+```ts  
+#ifdef USE_MORPHTARGETS attribute vec3 morphTarget0; attribute vec3
+morphTarget1; attribute vec3 morphTarget2; attribute vec3 morphTarget3; #ifdef
+USE_MORPHNORMALS attribute vec3 morphNormal0; attribute vec3 morphNormal1;
+attribute vec3 morphNormal2; attribute vec3 morphNormal3; #else attribute vec3
+morphTarget4; attribute vec3 morphTarget5; attribute vec3 morphTarget6;
+attribute vec3 morphTarget7; #endif #endif  
+```  
+  
+```ts  
+#ifdef USE_SKINNING attribute vec4 skinIndex; attribute vec4 skinWeight;
 #endif  
 ```  
   
 ```ts  
-#ifdef USE_MORPHTARGETS  
-  
-attribute vec3 morphTarget0;  
-attribute vec3 morphTarget1;  
-attribute vec3 morphTarget2;  
-attribute vec3 morphTarget3;  
-  
-#ifdef USE_MORPHNORMALS  
-  
-attribute vec3 morphNormal0;  
-attribute vec3 morphNormal1;  
-attribute vec3 morphNormal2;  
-attribute vec3 morphNormal3;  
-  
-#else  
-  
-attribute vec3 morphTarget4;  
-attribute vec3 morphTarget5;  
-attribute vec3 morphTarget6;  
-attribute vec3 morphTarget7;  
-  
-#endif  
-#endif  
-```  
-  
-```ts  
-#ifdef USE_SKINNING  
-attribute vec4 skinIndex;  
-attribute vec4 skinWeight;  
-#endif  
-```  
-  
-```ts  
-#ifdef USE_INSTANCING  
-// Note that modelViewMatrix is not set when rendering an instanced model,  
-// but can be calculated from viewMatrix * modelMatrix.  
-//  
-// Basic Usage:  
-// gl_Position = projectionMatrix * viewMatrix * modelMatrix * instanceMatrix
-* vec4(position, 1.0);  
-attribute mat4 instanceMatrix;  
-#endif  
+#ifdef USE_INSTANCING // Note that modelViewMatrix is not set when rendering
+an instanced model, // but can be calculated from viewMatrix * modelMatrix. //
+// Basic Usage: // gl_Position = projectionMatrix * viewMatrix * modelMatrix *
+instanceMatrix * vec4(position, 1.0); attribute mat4 instanceMatrix; #endif  
 ```  
 
 ### Fragment shader:
 
   
 ```ts  
-uniform mat4 viewMatrix;  
-uniform vec3 cameraPosition;  
+uniform mat4 viewMatrix; uniform vec3 cameraPosition;  
 ```  
 
 ## Constructor
 
-### [name]( [param:WebGLRenderer renderer], [param:String cacheKey],
-[param:Object parameters] )
+###  function WebGLProgram( renderer: WebGLRenderer, cacheKey: String,
+parameters: Object ): void;
 
 For parameters see [page:WebGLRenderer WebGLRenderer].
 
 ## Properties
 
-### <br/> String name; <br/>
+###  String name;
 
 The name of the respective shader program.
 
-### <br/> String id; <br/>
+###  String id;
 
 The identifier of this instance.
 
-### <br/> String cacheKey; <br/>
+###  String cacheKey;
 
-This key enables the reusability of a single [name] for different materials.
+This key enables the reusability of a single WebGLProgram for different
+materials.
 
-### <br/> Integer usedTimes; <br/>
+###  Integer usedTimes;
 
 How many times this instance is used for rendering render items.
 
-### <br/> Object program; <br/>
+###  Object program;
 
 The actual shader program.
 
-### <br/> WebGLShader vertexShader; <br/>
+###  WebGLShader vertexShader;
 
 The vertex shader.
 
-### <br/> WebGLShader fragmentShader; <br/>
+###  WebGLShader fragmentShader;
 
 The fragment shader.
 
 ## Methods
 
-### [method:Object getUniforms]()
+###  function getUniforms( ): Object;
 
 Returns a name-value mapping of all active uniform locations.
 
-### [method:Object getAttributes]()
+###  function getAttributes( ): Object;
 
 Returns a name-value mapping of all active vertex attribute locations.
 
-### [method:undefined destroy]()
+###  function destroy( ): undefined;
 
-Destroys an instance of [name].
+Destroys an instance of WebGLProgram.
 
 ## Source
 

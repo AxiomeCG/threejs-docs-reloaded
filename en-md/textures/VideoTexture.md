@@ -1,6 +1,6 @@
 [page:Texture] →
 
-# [name]
+# VideoTexture
 
 Creates a texture for use with a video.
 
@@ -11,9 +11,9 @@ Instead, call [page:.dispose]() on the texture and instantiate a new one.
 
   
 ```ts  
-// assuming you have created a HTML video element with id="video"  
-const video = document.getElementById( 'video' );  
-const texture = new THREE.VideoTexture( video );  
+// assuming you have created a HTML video element with id="video" const video
+= document.getElementById( 'video' ); const texture = new THREE.VideoTexture(
+video );  
 ```  
 
 ## Examples
@@ -27,10 +27,9 @@ equirectangular]
 
 ## Constructor
 
-###  [name]( [param:Video video], [param:Constant mapping], [param:Constant
-wrapS], [param:Constant wrapT], [param:Constant magFilter], [param:Constant
-minFilter], [param:Constant format], [param:Constant type], [param:Number
-anisotropy] )
+###  function VideoTexture( video: Video, mapping: Constant, wrapS: Constant,
+wrapT: Constant, magFilter: Constant, minFilter: Constant, format: Constant,
+type: Constant, anisotropy: Number ): void;
 
 [page:Video video] -- The video element to use as the texture.  
 [page:Constant mapping] -- How the image is applied to the object. An object
@@ -65,15 +64,15 @@ maximum valid anisotropy value for the GPU; this value is usually a power of
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean generateMipmaps; <br/>
+###  Boolean generateMipmaps;
 
 Whether to generate mipmaps. `false` by default.
 
-### <br/> Boolean isVideoTexture; <br/>
+###  Boolean isVideoTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type VideoTexture.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 You will not need to set this manually here as it is handled by the
 [page:VideoTexture.update update]() method.
@@ -82,7 +81,7 @@ You will not need to set this manually here as it is handled by the
 
 See the base [page:Texture Texture] class for common methods.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 This is called automatically and sets [page:VideoTexture.needsUpdate
 .needsUpdate] to `true` every time a new frame is available.

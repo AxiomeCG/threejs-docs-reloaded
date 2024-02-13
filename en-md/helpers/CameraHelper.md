@@ -1,20 +1,19 @@
 [page:Object3D] → [page:Line] → [page:LineSegments] →
 
-# [name]
+# CameraHelper
 
 This helps with visualizing what a camera contains in its frustum. It
 visualizes the frustum of a camera using a [page:LineSegments].  
   
-[name] must be a child of the scene.
+CameraHelper must be a child of the scene.
 
 ## Code Example
 
   
 ```ts  
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth /
-window.innerHeight, 0.1, 1000 );  
-const helper = new THREE.CameraHelper( camera );  
-scene.add( helper );  
+window.innerHeight, 0.1, 1000 );const helper = new THREE.CameraHelper( camera
+);scene.add( helper );  
 ```  
 
 ## Examples
@@ -24,7 +23,7 @@ scene.add( helper );
 
 ## Constructor
 
-### [name]( [param:Camera camera] )
+###  function CameraHelper( camera: Camera ): void;
 
 [page:Camera camera] -- The camera to visualize.  
   
@@ -34,19 +33,19 @@ This create a new [Name] for the specified camera.
 
 See the base [page:LineSegments] class for common properties.
 
-### <br/> Camera camera; <br/>
+###  Camera camera;
 
 The camera being visualized.
 
-### <br/> Object pointMap; <br/>
+###  Object pointMap;
 
 This contains the points used to visualize the camera.
 
-### <br/> Object matrix; <br/>
+###  Object matrix;
 
 Reference to the [page:Object3D.matrixWorld camera.matrixWorld].
 
-### <br/> Object matrixAutoUpdate; <br/>
+###  Object matrixAutoUpdate;
 
 See [page:Object3D.matrixAutoUpdate]. Set to `false` here as the helper is
 using the camera's [page:Object3D.matrixWorld matrixWorld].
@@ -55,17 +54,17 @@ using the camera's [page:Object3D.matrixWorld matrixWorld].
 
 See the base [page:LineSegments] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### <br/> function setColors( frustum: Color, cone: Color, up: Color, target:
-Color, cross: Color ): setColors; <br/>
+###  function setColors( frustum: Color, cone: Color, up: Color, target:
+Color, cross: Color ): this;
 
 Defines the colors of the helper.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the helper based on the projectionMatrix of the camera.
 

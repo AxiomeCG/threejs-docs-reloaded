@@ -4,35 +4,28 @@
 
   
 ```ts  
-THREE.LoopOnce  
-THREE.LoopRepeat  
-THREE.LoopPingPong  
+THREE.LoopOnceTHREE.LoopRepeatTHREE.LoopPingPong  
 ```  
 
 ## Interpolation Modes
 
   
 ```ts  
-THREE.InterpolateDiscrete  
-THREE.InterpolateLinear  
-THREE.InterpolateSmooth  
+THREE.InterpolateDiscreteTHREE.InterpolateLinearTHREE.InterpolateSmooth  
 ```  
 
 ## Ending Modes
 
   
 ```ts  
-THREE.ZeroCurvatureEnding  
-THREE.ZeroSlopeEnding  
-THREE.WrapAroundEnding  
+THREE.ZeroCurvatureEndingTHREE.ZeroSlopeEndingTHREE.WrapAroundEnding  
 ```  
 
 ## Animation Blend Modes
 
   
 ```ts  
-THREE.NormalAnimationBlendMode  
-THREE.AdditiveAnimationBlendMode  
+THREE.NormalAnimationBlendModeTHREE.AdditiveAnimationBlendMode  
 ```  
 
 ## Source

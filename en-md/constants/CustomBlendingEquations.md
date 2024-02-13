@@ -8,11 +8,10 @@ and Destination Factor.
 
   
 ```ts  
-const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );  
-material.blending = THREE.CustomBlending;  
-material.blendEquation = THREE.AddEquation; //default  
-material.blendSrc = THREE.SrcAlphaFactor; //default  
-material.blendDst = THREE.OneMinusSrcAlphaFactor; //default  
+const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+material.blending = THREE.CustomBlending; material.blendEquation =
+THREE.AddEquation; //default material.blendSrc = THREE.SrcAlphaFactor;
+//default material.blendDst = THREE.OneMinusSrcAlphaFactor; //default  
 ```  
 
 ## Examples
@@ -23,34 +22,26 @@ material.blendDst = THREE.OneMinusSrcAlphaFactor; //default
 
   
 ```ts  
-THREE.AddEquation  
-THREE.SubtractEquation  
-THREE.ReverseSubtractEquation  
-THREE.MinEquation  
-THREE.MaxEquation  
+THREE.AddEquation THREE.SubtractEquation THREE.ReverseSubtractEquation
+THREE.MinEquation THREE.MaxEquation  
 ```  
 
 ## Source Factors
 
   
 ```ts  
-THREE.ZeroFactor  
-THREE.OneFactor  
-THREE.SrcColorFactor  
-THREE.OneMinusSrcColorFactor  
-THREE.SrcAlphaFactor  
-THREE.OneMinusSrcAlphaFactor  
-THREE.DstAlphaFactor  
-THREE.OneMinusDstAlphaFactor  
-THREE.DstColorFactor  
-THREE.OneMinusDstColorFactor  
-THREE.SrcAlphaSaturateFactor  
+THREE.ZeroFactor THREE.OneFactor THREE.SrcColorFactor
+THREE.OneMinusSrcColorFactor THREE.SrcAlphaFactor THREE.OneMinusSrcAlphaFactor
+THREE.DstAlphaFactor THREE.OneMinusDstAlphaFactor THREE.DstColorFactor
+THREE.OneMinusDstColorFactor THREE.SrcAlphaSaturateFactor  
 ```  
 
 ## Destination Factors
 
 All of the Source Factors are valid as Destination Factors, except for  
-```ts THREE.SrcAlphaSaturateFactor ```  
+```ts  
+THREE.SrcAlphaSaturateFactor  
+```  
 
 ## Source
 

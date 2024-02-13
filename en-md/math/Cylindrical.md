@@ -1,11 +1,11 @@
-# [name]
+# Cylindrical
 
 A point's [link:https://en.wikipedia.org/wiki/Cylindrical_coordinate_system
 cylindrical coordinates].
 
 ## Constructor
 
-###  [name]( [param:Float radius], [param:Float theta], [param:Float y] )
+###  function Cylindrical( radius: Float, theta: Float, y: Float ): void;
 
 [page:Float radius] - distance from the origin to a point in the x-z plane.
 Default is `1.0`.  
@@ -15,36 +15,35 @@ radians from the positive z-axis. Default is `0`.
 
 ## Properties
 
-### <br/> Float radius; <br/>
+###  Float radius;
 
-### <br/> Float theta; <br/>
+###  Float theta;
 
-### <br/> Float y; <br/>
+###  Float y;
 
 ## Methods
 
-### [method:Cylindrical clone]()
+###  function clone( ): Cylindrical;
 
 Returns a new cylindrical with the same [page:.radius radius], [page:.theta
 theta] and [page:.y y] properties as this one.
 
-### <br/> function copy( other: Cylindrical ): copy; <br/>
+###  function copy( other: Cylindrical ): this;
 
 Copies the values of the passed Cylindrical's [page:.radius radius],
 [page:.theta theta] and [page:.y y] properties to this cylindrical.
 
-### <br/> function set( radius: Float, theta: Float, y: Float ): set; <br/>
+###  function set( radius: Float, theta: Float, y: Float ): this;
 
 Sets values of this cylindrical's [page:.radius radius], [page:.theta theta]
 and [page:.y y] properties.
 
-### <br/> function setFromVector3( vec3: Vector3 ): setFromVector3; <br/>
+###  function setFromVector3( vec3: Vector3 ): this;
 
 Sets values of this cylindrical's [page:.radius radius], [page:.theta theta]
 and [page:.y y] properties from the [page:Vector3 Vector3].
 
-### <br/> function setFromCartesianCoords( x: Float, y: Float, z: Float ):
-setFromCartesianCoords; <br/>
+###  function setFromCartesianCoords( x: Float, y: Float, z: Float ): this;
 
 Sets values of this cylindrical's [page:.radius radius], [page:.theta theta]
 and [page:.y y] properties from Cartesian coordinates.

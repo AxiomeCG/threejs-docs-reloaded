@@ -1,45 +1,45 @@
-# [name]
+# Loader
 
 Base class for implementing loaders.
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function Loader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].
 
-Creates a new [name].
+Creates a new Loader.
 
 ## Properties
 
-### <br/> String crossOrigin; <br/>
+###  String crossOrigin;
 
 The crossOrigin string to implement CORS for loading the url from a different
 domain that allows CORS. Default is `anonymous`.
 
-### <br/> Boolean withCredentials; <br/>
+###  Boolean withCredentials;
 
 Whether the XMLHttpRequest uses credentials. See [page:.setWithCredentials].
 Default is `false`.
 
-### <br/> LoadingManager manager; <br/>
+###  LoadingManager manager;
 
 The [page:LoadingManager loadingManager] the loader is using. Default is
 [page:DefaultLoadingManager].
 
-### <br/> String path; <br/>
+###  String path;
 
 The base path from which the asset will be loaded. Default is the empty
 string.
 
-### <br/> String resourcePath; <br/>
+###  String resourcePath;
 
 The base path from which additional resources like textures will be loaded.
 Default is the empty string.
 
-### <br/> Object requestHeader; <br/>
+###  Object requestHeader;
 
 The [link:https://developer.mozilla.org/en-US/docs/Glossary/Request_header
 request header] used in HTTP request. See [page:.setRequestHeader]. Default is
@@ -47,13 +47,12 @@ empty object.
 
 ## Methods
 
-### [method:undefined load]()
+###  function load( ): undefined;
 
 This method needs to be implement by all concrete loaders. It holds the logic
 for loading the asset from the backend.
 
-###  [method:Promise loadAsync]( [param:String url], [param:Function
-onProgress] )
+###  function loadAsync( url: String, onProgress: Function ): Promise;
 
 [page:String url] — A string containing the path/URL of the file to be loaded.  
 [page:Function onProgress] (optional) — A function to be called while the
@@ -73,19 +72,17 @@ Promise.resolve] and [page:Function onError] is handled by
 US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject
 Promise.reject].
 
-### [method:undefined parse]()
+###  function parse( ): undefined;
 
 This method needs to be implement by all concrete loaders. It holds the logic
 for parsing the asset into three.js entities.
 
-### <br/> function setCrossOrigin( crossOrigin: String ): setCrossOrigin;
-<br/>
+###  function setCrossOrigin( crossOrigin: String ): this;
 
 [page:String crossOrigin] — The crossOrigin string to implement CORS for
 loading the url from a different domain that allows CORS.
 
-### <br/> function setWithCredentials( value: Boolean? ): setWithCredentials;
-<br/>
+###  function setWithCredentials( value: Boolean ): this;
 
 Whether the XMLHttpRequest uses credentials such as cookies, authorization
 headers or TLS client certificates. See
@@ -95,18 +92,16 @@ XMLHttpRequest.withCredentials].
 Note that this has no effect if you are loading files locally or from the same
 domain.
 
-### <br/> function setPath( path: String ): setPath; <br/>
+###  function setPath( path: String ): this;
 
 [page:String path] — Set the base path for the asset.
 
-### <br/> function setResourcePath( resourcePath: String ): setResourcePath;
-<br/>
+###  function setResourcePath( resourcePath: String ): this;
 
 [page:String resourcePath] — Set the base path for dependent resources like
 textures.
 
-### <br/> function setRequestHeader( requestHeader: Object ):
-setRequestHeader; <br/>
+###  function setRequestHeader( requestHeader: Object ): this;
 
 [page:Object requestHeader] - key: The name of the header whose value is to be
 set. value: The value to set as the body of the header.  

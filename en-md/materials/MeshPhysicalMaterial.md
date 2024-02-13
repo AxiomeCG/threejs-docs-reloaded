@@ -1,14 +1,14 @@
 [page:Material] → [page:MeshStandardMaterial] →
 
-# [name]
+# MeshPhysicalMaterial
 
 An extension of the [page:MeshStandardMaterial], providing more advanced
 physically-based rendering properties:
 
-  * **Clearcoat:** Some materials — like car paints, carbon fiber, and wet surfaces — require a clear, reflective layer on top of another layer that may be irregular or rough. Clearcoat approximates this effect, without the need for a separate transparent surface. 
-  * **Physically-based transparency:** One limitation of [page:Material.opacity .opacity] is that highly transparent materials are less reflective. Physically-based [page:.transmission] provides a more realistic option for thin, transparent surfaces like glass. 
-  * **Advanced reflectivity:** More flexible reflectivity for non-metallic materials. 
-  * **Sheen:** Can be used for representing cloth and fabric materials. 
+  *  **Clearcoat:** Some materials — like car paints, carbon fiber, and wet surfaces — require a clear, reflective layer on top of another layer that may be irregular or rough. Clearcoat approximates this effect, without the need for a separate transparent surface.
+  *  **Physically-based transparency:** One limitation of [page:Material.opacity .opacity] is that highly transparent materials are less reflective. Physically-based [page:.transmission] provides a more realistic option for thin, transparent surfaces like glass.
+  *  **Advanced reflectivity:** More flexible reflectivity for non-metallic materials.
+  *  **Sheen:** Can be used for representing cloth and fabric materials.
 
 As a result of these complex shading features, MeshPhysicalMaterial has a
 higher performance cost, per pixel, than other three.js materials. Most
@@ -25,7 +25,7 @@ transmission]
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function MeshPhysicalMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -41,128 +41,125 @@ as a hexadecimal string and is `0xffffff` (white) by default.
 See the base [page:Material] and [page:MeshStandardMaterial] classes for
 common properties.
 
-### <br/> Color attenuationColor; <br/>
+###  Color attenuationColor;
 
 The color that white light turns into due to absorption when reaching the
 attenuation distance. Default is `white` (0xffffff).
 
-### <br/> Float attenuationDistance; <br/>
+###  Float attenuationDistance;
 
 Density of the medium given as the average distance that light travels in the
 medium before interacting with a particle. The value is given in world space
 units, and must be greater than zero. Default is `Infinity`.
 
-### <br/> Float clearcoat; <br/>
+###  Float clearcoat;
 
 Represents the intensity of the clear coat layer, from `0.0` to `1.0`. Use
 clear coat related properties to enable multilayer materials that have a thin
 translucent layer over the base layer. Default is `0.0`.
 
-### <br/> Texture clearcoatMap; <br/>
+###  Texture clearcoatMap;
 
 The red channel of this texture is multiplied against [page:.clearcoat], for
 per-pixel control over a coating's intensity. Default is `null`.
 
-### <br/> Texture clearcoatNormalMap; <br/>
+###  Texture clearcoatNormalMap;
 
 Can be used to enable independent normals for the clear coat layer. Default is
 `null`.
 
-### <br/> Vector2 clearcoatNormalScale; <br/>
+###  Vector2 clearcoatNormalScale;
 
 How much [page:.clearcoatNormalMap] affects the clear coat layer, from `(0,0)`
 to `(1,1)`. Default is `(1,1)`.
 
-### <br/> Float clearcoatRoughness; <br/>
+###  Float clearcoatRoughness;
 
 Roughness of the clear coat layer, from `0.0` to `1.0`. Default is `0.0`.
 
-### <br/> Texture clearcoatRoughnessMap; <br/>
+###  Texture clearcoatRoughnessMap;
 
 The green channel of this texture is multiplied against
 [page:.clearcoatRoughness], for per-pixel control over a coating's roughness.
 Default is `null`.
 
-### <br/> Object defines; <br/>
+###  Object defines;
 
 An object of the form:  
 ```ts  
-{  
-'STANDARD': '',  
-'PHYSICAL': '',  
-};  
+{ 'STANDARD': '', 'PHYSICAL': '', };  
 ```  
 This is used by the [page:WebGLRenderer] for selecting shaders.
 
-### <br/> Float ior; <br/>
+###  Float ior;
 
 Index-of-refraction for non-metallic materials, from `1.0` to `2.333`. Default
 is `1.5`.  
 
-### <br/> Float reflectivity; <br/>
+###  Float reflectivity;
 
 Degree of reflectivity, from `0.0` to `1.0`. Default is `0.5`, which
 corresponds to an index-of-refraction of 1.5.  
 This models the reflectivity of non-metallic materials. It has no effect when
 [page:MeshStandardMaterial.metalness metalness] is `1.0`
 
-### <br/> Float sheen; <br/>
+###  Float sheen;
 
 The intensity of the sheen layer, from `0.0` to `1.0`. Default is `0.0`.
 
-### <br/> Float sheenRoughness; <br/>
+###  Float sheenRoughness;
 
 Roughness of the sheen layer, from `0.0` to `1.0`. Default is `1.0`.
 
-### <br/> Texture sheenRoughnessMap; <br/>
+###  Texture sheenRoughnessMap;
 
 The alpha channel of this texture is multiplied against
 [page:.sheenRoughness], for per-pixel control over sheen roughness. Default is
 `null`.
 
-### <br/> Color sheenColor; <br/>
+###  Color sheenColor;
 
 The sheen tint. Default is `0xffffff`, white.
 
-### <br/> Texture sheenColorMap; <br/>
+###  Texture sheenColorMap;
 
 The RGB channels of this texture are multiplied against [page:.sheenColor],
 for per-pixel control over sheen tint. Default is `null`.
 
-### <br/> Float specularIntensity; <br/>
+###  Float specularIntensity;
 
 A float that scales the amount of specular reflection for non-metals only.
 When set to zero, the model is effectively Lambertian. From `0.0` to `1.0`.
 Default is `0.0`.
 
-### <br/> Texture specularIntensityMap; <br/>
+###  Texture specularIntensityMap;
 
 The alpha channel of this texture is multiplied against
 [page:.specularIntensity], for per-pixel control over specular intensity.
 Default is `null`.
 
-### <br/> Color specularColor; <br/>
+###  Color specularColor;
 
 A [page:Color] that tints the specular reflection at normal incidence for non-
 metals only. Default is `0xffffff`, white.
 
-### <br/> Texture specularColorMap; <br/>
+###  Texture specularColorMap;
 
 The RGB channels of this texture are multiplied against [page:.specularColor],
 for per-pixel control over specular color. Default is `null`.
 
-### <br/> Float thickness; <br/>
+###  Float thickness;
 
 The thickness of the volume beneath the surface. The value is given in the
 coordinate space of the mesh. If the value is `0` the material is thin-walled.
 Otherwise the material is a volume boundary. Default is `0`.
 
-### <br/> Texture thicknessMap; <br/>
+###  Texture thicknessMap;
 
 A texture that defines the thickness, stored in the G channel. This will be
 multiplied by [page:.thickness]. Default is `null`.
 
-### <br/> Float transmission; <br/>
+###  Float transmission;
 
 Degree of transmission (or optical transparency), from `0.0` to `1.0`. Default
 is `0.0`.  
@@ -172,7 +169,7 @@ property can be used to model these materials.
 When transmission is non-zero, [page:Material.opacity opacity] should be set
 to `0`.
 
-### <br/> Texture transmissionMap; <br/>
+###  Texture transmissionMap;
 
 The red channel of this texture is multiplied against [page:.transmission],
 for per-pixel control over optical transparency. Default is `null`.

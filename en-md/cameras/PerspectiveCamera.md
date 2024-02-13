@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Camera] →
 
-# [name]
+# PerspectiveCamera
 
 Camera that uses [link:https://en.wikipedia.org/wiki/Perspective_(graphical)
 perspective projection].  
@@ -12,7 +12,7 @@ the most common projection mode used for rendering a 3D scene.
 
   
 ```ts  
-const camera = new THREE.PerspectiveCamera( 45, width / height, 1, 1000 );  
+const camera = new THREE.PerspectiveCamera( 45, width / height, 1, 1000 );
 scene.add( camera );  
 ```  
 
@@ -26,8 +26,8 @@ scene.add( camera );
 
 ## Constructor
 
-### [name]( [param:Number fov], [param:Number aspect], [param:Number near],
-[param:Number far] )
+###  function PerspectiveCamera( fov: Number, aspect: Number, near: Number,
+far: Number ): void;
 
 fov — Camera frustum vertical field of view.  
 aspect — Camera frustum aspect ratio.  
@@ -44,43 +44,43 @@ Note that after making changes to most of these properties you will have to
 call [page:PerspectiveCamera.updateProjectionMatrix .updateProjectionMatrix]
 for the changes to take effect.
 
-### <br/> Float aspect; <br/>
+###  Float aspect;
 
 Camera frustum aspect ratio, usually the canvas width / canvas height. Default
 is `1` (square canvas).
 
-### <br/> Float far; <br/>
+###  Float far;
 
 Camera frustum far plane. Default is `2000`.  
   
 Must be greater than the current value of [page:.near near] plane.
 
-### <br/> Float filmGauge; <br/>
+###  Float filmGauge;
 
 Film size used for the larger axis. Default is `35` (millimeters). This
 parameter does not influence the projection matrix unless .filmOffset is set
 to a nonzero value.
 
-### <br/> Float filmOffset; <br/>
+###  Float filmOffset;
 
 Horizontal off-center offset in the same unit as `.filmGauge`. Default is `0`.
 
-### <br/> Float focus; <br/>
+###  Float focus;
 
 Object distance used for stereoscopy and depth-of-field effects. This
 parameter does not influence the projection matrix unless a
 [page:StereoCamera] is being used. Default is `10`.
 
-### <br/> Float fov; <br/>
+###  Float fov;
 
 Camera frustum vertical field of view, from bottom to top of view, in degrees.
 Default is `50`.
 
-### <br/> Boolean isPerspectiveCamera; <br/>
+###  Boolean isPerspectiveCamera;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type PerspectiveCamera.
 
-### <br/> Float near; <br/>
+###  Float near;
 
 Camera frustum near plane. Default is `0.1`.  
   
@@ -88,13 +88,13 @@ The valid range is greater than `0` and less than the current value of the
 [page:.far far] plane. Note that, unlike for the [page:OrthographicCamera],
 `0` is _not_ a valid value for a PerspectiveCamera's near plane.
 
-### <br/> Object view; <br/>
+###  Object view;
 
 Frustum window specification or null. This is set using the
 [page:PerspectiveCamera.setViewOffset .setViewOffset] method and cleared using
 [page:PerspectiveCamera.clearViewOffset .clearViewOffset].
 
-### <br/> number zoom; <br/>
+###  number zoom;
 
 Gets or sets the zoom factor of the camera. Default is `1`.
 
@@ -102,39 +102,38 @@ Gets or sets the zoom factor of the camera. Default is `1`.
 
 See the base [page:Camera] class for common methods.
 
-### [method:undefined clearViewOffset]()
+###  function clearViewOffset( ): undefined;
 
 Removes any offset set by the [page:PerspectiveCamera.setViewOffset
 .setViewOffset] method.
 
-### [method:Float getEffectiveFOV]()
+###  function getEffectiveFOV( ): Float;
 
 Returns the current vertical field of view angle in degrees considering .zoom.
 
-### [method:Float getFilmHeight]()
+###  function getFilmHeight( ): Float;
 
 Returns the height of the image on the film. If .aspect is less than or equal
 to one (portrait format), the result equals .filmGauge.
 
-### [method:Float getFilmWidth]()
+###  function getFilmWidth( ): Float;
 
 Returns the width of the image on the film. If .aspect is greater than or
 equal to one (landscape format), the result equals .filmGauge.
 
-### [method:Float getFocalLength]()
+###  function getFocalLength( ): Float;
 
 Returns the focal length of the current .fov in respect to .filmGauge.
 
-### [method:undefined setFocalLength]( [param:Float focalLength] )
+###  function setFocalLength( focalLength: Float ): undefined;
 
 Sets the FOV by focal length in respect to the current
 [page:PerspectiveCamera.filmGauge .filmGauge].  
   
 By default, the focal length is specified for a 35mm (full frame) camera.
 
-### [method:undefined setViewOffset]( [param:Float fullWidth], [param:Float
-fullHeight], [param:Float x], [param:Float y], [param:Float width],
-[param:Float height] )
+###  function setViewOffset( fullWidth: Float, fullHeight: Float, x: Float, y:
+Float, width: Float, height: Float ): undefined;
 
 fullWidth — full width of multiview setup  
 fullHeight — full height of multiview setup  
@@ -151,42 +150,28 @@ monitors are in grid like this:
 
     
     
-    +---+---+---+
-    | A | B | C |
-    +---+---+---+
-    | D | E | F |
-    +---+---+---+
-    		
+    +---+---+---+| A | B | C |+---+---+---+| D | E | F |+---+---+---+
 
 then for each monitor you would call it like this:  
   
-```ts const w = 1920;  
-const h = 1080;  
-const fullWidth = w * 3;  
-const fullHeight = h * 2;  
-  
-// A  
-camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 0, w, h );  
-// B  
-camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 0, w, h );  
-// C  
-camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 0, w, h );  
-// D  
-camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 1, w, h );  
-// E  
-camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );  
-// F  
-camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h );  
+```ts  
+const w = 1920;const h = 1080;const fullWidth = w * 3;const fullHeight = h *
+2;// Acamera.setViewOffset( fullWidth, fullHeight, w * 0, h * 0, w, h );//
+Bcamera.setViewOffset( fullWidth, fullHeight, w * 1, h * 0, w, h );//
+Ccamera.setViewOffset( fullWidth, fullHeight, w * 2, h * 0, w, h );//
+Dcamera.setViewOffset( fullWidth, fullHeight, w * 0, h * 1, w, h );//
+Ecamera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );//
+Fcamera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h );  
 ```  
 
 Note there is no reason monitors have to be the same size or in a grid.
 
-### [method:undefined updateProjectionMatrix]()
+###  function updateProjectionMatrix( ): undefined;
 
 Updates the camera projection matrix. Must be called after any change of
 parameters.
 
-### [method:Object toJSON]([param:Object meta])
+###  function toJSON( meta: Object ): Object;
 
 meta -- object containing metadata such as textures or images in objects'
 descendants.  

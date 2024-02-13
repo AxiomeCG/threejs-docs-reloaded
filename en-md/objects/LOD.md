@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# LOD
 
 Level of Detail - show meshes with more or less geometry based on distance
 from the camera.  
@@ -14,16 +14,10 @@ and one for close up (high detail).
 
   
 ```ts  
-const lod = new THREE.LOD();  
-  
-//Create spheres with 3 levels of detail and create new LOD levels for them  
-for( let i = 0; i < 3; i++ ) {  
-const geometry = new THREE.IcosahedronGeometry( 10, 3 - i )  
-const mesh = new THREE.Mesh( geometry, material );  
-lod.addLevel( mesh, i * 75 );  
-}  
-  
-scene.add( lod );  
+const lod = new THREE.LOD(); //Create spheres with 3 levels of detail and
+create new LOD levels for them for( let i = 0; i < 3; i++ ) { const geometry =
+new THREE.IcosahedronGeometry( 10, 3 - i ) const mesh = new THREE.Mesh(
+geometry, material ); lod.addLevel( mesh, i * 75 ); } scene.add( lod );  
 ```  
 
 ## Examples
@@ -32,25 +26,25 @@ scene.add( lod );
 
 ## Constructor
 
-### [name]( )
+###  function LOD( ): void;
 
-Creates a new [name].
+Creates a new LOD.
 
 ## Properties
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Boolean autoUpdate; <br/>
+###  Boolean autoUpdate;
 
 Whether the LOD object is updated automatically by the renderer per frame or
 not. If set to false, you have to call [page:LOD.update]() in the render loop
 by yourself. Default is true.
 
-### <br/> Boolean isLOD; <br/>
+###  Boolean isLOD;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type LOD.
 
-### <br/> Array levels; <br/>
+###  Array levels;
 
 An array of [page:Object level] objects  
   
@@ -64,8 +58,8 @@ boundaries, as a fraction of distance.
 
 See the base [page:Object3D] class for common methods.
 
-### <br/> function addLevel( object: Object3D, distance: Float, hysteresis:
-Float ): addLevel; <br/>
+###  function addLevel( object: Object3D, distance: Float, hysteresis: Float
+): this;
 
 [page:Object3D object] - The [page:Object3D] to display at this level.  
 [page:Float distance] - The distance at which to display this level of detail.
@@ -76,30 +70,29 @@ boundaries, as a fraction of distance. Default `0.0`.
 Adds a mesh that will display at a certain distance and greater. Typically the
 further away the distance, the lower the detail on the mesh.
 
-### [method:LOD clone]()
+###  function clone( ): LOD;
 
 Returns a clone of this LOD object with its associated levels.
 
-### [method:Integer getCurrentLevel]()
+###  function getCurrentLevel( ): Integer;
 
 Get the currently active LOD level. As index of the levels array.
 
-### [method:Object3D getObjectForDistance]( [param:Float distance] )
+###  function getObjectForDistance( distance: Float ): Object3D;
 
 Get a reference to the first [page:Object3D] (mesh) that is greater than
 [page:Float distance].
 
-###  [method:undefined raycast]( [param:Raycaster raycaster], [param:Array
-intersects] )
+###  function raycast( raycaster: Raycaster, intersects: Array ): undefined;
 
 Get intersections between a casted [page:Ray] and this LOD.
 [page:Raycaster.intersectObject] will call this method.
 
-### [method:Object toJSON]( meta )
+###  function toJSON( ): Object;
 
 Create a JSON structure with details of this LOD object.
 
-### [method:undefined update]( [param:Camera camera] )
+###  function update( camera: Camera ): undefined;
 
 Set the visibility of each [page:levels level]'s [page:Object3D object] based
 on distance from the [page:Camera camera].

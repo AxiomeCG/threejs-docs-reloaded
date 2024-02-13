@@ -1,4 +1,4 @@
-# [name]
+# WebGLRenderTarget
 
 A [link:https://webglfundamentals.org/webgl/lessons/webgl-render-to-
 texture.html render target] is a buffer where the video card draws pixels for
@@ -8,8 +8,8 @@ it on the screen.
 
 ## Constructor
 
-###  [name]([param:Number width], [param:Number height], [param:Object
-options])
+###  function WebGLRenderTarget( width: Number, height: Number, options:
+Object ): void;
 
 [page:Float width] - The width of the renderTarget. Default is `1`.  
 [page:Float height] - The height of the renderTarget. Default is `1`.  
@@ -31,72 +31,72 @@ options:
 [page:Boolean stencilBuffer] - default is `false`.  
 [page:Number samples] - default is `0`.  
   
-Creates a new [name]
+Creates a new WebGLRenderTarget
 
 ## Properties
 
-### <br/> Boolean isWebGLRenderTarget; <br/>
+###  Boolean isWebGLRenderTarget;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type WebGLRenderTarget.
 
-### <br/> number width; <br/>
+###  number width;
 
 The width of the render target.
 
-### <br/> number height; <br/>
+###  number height;
 
 The height of the render target.
 
-### <br/> Vector4 scissor; <br/>
+###  Vector4 scissor;
 
 A rectangular area inside the render target's viewport. Fragments that are
 outside the area will be discarded.
 
-### <br/> Boolean scissorTest; <br/>
+###  Boolean scissorTest;
 
 Indicates whether the scissor test is active or not.
 
-### <br/> Vector4 viewport; <br/>
+###  Vector4 viewport;
 
 The viewport of this render target.
 
-### <br/> Texture texture; <br/>
+###  Texture texture;
 
 This texture instance holds the rendered pixels. Use it as input for further
 processing.
 
-### <br/> Boolean depthBuffer; <br/>
+###  Boolean depthBuffer;
 
 Renders to the depth buffer. Default is true.
 
-### <br/> Boolean stencilBuffer; <br/>
+###  Boolean stencilBuffer;
 
 Renders to the stencil buffer. Default is false.
 
-### <br/> DepthTexture depthTexture; <br/>
+###  DepthTexture depthTexture;
 
 If set, the scene depth will be rendered to this texture. Default is null.
 
-### <br/> Number samples; <br/>
+###  Number samples;
 
 Defines the count of MSAA samples. Can only be used with WebGL 2. Default is
 `0`.
 
 ## Methods
 
-###  [method:undefined setSize]( [param:Number width], [param:Number height] )
+###  function setSize( width: Number, height: Number ): undefined;
 
 Sets the size of the render target.
 
-### [method:WebGLRenderTarget clone]()
+###  function clone( ): WebGLRenderTarget;
 
 Creates a copy of this render target.
 
-### <br/> function copy( source: WebGLRenderTarget ): copy; <br/>
+###  function copy( source: WebGLRenderTarget ): this;
 
 Adopts the settings of the given render target.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

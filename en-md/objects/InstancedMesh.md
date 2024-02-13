@@ -1,12 +1,12 @@
 [page:Mesh] →
 
-# [name]
+# InstancedMesh
 
-A special version of [page:Mesh] with instanced rendering support. Use [name]
-if you have to render a large number of objects with the same geometry and
-material but with different world transformations. The usage of [name] will
-help you to reduce the number of draw calls and thus improve the overall
-rendering performance in your application.
+A special version of [page:Mesh] with instanced rendering support. Use
+InstancedMesh if you have to render a large number of objects with the same
+geometry and material but with different world transformations. The usage of
+InstancedMesh will help you to reduce the number of draw calls and thus
+improve the overall rendering performance in your application.
 
 ## Examples
 
@@ -17,8 +17,8 @@ rendering performance in your application.
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Material material],
-[param:Integer count] )
+###  function InstancedMesh( geometry: BufferGeometry, material: Material,
+count: Integer ): void;
 
 [page:BufferGeometry geometry] - an instance of [page:BufferGeometry].  
 [page:Material material] - an instance of [page:Material]. Default is a new
@@ -29,64 +29,63 @@ rendering performance in your application.
 
 See the base [page:Mesh] class for common properties.
 
-### <br/> Box3 boundingBox; <br/>
+###  Box3 boundingBox;
 
-This bounding box encloses all instances of the [name]. Can be calculated with
-[page:.computeBoundingBox](). Default is `null`.
+This bounding box encloses all instances of the InstancedMesh. Can be
+calculated with [page:.computeBoundingBox](). Default is `null`.
 
-### <br/> Sphere boundingSphere; <br/>
+###  Sphere boundingSphere;
 
-This bounding sphere encloses all instances of the [name]. Can be calculated
-with [page:.computeBoundingSphere](). Default is `null`.
+This bounding sphere encloses all instances of the InstancedMesh. Can be
+calculated with [page:.computeBoundingSphere](). Default is `null`.
 
-### <br/> Integer count; <br/>
+###  Integer count;
 
 The number of instances. The `count` value passed into the constructor
 represents the maximum number of instances of this mesh. You can change the
 number of instances at runtime to an integer value in the range [0, count].
 
 If you need more instances than the original count value, you have to create a
-new [name].
+new InstancedMesh.
 
-### <br/> InstancedBufferAttribute instanceColor; <br/>
+###  InstancedBufferAttribute instanceColor;
 
 Represents the colors of all instances. `null` by default. You have to set its
 [page:BufferAttribute.needsUpdate needsUpdate] flag to true if you modify
 instanced data via [page:.setColorAt]().
 
-### <br/> InstancedBufferAttribute instanceMatrix; <br/>
+###  InstancedBufferAttribute instanceMatrix;
 
 Represents the local transformation of all instances. You have to set its
 [page:BufferAttribute.needsUpdate needsUpdate] flag to true if you modify
 instanced data via [page:.setMatrixAt]().
 
-### <br/> Boolean isInstancedMesh; <br/>
+###  Boolean isInstancedMesh;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type InstancedMesh.
 
 ## Methods
 
 See the base [page:Mesh] class for common methods.
 
-### [method:undefined computeBoundingBox]()
+###  function computeBoundingBox( ): undefined;
 
 Computes the bounding box, updating [page:.boundingBox] attribute.  
 Bounding boxes aren't computed by default. They need to be explicitly
 computed, otherwise they are `null`.
 
-### [method:undefined computeBoundingSphere]()
+###  function computeBoundingSphere( ): undefined;
 
 Computes the bounding sphere, updating [page:.boundingSphere] attribute.  
 Bounding spheres aren't computed by default. They need to be explicitly
 computed, otherwise they are `null`.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-###  [method:undefined getColorAt]( [param:Integer index], [param:Color color]
-)
+###  function getColorAt( index: Integer, color: Color ): undefined;
 
 [page:Integer index]: The index of an instance. Values have to be in the range
 [0, count].
@@ -96,8 +95,7 @@ instance.
 
 Get the color of the defined instance.
 
-###  [method:undefined getMatrixAt]( [param:Integer index], [param:Matrix4
-matrix] )
+###  function getMatrixAt( index: Integer, matrix: Matrix4 ): undefined;
 
 [page:Integer index]: The index of an instance. Values have to be in the range
 [0, count].
@@ -107,8 +105,7 @@ matrix of the defined instance.
 
 Get the local transformation matrix of the defined instance.
 
-###  [method:undefined setColorAt]( [param:Integer index], [param:Color color]
-)
+###  function setColorAt( index: Integer, color: Color ): undefined;
 
 [page:Integer index]: The index of an instance. Values have to be in the range
 [0, count].
@@ -119,8 +116,7 @@ Sets the given color to the defined instance. Make sure you set
 [page:.instanceColor][page:BufferAttribute.needsUpdate .needsUpdate] to true
 after updating all the colors.
 
-###  [method:undefined setMatrixAt]( [param:Integer index], [param:Matrix4
-matrix] )
+###  function setMatrixAt( index: Integer, matrix: Matrix4 ): undefined;
 
 [page:Integer index]: The index of an instance. Values have to be in the range
 [0, count].

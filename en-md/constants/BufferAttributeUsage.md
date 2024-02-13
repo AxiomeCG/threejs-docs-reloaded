@@ -7,10 +7,10 @@ geometry buffer attribute will be used in order to optimize performance.
 
   
 ```ts  
-const geometry = new THREE.BufferGeometry();  
-const positionAttribute = new THREE.BufferAttribute( array, 3 , false );  
-positionAttribute.setUsage( THREE.DynamicDrawUsage );  
-geometry.setAttribute( 'position', positionAttribute );  
+const geometry = new THREE.BufferGeometry(); const positionAttribute = new
+THREE.BufferAttribute( array, 3 , false ); positionAttribute.setUsage(
+THREE.DynamicDrawUsage ); geometry.setAttribute( 'position', positionAttribute
+);  
 ```  
 
 ## Examples
@@ -22,17 +22,9 @@ geometry.setAttribute( 'position', positionAttribute );
 
   
 ```ts  
-THREE.StaticDrawUsage  
-THREE.DynamicDrawUsage  
-THREE.StreamDrawUsage  
-  
-THREE.StaticReadUsage  
-THREE.DynamicReadUsage  
-THREE.StreamReadUsage  
-  
-THREE.StaticCopyUsage  
-THREE.DynamicCopyUsage  
-THREE.StreamCopyUsage  
+THREE.StaticDrawUsage THREE.DynamicDrawUsage THREE.StreamDrawUsage
+THREE.StaticReadUsage THREE.DynamicReadUsage THREE.StreamReadUsage
+THREE.StaticCopyUsage THREE.DynamicCopyUsage THREE.StreamCopyUsage  
 ```  
 For more detailed information on each of these constants see
 [link:https://www.khronos.org/opengl/wiki/Buffer_Object#Buffer_Object_Usage

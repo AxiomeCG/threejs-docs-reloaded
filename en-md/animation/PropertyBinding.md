@@ -1,59 +1,57 @@
-# [name]
+# PropertyBinding
 
 This holds a reference to a real property in the scene graph; used internally.
 
 ## Constructor
 
-### [name]( [param:Object3D rootNode], path, parsedPath )
+###  function PropertyBinding( rootNode: Object3D ): void;
 
 \-- [page:Object3D rootNode]: -- path -- parsedPath (optional)
 
 ## Properties
 
-### <br/> Number path; <br/>
+###  Number path;
 
-### <br/> Number parsedPath; <br/>
+###  Number parsedPath;
 
-### <br/> Number node; <br/>
+###  Number node;
 
-### <br/> Number rootNode; <br/>
+###  Number rootNode;
 
-### <br/> Object BindingType; <br/>
+###  Object BindingType;
 
-### <br/> Object Versioning; <br/>
+###  Object Versioning;
 
-### <br/> Array GetterByBindingType; <br/>
+###  Array GetterByBindingType;
 
-### <br/> Array SetterByBindingTypeAndVersioning; <br/>
+###  Array SetterByBindingTypeAndVersioning;
 
 ## Methods
 
-### [method:undefined getValue]( [param:Array targetArray], [param:Number
-offset] )
+###  function getValue( targetArray: Array, offset: Number ): undefined;
 
-### [method:undefined setValue]( [param:Array sourceArray], [param:Number
-offset] )
+###  function setValue( sourceArray: Array, offset: Number ): undefined;
 
-### [method:undefined bind]( )
+###  function bind( ): undefined;
 
 Create getter / setter pair for a property in the scene graph. Used internally
 by [page:PropertyBinding.getValue getValue] and [page:PropertyBinding.setValue
 setValue].
 
-### [method:undefined unbind]( )
+###  function unbind( ): undefined;
 
 Unbind getter / setter pair for a property in the scene graph.
 
-### [method:Constructor Composite]( targetGroup, path, optionalParsedPath )
+###  function Composite( ): Constructor;
 
 Create a new Composite PropertyBinding.
 
-### [method:Constructor create]( root, path, parsedPath )
+###  function create( ): Constructor;
 
 Create a new Composite PropertyBinding (if root is an
 [page:AnimationObjectGroup]) or PropertyBinding.
 
-### [method:Constructor parseTrackName]( trackName )
+###  function parseTrackName( ): Constructor;
 
 Matches strings in the following forms:  
 \-- nodeName.property  
@@ -66,7 +64,7 @@ Matches strings in the following forms:
 \-- .bone[Armature.DEF_cog].position  
 \-- scene:helium_balloon_model:helium_balloon_model.position
 
-### [method:Constructor findNode]( root, nodeName )
+###  function findNode( ): Constructor;
 
 Find a node in a node tree or [page:Skeleton Skeleton].
 

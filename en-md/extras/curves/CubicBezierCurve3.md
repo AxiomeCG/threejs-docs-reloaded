@@ -1,8 +1,8 @@
 [page:Curve] →
 
-# [name]
+# CubicBezierCurve3
 
-Create a smooth 3d [cubic bezier
+Create a smooth 3d[cubic bezier
 curve](http://en.wikipedia.org/wiki/B%C3%A9zier_curve#mediaviewer/File:Bezier_curve.svg),
 defined by a start point, endpoint and two control points.
 
@@ -10,27 +10,18 @@ defined by a start point, endpoint and two control points.
 
   
 ```ts  
-const curve = new THREE.CubicBezierCurve3(  
-new THREE.Vector3( -10, 0, 0 ),  
-new THREE.Vector3( -5, 15, 0 ),  
-new THREE.Vector3( 20, 15, 0 ),  
-new THREE.Vector3( 10, 0, 0 )  
-);  
-  
-const points = curve.getPoints( 50 );  
-const geometry = new THREE.BufferGeometry().setFromPoints( points );  
-  
-const material = new THREE.LineBasicMaterial( { color: 0xff0000 } );  
-  
-// Create the final object to add to the scene  
-const curveObject = new THREE.Line( geometry, material );  
-  
+const curve = new THREE.CubicBezierCurve3( new THREE.Vector3( -10, 0, 0 ), new
+THREE.Vector3( -5, 15, 0 ), new THREE.Vector3( 20, 15, 0 ), new THREE.Vector3(
+10, 0, 0 ) ); const points = curve.getPoints( 50 ); const geometry = new
+THREE.BufferGeometry().setFromPoints( points ); const material = new
+THREE.LineBasicMaterial( { color: 0xff0000 } ); // Create the final object to
+add to the scene const curveObject = new THREE.Line( geometry, material );  
 ```  
 
 ## Constructor
 
-###  [name]( [param:Vector3 v0], [param:Vector3 v1], [param:Vector3 v2],
-[param:Vector3 v3] )
+###  function CubicBezierCurve3( v0: Vector3, v1: Vector3, v2: Vector3, v3:
+Vector3 ): void;
 
 [page:Vector3 v0] – The starting point.  
 [page:Vector3 v1] – The first control point.  
@@ -41,19 +32,19 @@ const curveObject = new THREE.Line( geometry, material );
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Vector3 v0; <br/>
+###  Vector3 v0;
 
 The starting point.
 
-### <br/> Vector3 v1; <br/>
+###  Vector3 v1;
 
 The first control point.
 
-### <br/> Vector3 v2; <br/>
+###  Vector3 v2;
 
 The second control point.
 
-### <br/> Vector3 v3; <br/>
+###  Vector3 v3;
 
 The ending point.
 

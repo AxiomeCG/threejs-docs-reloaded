@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# SphereGeometry
 
 A class for generating sphere geometries.
 
@@ -8,16 +8,16 @@ A class for generating sphere geometries.
 
   
 ```ts  
-const geometry = new THREE.SphereGeometry( 15, 32, 16 );  
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );  
-const sphere = new THREE.Mesh( geometry, material ); scene.add( sphere );  
+const geometry = new THREE.SphereGeometry( 15, 32, 16 ); const material = new
+THREE.MeshBasicMaterial( { color: 0xffff00 } ); const sphere = new THREE.Mesh(
+geometry, material ); scene.add( sphere );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float radius], [param:Integer widthSegments],
-[param:Integer heightSegments], [param:Float phiStart], [param:Float
-phiLength], [param:Float thetaStart], [param:Float thetaLength])
+###  function SphereGeometry( radius: Float, widthSegments: Integer,
+heightSegments: Integer, phiStart: Float, phiLength: Float, thetaStart: Float,
+thetaLength: Float ): void;
 
 radius — sphere radius. Default is `1`.  
 widthSegments — number of horizontal segments. Minimum value is `3`, and the
@@ -39,7 +39,7 @@ points in which we start (or end) calculating those vertices.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

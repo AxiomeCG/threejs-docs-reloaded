@@ -1,4 +1,4 @@
-# [name]
+# Clock
 
 Object for keeping track of time. This uses
 [link:https://developer.mozilla.org/en-US/docs/Web/API/Performance/now
@@ -8,56 +8,56 @@ Date.now].
 
 ## Constructor
 
-### [name]( [param:Boolean autoStart] )
+###  function Clock( autoStart: Boolean ): void;
 
 autoStart — (optional) whether to automatically start the clock when
 [page:.getDelta]() is called for the first time. Default is `true`.
 
 ## Properties
 
-### <br/> Boolean autoStart; <br/>
+###  Boolean autoStart;
 
 If set, starts the clock automatically when [page:.getDelta]() is called for
 the first time. Default is `true`.
 
-### <br/> Float startTime; <br/>
+###  Float startTime;
 
 Holds the time at which the clock's [page:Clock.start start] method was last
 called. Default is `0`.
 
-### <br/> Float oldTime; <br/>
+###  Float oldTime;
 
 Holds the time at which the clock's [page:Clock.start start],
 [page:.getElapsedTime]() or [page:.getDelta]() methods were last called.
 Default is `0`.
 
-### <br/> Float elapsedTime; <br/>
+###  Float elapsedTime;
 
 Keeps track of the total time that the clock has been running. Default is `0`.
 
-### <br/> Boolean running; <br/>
+###  Boolean running;
 
 Whether the clock is running or not. Default is `false`.
 
 ## Methods
 
-### [method:undefined start]()
+###  function start( ): undefined;
 
 Starts clock. Also sets the [page:.startTime] and [page:.oldTime] to the
 current time, sets [page:.elapsedTime] to `0` and [page:.running] to `true`.
 
-### [method:undefined stop]()
+###  function stop( ): undefined;
 
 Stops clock and sets [page:Clock.oldTime oldTime] to the current time.
 
-### [method:Float getElapsedTime]()
+###  function getElapsedTime( ): Float;
 
 Get the seconds passed since the clock started and sets [page:.oldTime] to the
 current time.  
 If [page:.autoStart] is `true` and the clock is not running, also starts the
 clock.
 
-### [method:Float getDelta]()
+###  function getDelta( ): Float;
 
 Get the seconds passed since the time [page:.oldTime] was set and sets
 [page:.oldTime] to the current time.  

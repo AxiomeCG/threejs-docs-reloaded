@@ -1,29 +1,21 @@
 [page:Texture] →
 
-# [name]
+# FramebufferTexture
 
 This class can only be used in combination with
 [page:WebGLRenderer.copyFramebufferToTexture]().
 
   
 ```ts  
-const pixelRatio = window.devicePixelRatio;  
-const textureSize = 128 * pixelRatio;  
-  
-// instantiate a framebuffer texture  
-const frameTexture = new FramebufferTexture( textureSize, textureSize );  
-  
-// calculate start position for copying part of the frame data  
-const vector = new Vector2();  
-vector.x = ( window.innerWidth * pixelRatio / 2 ) - ( textureSize / 2 );  
-vector.y = ( window.innerHeight * pixelRatio / 2 ) - ( textureSize / 2 );  
-  
-// render the scene  
-renderer.clear();  
-renderer.render( scene, camera );  
-  
-// copy part of the rendered frame into the framebuffer texture  
-renderer.copyFramebufferToTexture( vector, frameTexture );  
+const pixelRatio = window.devicePixelRatio;const textureSize = 128 *
+pixelRatio;// instantiate a framebuffer textureconst frameTexture = new
+FramebufferTexture( textureSize, textureSize );// calculate start position for
+copying part of the frame dataconst vector = new Vector2();vector.x = (
+window.innerWidth * pixelRatio / 2 ) - ( textureSize / 2 );vector.y = (
+window.innerHeight * pixelRatio / 2 ) - ( textureSize / 2 );// render the
+scenerenderer.clear();renderer.render( scene, camera );// copy part of the
+rendered frame into the framebuffer texturerenderer.copyFramebufferToTexture(
+vector, frameTexture );  
 ```  
 
 ## Examples
@@ -32,7 +24,7 @@ renderer.copyFramebufferToTexture( vector, frameTexture );
 
 ## Constructor
 
-###  [name]( [param:Number width], [param:Number height] )
+###  function FramebufferTexture( width: Number, height: Number ): void;
 
 [page:Number width] -- The width of the texture.  
 [page:Number height] -- The height of the texture.
@@ -41,15 +33,16 @@ renderer.copyFramebufferToTexture( vector, frameTexture );
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean generateMipmaps; <br/>
+###  Boolean generateMipmaps;
 
-Whether to generate mipmaps for the [name]. Default value is `false`.
+Whether to generate mipmaps for the FramebufferTexture. Default value is
+`false`.
 
-### <br/> Boolean isFramebufferTexture; <br/>
+###  Boolean isFramebufferTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type FramebufferTexture.
 
-### <br/> number magFilter; <br/>
+###  number magFilter;
 
 How the texture is sampled when a texel covers more than one pixel. The
 default is [page:Textures THREE.NearestFilter], which uses the value of the
@@ -57,7 +50,7 @@ closest texel.
   
 See [page:Textures texture constants] for details.
 
-### <br/> number minFilter; <br/>
+###  number minFilter;
 
 How the texture is sampled when a texel covers less than one pixel. The
 default is [page:Textures THREE.NearestFilter], which uses the value of the
@@ -65,7 +58,7 @@ closest texel.
   
 See [page:Textures texture constants] for details.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 True by default. This is required so that the canvas data is loaded.
 

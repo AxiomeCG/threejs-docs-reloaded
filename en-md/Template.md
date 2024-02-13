@@ -7,21 +7,23 @@ todo
 ## Example
 
   
-```ts todo ```  
+```ts  
+todo  
+```  
 
 ## Constructor
 
-### [name]([param:Number todo])
+###  function Template( todo: Number ): void;
 
 ## Properties
 
-### <br/> Number todo; <br/>
+###  Number todo;
 
 todo
 
 ## Methods
 
-### [method:undefined todo]()
+###  function todo( ): undefined;
 
 todo
 

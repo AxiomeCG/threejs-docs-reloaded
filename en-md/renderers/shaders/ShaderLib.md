@@ -1,4 +1,4 @@
-# [name]
+# ShaderLib
 
 Webgl Shader Library for three.js
 

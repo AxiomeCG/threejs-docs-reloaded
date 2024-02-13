@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# PlaneGeometry
 
 A class for generating plane geometries.
 
@@ -8,17 +8,15 @@ A class for generating plane geometries.
 
   
 ```ts  
-const geometry = new THREE.PlaneGeometry( 1, 1 );  
-const material = new THREE.MeshBasicMaterial( {color: 0xffff00, side:
-THREE.DoubleSide} );  
-const plane = new THREE.Mesh( geometry, material );  
-scene.add( plane );  
+const geometry = new THREE.PlaneGeometry( 1, 1 );const material = new
+THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );const
+plane = new THREE.Mesh( geometry, material );scene.add( plane );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float width], [param:Float height], [param:Integer
-widthSegments], [param:Integer heightSegments])
+###  function PlaneGeometry( width: Float, height: Float, heightSegments:
+Integer ): void;
 
 width — Width along the X axis. Default is `1`.  
 height — Height along the Y axis. Default is `1`.  
@@ -29,7 +27,7 @@ heightSegments — Optional. Default is `1`.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

@@ -1,13 +1,13 @@
 [page:Material] →
 
-# [name]
+# MeshDepthMaterial
 
 A material for drawing geometry by depth. Depth is based off of the camera
 near and far plane. White is nearest, black is farthest.
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function MeshDepthMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -17,7 +17,7 @@ any property inherited from [page:Material]) can be passed in here.
 
 See the base [page:Material] class for common properties.
 
-### <br/> Texture alphaMap; <br/>
+###  Texture alphaMap;
 
 The alpha map is a grayscale texture that controls the opacity across the
 surface (black: fully transparent; white: fully opaque). Default is null.  
@@ -29,11 +29,11 @@ precision provided for green in DXT-compressed and uncompressed RGB 565
 formats. Luminance-only and luminance/alpha textures will also still work as
 expected.
 
-### <br/> Constant depthPacking; <br/>
+###  Constant depthPacking;
 
 Type for depth packing. Default is [page:Textures BasicDepthPacking].
 
-### <br/> Texture displacementMap; <br/>
+###  Texture displacementMap;
 
 The displacement map affects the position of the mesh's vertices. Unlike other
 maps which only affect the light and shade of the material the displaced
@@ -42,32 +42,32 @@ geometry. The displacement texture is an image where the value of each pixel
 (white being the highest) is mapped against, and repositions, the vertices of
 the mesh.
 
-### <br/> Float displacementScale; <br/>
+###  Float displacementScale;
 
 How much the displacement map affects the mesh (where black is no
 displacement, and white is maximum displacement). Without a displacement map
 set, this value is not applied. Default is `1`.
 
-### <br/> Float displacementBias; <br/>
+###  Float displacementBias;
 
 The offset of the displacement map's values on the mesh's vertices. Without a
 displacement map set, this value is not applied. Default is `0`.
 
-### <br/> Boolean fog; <br/>
+###  Boolean fog;
 
 Whether the material is affected by fog. Default is `false`.
 
-### <br/> Texture map; <br/>
+###  Texture map;
 
 The color map. May optionally include an alpha channel, typically combined
 with [page:Material.transparent .transparent] or [page:Material.alphaTest
 .alphaTest]. Default is null.
 
-### <br/> Boolean wireframe; <br/>
+###  Boolean wireframe;
 
 Render geometry as wireframe. Default is false (i.e. render as smooth shaded).
 
-### <br/> Float wireframeLinewidth; <br/>
+###  Float wireframeLinewidth;
 
 Controls wireframe thickness. Default is `1`.  
   

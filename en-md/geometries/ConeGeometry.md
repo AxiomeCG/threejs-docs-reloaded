@@ -1,6 +1,6 @@
 [page:BufferGeometry] → [page:CylinderGeometry] →
 
-# [name]
+# ConeGeometry
 
 A class for generating cone geometries.
 
@@ -8,16 +8,16 @@ A class for generating cone geometries.
 
   
 ```ts  
-const geometry = new THREE.ConeGeometry( 5, 20, 32 );  
-const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );  
-const cone = new THREE.Mesh(geometry, material ); scene.add( cone );  
+const geometry = new THREE.ConeGeometry( 5, 20, 32 ); const material = new
+THREE.MeshBasicMaterial( {color: 0xffff00} );const cone = new
+THREE.Mesh(geometry, material ); scene.add( cone );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float radius], [param:Float height], [param:Integer
-radialSegments], [param:Integer heightSegments], [param:Boolean openEnded],
-[param:Float thetaStart], [param:Float thetaLength])
+###  function ConeGeometry( radius: Float, height: Float, radialSegments:
+Integer, heightSegments: Integer, openEnded: Boolean, thetaStart: Float,
+thetaLength: Float ): void;
 
 radius — Radius of the cone base. Default is `1`.  
 height — Height of the cone. Default is `1`.  
@@ -36,7 +36,7 @@ The default is `2`*Pi, which makes for a complete cone.
 
 See the base [page:CylinderGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

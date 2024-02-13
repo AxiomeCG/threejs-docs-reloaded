@@ -1,11 +1,11 @@
-# [name]
+# WebGLRenderer
 
 The WebGL renderer displays your beautifully crafted scenes using
 [link:https://en.wikipedia.org/wiki/WebGL WebGL].
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function WebGLRenderer( parameters: Object ): void;
 
 [page:Object parameters] - (optional) object with properties defining the
 renderer's behaviour. The constructor also accepts no parameters at all. In
@@ -57,27 +57,27 @@ logarithmicdepthbuffer] example.
 
 ## Properties
 
-### <br/> Boolean autoClear; <br/>
+###  Boolean autoClear;
 
 Defines whether the renderer should automatically clear its output before
 rendering a frame.
 
-### <br/> Boolean autoClearColor; <br/>
+###  Boolean autoClearColor;
 
 If [page:.autoClear autoClear] is true, defines whether the renderer should
 clear the color buffer. Default is `true`.
 
-### <br/> Boolean autoClearDepth; <br/>
+###  Boolean autoClearDepth;
 
 If [page:.autoClear autoClear] is true, defines whether the renderer should
 clear the depth buffer. Default is `true`.
 
-### <br/> Boolean autoClearStencil; <br/>
+###  Boolean autoClearStencil;
 
 If [page:.autoClear autoClear] is true, defines whether the renderer should
 clear the stencil buffer. Default is `true`.
 
-### <br/> Object debug; <br/>
+###  Object debug;
 
 \- [page:Boolean checkShaderErrors]: If it is true, defines whether material
 shader programs are checked for errors during compilation and linkage process.
@@ -92,7 +92,7 @@ WebGLProgram as well two instances of WebGLShader representing the vertex and
 fragment shader. Assigning a custom function disables the default error
 reporting. Default is `null`.
 
-### <br/> Object capabilities; <br/>
+###  Object capabilities;
 
 An object containing details about the capabilities of the current
 [link:https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext
@@ -133,16 +133,16 @@ in a vertex shader.
 used in a vertex shader.  
 \- [page:String precision]: The shader precision currently being used by the
 renderer.  
-\- [page:Boolean vertexTextures]: `true` if <br/> Integer maxVertexTextures;
-<br/> is greater than 0 (i.e. vertex textures can be used).  
+\- [page:Boolean vertexTextures]: `true` if Integer maxVertexTextures; is
+greater than 0 (i.e. vertex textures can be used).  
 
-### <br/> Array clippingPlanes; <br/>
+###  Array clippingPlanes;
 
 User-defined clipping planes specified as THREE.Plane objects in world space.
 These planes apply globally. Points in space whose dot product with the plane
 is negative are cut away. Default is [].
 
-### <br/> DOMElement domElement; <br/>
+###  DOMElement domElement;
 
 A [link:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
 canvas] where the renderer draws its output.  
@@ -153,7 +153,7 @@ provided already); you just need to add it to your page like so:
 document.body.appendChild( renderer.domElement );  
 ```  
 
-### <br/> Object extensions; <br/>
+###  Object extensions;
 
 \- [page:Object get]( [param:String extensionName] ): Used to check whether
 various extensions are supported and returns an object with details of the
@@ -165,7 +165,7 @@ extension if available. This method can check for the following extensions:
   * `WEBGL_compressed_texture_pvrtc`
   * `WEBGL_compressed_texture_etc1`
 
-### <br/> string outputColorSpace; <br/>
+###  string outputColorSpace;
 
 Defines the output color space of the renderer. Default is [page:Textures
 THREE.SRGBColorSpace].
@@ -175,16 +175,16 @@ If a render target has been set using [page:WebGLRenderer.setRenderTarget
 
 See the [page:Textures texture constants] page for details of other formats.
 
-### <br/> Object info; <br/>
+###  Object info;
 
 An object with a series of statistical information about the graphics board
 memory and the rendering process. Useful for debugging or just for the sake of
 curiosity. The object contains the following fields:
 
-  * memory: 
+  * memory:
     * geometries
     * textures
-  * render: 
+  * render:
     * calls
     * triangles
     * points
@@ -195,29 +195,33 @@ curiosity. The object contains the following fields:
 By default these data are reset at each render call but when having multiple
 render passes per frame (e.g. when using post processing) it can be preferred
 to reset with a custom pattern. First, set `autoReset` to `false`.  
-```ts renderer.info.autoReset = false; ```  
+```ts  
+renderer.info.autoReset = false;  
+```  
 Call `reset()` whenever you have finished to render a single frame.  
-```ts renderer.info.reset(); ```  
+```ts  
+renderer.info.reset();  
+```  
 
-### <br/> Boolean localClippingEnabled; <br/>
+###  Boolean localClippingEnabled;
 
 Defines whether the renderer respects object-level clipping planes. Default is
 `false`.
 
-### <br/> Boolean useLegacyLights; <br/>
+###  Boolean useLegacyLights;
 
 Whether to use the legacy lighting mode or not. Default is `true`.
 
-### <br/> Object properties; <br/>
+###  Object properties;
 
 Used internally by the renderer to keep track of various sub object
 properties.
 
-### <br/> WebGLRenderLists renderLists; <br/>
+###  WebGLRenderLists renderLists;
 
 Used internally to handle ordering of scene object rendering.
 
-### <br/> WebGLShadowMap shadowMap; <br/>
+###  WebGLShadowMap shadowMap;
 
 This contains the reference to the shadow map, if used.  
 \- [page:Boolean enabled]: If set, use shadow maps in the scene. Default is
@@ -242,7 +246,7 @@ Options are:
 
 See [page:Renderer Renderer constants] for details.  
 
-### <br/> Boolean sortObjects; <br/>
+###  Boolean sortObjects;
 
 Defines whether the renderer should sort objects. Default is `true`.  
   
@@ -252,74 +256,72 @@ cases. Depending on the needs of application, it may be necessary to turn off
 sorting and use other methods to deal with transparency rendering e.g.
 manually determining each object's rendering order.
 
-### <br/> Object state; <br/>
+###  Object state;
 
 Contains functions for setting various properties of the
 [page:WebGLRenderer.context] state.
 
-### <br/> Constant toneMapping; <br/>
+###  Constant toneMapping;
 
 Default is [page:Renderer NoToneMapping]. See the [page:Renderer Renderer
 constants] for other choices.
 
-### <br/> Number toneMappingExposure; <br/>
+###  Number toneMappingExposure;
 
 Exposure level of tone mapping. Default is `1`.
 
-### <br/> WebXRManager xr; <br/>
+###  WebXRManager xr;
 
 Provides access to the WebXR related [page:WebXRManager interface] of the
 renderer.
 
 ## Methods
 
-###  [method:undefined clear]( [param:Boolean color], [param:Boolean depth],
-[param:Boolean stencil] )
+###  function clear( color: Boolean, depth: Boolean, stencil: Boolean ):
+undefined;
 
 Tells the renderer to clear its color, depth or stencil drawing buffer(s).
 This method initializes the color buffer to the current clear color value.  
 Arguments default to `true`.
 
-### [method:undefined clearColor]( )
+###  function clearColor( ): undefined;
 
 Clear the color buffer. Equivalent to calling [page:WebGLRenderer.clear
 .clear]( true, false, false ).
 
-### [method:undefined clearDepth]( )
+###  function clearDepth( ): undefined;
 
 Clear the depth buffer. Equivalent to calling [page:WebGLRenderer.clear
 .clear]( false, true, false ).
 
-### [method:undefined clearStencil]( )
+###  function clearStencil( ): undefined;
 
 Clear the stencil buffers. Equivalent to calling [page:WebGLRenderer.clear
 .clear]( false, false, true ).
 
-###  [method:undefined compile]( [param:Object3D scene], [param:Camera camera]
-)
+###  function compile( scene: Object3D, camera: Camera ): undefined;
 
 Compiles all materials in the scene with the camera. This is useful to
 precompile shaders before the first rendering.
 
-###  [method:undefined copyFramebufferToTexture]( [param:Vector2 position],
-[param:FramebufferTexture texture], [param:Number level] )
+###  function copyFramebufferToTexture( position: Vector2, texture:
+FramebufferTexture, level: Number ): undefined;
 
 Copies pixels from the current WebGLFramebuffer into a 2D texture. Enables
 access to [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WebGLRenderingContext/copyTexImage2D
 WebGLRenderingContext.copyTexImage2D].
 
-###  [method:undefined copyTextureToTexture]( [param:Vector2 position],
-[param:Texture srcTexture], [param:Texture dstTexture], [param:Number level] )
+###  function copyTextureToTexture( position: Vector2, srcTexture: Texture,
+dstTexture: Texture, level: Number ): undefined;
 
 Copies all pixels of a texture to an existing texture starting from the given
 position. Enables access to [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WebGLRenderingContext/texSubImage2D
 WebGLRenderingContext.texSubImage2D].
 
-###  [method:undefined copyTextureToTexture3D]( [param:Box3 sourceBox],
-[param:Vector3 position], [param:Texture srcTexture], [param:Texture
-dstTexture], [param:Number level] )
+###  function copyTextureToTexture3D( sourceBox: Box3, position: Vector3,
+srcTexture: Texture, dstTexture: Texture, level: Number ): undefined;
 
 Copies the pixels of a texture in the bounds '[page:Box3 sourceBox]' in the
 destination texture starting from the given position. Enables access to
@@ -327,106 +329,105 @@ destination texture starting from the given position. Enables access to
 US/docs/Web/API/WebGL2RenderingContext/texSubImage3D
 WebGL2RenderingContext.texSubImage3D].
 
-### [method:undefined dispose]( )
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### [method:undefined forceContextLoss]()
+###  function forceContextLoss( ): undefined;
 
 Simulate loss of the WebGL context. This requires support for the
 [link:https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context
 WEBGL_lose_context] extensions.
 
-### [method:undefined forceContextRestore]( )
+###  function forceContextRestore( ): undefined;
 
 Simulate restore of the WebGL context. This requires support for the
 [link:https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context
 WEBGL_lose_context] extensions.
 
-### [method:Float getClearAlpha]()
+###  function getClearAlpha( ): Float;
 
 Returns a [page:Float float] with the current clear alpha. Ranges from `0` to
 `1`.
 
-### [method:Color getClearColor]( [param:Color target] )
+###  function getClearColor( target: Color ): Color;
 
 Returns a [page:Color THREE.Color] instance with the current clear color.
 
-### [method:WebGL2RenderingContext getContext]()
+###  function getContext( ): WebGL2RenderingContext;
 
 Return the current WebGL context.
 
-### [method:WebGLContextAttributes getContextAttributes]()
+###  function getContextAttributes( ): WebGLContextAttributes;
 
 Returns an object that describes the attributes set on the WebGL context when
 it was created.
 
-### [method:Integer getActiveCubeFace]()
+###  function getActiveCubeFace( ): Integer;
 
 Returns the current active cube face.
 
-### [method:Integer getActiveMipmapLevel]()
+###  function getActiveMipmapLevel( ): Integer;
 
 Returns the current active mipmap level.
 
-### [method:RenderTarget getRenderTarget]()
+###  function getRenderTarget( ): RenderTarget;
 
 Returns the current [page:RenderTarget RenderTarget] if there are; returns
 `null` otherwise.
 
-### [method:Vector4 getCurrentViewport]( [param:Vector4 target] )
+###  function getCurrentViewport( target: Vector4 ): Vector4;
 
 [page:Vector4 target] — the result will be copied into this Vector4.  
   
 Returns the current viewport.
 
-### [method:Vector2 getDrawingBufferSize]( [param:Vector2 target] )
+###  function getDrawingBufferSize( target: Vector2 ): Vector2;
 
 [page:Vector2 target] — the result will be copied into this Vector2.  
   
 Returns the width and height of the renderer's drawing buffer, in pixels.
 
-### [method:number getPixelRatio]()
+###  function getPixelRatio( ): number;
 
 Returns current device pixel ratio used.
 
-### [method:Vector4 getScissor]( [param:Vector4 target] )
+###  function getScissor( target: Vector4 ): Vector4;
 
 [page:Vector4 target] — the result will be copied into this Vector4.  
   
 Returns the scissor region.
 
-### [method:Boolean getScissorTest]()
+###  function getScissorTest( ): Boolean;
 
 Returns `true` if scissor test is enabled; returns `false` otherwise.
 
-### [method:Vector2 getSize]( [param:Vector2 target] )
+###  function getSize( target: Vector2 ): Vector2;
 
 [page:Vector2 target] — the result will be copied into this Vector2.  
   
 Returns the width and height of the renderer's output canvas, in pixels.
 
-### [method:Vector4 getViewport]( [param:Vector4 target] )
+###  function getViewport( target: Vector4 ): Vector4;
 
 [page:Vector4 target] — the result will be copied into this Vector4.  
   
 Returns the viewport.
 
-### [method:undefined initTexture]( [param:Texture texture] )
+###  function initTexture( texture: Texture ): undefined;
 
 Initializes the given texture. Useful for preloading a texture rather than
 waiting until first render (which can cause noticeable lags due to decode and
 GPU upload overhead).
 
-### [method:undefined resetGLState]( )
+###  function resetGLState( ): undefined;
 
 Reset the GL state to default. Called internally if the WebGL context is lost.
 
-###  [method:undefined readRenderTargetPixels]( [param:WebGLRenderTarget
-renderTarget], [param:Float x], [param:Float y], [param:Float width],
-[param:Float height], [param:TypedArray buffer], [param:Integer
-activeCubeFaceIndex] )
+###  function readRenderTargetPixels( renderTarget: WebGLRenderTarget, x:
+Float, y: Float, width: Float, height: Float, buffer: TypedArray,
+activeCubeFaceIndex: Integer ): undefined;
 
 buffer - Uint8Array is the only destination type supported in all cases, other
 types are renderTarget and platform dependent. See
@@ -444,8 +445,7 @@ example.
 For reading out a [page:WebGLCubeRenderTarget WebGLCubeRenderTarget] use the
 optional parameter activeCubeFaceIndex to determine which face should be read.
 
-###  [method:undefined render]( [param:Object3D scene], [param:Camera camera]
-)
+###  function render( scene: Object3D, camera: Camera ): undefined;
 
 Render a [page:Scene scene] or another type of [page:Object3D object] using a
 [page:Camera camera].  
@@ -460,13 +460,13 @@ either the [page:WebGLRenderer.autoClearColor autoClearColor],
 [page:WebGLRenderer.autoClearDepth autoClearDepth] properties to false. To
 forcibly clear one or more buffers call [page:WebGLRenderer.clear .clear].
 
-### [method:undefined resetState]()
+###  function resetState( ): undefined;
 
 Can be used to reset the internal WebGL state. This method is mostly relevant
 for applications which share a single WebGL context across multiple WebGL
 libraries.
 
-### [method:undefined setAnimationLoop]( [param:Function callback] )
+###  function setAnimationLoop( callback: Function ): undefined;
 
 [page:Function callback] — The function will be called every available frame.
 If `null` is passed it will stop any already ongoing animation.
@@ -476,23 +476,21 @@ A built in function that can be used instead of
 US/docs/Web/API/window/requestAnimationFrame requestAnimationFrame]. For WebXR
 projects this function must be used.
 
-### [method:undefined setClearAlpha]( [param:Float alpha] )
+###  function setClearAlpha( alpha: Float ): undefined;
 
 Sets the clear alpha. Valid input is a float between `0.0` and `1.0`.
 
-###  [method:undefined setClearColor]( [param:Color color], [param:Float
-alpha] )
+###  function setClearColor( color: Color, alpha: Float ): undefined;
 
 Sets the clear color and opacity.
 
-### [method:undefined setPixelRatio]( [param:number value] )
+###  function setPixelRatio( value: number ): undefined;
 
 Sets device pixel ratio. This is usually used for HiDPI device to prevent
 blurring output canvas.
 
-###  [method:undefined setRenderTarget]( [param:WebGLRenderTarget
-renderTarget], [param:Integer activeCubeFace], [param:Integer
-activeMipmapLevel] )
+###  function setRenderTarget( renderTarget: WebGLRenderTarget,
+activeCubeFace: Integer, activeMipmapLevel: Integer ): undefined;
 
 renderTarget -- The [page:WebGLRenderTarget renderTarget] that needs to be
 activated. When `null` is given, the canvas is set as the active render target
@@ -505,9 +503,9 @@ activeMipmapLevel -- Specifies the active mipmap level (optional).
   
 This method sets the active rendertarget.
 
-###  [method:undefined setScissor]( [param:Integer x], [param:Integer y],
-[param:Integer width], [param:Integer height] )  
-[method:undefined setScissor]( [param:Vector4 vector] )
+###  function setScissor( x: Integer, y: Integer, width: Integer, height:
+Integer ): undefined;  
+function setScissor( vector: Vector4 ): undefined;
 
 The x, y, width, and height parameters of the scissor region.  
 Optionally, a 4-component vector specifying the parameters of the region.  
@@ -515,32 +513,32 @@ Optionally, a 4-component vector specifying the parameters of the region.
 Sets the scissor region from (x, y) to (x + width, y + height).  
 (x, y) is the lower-left corner of the scissor region.
 
-### [method:undefined setScissorTest]( [param:Boolean boolean] )
+###  function setScissorTest( boolean: Boolean ): undefined;
 
 Enable or disable the scissor test. When this is enabled, only the pixels
 within the defined scissor area will be affected by further renderer actions.
 
-### [method:undefined setOpaqueSort]( [param:Function method] )
+###  function setOpaqueSort( method: Function ): undefined;
 
 Sets the custom opaque sort function for the WebGLRenderLists. Pass null to
 use the default painterSortStable function.
 
-### [method:undefined setTransparentSort]( [param:Function method] )
+###  function setTransparentSort( method: Function ): undefined;
 
 Sets the custom transparent sort function for the WebGLRenderLists. Pass null
 to use the default reversePainterSortStable function.
 
-###  [method:undefined setSize]( [param:Integer width], [param:Integer
-height], [param:Boolean updateStyle] )
+###  function setSize( width: Integer, height: Integer, updateStyle: Boolean
+): undefined;
 
 Resizes the output canvas to (width, height) with device pixel ratio taken
 into account, and also sets the viewport to fit that size, starting in (0, 0).
 Setting [page:Boolean updateStyle] to false prevents any style changes to the
 output canvas.
 
-###  [method:undefined setViewport]( [param:Integer x], [param:Integer y],
-[param:Integer width], [param:Integer height] )  
-[method:undefined setViewport]( [param:Vector4 vector] )
+###  function setViewport( x: Integer, y: Integer, width: Integer, height:
+Integer ): undefined;  
+function setViewport( vector: Vector4 ): undefined;
 
 The x, y, width, and height parameters of the viewport.  
 Optionally, a 4-component vector specifying the parameters of a viewport.  

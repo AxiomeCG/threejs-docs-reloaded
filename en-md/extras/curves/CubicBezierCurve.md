@@ -1,8 +1,8 @@
 [page:Curve] →
 
-# [name]
+# CubicBezierCurve
 
-Create a smooth 2d [cubic bezier
+Create a smooth 2d[cubic bezier
 curve](http://en.wikipedia.org/wiki/B%C3%A9zier_curve#mediaviewer/File:Bezier_curve.svg),
 defined by a start point, endpoint and two control points.
 
@@ -10,26 +10,18 @@ defined by a start point, endpoint and two control points.
 
   
 ```ts  
-const curve = new THREE.CubicBezierCurve(  
-new THREE.Vector2( -10, 0 ),  
-new THREE.Vector2( -5, 15 ),  
-new THREE.Vector2( 20, 15 ),  
-new THREE.Vector2( 10, 0 )  
-);  
-  
-const points = curve.getPoints( 50 );  
-const geometry = new THREE.BufferGeometry().setFromPoints( points );  
-  
-const material = new THREE.LineBasicMaterial( { color: 0xff0000 } );  
-  
-// Create the final object to add to the scene  
-const curveObject = new THREE.Line( geometry, material );  
+const curve = new THREE.CubicBezierCurve( new THREE.Vector2( -10, 0 ), new
+THREE.Vector2( -5, 15 ), new THREE.Vector2( 20, 15 ), new THREE.Vector2( 10, 0
+) ); const points = curve.getPoints( 50 ); const geometry = new
+THREE.BufferGeometry().setFromPoints( points ); const material = new
+THREE.LineBasicMaterial( { color: 0xff0000 } ); // Create the final object to
+add to the scene const curveObject = new THREE.Line( geometry, material );  
 ```  
 
 ## Constructor
 
-###  [name] ( [param:Vector2 v0], [param:Vector2 v1], [param:Vector2 v2],
-[param:Vector2 v3] )
+### CubicBezierCurve ( [param:Vector2 v0], [param:Vector2 v1], [param:Vector2
+v2], [param:Vector2 v3] )
 
 [page:Vector2 v0] – The starting point.  
 [page:Vector2 v1] – The first control point.  
@@ -40,19 +32,19 @@ const curveObject = new THREE.Line( geometry, material );
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Vector2 v0; <br/>
+###  Vector2 v0;
 
 The starting point.
 
-### <br/> Vector2 v1; <br/>
+###  Vector2 v1;
 
 The first control point.
 
-### <br/> Vector2 v2; <br/>
+###  Vector2 v2;
 
 The second control point.
 
-### <br/> Vector2 v3; <br/>
+###  Vector2 v3;
 
 The ending point.
 

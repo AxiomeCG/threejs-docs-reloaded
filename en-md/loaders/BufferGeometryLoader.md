@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# BufferGeometryLoader
 
 A loader for loading a [page:BufferGeometry]. This uses the [page:FileLoader]
 internally for loading files.
@@ -9,42 +9,25 @@ internally for loading files.
 
   
 ```ts  
-// instantiate a loader  
-const loader = new THREE.BufferGeometryLoader();  
-  
-// load a resource  
-loader.load(  
-// resource URL  
-'models/json/pressure.json',  
-  
-// onLoad callback  
-function ( geometry ) {  
-const material = new THREE.MeshLambertMaterial( { color: 0xF5F5F5 } );  
-const object = new THREE.Mesh( geometry, material );  
-scene.add( object );  
-},  
-  
-// onProgress callback  
-function ( xhr ) {  
-console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );  
-},  
-  
-// onError callback  
-function ( err ) {  
-console.log( 'An error happened' );  
-}  
-);  
+// instantiate a loader const loader = new THREE.BufferGeometryLoader(); //
+load a resource loader.load( // resource URL 'models/json/pressure.json', //
+onLoad callback function ( geometry ) { const material = new
+THREE.MeshLambertMaterial( { color: 0xF5F5F5 } ); const object = new
+THREE.Mesh( geometry, material ); scene.add( object ); }, // onProgress
+callback function ( xhr ) { console.log( (xhr.loaded / xhr.total * 100) + '%
+loaded' ); }, // onError callback function ( err ) { console.log( 'An error
+happened' ); } );  
 ```  
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function BufferGeometryLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].
 
-Creates a new [name].
+Creates a new BufferGeometryLoader.
 
 ## Properties
 
@@ -54,8 +37,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:undefined load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): undefined;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-
@@ -71,7 +54,7 @@ server does not set the Content-Length header; .[page:Integer total] will be
 
 Begin loading from url and call onLoad with the parsed response content.
 
-### [method:BufferGeometry parse]( [param:Object json] )
+###  function parse( json: Object ): BufferGeometry;
 
 [page:Object json] — The `JSON` structure to parse.  
   

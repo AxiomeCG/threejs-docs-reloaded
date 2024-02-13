@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Audio] →
 
-# [name]
+# PositionalAudio
 
 Create a positional audio object.  
   
@@ -11,29 +11,17 @@ US/docs/Web/API/Web_Audio_API Web Audio API].
 
   
 ```ts  
-// create an AudioListener and add it to the camera  
-const listener = new THREE.AudioListener();  
-camera.add( listener );  
-  
-// create the PositionalAudio object (passing in the listener)  
-const sound = new THREE.PositionalAudio( listener );  
-  
-// load a sound and set it as the PositionalAudio object's buffer  
-const audioLoader = new THREE.AudioLoader();  
-audioLoader.load( 'sounds/song.ogg', function( buffer ) {  
-sound.setBuffer( buffer );  
-sound.setRefDistance( 20 );  
-sound.play();  
-});  
-  
-// create an object for the sound to play from  
-const sphere = new THREE.SphereGeometry( 20, 32, 16 );  
-const material = new THREE.MeshPhongMaterial( { color: 0xff2200 } );  
-const mesh = new THREE.Mesh( sphere, material );  
-scene.add( mesh );  
-  
-// finally add the sound to the mesh  
-mesh.add( sound );  
+// create an AudioListener and add it to the camera const listener = new
+THREE.AudioListener(); camera.add( listener ); // create the PositionalAudio
+object (passing in the listener) const sound = new THREE.PositionalAudio(
+listener ); // load a sound and set it as the PositionalAudio object's buffer
+const audioLoader = new THREE.AudioLoader(); audioLoader.load(
+'sounds/song.ogg', function( buffer ) { sound.setBuffer( buffer );
+sound.setRefDistance( 20 ); sound.play(); }); // create an object for the
+sound to play from const sphere = new THREE.SphereGeometry( 20, 32, 16 );
+const material = new THREE.MeshPhongMaterial( { color: 0xff2200 } ); const
+mesh = new THREE.Mesh( sphere, material ); scene.add( mesh ); // finally add
+the sound to the mesh mesh.add( sound );  
 ```  
 
 ## Examples
@@ -44,7 +32,7 @@ mesh.add( sound );
 
 ## Constructor
 
-### [name]( [param:AudioListener listener] )
+###  function PositionalAudio( listener: AudioListener ): void;
 
 listener — (required) [page:AudioListener AudioListener] instance.
 
@@ -52,7 +40,7 @@ listener — (required) [page:AudioListener AudioListener] instance.
 
 See the [page:Audio Audio] class for inherited properties.
 
-### <br/> PannerNode panner; <br/>
+###  PannerNode panner;
 
 The PositionalAudio's [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode PannerNode].
@@ -61,52 +49,52 @@ US/docs/Web/API/PannerNode PannerNode].
 
 See the [page:Audio Audio] class for inherited methods.
 
-### [method:PannerNode getOutput]()
+###  function getOutput( ): PannerNode;
 
 Returns the [page:PositionalAudio.panner panner].
 
-### [method:Float getRefDistance]()
+###  function getRefDistance( ): Float;
 
 Returns the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/refDistance panner.refDistance].
 
-### <br/> function setRefDistance( value: Float ): setRefDistance; <br/>
+###  function setRefDistance( value: Float ): this;
 
 Sets the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/refDistance panner.refDistance].
 
-### [method:Float getRolloffFactor]()
+###  function getRolloffFactor( ): Float;
 
 Returns the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/rolloffFactor panner.rolloffFactor].
 
-### <br/> function setRolloffFactor( value: Float ): setRolloffFactor; <br/>
+###  function setRolloffFactor( value: Float ): this;
 
 Sets the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/rolloffFactor panner.rolloffFactor].
 
-### [method:String getDistanceModel]()
+###  function getDistanceModel( ): String;
 
 Returns the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/distanceModel panner.distanceModel].
 
-### <br/> function setDistanceModel( value: String ): setDistanceModel; <br/>
+###  function setDistanceModel( value: String ): this;
 
 Sets the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/distanceModel panner.distanceModel].
 
-### [method:Float getMaxDistance]()
+###  function getMaxDistance( ): Float;
 
 Returns the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/maxDistance panner.maxDistance].
 
-### <br/> function setMaxDistance( value: Float ): setMaxDistance; <br/>
+###  function setMaxDistance( value: Float ): this;
 
 Sets the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/PannerNode/maxDistance panner.maxDistance].
 
-### <br/> function setDirectionalCone( coneInnerAngle: Float, coneOuterAngle:
-Float, coneOuterGain: Float ): setDirectionalCone; <br/>
+###  function setDirectionalCone( coneInnerAngle: Float, coneOuterAngle:
+Float, coneOuterGain: Float ): this;
 
 This method can be used in order to transform an omnidirectional sound into a
 [link:https://developer.mozilla.org/en-US/docs/Web/API/PannerNode directional

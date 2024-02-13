@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# CylinderGeometry
 
 A class for generating cylinder geometries.
 
@@ -8,17 +8,16 @@ A class for generating cylinder geometries.
 
   
 ```ts  
-const geometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );  
-const material = new THREE.MeshBasicMaterial( {color: 0xffff00} );  
-const cylinder = new THREE.Mesh( geometry, material ); scene.add( cylinder );  
+const geometry = new THREE.CylinderGeometry( 5, 5, 20, 32 ); const material =
+new THREE.MeshBasicMaterial( {color: 0xffff00} ); const cylinder = new
+THREE.Mesh( geometry, material ); scene.add( cylinder );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float radiusTop], [param:Float radiusBottom], [param:Float
-height], [param:Integer radialSegments], [param:Integer heightSegments],
-[param:Boolean openEnded], [param:Float thetaStart], [param:Float
-thetaLength])
+###  function CylinderGeometry( radiusTop: Float, radiusBottom: Float, height:
+Float, radialSegments: Integer, heightSegments: Integer, openEnded: Boolean,
+thetaStart: Float, thetaLength: Float ): void;
 
 radiusTop — Radius of the cylinder at the top. Default is `1`.  
 radiusBottom — Radius of the cylinder at the bottom. Default is `1`.  
@@ -38,7 +37,7 @@ The default is `2`*Pi, which makes for a complete cylinder.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

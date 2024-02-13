@@ -1,15 +1,15 @@
 [page:Object3D] →
 
-# [name]
+# Camera
 
 Abstract base class for cameras. This class should always be inherited when
 you build a new camera.
 
 ## Constructor
 
-### [name]()
+###  function Camera( ): void;
 
-Creates a new [name]. Note that this class is not intended to be called
+Creates a new Camera. Note that this class is not intended to be called
 directly; you probably want a [page:PerspectiveCamera] or
 [page:OrthographicCamera] instead.
 
@@ -17,11 +17,11 @@ directly; you probably want a [page:PerspectiveCamera] or
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Boolean isCamera; <br/>
+###  Boolean isCamera;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Camera.
 
-### <br/> Layers layers; <br/>
+###  Layers layers;
 
 The [page:Layers layers] that the camera is a member of. This is an inherited
 property from [page:Object3D].  
@@ -29,16 +29,16 @@ property from [page:Object3D].
 Objects must share at least one layer with the camera to be seen when the
 camera's viewpoint is rendered.
 
-### <br/> Matrix4 matrixWorldInverse; <br/>
+###  Matrix4 matrixWorldInverse;
 
 This is the inverse of matrixWorld. MatrixWorld contains the Matrix which has
 the world transform of the Camera.
 
-### <br/> Matrix4 projectionMatrix; <br/>
+###  Matrix4 projectionMatrix;
 
 This is the matrix which contains the projection.
 
-### <br/> Matrix4 projectionMatrixInverse; <br/>
+###  Matrix4 projectionMatrixInverse;
 
 The inverse of projectionMatrix.
 
@@ -46,15 +46,15 @@ The inverse of projectionMatrix.
 
 See the base [page:Object3D] class for common methods.
 
-### [method:Camera clone]( )
+###  function clone( ): Camera;
 
 Return a new camera with the same properties as this one.
 
-### <br/> function copy( source: Camera, recursive: Boolean? ): copy; <br/>
+###  function copy( source: Camera, recursive: Boolean ): this;
 
 Copy the properties from the source camera into this one.
 
-### [method:Vector3 getWorldDirection]( [param:Vector3 target] )
+###  function getWorldDirection( target: Vector3 ): Vector3;
 
 [page:Vector3 target] — the result will be copied into this Vector3.  
   

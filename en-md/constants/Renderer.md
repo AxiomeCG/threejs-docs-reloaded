@@ -4,9 +4,7 @@
 
   
 ```ts  
-THREE.CullFaceNone  
-THREE.CullFaceBack  
-THREE.CullFaceFront  
+THREE.CullFaceNone THREE.CullFaceBack THREE.CullFaceFront
 THREE.CullFaceFrontBack  
 ```  
 
@@ -19,9 +17,7 @@ THREE.CullFaceFrontBack
 
   
 ```ts  
-THREE.BasicShadowMap  
-THREE.PCFShadowMap  
-THREE.PCFSoftShadowMap  
+THREE.BasicShadowMap THREE.PCFShadowMap THREE.PCFSoftShadowMap
 THREE.VSMShadowMap  
 ```  
 
@@ -43,12 +39,8 @@ shadows.
 
   
 ```ts  
-THREE.NoToneMapping  
-THREE.LinearToneMapping  
-THREE.ReinhardToneMapping  
-THREE.CineonToneMapping  
-THREE.ACESFilmicToneMapping  
-THREE.CustomToneMapping  
+THREE.NoToneMapping THREE.LinearToneMapping THREE.ReinhardToneMapping
+THREE.CineonToneMapping THREE.ACESFilmicToneMapping THREE.CustomToneMapping  
 ```  
 
 These define the WebGLRenderer's [page:WebGLRenderer.toneMapping toneMapping]

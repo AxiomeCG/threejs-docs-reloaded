@@ -1,112 +1,113 @@
-# [name]
+# InterleavedBufferAttribute
 
 ## Constructor
 
-### [name]( [param:InterleavedBuffer interleavedBuffer], [param:Integer
-itemSize], [param:Integer offset], [param:Boolean normalized] )
+###  function InterleavedBufferAttribute( interleavedBuffer:
+InterleavedBuffer, itemSize: Integer, offset: Integer, normalized: Boolean ):
+void;
 
 ## Properties
 
-### <br/> InterleavedBuffer data; <br/>
+###  InterleavedBuffer data;
 
 The [page:InterleavedBuffer InterleavedBuffer] instance passed in the
 constructor.
 
-### <br/> TypedArray array; <br/>
+###  TypedArray array;
 
 The value of [page:InterleavedBufferAttribute.data data].array.
 
-### <br/> Integer count; <br/>
+###  Integer count;
 
 The value of [page:InterleavedBufferAttribute.data data].count. If the buffer
 is storing a 3-component item (such as a position, normal, or color), then
 this will count the number of such items stored.
 
-### <br/> Boolean isInterleavedBufferAttribute; <br/>
+###  Boolean isInterleavedBufferAttribute;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type
+InterleavedBufferAttribute.
 
-### <br/> Integer itemSize; <br/>
+###  Integer itemSize;
 
 How many values make up each item.
 
-### <br/> String name; <br/>
+###  String name;
 
 Optional name for this attribute instance. Default is an empty string.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 Default is `false`. Setting this to `true` will send the entire interleaved
 buffer (not just the specific attribute data) to the GPU again.
 
-### <br/> Boolean normalized; <br/>
+###  Boolean normalized;
 
 Default is `false`.
 
-### <br/> Integer offset; <br/>
+###  Integer offset;
 
 The offset in the underlying array buffer where an item starts.
 
 ## Methods
 
-### <br/> function applyMatrix4( m: Matrix4 ): applyMatrix4; <br/>
+###  function applyMatrix4( m: Matrix4 ): this;
 
 Applies matrix [page:Matrix4 m] to every Vector3 element of this
 InterleavedBufferAttribute.
 
-### <br/> function applyNormalMatrix( m: Matrix3 ): applyNormalMatrix; <br/>
+###  function applyNormalMatrix( m: Matrix3 ): this;
 
 Applies normal matrix [page:Matrix3 m] to every Vector3 element of this
 InterleavedBufferAttribute.
 
-### <br/> function transformDirection( m: Matrix4 ): transformDirection; <br/>
+###  function transformDirection( m: Matrix4 ): this;
 
 Applies matrix [page:Matrix4 m] to every Vector3 element of this
 InterleavedBufferAttribute, interpreting the elements as a direction vectors.
 
-### [method:Number getX]( [param:Integer index] )
+###  function getX( index: Integer ): Number;
 
 Returns the x component of the item at the given index.
 
-### [method:Number getY]( [param:Integer index] )
+###  function getY( index: Integer ): Number;
 
 Returns the y component of the item at the given index.
 
-### [method:Number getZ]( [param:Integer index] )
+###  function getZ( index: Integer ): Number;
 
 Returns the z component of the item at the given index.
 
-### [method:Number getW]( [param:Integer index] )
+###  function getW( index: Integer ): Number;
 
 Returns the w component of the item at the given index.
 
-### <br/> function setX( index: Integer, x: Float ): setX; <br/>
+###  function setX( index: Integer, x: Float ): this;
 
 Sets the x component of the item at the given index.
 
-### <br/> function setY( index: Integer, y: Float ): setY; <br/>
+###  function setY( index: Integer, y: Float ): this;
 
 Sets the y component of the item at the given index.
 
-### <br/> function setZ( index: Integer, z: Float ): setZ; <br/>
+###  function setZ( index: Integer, z: Float ): this;
 
 Sets the z component of the item at the given index.
 
-### <br/> function setW( index: Integer, w: Float ): setW; <br/>
+###  function setW( index: Integer, w: Float ): this;
 
 Sets the w component of the item at the given index.
 
-### <br/> function setXY( index: Integer, x: Float, y: Float ): setXY; <br/>
+###  function setXY( index: Integer, x: Float, y: Float ): this;
 
 Sets the x and y components of the item at the given index.
 
-### <br/> function setXYZ( index: Integer, x: Float, y: Float, z: Float ):
-setXYZ; <br/>
+###  function setXYZ( index: Integer, x: Float, y: Float, z: Float ): this;
 
 Sets the x, y and z components of the item at the given index.
 
-### <br/> function setXYZW( index: Integer, x: Float, y: Float, z: Float, w:
-Float ): setXYZW; <br/>
+###  function setXYZW( index: Integer, x: Float, y: Float, z: Float, w: Float
+): this;
 
 Sets the x, y, z and w components of the item at the given index.
 

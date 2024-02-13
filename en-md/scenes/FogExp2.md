@@ -1,4 +1,4 @@
-# [name]
+# FogExp2
 
 This class contains the parameters that define exponential squared fog, which
 gives a clear view near the camera and a faster than exponentially densening
@@ -8,33 +8,33 @@ fog farther from the camera.
 
   
 ```ts  
-const scene = new THREE.Scene();  
-scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );  
+const scene = new THREE.Scene();scene.fog = new THREE.FogExp2( 0xcccccc, 0.002
+);  
 ```  
 
 ## Constructor
 
-### [name]( [param:Integer color], [param:Float density] )
+###  function FogExp2( color: Integer, density: Float ): void;
 
 The color parameter is passed to the [page:Color] constructor to set the color
 property. Color can be a hexadecimal integer or a CSS-style string.
 
 ## Properties
 
-### <br/> Boolean isFogExp2; <br/>
+###  Boolean isFogExp2;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type FogExp2.
 
-### <br/> String name; <br/>
+###  String name;
 
 Optional name of the object (doesn't need to be unique). Default is an empty
 string.
 
-### <br/> Color color; <br/>
+###  Color color;
 
 Fog color. Example: If set to black, far away objects will be rendered black.
 
-### <br/> Float density; <br/>
+###  Float density;
 
 Defines how fast the fog will grow dense.
 
@@ -42,11 +42,11 @@ Default is `0.00025`.
 
 ## Methods
 
-### [method:FogExp2 clone]()
+###  function clone( ): FogExp2;
 
 Returns a new FogExp2 instance with the same parameters as this one.
 
-### [method:Object toJSON]()
+###  function toJSON( ): Object;
 
 Return FogExp2 data in JSON format.
 

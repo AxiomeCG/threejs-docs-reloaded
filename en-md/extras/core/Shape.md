@@ -1,6 +1,6 @@
 [page:Curve] → [page:CurvePath] → [page:Path] →
 
-# [name]
+# Shape
 
 Defines an arbitrary 2d shape plane using paths with optional holes. It can be
 used with [page:ExtrudeGeometry], [page:ShapeGeometry], to get points, or to
@@ -10,28 +10,15 @@ get triangulated faces.
 
   
 ```ts  
-const heartShape = new THREE.Shape();  
-  
-heartShape.moveTo( 25, 25 );  
-heartShape.bezierCurveTo( 25, 25, 20, 0, 0, 0 );  
-heartShape.bezierCurveTo( - 30, 0, - 30, 35, - 30, 35 );  
-heartShape.bezierCurveTo( - 30, 55, - 10, 77, 25, 95 );  
-heartShape.bezierCurveTo( 60, 77, 80, 55, 80, 35 );  
-heartShape.bezierCurveTo( 80, 35, 80, 0, 50, 0 );  
-heartShape.bezierCurveTo( 35, 0, 25, 25, 25, 25 );  
-  
-const extrudeSettings = {  
-depth: 8,  
-bevelEnabled: true,  
-bevelSegments: 2,  
-steps: 2,  
-bevelSize: 1,  
-bevelThickness: 1  
-};  
-  
-const geometry = new THREE.ExtrudeGeometry( heartShape, extrudeSettings );  
-  
-const mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial() );  
+const heartShape = new THREE.Shape(); heartShape.moveTo( 25, 25 );
+heartShape.bezierCurveTo( 25, 25, 20, 0, 0, 0 ); heartShape.bezierCurveTo( -
+30, 0, - 30, 35, - 30, 35 ); heartShape.bezierCurveTo( - 30, 55, - 10, 77, 25,
+95 ); heartShape.bezierCurveTo( 60, 77, 80, 55, 80, 35 );
+heartShape.bezierCurveTo( 80, 35, 80, 0, 50, 0 ); heartShape.bezierCurveTo(
+35, 0, 25, 25, 25, 25 ); const extrudeSettings = { depth: 8, bevelEnabled:
+true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 }; const
+geometry = new THREE.ExtrudeGeometry( heartShape, extrudeSettings ); const
+mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial() );  
 ```  
 
 ## Examples
@@ -41,7 +28,7 @@ const mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial() );
 
 ## Constructor
 
-### [name]( [param:Array points] )
+###  function Shape( points: Array ): void;
 
 points -- (optional) array of [page:Vector2 Vector2s].  
   
@@ -56,12 +43,12 @@ If no points are specified, an empty shape is created and the
 
 See the base [page:Path] class for common properties.
 
-### <br/> String uuid; <br/>
+###  String uuid;
 
 [link:http://en.wikipedia.org/wiki/Universally_unique_identifier UUID] of this
 instance. This gets automatically assigned, so this shouldn't be edited.
 
-### <br/> Array holes; <br/>
+###  Array holes;
 
 An array of [page:Path paths] that define the holes in the shape.
 
@@ -69,16 +56,18 @@ An array of [page:Path paths] that define the holes in the shape.
 
 See the base [page:Path] class for common methods.
 
-### [method:Array extractPoints]( [param:Integer divisions] )
+###  function extractPoints( divisions: Integer ): Array;
 
 divisions -- The fineness of the result.  
   
 Call [page:Curve.getPoints getPoints] on the shape and the [page:.holes]
 array, and return an object of the form:  
-```ts { shape holes } ```  
+```ts  
+{ shape holes }  
+```  
 where shape and holes are arrays of [page:Vector2 Vector2s].
 
-### [method:Array getPointsHoles]( [param:Integer divisions] )
+###  function getPointsHoles( divisions: Integer ): Array;
 
 divisions -- The fineness of the result.  
   

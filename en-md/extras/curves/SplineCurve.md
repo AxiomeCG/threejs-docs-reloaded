@@ -1,6 +1,6 @@
 [page:Curve] →
 
-# [name]
+# SplineCurve
 
 Create a smooth 2d spline curve from a series of points. Internally this uses
 [page:Interpolations.CatmullRom] to create the curve.
@@ -9,27 +9,18 @@ Create a smooth 2d spline curve from a series of points. Internally this uses
 
   
 ```ts  
-// Create a sine-like wave  
-const curve = new THREE.SplineCurve( [  
-new THREE.Vector2( -10, 0 ),  
-new THREE.Vector2( -5, 5 ),  
-new THREE.Vector2( 0, 0 ),  
-new THREE.Vector2( 5, -5 ),  
-new THREE.Vector2( 10, 0 )  
-] );  
-  
-const points = curve.getPoints( 50 );  
-const geometry = new THREE.BufferGeometry().setFromPoints( points );  
-  
-const material = new THREE.LineBasicMaterial( { color: 0xff0000 } );  
-  
-// Create the final object to add to the scene  
-const splineObject = new THREE.Line( geometry, material );  
+// Create a sine-like wave const curve = new THREE.SplineCurve( [ new
+THREE.Vector2( -10, 0 ), new THREE.Vector2( -5, 5 ), new THREE.Vector2( 0, 0
+), new THREE.Vector2( 5, -5 ), new THREE.Vector2( 10, 0 ) ] ); const points =
+curve.getPoints( 50 ); const geometry = new
+THREE.BufferGeometry().setFromPoints( points ); const material = new
+THREE.LineBasicMaterial( { color: 0xff0000 } ); // Create the final object to
+add to the scene const splineObject = new THREE.Line( geometry, material );  
 ```  
 
 ## Constructor
 
-### [name]( [param:Array points] )
+###  function SplineCurve( points: Array ): void;
 
 points – An array of [page:Vector2] points that define the curve.
 
@@ -37,7 +28,7 @@ points – An array of [page:Vector2] points that define the curve.
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Array points; <br/>
+###  Array points;
 
 The array of [page:Vector2] points that define the curve.
 

@@ -1,6 +1,6 @@
 [page:KeyframeTrack] →
 
-# [name]
+# ColorKeyframeTrack
 
 A Track of keyframe values that represent color changes.  
   
@@ -9,7 +9,8 @@ However, this is the place for color space parameterization.
 
 ## Constructor
 
-###  [name]( [param:String name], [param:Array times], [param:Array values] )
+###  function ColorKeyframeTrack( name: String, times: Array, values: Array ):
+void;
 
 [page:String name] - (required) identifier for the KeyframeTrack.  
 [page:Array times] - (required) array of keyframe times.  
@@ -23,7 +24,7 @@ array of color components between `0` and `1`.
 
 See [page:KeyframeTrack] for inherited properties.
 
-### <br/> String ValueTypeName; <br/>
+###  String ValueTypeName;
 
 String 'color'.
 

@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# Bone
 
 A bone which is part of a [page:Skeleton]. The skeleton in turn is used by the
 [page:SkinnedMesh]. Bones are almost identical to a blank [page:Object3D].
@@ -9,28 +9,25 @@ A bone which is part of a [page:Skeleton]. The skeleton in turn is used by the
 
   
 ```ts  
-const root = new THREE.Bone();  
-const child = new THREE.Bone();  
-  
-root.add( child );  
-child.position.y = 5;  
+const root = new THREE.Bone(); const child = new THREE.Bone(); root.add( child
+); child.position.y = 5;  
 ```  
 
 ## Constructor
 
-### [name]( )
+###  function Bone( ): void;
 
-Creates a new [name].
+Creates a new Bone.
 
 ## Properties
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> Boolean isBone; <br/>
+###  Boolean isBone;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Bone.
 
-### <br/> String type; <br/>
+###  String type;
 
 Set to 'Bone', this can be used to find all Bones in a scene.
 

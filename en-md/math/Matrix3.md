@@ -1,4 +1,4 @@
-# [name]
+# Matrix3
 
 A class representing a 3x3
 [link:https://en.wikipedia.org/wiki/Matrix_(mathematics) matrix].
@@ -19,15 +19,11 @@ major_order row-major] order, while internally they are stored in the
   
 This means that calling  
 ```ts  
-m.set( 11, 12, 13,  
-21, 22, 23,  
-31, 32, 33 );  
+m.set( 11, 12, 13, 21, 22, 23, 31, 32, 33 );  
 ```  
 will result in the [page:.elements elements] array containing:  
 ```ts  
-m.elements = [ 11, 21, 31,  
-12, 22, 32,  
-13, 23, 33 ];  
+m.elements = [ 11, 21, 31, 12, 22, 32, 13, 23, 33 ];  
 ```  
 and internally all calculations are performed using column-major ordering.
 However, as the actual ordering makes no difference mathematically and most
@@ -39,60 +35,54 @@ outlined here to make sense of the calculations.
 
 ## Constructor
 
-### [name]( [param:Number n11], [param:Number n12], [param:Number n13],
-[param:Number n21], [param:Number n22], [param:Number n22], [param:Number
-n31], [param:Number n32], [param:Number n33] )
+###  function Matrix3( n11: Number, n12: Number, n13: Number, n21: Number,
+n22: Number, n22: Number, n31: Number, n32: Number, n33: Number ): void;
 
 Creates a 3x3 matrix with the given arguments in row-major order. If no
-arguments are provided, the constructor initializes the [name] to the 3x3
+arguments are provided, the constructor initializes the Matrix3 to the 3x3
 [link:https://en.wikipedia.org/wiki/Identity_matrix identity matrix].
 
 ## Properties
 
-### <br/> Array elements; <br/>
+###  Array elements;
 
 A [link:https://en.wikipedia.org/wiki/Row-_and_column-major_order column-
 major] list of matrix values.
 
 ## Methods
 
-### [method:Matrix3 clone]()
+###  function clone( ): Matrix3;
 
 Creates a new Matrix3 and with identical elements to this one.
 
-### <br/> function copy( m: Matrix3 ): copy; <br/>
+###  function copy( m: Matrix3 ): this;
 
 Copies the elements of matrix [page:Matrix3 m] into this matrix.
 
-### [method:Float determinant]()
+###  function determinant( ): Float;
 
 Computes and returns the [link:https://en.wikipedia.org/wiki/Determinant
 determinant] of this matrix.
 
-### [method:Boolean equals]( [param:Matrix3 m] )
+###  function equals( m: Matrix3 ): Boolean;
 
 Return true if this matrix and [page:Matrix3 m] are equal.
 
-### <br/> function extractBasis( xAxis: Vector3, yAxis: Vector3, zAxis:
-Vector3 ): extractBasis; <br/>
+###  function extractBasis( xAxis: Vector3, yAxis: Vector3, zAxis: Vector3 ):
+this;
 
 Extracts the [link:https://en.wikipedia.org/wiki/Basis_(linear_algebra) basis]
 of this matrix into the three axis vectors provided. If this matrix is:  
 ```ts  
-a, b, c,  
-d, e, f,  
-g, h, i  
+a, b, c, d, e, f, g, h, i  
 ```  
 then the [page:Vector3 xAxis], [page:Vector3 yAxis], [page:Vector3 zAxis] will
 be set to:  
 ```ts  
-xAxis = (a, d, g)  
-yAxis = (b, e, h)  
-zAxis = (c, f, i)  
+xAxis = (a, d, g) yAxis = (b, e, h) zAxis = (c, f, i)  
 ```  
 
-### <br/> function fromArray( array: Array, offset: Integer ): fromArray;
-<br/>
+###  function fromArray( array: Array, offset: Integer ): this;
 
 [page:Array array] - the array to read the elements from.  
 [page:Integer offset] - (optional) index of first element in the array.
@@ -102,14 +92,14 @@ Sets the elements of this matrix based on an array in
 [link:https://en.wikipedia.org/wiki/Row-_and_column-major_order#Column-
 major_order column-major] format.
 
-### <br/> function invert( ): invert; <br/>
+###  function invert( ): this;
 
 Inverts this matrix, using the
 [link:https://en.wikipedia.org/wiki/Invertible_matrix#Analytic_solution
 analytic method]. You can not invert with a determinant of zero. If you
 attempt this, the method produces a zero matrix instead.
 
-### <br/> function getNormalMatrix( m: Matrix4 ): getNormalMatrix; <br/>
+###  function getNormalMatrix( m: Matrix4 ): this;
 
 [page:Matrix4 m] - [page:Matrix4]  
   
@@ -120,15 +110,14 @@ Sets this matrix as the upper left 3x3 of the
 [link:https://en.wikipedia.org/wiki/Transpose transpose] of the matrix
 [page:Matrix4 m].
 
-### <br/> function identity( ): identity; <br/>
+###  function identity( ): this;
 
 Resets this matrix to the 3x3 identity matrix:  
 ```ts  
-1, 0, 0  
-0, 1, 0  
-0, 0, 1 ```  
+1, 0, 0 0, 1, 0 0, 0, 1  
+```  
 
-### <br/> function makeRotation( theta: Float ): makeRotation; <br/>
+###  function makeRotation( theta: Float ): this;
 
 [page:Float theta] — Rotation angle in radians. Positive values rotate
 counterclockwise.  
@@ -136,25 +125,21 @@ counterclockwise.
 Sets this matrix as a 2D rotational transformation by [page:Float theta]
 radians. The resulting matrix will be:  
 ```ts  
-cos(θ) -sin(θ) 0  
-sin(θ) cos(θ) 0  
-0 0 1  
+cos(θ) -sin(θ) 0 sin(θ) cos(θ) 0 0 0 1  
 ```  
 
-### <br/> function makeScale( x: Float, y: Float ): makeScale; <br/>
+###  function makeScale( x: Float, y: Float ): this;
 
 [page:Float x] - the amount to scale in the X axis.  
 [page:Float y] - the amount to scale in the Y axis.  
 Sets this matrix as a 2D scale transform:  
 ```ts  
-x, 0, 0,  
-0, y, 0,  
-0, 0, 1 ```  
+x, 0, 0, 0, y, 0, 0, 0, 1  
+```  
 
-### <br/> function makeTranslation( v: Vector2 ): makeTranslation; <br/>
+###  function makeTranslation( v: Vector2 ): this;
 
-### <br/> function makeTranslation( x: Float, y: Float ): makeTranslation;
-<br/>
+###  function makeTranslation( x: Float, y: Float ): this;
 
 [page:Vector2 v] a translation transform from vector.  
 or  
@@ -162,33 +147,31 @@ or
 [page:Float y] - the amount to translate in the Y axis.  
 Sets this matrix as a 2D translation transform:  
 ```ts  
-1, 0, x,  
-0, 1, y,  
-0, 0, 1 ```  
+1, 0, x, 0, 1, y, 0, 0, 1  
+```  
 
-### <br/> function multiply( m: Matrix3 ): multiply; <br/>
+###  function multiply( m: Matrix3 ): this;
 
 Post-multiplies this matrix by [page:Matrix3 m].
 
-### <br/> function multiplyMatrices( a: Matrix3, b: Matrix3 ):
-multiplyMatrices; <br/>
+###  function multiplyMatrices( a: Matrix3, b: Matrix3 ): this;
 
 Sets this matrix to [page:Matrix3 a] x [page:Matrix3 b].
 
-### <br/> function multiplyScalar( s: Float ): multiplyScalar; <br/>
+###  function multiplyScalar( s: Float ): this;
 
 Multiplies every component of the matrix by the scalar value *s*.
 
-### <br/> function rotate( theta: Float ): rotate; <br/>
+###  function rotate( theta: Float ): this;
 
 Rotates this matrix by the given angle (in radians).
 
-### <br/> function scale( sx: Float, sy: Float ): scale; <br/>
+###  function scale( sx: Float, sy: Float ): this;
 
 Scales this matrix with the given scalar values.
 
-### <br/> function set( n11: Float, n12: Float, n13: Float, n21: Float, n22:
-Float, n23: Float, n31: Float, n32: Float, n33: Float ): set; <br/>
+###  function set( n11: Float, n12: Float, n13: Float, n21: Float, n22: Float,
+n23: Float, n31: Float, n32: Float, n33: Float ): this;
 
 [page:Float n11] - value to put in row 1, col 1.  
 [page:Float n12] - value to put in row 1, col 2.  
@@ -201,16 +184,16 @@ Sets the 3x3 matrix values to the given
 [link:https://en.wikipedia.org/wiki/Row-_and_column-major_order row-major]
 sequence of values.
 
-### <br/> function premultiply( m: Matrix3 ): premultiply; <br/>
+###  function premultiply( m: Matrix3 ): this;
 
 Pre-multiplies this matrix by [page:Matrix3 m].
 
-### <br/> function setFromMatrix4( m: Matrix4 ): setFromMatrix4; <br/>
+###  function setFromMatrix4( m: Matrix4 ): this;
 
 Set this matrix to the upper 3x3 matrix of the Matrix4 [page:Matrix4 m].
 
-### <br/> function setUvTransform( tx: Float, ty: Float, sx: Float, sy: Float,
-rotation: Float, cx: Float, cy: Float ): setUvTransform; <br/>
+###  function setUvTransform( tx: Float, ty: Float, sx: Float, sy: Float,
+rotation: Float, cx: Float, cy: Float ): this;
 
 [page:Float tx] - offset x  
 [page:Float ty] - offset y  
@@ -223,7 +206,7 @@ counterclockwise
   
 Sets the UV transform matrix from offset, repeat, rotation, and center.
 
-###  [method:Array toArray]( [param:Array array], [param:Integer offset] )
+###  function toArray( array: Array, offset: Integer ): Array;
 
 [page:Array array] - (optional) array to store the resulting vector in. If not
 given a new array will be created.  
@@ -234,17 +217,16 @@ Writes the elements of this matrix to an array in
 [link:https://en.wikipedia.org/wiki/Row-_and_column-major_order#Column-
 major_order column-major] format.
 
-### <br/> function translate( tx: Float, ty: Float ): translate; <br/>
+###  function translate( tx: Float, ty: Float ): this;
 
 Translates this matrix by the given scalar values.
 
-### <br/> function transpose( ): transpose; <br/>
+###  function transpose( ): this;
 
 [link:https://en.wikipedia.org/wiki/Transpose Transposes] this matrix in
 place.
 
-### <br/> function transposeIntoArray( array: Array ): transposeIntoArray;
-<br/>
+###  function transposeIntoArray( array: Array ): this;
 
 [page:Array array] - array to store the resulting vector in.  
   

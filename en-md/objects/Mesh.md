@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# Mesh
 
 Class representing triangular [link:https://en.wikipedia.org/wiki/Polygon_mesh
 polygon mesh] based objects. Also serves as a base for other classes such as
@@ -10,15 +10,14 @@ polygon mesh] based objects. Also serves as a base for other classes such as
 
   
 ```ts  
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );  
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );  
-const mesh = new THREE.Mesh( geometry, material );  
-scene.add( mesh );  
+const geometry = new THREE.BoxGeometry( 1, 1, 1 ); const material = new
+THREE.MeshBasicMaterial( { color: 0xffff00 } ); const mesh = new THREE.Mesh(
+geometry, material ); scene.add( mesh );  
 ```  
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Material material] )
+###  function Mesh( geometry: BufferGeometry, material: Material ): void;
 
 [page:BufferGeometry geometry] — (optional) an instance of
 [page:BufferGeometry]. Default is a new [page:BufferGeometry].  
@@ -29,28 +28,28 @@ Default is a new [page:MeshBasicMaterial]
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> BufferGeometry geometry; <br/>
+###  BufferGeometry geometry;
 
 An instance of [page:BufferGeometry] (or derived classes), defining the
 object's structure.
 
-### <br/> Boolean isMesh; <br/>
+###  Boolean isMesh;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Mesh.
 
-### <br/> Material material; <br/>
+###  Material material;
 
 An instance of material derived from the [page:Material] base class or an
 array of materials, defining the object's appearance. Default is a
 [page:MeshBasicMaterial].
 
-### <br/> Array morphTargetInfluences; <br/>
+###  Array morphTargetInfluences;
 
 An array of weights typically from 0-1 that specify how much of the morph is
 applied. Undefined by default, but reset to a blank array by
 [page:Mesh.updateMorphTargets updateMorphTargets].
 
-### <br/> Object morphTargetDictionary; <br/>
+###  Object morphTargetDictionary;
 
 A dictionary of morphTargets based on the morphTarget.name property. Undefined
 by default, but rebuilt [page:Mesh.updateMorphTargets updateMorphTargets].
@@ -59,24 +58,22 @@ by default, but rebuilt [page:Mesh.updateMorphTargets updateMorphTargets].
 
 See the base [page:Object3D] class for common methods.
 
-### [method:Mesh clone]()
+###  function clone( ): Mesh;
 
-Returns a clone of this [name] object and its descendants.
+Returns a clone of this Mesh object and its descendants.
 
-###  [method:Vector3 getVertexPosition]( [param:Integer index], [param:Vector3
-target] )
+###  function getVertexPosition( index: Integer, target: Vector3 ): Vector3;
 
 Get the local-space position of the vertex at the given index, taking into
 account the current animation state of both morph targets and skinning.
 
-###  [method:undefined raycast]( [param:Raycaster raycaster], [param:Array
-intersects] )
+###  function raycast( raycaster: Raycaster, intersects: Array ): undefined;
 
 Get intersections between a casted ray and this mesh.
 [page:Raycaster.intersectObject] will call this method, but the results are
 not ordered.
 
-### [method:undefined updateMorphTargets]()
+###  function updateMorphTargets( ): undefined;
 
 Updates the morphTargets to have no influence on the object. Resets the
 [page:Mesh.morphTargetInfluences morphTargetInfluences] and

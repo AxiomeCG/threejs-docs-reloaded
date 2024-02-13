@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# DataTextureLoader
 
 Abstract base class to load generic binary textures formats (rgbe, hdr, ...).
 This uses the [page:FileLoader] internally for loading files, and creates a
@@ -14,13 +14,13 @@ RGBELoader] for an example of a derived class.
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function DataTextureLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new DataTextureLoader.
 
 ## Properties
 
@@ -30,8 +30,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:DataTexture load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): DataTexture;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-

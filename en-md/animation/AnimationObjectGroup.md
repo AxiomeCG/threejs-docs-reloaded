@@ -1,4 +1,4 @@
-# [name]
+# AnimationObjectGroup
 
 A group of objects that receives a shared animation state.  
   
@@ -23,24 +23,24 @@ but not both.
 
 ## Constructor
 
-###  [name]( [param:Object obj1], [param:Object obj2], [param:Object obj3],
-...)
+###  function AnimationObjectGroup( obj1: Object, obj2: Object, obj3: Object
+): void;
 
 [page:Object obj] - an arbitrary number of meshes that share the same
 animation state.
 
 ## Properties
 
-### <br/> Boolean isAnimationObjectGroup; <br/>
+###  Boolean isAnimationObjectGroup;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type AnimationObjectGroup.
 
-### <br/> Object stats; <br/>
+###  Object stats;
 
 An object that contains some informations of this `AnimationObjectGroup`
 (total number, number in use, number of bindings per object)
 
-### <br/> String uuid; <br/>
+###  String uuid;
 
 The [link:http://en.wikipedia.org/wiki/Universally_unique_identifier UUID] of
 this `AnimationObjectGroup`. It gets automatically assigned and shouldn't be
@@ -48,18 +48,15 @@ edited.
 
 ## Methods
 
-### [method:undefined add]( [param:Object obj1], [param:Object obj2],
-[param:Object obj3], ... )
+###  function add( obj1: Object, obj2: Object, obj3: Object ): undefined;
 
 Adds an arbitrary number of objects to this `AnimationObjectGroup`.
 
-### [method:undefined remove]( [param:Object obj1], [param:Object obj2],
-[param:Object obj3], ... )
+###  function remove( obj1: Object, obj2: Object, obj3: Object ): undefined;
 
 Removes an arbitrary number of objects from this `AnimationObjectGroup`.
 
-### [method:undefined uncache]( [param:Object obj1], [param:Object obj2],
-[param:Object obj3], ... )
+###  function uncache( obj1: Object, obj2: Object, obj3: Object ): undefined;
 
 Deallocates all memory resources for the passed objects of this
 `AnimationObjectGroup`.

@@ -1,11 +1,11 @@
-# [name]
+# Spherical
 
 A point's [link:https://en.wikipedia.org/wiki/Spherical_coordinate_system
 spherical coordinates].
 
 ## Constructor
 
-###  [name]( [param:Float radius], [param:Float phi], [param:Float theta] )
+###  function Spherical( radius: Float, phi: Float, theta: Float ): void;
 
 [page:Float radius] - the radius, or the
 [link:https://en.wikipedia.org/wiki/Euclidean_distance Euclidean distance]
@@ -20,41 +20,40 @@ starts at positive z.
 
 ## Properties
 
-### <br/> Float radius; <br/>
+###  Float radius;
 
-### <br/> Float phi; <br/>
+###  Float phi;
 
-### <br/> Float theta; <br/>
+###  Float theta;
 
 ## Methods
 
-### [method:Spherical clone]()
+###  function clone( ): Spherical;
 
 Returns a new spherical with the same [page:.radius radius], [page:.phi phi]
 and [page:.theta theta] properties as this one.
 
-### <br/> function copy( s: Spherical ): copy; <br/>
+###  function copy( s: Spherical ): this;
 
 Copies the values of the passed Spherical's [page:.radius radius], [page:.phi
 phi] and [page:.theta theta] properties to this spherical.
 
-### <br/> function makeSafe( ): makeSafe; <br/>
+###  function makeSafe( ): this;
 
 Restricts the polar angle [page:.phi phi] to be between 0.000001 and pi -
 0.000001.
 
-### <br/> function set( radius: Float, phi: Float, theta: Float ): set; <br/>
+###  function set( radius: Float, phi: Float, theta: Float ): this;
 
 Sets values of this spherical's [page:.radius radius], [page:.phi phi] and
 [page:.theta theta] properties.
 
-### <br/> function setFromVector3( vec3: Vector3 ): setFromVector3; <br/>
+###  function setFromVector3( vec3: Vector3 ): this;
 
 Sets values of this spherical's [page:.radius radius], [page:.phi phi] and
 [page:.theta theta] properties from the [page:Vector3 Vector3].
 
-### <br/> function setFromCartesianCoords( x: Float, y: Float, z: Float ):
-setFromCartesianCoords; <br/>
+###  function setFromCartesianCoords( x: Float, y: Float, z: Float ): this;
 
 Sets values of this spherical's [page:.radius radius], [page:.phi phi] and
 [page:.theta theta] properties from Cartesian coordinates.

@@ -1,6 +1,6 @@
 [page:Material] → [page:LineBasicMaterial] →
 
-# [name]
+# LineDashedMaterial
 
 A material for drawing wireframe-style geometries with dashed lines.
 
@@ -8,13 +8,8 @@ A material for drawing wireframe-style geometries with dashed lines.
 
   
 ```ts  
-const material = new THREE.LineDashedMaterial( {  
-color: 0xffffff,  
-linewidth: 1,  
-scale: 1,  
-dashSize: 3,  
-gapSize: 1,  
-} );  
+const material = new THREE.LineDashedMaterial( { color: 0xffffff, linewidth:
+1, scale: 1, dashSize: 3, gapSize: 1, } );  
 ```  
 
 ## Examples
@@ -23,7 +18,7 @@ gapSize: 1,
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function LineDashedMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including
@@ -33,19 +28,19 @@ any property inherited from [page:LineBasicMaterial]) can be passed in here.
 
 See the base [page:LineBasicMaterial] class for common properties.
 
-### <br/> number dashSize; <br/>
+###  number dashSize;
 
 The size of the dash. This is both the gap with the stroke. Default is `3`.
 
-### <br/> number gapSize; <br/>
+###  number gapSize;
 
 The size of the gap. Default is `1`.
 
-### <br/> Boolean isLineDashedMaterial; <br/>
+###  Boolean isLineDashedMaterial;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type LineDashedMaterial.
 
-### <br/> number scale; <br/>
+###  number scale;
 
 The scale of the dashed part of a line. Default is `1`.
 

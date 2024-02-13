@@ -1,6 +1,6 @@
 [page:Texture] →
 
-# [name]
+# CanvasTexture
 
 Creates a texture from a canvas element.  
   
@@ -9,10 +9,9 @@ it sets [page:Texture.needsUpdate needsUpdate] to `true` immediately.
 
 ## Constructor
 
-###  [name]( [param:HTMLElement canvas], [param:Constant mapping],
-[param:Constant wrapS], [param:Constant wrapT], [param:Constant magFilter],
-[param:Constant minFilter], [param:Constant format], [param:Constant type],
-[param:Number anisotropy] )
+###  function CanvasTexture( canvas: HTMLElement, mapping: Constant, wrapS:
+Constant, wrapT: Constant, magFilter: Constant, minFilter: Constant, format:
+Constant, type: Constant, anisotropy: Number ): void;
 
 [page:HTMLElement canvas] -- The HTML canvas element from which to load the
 texture.  
@@ -49,11 +48,11 @@ maximum valid anisotropy value for the GPU; this value is usually a power of
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean isCanvasTexture; <br/>
+###  Boolean isCanvasTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type CanvasTexture.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 True by default. This is required so that the canvas data is loaded.
 

@@ -1,19 +1,19 @@
 [page:InterleavedBuffer] →
 
-# [name]
+# InstancedInterleavedBuffer
 
 An instanced version of [page:InterleavedBuffer].
 
 ## Constructor
 
-### [name]( [param:TypedArray array], [param:Integer itemSize], [param:Number
-meshPerAttribute] )
+###  function InstancedInterleavedBuffer( array: TypedArray, itemSize:
+Integer, meshPerAttribute: Number ): void;
 
 ## Properties
 
 See [page:InterleavedBuffer] for inherited properties.
 
-### <br/> Number meshPerAttribute; <br/>
+###  Number meshPerAttribute;
 
 Default is `1`.
 

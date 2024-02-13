@@ -1,4 +1,4 @@
-# [name]
+# ShaderChunk
 
 Shader chunks for WebGL Shader library
 

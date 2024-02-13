@@ -1,30 +1,30 @@
-# [name]
+# WebXRManager
 
 This class represents an abstraction of the WebXR Device API and is internally
-used by [page:WebGLRenderer]. [name] also provides a public interface that
-allows users to enable/disable XR and perform XR related tasks like for
+used by [page:WebGLRenderer]. WebXRManager also provides a public interface
+that allows users to enable/disable XR and perform XR related tasks like for
 instance retrieving controllers.
 
 ## Properties
 
-### <br/> Boolean cameraAutoUpdate; <br/>
+###  Boolean cameraAutoUpdate;
 
 Whether the manager's XR camera should be automatically updated or not.
 Default is `true`.
 
-### <br/> Boolean enabled; <br/>
+###  Boolean enabled;
 
 This flag notifies the renderer to be ready for XR rendering. Default is
 `false`. Set it to `true` if you are going to use XR in your app.
 
-### <br/> Boolean isPresenting; <br/>
+###  Boolean isPresenting;
 
 Whether XR presentation is active or not. Default is `false`. This flag is
-read-only and automatically set by [name].
+read-only and automatically set by WebXRManager.
 
 ## Methods
 
-### [method:ArrayCamera getCamera]()
+###  function getCamera( ): ArrayCamera;
 
 Returns an instance of [page:ArrayCamera] which represents the XR camera of
 the active XR session. For each view it holds a separate camera object in its
@@ -34,7 +34,7 @@ The camera's `fov` is currently not used and does not reflect the fov of the
 XR camera. If you need the fov on app level, you have to compute in manually
 from the XR camera's projection matrices.
 
-### [method:Group getController]( [param:Integer index] )
+###  function getController( index: Integer ): Group;
 
 [page:Integer index] — The index of the controller.  
   
@@ -42,7 +42,7 @@ Returns a [page:Group] representing the so called *target ray* space of the XR
 controller. Use this space for visualizing 3D objects that support the user in
 pointing tasks like UI interaction.
 
-### [method:Group getControllerGrip]( [param:Integer index] )
+###  function getControllerGrip( index: Integer ): Group;
 
 [page:Integer index] — The index of the controller.  
   
@@ -56,12 +56,12 @@ returned by [page:.getControllerGrip]() and the ray to the group returned by
 [page:.getController](). The idea is to have two different groups in two
 different coordinate spaces for the same WebXR controller.
 
-### [method:Float getFoveation]()
+###  function getFoveation( ): Float;
 
 Returns the amount of foveation used by the XR compositor for the projection
 layer.
 
-### [method:Group getHand]( [param:Integer index] )
+###  function getHand( index: Integer ): Group;
 
 [page:Integer index] — The index of the controller.  
   
@@ -69,24 +69,24 @@ Returns a [page:Group] representing the so called `hand` or `joint` space of
 the XR controller. Use this space for visualizing the user's hands when no
 physical controllers are used.
 
-### [method:String getReferenceSpace]()
+###  function getReferenceSpace( ): String;
 
 Returns the reference space.
 
-### [method:XRSession getSession]()
+###  function getSession( ): XRSession;
 
 Returns the `XRSession` object which allows a more fine-grained management of
 active WebXR sessions on application level.
 
-### [method:undefined setFoveation]( [param:Float foveation] )
+###  function setFoveation( foveation: Float ): undefined;
 
 [page:Float foveation] — The foveation to set.  
   
 Specifies the amount of foveation used by the XR compositor for the layer.
 Must be a value between `0` and `1`.
 
-###  [method:undefined setFramebufferScaleFactor]( [param:Float
-framebufferScaleFactor] )
+###  function setFramebufferScaleFactor( framebufferScaleFactor: Float ):
+undefined;
 
 [page:Float framebufferScaleFactor] — The framebuffer scale factor to set.  
   
@@ -98,16 +98,15 @@ specify a framebuffer with 50% of the display's native resolution.
 Note: It is not possible to change the framebuffer scale factor while
 presenting XR content.
 
-###  [method:undefined setReferenceSpace]( [param:XRReferenceSpace
-referenceSpace] )
+###  function setReferenceSpace( referenceSpace: XRReferenceSpace ):
+undefined;
 
 [page:XRReferenceSpace referenceSpace] — A custom reference space.  
   
 Can be used to configure a custom reference space which overwrites the default
 reference space.
 
-###  [method:undefined setReferenceSpaceType]( [param:String
-referenceSpaceType] )
+###  function setReferenceSpaceType( referenceSpaceType: String ): undefined;
 
 [page:String referenceSpaceType] — The reference space type to set.  
   
@@ -118,7 +117,7 @@ Please check out the [link:https://developer.mozilla.org/en-
 US/docs/Web/API/XRReferenceSpaceType MDN] for possible values and their use
 cases.
 
-### [method:undefined updateCamera]( [param:PerspectiveCamera camera] )
+###  function updateCamera( camera: PerspectiveCamera ): undefined;
 
 Updates the state of the XR camera. Use this method on app level if you set
 [page:.cameraAutoUpdate] to `false`. The method requires the non-XR camera of

@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Line] →
 
-# [name]
+# PolarGridHelper
 
 The PolarGridHelper is an object to define polar grids. Grids are two-
 dimensional arrays of lines.
@@ -9,12 +9,8 @@ dimensional arrays of lines.
 
   
 ```ts  
-const radius = 10;  
-const sectors = 16;  
-const rings = 8;  
-const divisions = 64;  
-  
-const helper = new THREE.PolarGridHelper( radius, sectors, rings, divisions );  
+const radius = 10; const sectors = 16; const rings = 8; const divisions = 64;
+const helper = new THREE.PolarGridHelper( radius, sectors, rings, divisions );
 scene.add( helper );  
 ```  
 
@@ -24,8 +20,8 @@ scene.add( helper );
 
 ## Constructor
 
-###  [name]( [param:Number radius], [param:Number sectors], [param:Number
-rings], [param:Number divisions], [param:Color color1], [param:Color color2] )
+###  function PolarGridHelper( radius: Number, sectors: Number, rings: Number,
+divisions: Number, color1: Color, color2: Color ): void;
 
 radius -- The radius of the polar grid. This can be any positive number.
 Default is `10`.  
@@ -39,15 +35,15 @@ a hexadecimal value and an CSS-Color name. Default is 0x444444
 color2 -- The second color used for grid elements. This can be a [page:Color],
 a hexadecimal value and an CSS-Color name. Default is 0x888888
 
-Creates a new [name] of radius 'radius' with 'sectors' number of sectors and
-'rings' number of rings, where each circle is smoothed into 'divisions' number
-of line segments. Colors are optional.
+Creates a new PolarGridHelper of radius 'radius' with 'sectors' number of
+sectors and 'rings' number of rings, where each circle is smoothed into
+'divisions' number of line segments. Colors are optional.
 
 ## Methods
 
 See the base [page:LineSegments] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

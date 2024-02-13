@@ -1,17 +1,17 @@
-# [name]
+# Curve
 
-An abstract base class for creating a [name] object that contains methods for
-interpolation. For an array of [name]s see [page:CurvePath].
+An abstract base class for creating a Curve object that contains methods for
+interpolation. For an array of Curves see [page:CurvePath].
 
 ## Constructor
 
-### [name]()
+###  function Curve( ): void;
 
-This constructor creates a new [name].
+This constructor creates a new Curve.
 
 ## Properties
 
-### <br/> Integer arcLengthDivisions; <br/>
+###  Integer arcLengthDivisions;
 
 This value determines the amount of divisions when calculating the cumulative
 segment lengths of a curve via [page:.getLengths]. To ensure precision when
@@ -20,7 +20,7 @@ using methods like [page:.getSpacedPoints], it is recommended to increase
 
 ## Methods
 
-### [method:Vector getPoint]( [param:Float t], [param:Vector optionalTarget] )
+###  function getPoint( t: Float, optionalTarget: Vector ): Vector;
 
 [page:Float t] - A position on the curve. Must be in the range [ 0, 1 ].  
 [page:Vector optionalTarget] — (optional) If specified, the result will be
@@ -28,8 +28,7 @@ copied into this Vector, otherwise a new Vector will be created.
   
 Returns a vector for a given position on the curve.
 
-### [method:Vector getPointAt]( [param:Float u], [param:Vector optionalTarget]
-)
+###  function getPointAt( u: Float, optionalTarget: Vector ): Vector;
 
 [page:Float u] - A position on the curve according to the arc length. Must be
 in the range [ 0, 1 ].  
@@ -39,41 +38,40 @@ copied into this Vector, otherwise a new Vector will be created.
 Returns a vector for a given position on the curve according to the arc
 length.
 
-### [method:Array getPoints]( [param:Integer divisions] )
+###  function getPoints( divisions: Integer ): Array;
 
 divisions -- number of pieces to divide the curve into. Default is `5`.  
   
 Returns a set of divisions + 1 points using getPoint( t ).
 
-### [method:Array getSpacedPoints]( [param:Integer divisions] )
+###  function getSpacedPoints( divisions: Integer ): Array;
 
 divisions -- number of pieces to divide the curve into. Default is `5`.  
   
 Returns a set of divisions + 1 equi-spaced points using getPointAt( u ).
 
-### [method:Float getLength]()
+###  function getLength( ): Float;
 
 Get total curve arc length.
 
-### [method:Array getLengths]( [param:Integer divisions] )
+###  function getLengths( divisions: Integer ): Array;
 
 Get list of cumulative segment lengths.
 
-### [method:undefined updateArcLengths]()
+###  function updateArcLengths( ): undefined;
 
 Update the cumlative segment distance cache. The method must be called every
 time curve parameters are changed. If an updated curve is part of a composed
 curve like [page:CurvePath], [page:.updateArcLengths]() must be called on the
 composed curve, too.
 
-### [method:Float getUtoTmapping]( [param:Float u], [param:Float distance] )
+###  function getUtoTmapping( u: Float, distance: Float ): Float;
 
 Given u in the range ( 0 .. 1 ), returns [page:Float t] also in the range ( 0
 .. 1 ). u and t can then be used to give you points which are equidistant from
 the ends of the curve, using [page:.getPoint].
 
-### [method:Vector getTangent]( [param:Float t], [param:Vector optionalTarget]
-)
+###  function getTangent( t: Float, optionalTarget: Vector ): Vector;
 
 [page:Float t] - A position on the curve. Must be in the range [ 0, 1 ].  
 [page:Vector optionalTarget] — (optional) If specified, the result will be
@@ -83,8 +81,7 @@ Returns a unit vector tangent at t. If the derived curve does not implement
 its tangent derivation, two points a small delta apart will be used to find
 its gradient which seems to give a reasonable approximation.
 
-### [method:Vector getTangentAt]( [param:Float u], [param:Vector
-optionalTarget] )
+###  function getTangentAt( u: Float, optionalTarget: Vector ): Vector;
 
 [page:Float u] - A position on the curve according to the arc length. Must be
 in the range [ 0, 1 ].  
@@ -94,25 +91,25 @@ copied into this Vector, otherwise a new Vector will be created.
 Returns tangent at a point which is equidistant to the ends of the curve from
 the point given in [page:.getTangent].
 
-### [method:Object computeFrenetFrames]( [param:Integer segments],
-[param:Boolean closed] )
+###  function computeFrenetFrames( segments: Integer, closed: Boolean ):
+Object;
 
 Generates the Frenet Frames. Requires a curve definition in 3D space. Used in
 geometries like [page:TubeGeometry] or [page:ExtrudeGeometry].
 
-### [method:Curve clone]()
+###  function clone( ): Curve;
 
 Creates a clone of this instance.
 
-### <br/> function copy( source: Curve ): copy; <br/>
+###  function copy( source: Curve ): this;
 
-Copies another [name] object to this instance.
+Copies another Curve object to this instance.
 
-### [method:Object toJSON]()
+###  function toJSON( ): Object;
 
 Returns a JSON object representation of this instance.
 
-### <br/> function fromJSON( json: Object ): fromJSON; <br/>
+###  function fromJSON( json: Object ): this;
 
 Copies the data from the given JSON object to this instance.
 

@@ -1,4 +1,4 @@
-# [name]
+# InterleavedBuffer
 
 "Interleaved" means that multiple attributes, possibly of different types,
 (e.g., position, normal, uv, color) are packed into a single array buffer.  
@@ -14,7 +14,7 @@ points / interleaved]
 
 ## Constructor
 
-### [name]( [param:TypedArray array], [param:Integer stride] )
+###  function InterleavedBuffer( array: TypedArray, stride: Integer ): void;
 
 [page:TypedArray array] -- A typed array with a shared buffer. Stores the
 geometry data.  
@@ -22,40 +22,40 @@ geometry data.
 
 ## Properties
 
-### <br/> Array array; <br/>
+###  Array array;
 
 A typed array with a shared buffer. Stores the geometry data.
 
-### <br/> Integer stride; <br/>
+###  Integer stride;
 
 The number of typed-array elements per vertex.
 
-### <br/> Integer count; <br/>
+###  Integer count;
 
 Gives the total number of elements in the array.
 
-### <br/> Object updateRange; <br/>
+###  Object updateRange;
 
 Object containing offset and count.  
 \- [page:Number offset]: Default is `0`.  
 \- [page:Number count]: Default is `-1`.  
 
-### <br/> String uuid; <br/>
+###  String uuid;
 
 [link:http://en.wikipedia.org/wiki/Universally_unique_identifier UUID] of this
 instance. This gets automatically assigned, so this shouldn't be edited.
 
-### <br/> Integer version; <br/>
+###  Integer version;
 
 A version number, incremented every time the needsUpdate property is set to
 true.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 Default is `false`. Setting this to true increments
 [page:InterleavedBuffer.version version].
 
-### <br/> Usage usage; <br/>
+###  Usage usage;
 
 Defines the intended usage pattern of the data store for optimization
 purposes. Corresponds to the `usage` parameter of
@@ -65,17 +65,17 @@ WebGLRenderingContext.bufferData]().
 
 ## Methods
 
-### <br/> function copy( source: InterleavedBuffer ): copy; <br/>
+###  function copy( source: InterleavedBuffer ): this;
 
-Copies another [name] to this [name].
+Copies another InterleavedBuffer to this InterleavedBuffer.
 
-### <br/> function copyAt( index1: Integer, attribute: InterleavedBuffer,
-index2: Integer ): copyAt; <br/>
+###  function copyAt( index1: Integer, attribute: InterleavedBuffer, index2:
+Integer ): this;
 
 Copies data from `attribute[index2]` to [page:InterleavedBuffer.array
 array][index1].
 
-### <br/> function set( value: TypedArray, offset: Integer ): set; <br/>
+###  function set( value: TypedArray, offset: Integer ): this;
 
 value - The source (typed) array.  
 offset - The offset into the target array at which to begin writing values
@@ -84,23 +84,23 @@ from the source array. Default is `0`.
 Stores multiple values in the buffer, reading input values from a specified
 array.
 
-### [method:InterleavedBuffer clone]( [param:Object data] )
+###  function clone( data: Object ): InterleavedBuffer;
 
 data - This object holds shared array buffers required for properly cloning
 geometries with interleaved attributes.  
   
-Creates a clone of this [name].
+Creates a clone of this InterleavedBuffer.
 
-### <br/> function setUsage( value: Usage ): setUsage; <br/>
+###  function setUsage( value: Usage ): this;
 
 Set [page:InterleavedBuffer.usage usage] to value.
 
-### [method:Object toJSON]( [param:Object data] )
+###  function toJSON( data: Object ): Object;
 
 data - This object holds shared array buffers required for properly
 serializing geometries with interleaved attributes.  
   
-Serializes this [name].
+Serializes this InterleavedBuffer.
 
 ## Source
 

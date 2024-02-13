@@ -1,13 +1,13 @@
 [page:Object3D] →
 
-# [name]
+# AudioListener
 
-The [name] represents a virtual [link:https://developer.mozilla.org/en-
+The AudioListener represents a virtual [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioListener listener] of the all positional and non-
 positional audio effects in the scene.  
-A three.js application usually creates a single instance of [name]. It is a
-mandatory constructor parameter for audios entities like [page:Audio Audio]
-and [page:PositionalAudio PositionalAudio].  
+A three.js application usually creates a single instance of AudioListener. It
+is a mandatory constructor parameter for audios entities like [page:Audio
+Audio] and [page:PositionalAudio PositionalAudio].  
 In most cases, the listener object is a child of the camera. So the 3D
 transformation of the camera represents the 3D transformation of the listener.
 
@@ -15,23 +15,12 @@ transformation of the camera represents the 3D transformation of the listener.
 
   
 ```ts  
-  
-// create an AudioListener and add it to the camera  
-const listener = new THREE.AudioListener();  
-camera.add( listener );  
-  
-// create a global audio source  
-const sound = new THREE.Audio( listener );  
-  
-// load a sound and set it as the Audio object's buffer  
-const audioLoader = new THREE.AudioLoader();  
-audioLoader.load( 'sounds/ambient.ogg', function( buffer ) {  
-sound.setBuffer( buffer );  
-sound.setLoop(true);  
-sound.setVolume(0.5);  
-sound.play();  
-});  
-  
+// create an AudioListener and add it to the camera const listener = new
+THREE.AudioListener(); camera.add( listener ); // create a global audio source
+const sound = new THREE.Audio( listener ); // load a sound and set it as the
+Audio object's buffer const audioLoader = new THREE.AudioLoader();
+audioLoader.load( 'sounds/ambient.ogg', function( buffer ) { sound.setBuffer(
+buffer ); sound.setLoop(true); sound.setVolume(0.5); sound.play(); });  
 ```  
 
 ## Examples
@@ -42,28 +31,28 @@ sound.play();
 
 ## Constructor
 
-### [name]( )
+###  function AudioListener( ): void;
 
 Create a new AudioListener.
 
 ## Properties
 
-### <br/> AudioContext context; <br/>
+###  AudioContext context;
 
 The [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
 AudioContext] of the [page:AudioListener listener] given in the constructor.
 
-### <br/> GainNode gain; <br/>
+###  GainNode gain;
 
 A [link:https://developer.mozilla.org/en-US/docs/Web/API/GainNode GainNode]
 created using [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioContext/createGain AudioContext.createGain]().
 
-### <br/> AudioNode filter; <br/>
+###  AudioNode filter;
 
 Default is `null`.
 
-### <br/> Number timeDelta; <br/>
+###  Number timeDelta;
 
 Time delta value for audio entities. Use in context of
 [link:https://developer.mozilla.org/en-
@@ -72,27 +61,27 @@ AudioParam.linearRampToValueAtTimeDefault](). Default is .
 
 ## Methods
 
-### [method:GainNode getInput]()
+###  function getInput( ): GainNode;
 
 Return the [page:AudioListener.gain gainNode].
 
-### <br/> function removeFilter( ): removeFilter; <br/>
+###  function removeFilter( ): this;
 
 Set the [page:AudioListener.filter filter] property to `null`.
 
-### [method:AudioNode getFilter]()
+###  function getFilter( ): AudioNode;
 
 Returns the value of the [page:AudioListener.filter filter] property.
 
-### <br/> function setFilter( value: AudioNode ): setFilter; <br/>
+###  function setFilter( value: AudioNode ): this;
 
 Set the [page:AudioListener.filter filter] property to `value`.
 
-### [method:Float getMasterVolume]()
+###  function getMasterVolume( ): Float;
 
 Return the volume.
 
-### <br/> function setMasterVolume( value: Number ): setMasterVolume; <br/>
+###  function setMasterVolume( value: Number ): this;
 
 Set the volume.
 

@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Light] →
 
-# [name]
+# PointLight
 
 A light that gets emitted from a single point in all directions. A common use
 case for this is to replicate the light emitted from a bare lightbulb.  
@@ -11,9 +11,8 @@ This light can cast shadows - see [page:PointLightShadow] page for details.
 
   
 ```ts  
-const light = new THREE.PointLight( 0xff0000, 1, 100 );  
-light.position.set( 50, 50, 50 );  
-scene.add( light );  
+const light = new THREE.PointLight( 0xff0000, 1, 100 );light.position.set( 50,
+50, 50 );scene.add( light );  
 ```  
 
 ## Examples
@@ -25,8 +24,8 @@ scene.add( light );
 
 ## Constructor
 
-###  [name]( [param:Integer color], [param:Float intensity], [param:Number
-distance], [param:Float decay] )
+###  function PointLight( color: Integer, intensity: Float, distance: Number,
+decay: Float ): void;
 
 [page:Integer color] - (optional) hexadecimal color of the light. Default is
 0xffffff (white).  
@@ -37,25 +36,25 @@ limit).
 [page:Float decay] - The amount the light dims along the distance of the
 light. Default is `2`.  
   
-Creates a new [name].
+Creates a new PointLight.
 
 ## Properties
 
 See the base [page:Light Light] class for common properties.
 
-### <br/> Boolean castShadow; <br/>
+###  Boolean castShadow;
 
 If set to `true` light will cast dynamic shadows. *Warning*: This is expensive
 and requires tweaking to get shadows looking right. See the
 [page:PointLightShadow] for details. The default is `false`.
 
-### <br/> Float decay; <br/>
+###  Float decay;
 
 The amount the light dims along the distance of the light. Default is `2`.  
 In context of physically-correct rendering the default value should not be
 changed.
 
-### <br/> Float distance; <br/>
+###  Float distance;
 
 `Default mode` — When distance is zero, light does not attenuate. When
 distance is non-zero, light will attenuate linearly from maximum intensity at
@@ -70,7 +69,7 @@ correct.
 
 Default is `0.0`.
 
-### <br/> Float intensity; <br/>
+###  Float intensity;
 
 The light's intensity. Default is `1`.  
 When [page:WebGLRenderer.useLegacyLights legacy lighting mode] is disabled,
@@ -78,7 +77,7 @@ intensity is the luminous intensity of the light measured in candela (cd).
   
 Changing the intensity will also change the light's power.
 
-### <br/> Float power; <br/>
+###  Float power;
 
 The light's power.  
 When [page:WebGLRenderer.useLegacyLights legacy lighting mode] is disabled,
@@ -86,7 +85,7 @@ power is the luminous power of the light measured in lumens (lm).
   
 Changing the power will also change the light's intensity.
 
-### <br/> PointLightShadow shadow; <br/>
+###  PointLightShadow shadow;
 
 A [page:PointLightShadow] used to calculate shadows for this light.  
   
@@ -100,12 +99,12 @@ plane at `500`.
 
 See the base [page:Light Light] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### <br/> function copy( source: PointLight ): copy; <br/>
+###  function copy( source: PointLight ): this;
 
 Copies value of all the properties from the [page:PointLight source] to this
 PointLight.

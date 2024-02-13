@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Mesh] →
 
-# [name]
+# PointLightHelper
 
 This displays a helper object consisting of a spherical [page:Mesh] for
 visualizing a [page:PointLight].
@@ -9,13 +9,10 @@ visualizing a [page:PointLight].
 
   
 ```ts  
-const pointLight = new THREE.PointLight( 0xff0000, 1, 100 );  
-pointLight.position.set( 10, 10, 10 );  
-scene.add( pointLight );  
-  
-const sphereSize = 1;  
-const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );  
-scene.add( pointLightHelper );  
+const pointLight = new THREE.PointLight( 0xff0000, 1, 100 );
+pointLight.position.set( 10, 10, 10 ); scene.add( pointLight ); const
+sphereSize = 1; const pointLightHelper = new THREE.PointLightHelper(
+pointLight, sphereSize ); scene.add( pointLightHelper );  
 ```  
 
 ## Examples
@@ -24,8 +21,8 @@ scene.add( pointLightHelper );
 
 ## Constructor
 
-###  [name]( [param:PointLight light], [param:Float sphereSize], [param:Hex
-color] )
+###  function PointLightHelper( light: PointLight, sphereSize: Float, color:
+Hex ): void;
 
 [page:PointLight light] -- The light to be visualized.  
   
@@ -39,20 +36,20 @@ color of the light.
 
 See the base [page:Mesh] class for common properties.
 
-### <br/> PointLight light; <br/>
+###  PointLight light;
 
 The [page:PointLight] that is being visualized.
 
-### <br/> Object matrix; <br/>
+###  Object matrix;
 
 Reference to the pointLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> Object matrixAutoUpdate; <br/>
+###  Object matrixAutoUpdate;
 
 See [page:Object3D.matrixAutoUpdate]. Set to `false` here as the helper is
 using the pointLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> hex color; <br/>
+###  hex color;
 
 The color parameter passed in the constructor. Default is `undefined`. If this
 is changed, the helper's color will update the next time [page:.update update]
@@ -62,12 +59,12 @@ is called.
 
 See the base [page:Mesh] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the helper to match the position of the [page:.light].
 

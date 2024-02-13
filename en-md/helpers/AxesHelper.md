@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Line] → [page:LineSegments] →
 
-# [name]
+# AxesHelper
 
 An axis object to visualize the 3 axes in a simple way.  
 The X axis is red. The Y axis is green. The Z axis is blue.
@@ -9,8 +9,7 @@ The X axis is red. The Y axis is green. The Z axis is blue.
 
   
 ```ts  
-const axesHelper = new THREE.AxesHelper( 5 );  
-scene.add( axesHelper );  
+const axesHelper = new THREE.AxesHelper( 5 );scene.add( axesHelper );  
 ```  
 
 ## Examples
@@ -22,7 +21,7 @@ compression]
 
 ## Constructor
 
-### [name]( [param:Number size] )
+###  function AxesHelper( size: Number ): void;
 
 [page:Number size] -- (optional) size of the lines representing the axes.
 Default is `1`.
@@ -35,13 +34,13 @@ See the base [page:LineSegments] class for common properties.
 
 See the base [page:LineSegments] class for common methods.
 
-### <br/> function setColors( xAxisColor: Color, yAxisColor: Color,
-zAxisColor: Color ): setColors; <br/>
+###  function setColors( xAxisColor: Color, yAxisColor: Color, zAxisColor:
+Color ): this;
 
 Sets the axes colors to [page:Color xAxisColor], [page:Color yAxisColor],
 [page:Color zAxisColor].
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

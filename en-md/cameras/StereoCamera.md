@@ -1,4 +1,4 @@
-# [name]
+# StereoCamera
 
 Dual [page:PerspectiveCamera PerspectiveCamera]s used for effects such as
 [link:https://en.wikipedia.org/wiki/Anaglyph_3D 3D Anaglyph] or
@@ -12,31 +12,31 @@ Dual [page:PerspectiveCamera PerspectiveCamera]s used for effects such as
 
 ## Constructor
 
-### [name]( )
+###  function StereoCamera( ): void;
 
 ## Properties
 
-### <br/> Float aspect; <br/>
+###  Float aspect;
 
 Default is `1`.
 
-### <br/> Float eyeSep; <br/>
+###  Float eyeSep;
 
 Default is `0.064`.
 
-### <br/> PerspectiveCamera cameraL; <br/>
+###  PerspectiveCamera cameraL;
 
 Left camera. This is added to [page:Layers layer 1] - objects to be rendered
 by the left camera must also be added to this layer.
 
-### <br/> PerspectiveCamera cameraR; <br/>
+###  PerspectiveCamera cameraR;
 
 Right camera.This is added to [page:Layers layer 2] - objects to be rendered
 by the right camera must also be added to this layer.
 
 ## Methods
 
-### [method:undefined update]( [param:PerspectiveCamera camera] )
+###  function update( camera: PerspectiveCamera ): undefined;
 
 Update the stereo cameras based on the camera passed in.
 

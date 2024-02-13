@@ -1,4 +1,4 @@
-# [name]
+# UniformsLib
 
 Uniforms library for shared webgl shaders
 

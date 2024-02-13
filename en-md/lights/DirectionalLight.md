@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Light] →
 
-# [name]
+# DirectionalLight
 
 A light that gets emitted in a specific direction. This light will behave as
 though it is infinitely far away and the rays produced from it are all
@@ -32,9 +32,9 @@ target.
 
   
 ```ts  
-// White directional light at half intensity shining from the top.  
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );  
-scene.add( directionalLight );  
+// White directional light at half intensity shining from the top. const
+directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 ); scene.add(
+directionalLight );  
 ```  
 
 ## Examples
@@ -47,43 +47,43 @@ scene.add( directionalLight );
 
 ## Constructor
 
-### [name]( [param:Integer color], [param:Float intensity] )
+###  function DirectionalLight( color: Integer, intensity: Float ): void;
 
 [page:Integer color] - (optional) hexadecimal color of the light. Default is
 0xffffff (white).  
 [page:Float intensity] - (optional) numeric value of the light's
 strength/intensity. Default is `1`.  
   
-Creates a new [name].
+Creates a new DirectionalLight.
 
 ## Properties
 
 See the base [page:Light Light] class for common properties.
 
-### <br/> Boolean castShadow; <br/>
+###  Boolean castShadow;
 
 If set to `true` light will cast dynamic shadows. *Warning*: This is expensive
 and requires tweaking to get shadows looking right. See the
 [page:DirectionalLightShadow] for details. The default is `false`.
 
-### <br/> Boolean isDirectionalLight; <br/>
+###  Boolean isDirectionalLight;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type DirectionalLight.
 
-### <br/> Vector3 position; <br/>
+###  Vector3 position;
 
 This is set equal to [page:Object3D.DEFAULT_UP] (0, 1, 0), so that the light
 shines from the top down.
 
-### <br/> DirectionalLightShadow shadow; <br/>
+###  DirectionalLightShadow shadow;
 
 A [page:DirectionalLightShadow] used to calculate shadows for this light.
 
-### <br/> Object3D target; <br/>
+###  Object3D target;
 
 The DirectionalLight points from its [page:.position position] to
 target.position. The default position of the target is `(0, 0, 0)`.  
-*Note*: For the target's position to be changed to anything other than the default, it must be added to the [page:Scene scene] using 
+*Note*: For the target's position to be changed to anything other than the default, it must be added to the [page:Scene scene] using
 
   
 ```ts  
@@ -98,9 +98,7 @@ It is also possible to set the target to be another object in the scene
 
   
 ```ts  
-const targetObject = new THREE.Object3D();  
-scene.add(targetObject);  
-  
+const targetObject = new THREE.Object3D(); scene.add(targetObject);
 light.target = targetObject;  
 ```  
 
@@ -110,12 +108,12 @@ The directionalLight will now track the target object.
 
 See the base [page:Light Light] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### <br/> function copy( source: DirectionalLight ): copy; <br/>
+###  function copy( source: DirectionalLight ): this;
 
 Copies value of all the properties from the [page:DirectionalLight source] to
 this DirectionalLight.

@@ -1,6 +1,6 @@
 [page:Texture] →
 
-# [name]
+# CompressedTexture
 
 Creates a texture based on data in compressed form, for example from a
 [link:https://en.wikipedia.org/wiki/DirectDraw_Surface DDS] file.  
@@ -9,11 +9,10 @@ For use with the [page:CompressedTextureLoader CompressedTextureLoader].
 
 ## Constructor
 
-###  [name]( [param:Array mipmaps], [param:Number width], [param:Number
-height], [param:Constant format], [param:Constant type], [param:Constant
-mapping], [param:Constant wrapS], [param:Constant wrapT], [param:Constant
-magFilter], [param:Constant minFilter], [param:Number anisotropy],
-[param:Constant colorSpace] )
+###  function CompressedTexture( mipmaps: Array, width: Number, height:
+Number, format: Constant, type: Constant, mapping: Constant, wrapS: Constant,
+wrapT: Constant, magFilter: Constant, minFilter: Constant, anisotropy: Number,
+colorSpace: Constant ): void;
 
 [page:Array mipmaps] -- The mipmaps array should contain objects with data,
 width and height. The mipmaps should be of the correct format and type.  
@@ -55,21 +54,21 @@ choices.
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean flipY; <br/>
+###  Boolean flipY;
 
 False by default. Flipping textures does not work for compressed textures.
 
-### <br/> Boolean generateMipmaps; <br/>
+###  Boolean generateMipmaps;
 
 False by default. Mipmaps can't be generated for compressed textures
 
-### <br/> Object image; <br/>
+###  Object image;
 
 Overridden with a object containing width and height.
 
-### <br/> Boolean isCompressedTexture; <br/>
+###  Boolean isCompressedTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type CompressedTexture.
 
 ## Methods
 

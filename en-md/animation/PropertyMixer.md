@@ -1,12 +1,12 @@
-# [name]
+# PropertyMixer
 
 Buffered scene graph property that allows weighted accumulation; used
 internally.
 
 ## Constructor
 
-### [name]( [param:PropertyBinding binding], [param:String typeName],
-[param:Number valueSize] )
+###  function PropertyMixer( binding: PropertyBinding, typeName: String,
+valueSize: Number ): void;
 
 \-- binding  
 \-- typeName  
@@ -14,9 +14,9 @@ internally.
 
 ## Properties
 
-### <br/> PropertyBinding binding; <br/>
+###  PropertyBinding binding;
 
-### <br/> TypedArray buffer; <br/>
+###  TypedArray buffer;
 
 Buffer with size [page:PropertyMixer valueSize] * 4.  
   
@@ -27,48 +27,47 @@ Interpolators can use .buffer as their .result and the data then goes to
 result and are compared to detect changes. 'orig' stores the original state of
 the property.
 
-### <br/> Number cumulativeWeight; <br/>
+###  Number cumulativeWeight;
 
 Default is `0`.
 
-### <br/> Number cumulativeWeightAdditive; <br/>
+###  Number cumulativeWeightAdditive;
 
 Default is `0`.
 
-### <br/> Number valueSize; <br/>
+###  Number valueSize;
 
-### <br/> Number referenceCount; <br/>
+###  Number referenceCount;
 
 Default is `0`.
 
-### <br/> Number useCount; <br/>
+###  Number useCount;
 
 Default is `0`.
 
 ## Methods
 
-###  [method:undefined accumulate]( [param:Number accuIndex], [param:Number
-weight] )
+###  function accumulate( accuIndex: Number, weight: Number ): undefined;
 
 Accumulate data in [page:PropertyMixer.buffer buffer][accuIndex] 'incoming'
 region into 'accu[i]'.  
 If weight is `0` this does nothing.
 
-### [method:undefined accumulateAdditive]( [param:Number weight] )
+###  function accumulateAdditive( weight: Number ): undefined;
 
 Accumulate data in the 'incoming' region into 'add'.  
 If weight is `0` this does nothing.
 
-### [method:undefined apply]( [param:Number accuIndex] )
+###  function apply( accuIndex: Number ): undefined;
 
 Apply the state of [page:PropertyMixer.buffer buffer] 'accu[i]' to the binding
 when accus differ.
 
-### [method:undefined saveOriginalState]( )
+###  function saveOriginalState( ): undefined;
 
 Remember the state of the bound property and copy it to both accus.
 
-### [method:undefined restoreOriginalState]( )
+###  function restoreOriginalState( ): undefined;
 
 Apply the state previously taken via 'saveOriginalState' to the binding.
 

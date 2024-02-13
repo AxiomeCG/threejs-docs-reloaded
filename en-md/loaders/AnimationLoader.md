@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# AnimationLoader
 
 Class for loading [page:AnimationClip AnimationClips] in JSON format. This
 uses the [page:FileLoader] internally for loading files.
@@ -9,40 +9,23 @@ uses the [page:FileLoader] internally for loading files.
 
   
 ```ts  
-// instantiate a loader  
-const loader = new THREE.AnimationLoader();  
-  
-// load a resource  
-loader.load(  
-// resource URL  
-'animations/animation.js',  
-  
-// onLoad callback  
-function ( animations ) {  
-// animations is an array of AnimationClips  
-},  
-  
-// onProgress callback  
-function ( xhr ) {  
-console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );  
-},  
-  
-// onError callback  
-function ( err ) {  
-console.log( 'An error happened' );  
-}  
-);  
+// instantiate a loader const loader = new THREE.AnimationLoader(); // load a
+resource loader.load( // resource URL 'animations/animation.js', // onLoad
+callback function ( animations ) { // animations is an array of AnimationClips
+}, // onProgress callback function ( xhr ) { console.log( (xhr.loaded /
+xhr.total * 100) + '% loaded' ); }, // onError callback function ( err ) {
+console.log( 'An error happened' ); } );  
 ```  
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function AnimationLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new AnimationLoader.
 
 ## Properties
 
@@ -52,8 +35,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:undefined load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): undefined;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-
@@ -69,7 +52,7 @@ server does not set the Content-Length header; .[page:Integer total] will be
   
 Begin loading from url and pass the loaded animation to onLoad.
 
-### [method:Array parse]( [param:JSON json] )
+###  function parse( json: JSON ): Array;
 
 [page:JSON json] — required  
   

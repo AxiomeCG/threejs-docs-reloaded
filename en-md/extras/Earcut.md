@@ -1,11 +1,11 @@
-# [name]
+# Earcut
 
 An implementation of the earcut polygon triangulation algorithm. The code is a
 port of [link:https://github.com/mapbox/earcut mapbox/earcut].
 
 ## Methods
 
-### [method:Array triangulate]( data, holeIndices, dim )
+###  function triangulate( ): Array;
 
 data -- A flat array of vertex coordinates.  
 holeIndices -- An array of hole indices if any.  

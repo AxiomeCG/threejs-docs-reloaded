@@ -1,12 +1,13 @@
 [page:KeyframeTrack] →
 
-# [name]
+# QuaternionKeyframeTrack
 
 A Track of quaternion keyframe values.
 
 ## Constructor
 
-###  [name]( [param:String name], [param:Array times], [param:Array values] )
+###  function QuaternionKeyframeTrack( name: String, times: Array, values:
+Array ): void;
 
 [page:String name] (required) identifier for the KeyframeTrack.  
 [page:Array times] (required) array of keyframe times.  
@@ -20,11 +21,11 @@ array of quaternion components.
 
 See [page:KeyframeTrack] for inherited properties.
 
-### <br/> Constant DefaultInterpolation; <br/>
+###  Constant DefaultInterpolation;
 
 The default interpolation type to use, [page:Animation InterpolateLinear].
 
-### <br/> String ValueTypeName; <br/>
+###  String ValueTypeName;
 
 String 'quaternion'.
 
@@ -32,7 +33,7 @@ String 'quaternion'.
 
 See [page:KeyframeTrack] for inherited methods.
 
-###  [method:QuaternionLinearInterpolant InterpolantFactoryMethodLinear]()
+###  function InterpolantFactoryMethodLinear( ): QuaternionLinearInterpolant;
 
 Returns a new [page:QuaternionLinearInterpolant QuaternionLinearInterpolant]
 based on the [page:KeyframeTrack.values values], [page:KeyframeTrack.times

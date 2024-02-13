@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# Audio
 
 Create a non-positional ( global ) audio object.  
   
@@ -11,22 +11,12 @@ US/docs/Web/API/Web_Audio_API Web Audio API].
 
   
 ```ts  
-  
-// create an AudioListener and add it to the camera  
-const listener = new THREE.AudioListener();  
-camera.add( listener );  
-  
-// create a global audio source  
-const sound = new THREE.Audio( listener );  
-  
-// load a sound and set it as the Audio object's buffer  
-const audioLoader = new THREE.AudioLoader();  
-audioLoader.load( 'sounds/ambient.ogg', function( buffer ) {  
-sound.setBuffer( buffer );  
-sound.setLoop( true );  
-sound.setVolume( 0.5 );  
-sound.play();  
-});  
+// create an AudioListener and add it to the camera const listener = new
+THREE.AudioListener(); camera.add( listener ); // create a global audio source
+const sound = new THREE.Audio( listener ); // load a sound and set it as the
+Audio object's buffer const audioLoader = new THREE.AudioLoader();
+audioLoader.load( 'sounds/ambient.ogg', function( buffer ) { sound.setBuffer(
+buffer ); sound.setLoop( true ); sound.setVolume( 0.5 ); sound.play(); });  
 ```  
 
 ## Examples
@@ -36,27 +26,27 @@ sound.play();
 
 ## Constructor
 
-### [name]( [param:AudioListener listener] )
+###  function Audio( listener: AudioListener ): void;
 
 listener — (required) [page:AudioListener AudioListener] instance.
 
 ## Properties
 
-### <br/> Boolean autoplay; <br/>
+###  Boolean autoplay;
 
 Whether to start playback automatically. Default is `false`.
 
-### <br/> AudioContext context; <br/>
+###  AudioContext context;
 
 The [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
 AudioContext] of the [page:AudioListener listener] given in the constructor.
 
-### <br/> Number detune; <br/>
+###  Number detune;
 
 Modify pitch, measured in cents. +/- 100 is a semitone. +/- 1200 is an octave.
 Default is `0`.
 
-### <br/> Array filters; <br/>
+###  Array filters;
 
 Represents an array of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioNode AudioNodes]. Can be used to apply a variety of low-
@@ -65,44 +55,44 @@ contains instances of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/BiquadFilterNode BiquadFilterNodes]. Filters are set via
 [page:Audio.setFilter] or [page:Audio.setFilters].
 
-### <br/> GainNode gain; <br/>
+###  GainNode gain;
 
 A [link:https://developer.mozilla.org/en-US/docs/Web/API/GainNode GainNode]
 created using [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioContext/createGain AudioContext.createGain]().
 
-### <br/> Boolean hasPlaybackControl; <br/>
+###  Boolean hasPlaybackControl;
 
 Whether playback can be controlled using the [page:Audio.play play](),
 [page:Audio.pause pause]() etc. methods. Default is `true`.
 
-### <br/> Boolean isPlaying; <br/>
+###  Boolean isPlaying;
 
 Whether the audio is currently playing.
 
-### <br/> AudioListener listener; <br/>
+###  AudioListener listener;
 
 A reference to the listener object of this audio.
 
-### <br/> Number playbackRate; <br/>
+###  Number playbackRate;
 
 Speed of playback. Default is `1`.
 
-### <br/> Number offset; <br/>
+###  Number offset;
 
 An offset to the time within the audio buffer that playback should begin. Same
 as the `offset` parameter of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/start AudioBufferSourceNode.start]().
 Default is `0`.
 
-### <br/> Number duration; <br/>
+###  Number duration;
 
 Overrides the duration of the audio. Same as the `duration` parameter of
 [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/start AudioBufferSourceNode.start]().
 Default is `undefined` to play the whole buffer.
 
-### <br/> AudioNode source; <br/>
+###  AudioNode source;
 
 An [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode AudioBufferSourceNode] created using
@@ -110,134 +100,134 @@ US/docs/Web/API/AudioBufferSourceNode AudioBufferSourceNode] created using
 US/docs/Web/API/AudioContext/createBufferSource
 AudioContext.createBufferSource]().
 
-### <br/> String sourceType; <br/>
+###  String sourceType;
 
 Type of the audio source. Default is string 'empty'.
 
-### <br/> String type; <br/>
+###  String type;
 
 String denoting the type, set to 'Audio'.
 
 ## Methods
 
-### <br/> function connect( ): connect; <br/>
+###  function connect( ): this;
 
 Connect to the [page:Audio.source]. This is used internally on initialisation
 and when setting / removing filters.
 
-### <br/> function disconnect( ): disconnect; <br/>
+###  function disconnect( ): this;
 
 Disconnect from the [page:Audio.source]. This is used internally when setting
 / removing filters.
 
-### [method:Float getDetune]()
+###  function getDetune( ): Float;
 
 Returns the detuning of oscillation in cents.
 
-### [method:BiquadFilterNode getFilter]()
+###  function getFilter( ): BiquadFilterNode;
 
 Returns the first element of the [page:Audio.filters filters] array.
 
-### [method:Array getFilters]()
+###  function getFilters( ): Array;
 
 Returns the [page:Audio.filters filters] array.
 
-### [method:Boolean getLoop]()
+###  function getLoop( ): Boolean;
 
 Return the value of [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/loop source.loop] (whether playback
 should loop).
 
-### [method:GainNode getOutput]()
+###  function getOutput( ): GainNode;
 
 Return the [page:Audio.gain gainNode].
 
-### [method:Float getPlaybackRate]()
+###  function getPlaybackRate( ): Float;
 
 Return the value of [page:Audio.playbackRate playbackRate].
 
-### [method:Float getVolume]( value )
+###  function getVolume( ): Float;
 
 Return the current volume.
 
-### <br/> function play( ): play; <br/>
+###  function play( ): this;
 
 If [page:Audio.hasPlaybackControl hasPlaybackControl] is true, starts
 playback.
 
-### <br/> function pause( ): pause; <br/>
+###  function pause( ): this;
 
 If [page:Audio.hasPlaybackControl hasPlaybackControl] is true, pauses
 playback.
 
-### [method:undefined onEnded]()
+###  function onEnded( ): undefined;
 
 Called automatically when playback finished.
 
-### <br/> function setBuffer( ): setBuffer; <br/>
+###  function setBuffer( ): this;
 
 Setup the [page:Audio.source source] to the audioBuffer, and sets
 [page:Audio.sourceType sourceType] to 'buffer'.  
 If [page:Audio.autoplay autoplay], also starts playback.
 
-### <br/> function setDetune( value: Float ): setDetune; <br/>
+###  function setDetune( value: Float ): this;
 
 Defines the detuning of oscillation in cents.
 
-### <br/> function setFilter( ): setFilter; <br/>
+###  function setFilter( ): this;
 
 Applies a single filter node to the audio.
 
-### <br/> function setFilters( value: Array ): setFilters; <br/>
+###  function setFilters( value: Array ): this;
 
 value - arrays of filters.  
 Applies an array of filter nodes to the audio.
 
-### <br/> function setLoop( value: Boolean? ): setLoop; <br/>
+###  function setLoop( value: Boolean ): this;
 
 Set [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/loop source.loop] to `value` (whether
 playback should loop).
 
-### <br/> function setLoopStart( value: Float ): setLoopStart; <br/>
+###  function setLoopStart( value: Float ): this;
 
 Set [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/loopStart source.loopStart] to `value`.
 
-### <br/> function setLoopEnd( value: Float ): setLoopEnd; <br/>
+###  function setLoopEnd( value: Float ): this;
 
 Set [link:https://developer.mozilla.org/en-
 US/docs/Web/API/AudioBufferSourceNode/loopEnd source.loopEnd] to `value`.
 
-### <br/> function setMediaElementSource( ): setMediaElementSource; <br/>
+###  function setMediaElementSource( ): this;
 
 Applies the given object of type [link:https://developer.mozilla.org/en-
 US/docs/Web/API/HTMLMediaElement HTMLMediaElement] as the source of this
 audio.  
 Also sets [page:Audio.hasPlaybackControl hasPlaybackControl] to false.
 
-### <br/> function setMediaStreamSource( ): setMediaStreamSource; <br/>
+###  function setMediaStreamSource( ): this;
 
 Applies the given object of type [link:https://developer.mozilla.org/en-
 US/docs/Web/API/MediaStream MediaStream] as the source of this audio.  
 Also sets [page:Audio.hasPlaybackControl hasPlaybackControl] to false.
 
-### <br/> function setNodeSource( ): setNodeSource; <br/>
+###  function setNodeSource( ): this;
 
 Setup the [page:Audio.source source] to the audioBuffer, and sets
 [page:Audio.sourceType sourceType] to 'audioNode'.  
 Also sets [page:Audio.hasPlaybackControl hasPlaybackControl] to false.
 
-### <br/> function setPlaybackRate( value: Float ): setPlaybackRate; <br/>
+###  function setPlaybackRate( value: Float ): this;
 
 If [page:Audio.hasPlaybackControl hasPlaybackControl] is enabled, set the
 [page:Audio.playbackRate playbackRate] to `value`.
 
-### <br/> function setVolume( value: Float ): setVolume; <br/>
+###  function setVolume( value: Float ): this;
 
 Set the volume.
 
-### <br/> function stop( ): stop; <br/>
+###  function stop( ): this;
 
 If [page:Audio.hasPlaybackControl hasPlaybackControl] is enabled, stops
 playback.

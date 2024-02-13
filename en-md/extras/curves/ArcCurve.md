@@ -1,6 +1,6 @@
 [page:Curve] → [page:EllipseCurve] →
 
-# [name]
+# ArcCurve
 
 Alias for [page:EllipseCurve].
 

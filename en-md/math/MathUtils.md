@@ -1,11 +1,10 @@
-# [name]
+# MathUtils
 
 An object with several math utility functions.
 
 ## Functions
 
-###  [method:Float clamp]( [param:Float value], [param:Float min],
-[param:Float max] )
+###  function clamp( value: Float, min: Float, max: Float ): Float;
 
 [page:Float value] — Value to be clamped.  
 [page:Float min] — Minimum value.  
@@ -14,28 +13,29 @@ An object with several math utility functions.
 Clamps the [page:Float value] to be between [page:Float min] and [page:Float
 max].
 
-### [method:Float degToRad]( [param:Float degrees] )
+###  function degToRad( degrees: Float ): Float;
 
 Converts degrees to radians.
 
-###  [method:Integer euclideanModulo]( [param:Integer n], [param:Integer m] )
+###  function euclideanModulo( n: Integer, m: Integer ): Integer;
 
 [page:Integer n], [page:Integer m] - Integers  
   
 Computes the Euclidean modulo of [page:Integer m] % [page:Integer n], that is:  
-```ts ( ( n % m ) + m ) % m ```  
+```ts  
+( ( n % m ) + m ) % m  
+```  
 
-### [method:UUID generateUUID]( )
+###  function generateUUID( ): UUID;
 
 Generate a [link:https://en.wikipedia.org/wiki/Universally_unique_identifier
 UUID] (universally unique identifier).
 
-### [method:Boolean isPowerOfTwo]( [param:Number n] )
+###  function isPowerOfTwo( n: Number ): Boolean;
 
 Return `true` if [page:Number n] is a power of 2.
 
-###  [method:Float inverseLerp]( [param:Float x], [param:Float y],
-[param:Float value] )
+###  function inverseLerp( x: Float, y: Float, value: Float ): Float;
 
 [page:Float x] - Start point.  
 [page:Float y] - End point.  
@@ -44,7 +44,7 @@ Return `true` if [page:Number n] is a power of 2.
 Returns the percentage in the closed interval `[0, 1]` of the given value
 between the start and end point.
 
-###  [method:Float lerp]( [param:Float x], [param:Float y], [param:Float t] )
+###  function lerp( x: Float, y: Float, t: Float ): Float;
 
 [page:Float x] - Start point.  
 [page:Float y] - End point.  
@@ -55,8 +55,7 @@ linearly interpolated] from two known points based on the given interval -
 [page:Float t] = 0 will return [page:Float x] and [page:Float t] = 1 will
 return [page:Float y].
 
-###  [method:Float damp]( [param:Float x], [param:Float y], [param:Float
-lambda], [param:Float dt] )
+###  function damp( x: Float, y: Float, lambda: Float, dt: Float ): Float;
 
 [page:Float x] - Current point.  
 [page:Float y] - Target point.  
@@ -70,8 +69,8 @@ independent movement. For details, see
 [link:http://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-
 using-lerp/ Frame rate independent damping using lerp].
 
-###  [method:Float mapLinear]( [param:Float x], [param:Float a1], [param:Float
-a2], [param:Float b1], [param:Float b2] )
+###  function mapLinear( x: Float, a1: Float, a2: Float, b1: Float, b2: Float
+): Float;
 
 [page:Float x] — Value to be mapped.  
 [page:Float a1] — Minimum value for range A.  
@@ -82,7 +81,7 @@ a2], [param:Float b1], [param:Float b2] )
 Linear mapping of [page:Float x] from range [[page:Float a1], [page:Float a2]]
 to range [[page:Float b1], [page:Float b2]].
 
-### [method:Float pingpong]( [param:Float x], [param:Float length] )
+###  function pingpong( x: Float, length: Float ): Float;
 
 [page:Float x] — The value to pingpong.  
 [page:Float length] — The positive value the function will pingpong to.
@@ -90,40 +89,39 @@ Default is `1`.
   
 Returns a value that alternates between `0` and [param:Float length].
 
-### [method:Integer ceilPowerOfTwo]( [param:Number n] )
+###  function ceilPowerOfTwo( n: Number ): Integer;
 
 Returns the smallest power of 2 that is greater than or equal to [page:Number
 n].
 
-### [method:Integer floorPowerOfTwo]( [param:Number n] )
+###  function floorPowerOfTwo( n: Number ): Integer;
 
 Returns the largest power of `2` that is less than or equal to [page:Number
 n].
 
-### [method:Float radToDeg]( [param:Float radians] )
+###  function radToDeg( radians: Float ): Float;
 
 Converts radians to degrees.
 
-### [method:Float randFloat]( [param:Float low], [param:Float high] )
+###  function randFloat( low: Float, high: Float ): Float;
 
 Random float in the interval [[page:Float low], [page:Float high]].
 
-### [method:Float randFloatSpread]( [param:Float range] )
+###  function randFloatSpread( range: Float ): Float;
 
 Random float in the interval [- [page:Float range] / 2, [page:Float range] /
 2].
 
-###  [method:Integer randInt]( [param:Integer low], [param:Integer high] )
+###  function randInt( low: Integer, high: Integer ): Integer;
 
 Random integer in the interval [[page:Float low], [page:Float high]].
 
-### [method:Float seededRandom]( [param:Integer seed] )
+###  function seededRandom( seed: Integer ): Float;
 
 Deterministic pseudo-random float in the interval `[0, 1]`. The integer
 [page:Integer seed] is optional.
 
-###  [method:Float smoothstep]( [param:Float x], [param:Float min],
-[param:Float max] )
+###  function smoothstep( x: Float, min: Float, max: Float ): Float;
 
 [page:Float x] - The value to evaluate based on its position between min and
 max.  
@@ -136,8 +134,7 @@ and max.
   
 See [link:http://en.wikipedia.org/wiki/Smoothstep Smoothstep] for details.
 
-###  [method:Float smootherstep]( [param:Float x], [param:Float min],
-[param:Float max] )
+###  function smootherstep( x: Float, min: Float, max: Float ): Float;
 
 [page:Float x] - The value to evaluate based on its position between min and
 max.  
@@ -148,8 +145,8 @@ Returns a value between 0-1. A
 [link:https://en.wikipedia.org/wiki/Smoothstep#Variations variation on
 smoothstep] that has zero 1st and 2nd order derivatives at x=0 and x=1.
 
-###  [method:undefined setQuaternionFromProperEuler]( [param:Quaternion q],
-[param:Float a], [param:Float b], [param:Float c], [param:String order] )
+###  function setQuaternionFromProperEuler( q: Quaternion, a: Float, b: Float,
+c: Float, order: String ): undefined;
 
 [page:Quaternion q] - the quaternion to be set  
 [page:Float a] - the rotation applied to the first axis, in radians  

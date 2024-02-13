@@ -10,9 +10,7 @@ exception of Texture Combine Operations which only apply to
 
   
 ```ts  
-THREE.FrontSide  
-THREE.BackSide  
-THREE.DoubleSide  
+THREE.FrontSide THREE.BackSide THREE.DoubleSide  
 ```  
 
 Defines which side of faces will be rendered - front, back or both. Default is
@@ -22,12 +20,8 @@ Defines which side of faces will be rendered - front, back or both. Default is
 
   
 ```ts  
-THREE.NoBlending  
-THREE.NormalBlending  
-THREE.AdditiveBlending  
-THREE.SubtractiveBlending  
-THREE.MultiplyBlending  
-THREE.CustomBlending  
+THREE.NoBlending THREE.NormalBlending THREE.AdditiveBlending
+THREE.SubtractiveBlending THREE.MultiplyBlending THREE.CustomBlending  
 ```  
 
 These control the source and destination blending equations for the material's
@@ -41,13 +35,8 @@ See the [example:webgl_materials_blending materials / blending] example.
 
   
 ```ts  
-THREE.NeverDepth  
-THREE.AlwaysDepth  
-THREE.EqualDepth  
-THREE.LessDepth  
-THREE.LessEqualDepth  
-THREE.GreaterEqualDepth  
-THREE.GreaterDepth  
+THREE.NeverDepth THREE.AlwaysDepth THREE.EqualDepth THREE.LessDepth
+THREE.LessEqualDepth THREE.GreaterEqualDepth THREE.GreaterDepth
 THREE.NotEqualDepth  
 ```  
 
@@ -73,9 +62,7 @@ is not equal to the current buffer Z-depth.
 
   
 ```ts  
-THREE.MultiplyOperation  
-THREE.MixOperation  
-THREE.AddOperation  
+THREE.MultiplyOperation THREE.MixOperation THREE.AddOperation  
 ```  
 
 These define how the result of the surface's color is combined with the
@@ -92,14 +79,9 @@ colors.
 
   
 ```ts  
-THREE.NeverStencilFunc  
-THREE.LessStencilFunc  
-THREE.EqualStencilFunc  
-THREE.LessEqualStencilFunc  
-THREE.GreaterStencilFunc  
-THREE.NotEqualStencilFunc  
-THREE.GreaterEqualStencilFunc  
-THREE.AlwaysStencilFunc  
+THREE.NeverStencilFunc THREE.LessStencilFunc THREE.EqualStencilFunc
+THREE.LessEqualStencilFunc THREE.GreaterStencilFunc THREE.NotEqualStencilFunc
+THREE.GreaterEqualStencilFunc THREE.AlwaysStencilFunc  
 ```  
 
 Which stencil function the material uses to determine whether or not to
@@ -123,14 +105,9 @@ reference value is greater than or equal to the current stencil value.
 
   
 ```ts  
-THREE.ZeroStencilOp  
-THREE.KeepStencilOp  
-THREE.ReplaceStencilOp  
-THREE.IncrementStencilOp  
-THREE.DecrementStencilOp  
-THREE.IncrementWrapStencilOp  
-THREE.DecrementWrapStencilOp  
-THREE.InvertStencilOp  
+THREE.ZeroStencilOp THREE.KeepStencilOp THREE.ReplaceStencilOp
+THREE.IncrementStencilOp THREE.DecrementStencilOp THREE.IncrementWrapStencilOp
+THREE.DecrementWrapStencilOp THREE.InvertStencilOp  
 ```  
 
 Which stencil operation the material will perform on the stencil buffer pixel
@@ -154,8 +131,7 @@ current stencil value.
 
   
 ```ts  
-THREE.TangentSpaceNormalMap  
-THREE.ObjectSpaceNormalMap  
+THREE.TangentSpaceNormalMap THREE.ObjectSpaceNormalMap  
 ```  
 
 Defines the type of the normal map. For TangentSpaceNormalMap, the information
@@ -167,8 +143,7 @@ TangentSpaceNormalMap].
 
   
 ```ts  
-THREE.GLSL1  
-THREE.GLSL3  
+THREE.GLSL1 THREE.GLSL3  
 ```  
 
 ## Source

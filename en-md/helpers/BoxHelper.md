@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Line] → [page:LineSegments] →
 
-# [name]
+# BoxHelper
 
 Helper object to graphically show the world-axis-aligned bounding box around
 an object. The actual bounding box is handled with [page:Box3], this is just a
@@ -13,11 +13,9 @@ to work, so it won't work with [page:Sprite Sprites].
 
   
 ```ts  
-const sphere = new THREE.SphereGeometry();  
-const object = new THREE.Mesh( sphere, new THREE.MeshBasicMaterial( 0xff0000 )
-);  
-const box = new THREE.BoxHelper( object, 0xffff00 );  
-scene.add( box );  
+const sphere = new THREE.SphereGeometry(); const object = new THREE.Mesh(
+sphere, new THREE.MeshBasicMaterial( 0xff0000 ) ); const box = new
+THREE.BoxHelper( object, 0xffff00 ); scene.add( box );  
 ```  
 
 ## Examples
@@ -28,7 +26,7 @@ scene.add( box );
 
 ## Constructor
 
-### [name]( [param:Object3D object], [param:Color color] )
+###  function BoxHelper( object: Object3D, color: Color ): void;
 
 [page:Object3D object] -- (optional) the object3D to show the world-axis-
 aligned boundingbox.  
@@ -47,18 +45,18 @@ See the base [page:LineSegments] class for common properties.
 
 See the base [page:LineSegments] class for common methods.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the helper's geometry to match the dimensions of the object, including
 any children. See [page:Box3.setFromObject].
 
-### <br/> function setFromObject( object: Object3D ): setFromObject; <br/>
+###  function setFromObject( object: Object3D ): this;
 
 [page:Object3D object] - [page:Object3D] to create the helper of.  
   
 Updates the wireframe box for the passed object.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

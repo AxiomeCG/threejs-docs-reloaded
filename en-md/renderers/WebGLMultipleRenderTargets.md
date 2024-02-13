@@ -1,11 +1,11 @@
 [page:WebGLRenderTarget] →
 
-# [name]
+# WebGLMultipleRenderTargets
 
 A special render target that enables a fragment shader to write to several
 textures. This approach is useful for advanced rendering techniques like post-
-processing or deferred rendering. Heads up: [name] can only be used with a
-WebGL 2 rendering context.
+processing or deferred rendering. Heads up: WebGLMultipleRenderTargets can
+only be used with a WebGL 2 rendering context.
 
 ## Examples
 
@@ -13,8 +13,8 @@ WebGL 2 rendering context.
 
 ## Constructor
 
-###  [name]([param:Number width], [param:Number height], [param:Number count],
-[param:Object options])
+###  function WebGLMultipleRenderTargets( width: Number, height: Number,
+count: Number, options: Object ): void;
 
 [page:Number width] - The width of the render target. Default is `1`.  
 [page:Number height] - The height of the render target. Default is `1`.  
@@ -27,15 +27,16 @@ options, see [page:WebGLRenderTarget WebGLRenderTarget]).
 
 ## Properties
 
-### <br/> Boolean isWebGLMultipleRenderTargets; <br/>
+###  Boolean isWebGLMultipleRenderTargets;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type
+WebGLMultipleRenderTargets.
 
-### <br/> Array texture; <br/>
+###  Array texture;
 
-The texture property is overwritten in [name] and replaced with an array. This
-array holds the [page:WebGLRenderTarget.texture texture] references of the
-respective render targets.
+The texture property is overwritten in WebGLMultipleRenderTargets and replaced
+with an array. This array holds the [page:WebGLRenderTarget.texture texture]
+references of the respective render targets.
 
 [page:WebGLRenderTarget WebGLRenderTarget] properties are available on this
 class.

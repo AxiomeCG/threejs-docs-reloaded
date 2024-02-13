@@ -1,8 +1,8 @@
 [page:BufferGeometry] →
 
-# [name]
+# BoxGeometry
 
-[name] is a geometry class for a rectangular cuboid with a given 'width',
+BoxGeometry is a geometry class for a rectangular cuboid with a given 'width',
 'height', and 'depth'. On creation, the cuboid is centred on the origin, with
 each edge parallel to one of the axes.
 
@@ -10,17 +10,16 @@ each edge parallel to one of the axes.
 
   
 ```ts  
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );  
-const material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );  
-const cube = new THREE.Mesh( geometry, material );  
-scene.add( cube );  
+const geometry = new THREE.BoxGeometry( 1, 1, 1 ); const material = new
+THREE.MeshBasicMaterial( {color: 0x00ff00} ); const cube = new THREE.Mesh(
+geometry, material ); scene.add( cube );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float width], [param:Float height], [param:Float depth],
-[param:Integer widthSegments], [param:Integer heightSegments], [param:Integer
-depthSegments])
+###  function BoxGeometry( width: Float, height: Float, depth: Float,
+widthSegments: Integer, heightSegments: Integer, depthSegments: Integer ):
+void;
 
 width — Width; that is, the length of the edges parallel to the X axis.
 Optional; defaults to `1`.  
@@ -39,7 +38,7 @@ sides. Optional; defaults to `1`.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

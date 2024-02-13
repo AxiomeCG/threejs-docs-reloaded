@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# PolyhedronGeometry
 
 A polyhedron is a solid in three dimensions with flat faces. This class will
 take an array of vertices, project them onto a sphere, and then divide them up
@@ -13,28 +13,16 @@ respective geometries.
 
   
 ```ts  
-const verticesOfCube = [  
--1,-1,-1, 1,-1,-1, 1, 1,-1, -1, 1,-1,  
--1,-1, 1, 1,-1, 1, 1, 1, 1, -1, 1, 1,  
-];  
-  
-const indicesOfFaces = [  
-2,1,0, 0,3,2,  
-0,4,7, 7,3,0,  
-0,1,5, 5,4,0,  
-1,2,6, 6,5,1,  
-2,3,7, 7,6,2,  
-4,5,6, 6,7,4  
-];  
-  
-const geometry = new THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces,
-6, 2 );  
+const verticesOfCube = [ -1,-1,-1, 1,-1,-1, 1, 1,-1, -1, 1,-1, -1,-1, 1, 1,-1,
+1, 1, 1, 1, -1, 1, 1,];const indicesOfFaces = [ 2,1,0, 0,3,2, 0,4,7, 7,3,0,
+0,1,5, 5,4,0, 1,2,6, 6,5,1, 2,3,7, 7,6,2, 4,5,6, 6,7,4];const geometry = new
+THREE.PolyhedronGeometry( verticesOfCube, indicesOfFaces, 6, 2 );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Array vertices], [param:Array indices], [param:Float
-radius], [param:Integer detail])
+###  function PolyhedronGeometry( vertices: Array, indices: Array, radius:
+Float, detail: Integer ): void;
 
 vertices — [page:Array] of points of the form [1,1,1, -1,-1,-1, ... ]  
 indices — [page:Array] of indices that make up the faces of the form [0,1,2,
@@ -47,7 +35,7 @@ detail, the smoother the shape.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

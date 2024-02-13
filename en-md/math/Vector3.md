@@ -1,115 +1,108 @@
-# [name]
+# Vector3
 
 Class representing a 3D [link:https://en.wikipedia.org/wiki/Vector_space
 vector]. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),
 which can be used to represent a number of things, such as:
 
   * A point in 3D space.
-  * A direction and length in 3D space. In three.js the length will always be the [link:https://en.wikipedia.org/wiki/Euclidean_distance Euclidean distance] (straight-line distance) from `(0, 0, 0)` to `(x, y, z)` and the direction is also measured from `(0, 0, 0)` towards `(x, y, z)`. 
+  * A direction and length in 3D space. In three.js the length will always be the [link:https://en.wikipedia.org/wiki/Euclidean_distance Euclidean distance] (straight-line distance) from `(0, 0, 0)` to `(x, y, z)` and the direction is also measured from `(0, 0, 0)` towards `(x, y, z)`.
   * Any arbitrary ordered triplet of numbers.
 
 There are other things a 3D vector can be used to represent, such as momentum
 vectors and so on, however these are the most common uses in three.js.
 
-Iterating through a [name] instance will yield its components `(x, y, z)` in
+Iterating through a Vector3 instance will yield its components `(x, y, z)` in
 the corresponding order.
 
 ## Code Example
 
   
 ```ts  
-const a = new THREE.Vector3( 0, 1, 0 );  
-  
-//no arguments; will be initialised to (0, 0, 0)  
-const b = new THREE.Vector3( );  
-  
-const d = a.distanceTo( b );  
+const a = new THREE.Vector3( 0, 1, 0 ); //no arguments; will be initialised to
+(0, 0, 0) const b = new THREE.Vector3( ); const d = a.distanceTo( b );  
 ```  
 
 ## Constructor
 
-### [name]( [param:Float x], [param:Float y], [param:Float z] )
+###  function Vector3( x: Float, y: Float, z: Float ): void;
 
 [page:Float x] - the x value of this vector. Default is `0`.  
 [page:Float y] - the y value of this vector. Default is `0`.  
 [page:Float z] - the z value of this vector. Default is `0`.  
   
-Creates a new [name].
+Creates a new Vector3.
 
 ## Properties
 
-### <br/> Boolean isVector3; <br/>
+###  Boolean isVector3;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Vector3.
 
-### <br/> Float x; <br/>
+###  Float x;
 
-### <br/> Float y; <br/>
+###  Float y;
 
-### <br/> Float z; <br/>
+###  Float z;
 
 ## Methods
 
-### <br/> function add( v: Vector3 ): add; <br/>
+###  function add( v: Vector3 ): this;
 
 Adds [page:Vector3 v] to this vector.
 
-### <br/> function addScalar( s: Float ): addScalar; <br/>
+###  function addScalar( s: Float ): this;
 
 Adds the scalar value s to this vector's [page:.x x], [page:.y y] and [page:.z
 z] values.
 
-### <br/> function addScaledVector( v: Vector3, s: Float ): addScaledVector;
-<br/>
+###  function addScaledVector( v: Vector3, s: Float ): this;
 
 Adds the multiple of [page:Vector3 v] and [page:Float s] to this vector.
 
-### <br/> function addVectors( a: Vector3, b: Vector3 ): addVectors; <br/>
+###  function addVectors( a: Vector3, b: Vector3 ): this;
 
 Sets this vector to [page:Vector3 a] + [page:Vector3 b].
 
-### <br/> function applyAxisAngle( axis: Vector3, angle: Float ):
-applyAxisAngle; <br/>
+###  function applyAxisAngle( axis: Vector3, angle: Float ): this;
 
 [page:Vector3 axis] - A normalized [page:Vector3].  
 [page:Float angle] - An angle in radians.  
   
 Applies a rotation specified by an axis and an angle to this vector.
 
-### <br/> function applyEuler( euler: Euler ): applyEuler; <br/>
+###  function applyEuler( euler: Euler ): this;
 
 Applies euler transform to this vector by converting the [page:Euler] object
 to a [page:Quaternion] and applying.
 
-### <br/> function applyMatrix3( m: Matrix3 ): applyMatrix3; <br/>
+###  function applyMatrix3( m: Matrix3 ): this;
 
 Multiplies this vector by [page:Matrix3 m]
 
-### <br/> function applyMatrix4( m: Matrix4 ): applyMatrix4; <br/>
+###  function applyMatrix4( m: Matrix4 ): this;
 
 Multiplies this vector (with an implicit 1 in the 4th dimension) by m, and
 divides by perspective.
 
-### <br/> function applyNormalMatrix( m: Matrix3 ): applyNormalMatrix; <br/>
+###  function applyNormalMatrix( m: Matrix3 ): this;
 
 Multiplies this vector by normal matrix [page:Matrix3 m] and normalizes the
 result.
 
-### <br/> function applyQuaternion( quaternion: Quaternion ): applyQuaternion;
-<br/>
+###  function applyQuaternion( quaternion: Quaternion ): this;
 
 Applies a [page:Quaternion] transform to this vector.
 
-### [method:Float angleTo]( [param:Vector3 v] )
+###  function angleTo( v: Vector3 ): Float;
 
 Returns the angle between this vector and vector [page:Vector3 v] in radians.
 
-### <br/> function ceil( ): ceil; <br/>
+###  function ceil( ): this;
 
 The [page:.x x], [page:.y y] and [page:.z z] components of this vector are
 rounded up to the nearest integer value.
 
-### <br/> function clamp( min: Vector3, max: Vector3 ): clamp; <br/>
+###  function clamp( min: Vector3, max: Vector3 ): this;
 
 [page:Vector3 min] - the minimum [page:.x x], [page:.y y] and [page:.z z]
 values.  
@@ -122,7 +115,7 @@ value, it is replaced by the corresponding value.
 If this vector's x, y or z value is less than the min vector's x, y or z
 value, it is replaced by the corresponding value.
 
-### <br/> function clampLength( min: Float, max: Float ): clampLength; <br/>
+###  function clampLength( min: Float, max: Float ): this;
 
 [page:Float min] - the minimum value the length will be clamped to  
 [page:Float max] - the maximum value the length will be clamped to  
@@ -133,7 +126,7 @@ scaled down so its length is the max value.
 If this vector's length is less than the min value, the vector will be scaled
 up so its length is the min value.
 
-### <br/> function clampScalar( min: Float, max: Float ): clampScalar; <br/>
+###  function clampScalar( min: Float, max: Float ): this;
 
 [page:Float min] - the minimum value the components will be clamped to  
 [page:Float max] - the maximum value the components will be clamped to  
@@ -144,65 +137,64 @@ replaced by the max value.
 If this vector's x, y or z values are less than the min value, they are
 replaced by the min value.
 
-### [method:Vector3 clone]()
+###  function clone( ): Vector3;
 
 Returns a new vector3 with the same [page:.x x], [page:.y y] and [page:.z z]
 values as this one.
 
-### <br/> function copy( v: Vector3 ): copy; <br/>
+###  function copy( v: Vector3 ): this;
 
 Copies the values of the passed vector3's [page:.x x], [page:.y y] and
 [page:.z z] properties to this vector3.
 
-### <br/> function cross( v: Vector3 ): cross; <br/>
+###  function cross( v: Vector3 ): this;
 
 Sets this vector to [link:https://en.wikipedia.org/wiki/Cross_product cross
 product] of itself and [page:Vector3 v].
 
-### <br/> function crossVectors( a: Vector3, b: Vector3 ): crossVectors; <br/>
+###  function crossVectors( a: Vector3, b: Vector3 ): this;
 
 Sets this vector to [link:https://en.wikipedia.org/wiki/Cross_product cross
 product] of [page:Vector3 a] and [page:Vector3 b].
 
-### [method:Float distanceTo]( [param:Vector3 v] )
+###  function distanceTo( v: Vector3 ): Float;
 
 Computes the distance from this vector to [page:Vector3 v].
 
-### [method:Float manhattanDistanceTo]( [param:Vector3 v] )
+###  function manhattanDistanceTo( v: Vector3 ): Float;
 
 Computes the [link:https://en.wikipedia.org/wiki/Taxicab_geometry Manhattan
 distance] from this vector to [page:Vector3 v].
 
-### [method:Float distanceToSquared]( [param:Vector3 v] )
+###  function distanceToSquared( v: Vector3 ): Float;
 
 Computes the squared distance from this vector to [page:Vector3 v]. If you are
 just comparing the distance with another distance, you should compare the
 distance squared instead as it is slightly more efficient to calculate.
 
-### <br/> function divide( v: Vector3 ): divide; <br/>
+###  function divide( v: Vector3 ): this;
 
 Divides this vector by [page:Vector3 v].
 
-### <br/> function divideScalar( s: Float ): divideScalar; <br/>
+###  function divideScalar( s: Float ): this;
 
 Divides this vector by scalar [page:Float s].
 
-### [method:Float dot]( [param:Vector3 v] )
+###  function dot( v: Vector3 ): Float;
 
 Calculate the [link:https://en.wikipedia.org/wiki/Dot_product dot product] of
 this vector and [page:Vector3 v].
 
-### [method:Boolean equals]( [param:Vector3 v] )
+###  function equals( v: Vector3 ): Boolean;
 
 Returns `true` if the components of this vector and [page:Vector3 v] are
 strictly equal; `false` otherwise.
 
-### <br/> function floor( ): floor; <br/>
+###  function floor( ): this;
 
 The components of this vector are rounded down to the nearest integer value.
 
-### <br/> function fromArray( array: Array, offset: Integer ): fromArray;
-<br/>
+###  function fromArray( array: Array, offset: Integer ): this;
 
 [page:Array array] - the source array.  
 [page:Integer offset] - ( optional) offset into the array. Default is 0.  
@@ -211,8 +203,8 @@ Sets this vector's [page:.x x] value to be `array[ offset + 0 ]`, [page:.y y]
 value to be `array[ offset + 1 ]` and [page:.z z] value to be `array[ offset +
 2 ]`.
 
-### <br/> function fromBufferAttribute( attribute: BufferAttribute, index:
-Integer ): fromBufferAttribute; <br/>
+###  function fromBufferAttribute( attribute: BufferAttribute, index: Integer
+): this;
 
 [page:BufferAttribute attribute] - the source attribute.  
 [page:Integer index] - index in the attribute.  
@@ -220,7 +212,7 @@ Integer ): fromBufferAttribute; <br/>
 Sets this vector's [page:.x x], [page:.y y] and [page:.z z] values from the
 [page:BufferAttribute attribute].
 
-### [method:Float getComponent]( [param:Integer index] )
+###  function getComponent( index: Integer ): Float;
 
 [page:Integer index] - `0`, `1` or `2`.  
   
@@ -228,17 +220,17 @@ If index equals `0` returns the [page:.x x] value.
 If index equals `1` returns the [page:.y y] value.  
 If index equals `2` returns the [page:.z z] value.
 
-### [method:Float length]()
+###  function length( ): Float;
 
 Computes the [link:https://en.wikipedia.org/wiki/Euclidean_distance Euclidean
 length] (straight-line length) from (0, 0, 0) to (x, y, z).
 
-### [method:Float manhattanLength]()
+###  function manhattanLength( ): Float;
 
 Computes the [link:http://en.wikipedia.org/wiki/Taxicab_geometry Manhattan
 length] of this vector.
 
-### [method:Float lengthSq]()
+###  function lengthSq( ): Float;
 
 Computes the square of the
 [link:https://en.wikipedia.org/wiki/Euclidean_distance Euclidean length]
@@ -246,7 +238,7 @@ Computes the square of the
 lengths of vectors, you should compare the length squared instead as it is
 slightly more efficient to calculate.
 
-### <br/> function lerp( v: Vector3, alpha: Float ): lerp; <br/>
+###  function lerp( v: Vector3, alpha: Float ): this;
 
 [page:Vector3 v] - [page:Vector3] to interpolate towards.  
 [page:Float alpha] - interpolation factor, typically in the closed interval
@@ -256,8 +248,7 @@ Linearly interpolate between this vector and [page:Vector3 v], where alpha is
 the percent distance along the line - alpha = 0 will be this vector, and alpha
 = 1 will be [page:Vector3 v].
 
-### <br/> function lerpVectors( v1: Vector3, v2: Vector3, alpha: Float ):
-lerpVectors; <br/>
+###  function lerpVectors( v1: Vector3, v2: Vector3, alpha: Float ): this;
 
 [page:Vector3 v1] - the starting [page:Vector3].  
 [page:Vector3 v2] - [page:Vector3] to interpolate towards.  
@@ -269,48 +260,46 @@ v1] and [page:Vector3 v2] where alpha is the percent distance along the line
 connecting the two vectors - alpha = 0 will be [page:Vector3 v1], and alpha =
 1 will be [page:Vector3 v2].
 
-### <br/> function max( v: Vector3 ): max; <br/>
+###  function max( v: Vector3 ): this;
 
 If this vector's x, y or z value is less than [page:Vector3 v]'s x, y or z
 value, replace that value with the corresponding max value.
 
-### <br/> function min( v: Vector3 ): min; <br/>
+###  function min( v: Vector3 ): this;
 
 If this vector's x, y or z value is greater than [page:Vector3 v]'s x, y or z
 value, replace that value with the corresponding min value.
 
-### <br/> function multiply( v: Vector3 ): multiply; <br/>
+###  function multiply( v: Vector3 ): this;
 
 Multiplies this vector by [page:Vector3 v].
 
-### <br/> function multiplyScalar( s: Float ): multiplyScalar; <br/>
+###  function multiplyScalar( s: Float ): this;
 
 Multiplies this vector by scalar [page:Float s].
 
-### <br/> function multiplyVectors( a: Vector3, b: Vector3 ): multiplyVectors;
-<br/>
+###  function multiplyVectors( a: Vector3, b: Vector3 ): this;
 
 Sets this vector equal to [page:Vector3 a] * [page:Vector3 b], component-wise.
 
-### <br/> function negate( ): negate; <br/>
+###  function negate( ): this;
 
 Inverts this vector - i.e. sets x = -x, y = -y and z = -z.
 
-### <br/> function normalize( ): normalize; <br/>
+###  function normalize( ): this;
 
 Convert this vector to a [link:https://en.wikipedia.org/wiki/Unit_vector unit
-vector] \- that is, sets it equal to a vector with the same direction as this
+vector] - that is, sets it equal to a vector with the same direction as this
 one, but [page:.length length] 1.
 
-### <br/> function project( camera: Camera ): project; <br/>
+###  function project( camera: Camera ): this;
 
 [page:Camera camera] — camera to use in the projection.  
   
 Projects this vector from world space into the camera's normalized device
 coordinate (NDC) space.
 
-### <br/> function projectOnPlane( planeNormal: Vector3 ): projectOnPlane;
-<br/>
+###  function projectOnPlane( planeNormal: Vector3 ): this;
 
 [page:Vector3 planeNormal] - A vector representing a plane normal.  
   
@@ -318,33 +307,32 @@ coordinate (NDC) space.
 onto a plane by subtracting this vector projected onto the plane's normal from
 this vector.
 
-### <br/> function projectOnVector( v: Vector3 ): projectOnVector; <br/>
+###  function projectOnVector( v: Vector3 ): this;
 
 [link:https://en.wikipedia.org/wiki/Vector_projection Projects] this vector
 onto [page:Vector3 v].
 
-### <br/> function reflect( normal: Vector3 ): reflect; <br/>
+###  function reflect( normal: Vector3 ): this;
 
 [page:Vector3 normal] - the normal to the reflecting plane  
   
 Reflect this vector off of plane orthogonal to [page:Vector3 normal]. Normal
 is assumed to have unit length.
 
-### <br/> function round( ): round; <br/>
+###  function round( ): this;
 
 The components of this vector are rounded to the nearest integer value.
 
-### <br/> function roundToZero( ): roundToZero; <br/>
+###  function roundToZero( ): this;
 
 The components of this vector are rounded towards zero (up if negative, down
 if positive) to an integer value.
 
-### <br/> function set( x: Float, y: Float, z: Float ): set; <br/>
+###  function set( x: Float, y: Float, z: Float ): this;
 
 Sets the [page:.x x], [page:.y y] and [page:.z z] components of this vector.
 
-### <br/> function setComponent( index: Integer, value: Float ): setComponent;
-<br/>
+###  function setComponent( index: Integer, value: Float ): this;
 
 [page:Integer index] - `0`, `1` or `2`.  
 [page:Float value] - [page:Float]  
@@ -353,98 +341,94 @@ If index equals `0` set [page:.x x] to [page:Float value].
 If index equals `1` set [page:.y y] to [page:Float value].  
 If index equals `2` set [page:.z z] to [page:Float value]
 
-### <br/> function setFromColor( color: Color ): setFromColor; <br/>
+###  function setFromColor( color: Color ): this;
 
 Sets this vector's [page:.x x], [page:.y y] and [page:.z z] components from
 the r, g, and b components of the specified [page:Color color].
 
-### <br/> function setFromCylindrical( c: Cylindrical ): setFromCylindrical;
-<br/>
+###  function setFromCylindrical( c: Cylindrical ): this;
 
 Sets this vector from the cylindrical coordinates [page:Cylindrical c].
 
-### <br/> function setFromCylindricalCoords( radius: Float, theta: Float, y:
-Float ): setFromCylindricalCoords; <br/>
+###  function setFromCylindricalCoords( radius: Float, theta: Float, y: Float
+): this;
 
 Sets this vector from the cylindrical coordinates [page:Cylindrical radius],
 [page:Cylindrical theta] and [page:Cylindrical y].
 
-### <br/> function setFromEuler( euler: Euler ): setFromEuler; <br/>
+###  function setFromEuler( euler: Euler ): this;
 
 Sets this vector's [page:.x x], [page:.y y] and [page:.z z] components from
 the x, y, and z components of the specified [page:Euler Euler Angle].
 
-### <br/> function setFromMatrixColumn( matrix: Matrix4, index: Integer ):
-setFromMatrixColumn; <br/>
+###  function setFromMatrixColumn( matrix: Matrix4, index: Integer ): this;
 
 Sets this vector's [page:.x x], [page:.y y] and [page:.z z] components from
 [page:Integer index] column of [page:Matrix4 matrix].
 
-### <br/> function setFromMatrix3Column( matrix: Matrix3, index: Integer ):
-setFromMatrix3Column; <br/>
+###  function setFromMatrix3Column( matrix: Matrix3, index: Integer ): this;
 
 Sets this vector's [page:.x x], [page:.y y] and [page:.z z] components from
 [page:Integer index] column of [page:Matrix3 matrix].
 
-### <br/> function setFromMatrixPosition( m: Matrix4 ): setFromMatrixPosition;
-<br/>
+###  function setFromMatrixPosition( m: Matrix4 ): this;
 
 Sets this vector to the position elements of the
 [link:https://en.wikipedia.org/wiki/Transformation_matrix transformation
 matrix] [page:Matrix4 m].
 
-### <br/> function setFromMatrixScale( m: Matrix4 ): setFromMatrixScale; <br/>
+###  function setFromMatrixScale( m: Matrix4 ): this;
 
 Sets this vector to the scale elements of the
 [link:https://en.wikipedia.org/wiki/Transformation_matrix transformation
 matrix] [page:Matrix4 m].
 
-### <br/> function setFromSpherical( s: Spherical ): setFromSpherical; <br/>
+###  function setFromSpherical( s: Spherical ): this;
 
 Sets this vector from the spherical coordinates [page:Spherical s].
 
-### <br/> function setFromSphericalCoords( radius: Float, phi: Float, theta:
-Float ): setFromSphericalCoords; <br/>
+###  function setFromSphericalCoords( radius: Float, phi: Float, theta: Float
+): this;
 
 Sets this vector from the spherical coordinates [page:Spherical radius],
 [page:Spherical phi] and [page:Spherical theta].
 
-### <br/> function setLength( l: Float ): setLength; <br/>
+###  function setLength( l: Float ): this;
 
 Set this vector to a vector with the same direction as this one, but
 [page:.length length] [page:Float l].
 
-### <br/> function setScalar( scalar: Float ): setScalar; <br/>
+###  function setScalar( scalar: Float ): this;
 
 Set the [page:.x x], [page:.y y] and [page:.z z] values of this vector both
 equal to [page:Float scalar].
 
-### <br/> function setX( x: Float ): setX; <br/>
+###  function setX( x: Float ): this;
 
 Replace this vector's [page:.x x] value with [page:Float x].
 
-### <br/> function setY( y: Float ): setY; <br/>
+###  function setY( y: Float ): this;
 
 Replace this vector's [page:.y y] value with [page:Float y].
 
-### <br/> function setZ( z: Float ): setZ; <br/>
+###  function setZ( z: Float ): this;
 
 Replace this vector's [page:.z z] value with [page:Float z].
 
-### <br/> function sub( v: Vector3 ): sub; <br/>
+###  function sub( v: Vector3 ): this;
 
 Subtracts [page:Vector3 v] from this vector.
 
-### <br/> function subScalar( s: Float ): subScalar; <br/>
+###  function subScalar( s: Float ): this;
 
 Subtracts [page:Float s] from this vector's [page:.x x], [page:.y y] and
 [page:.z z] components.
 
-### <br/> function subVectors( a: Vector3, b: Vector3 ): subVectors; <br/>
+###  function subVectors( a: Vector3, b: Vector3 ): this;
 
 Sets this vector to [page:Vector3 a] - [page:Vector3 b].
 
-###  [method:Array toArray]( [param:Array array], [param:Integer offset] )
+###  function toArray( array: Array, offset: Integer ): Array;
 
 [page:Array array] - (optional) array to store this vector to. If this is not
 provided a new array will be created.  
@@ -453,25 +437,25 @@ provided a new array will be created.
 Returns an array [x, y, z], or copies x, y and z into the provided [page:Array
 array].
 
-### <br/> function transformDirection( m: Matrix4 ): transformDirection; <br/>
+###  function transformDirection( m: Matrix4 ): this;
 
 Transforms the direction of this vector by a matrix (the upper left 3 x 3
 subset of a [page:Matrix4 m]) and then [page:.normalize normalizes] the
 result.
 
-### <br/> function unproject( camera: Camera ): unproject; <br/>
+###  function unproject( camera: Camera ): this;
 
 [page:Camera camera] — camera to use in the projection.  
   
 Projects this vector from the camera's normalized device coordinate (NDC)
 space into world space.
 
-### <br/> function random( ): random; <br/>
+###  function random( ): this;
 
 Sets each component of this vector to a pseudo-random value between `0` and
 `1`, excluding `1`.
 
-### <br/> function randomDirection( ): randomDirection; <br/>
+###  function randomDirection( ): this;
 
 Sets this vector to a uniformly random point on a unit sphere.
 

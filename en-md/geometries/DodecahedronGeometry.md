@@ -1,12 +1,12 @@
 [page:BufferGeometry] → [page:PolyhedronGeometry]
 
-# [name]
+# DodecahedronGeometry
 
 A class for generating a dodecahedron geometries.
 
 ## Constructor
 
-### [name]([param:Float radius], [param:Integer detail])
+###  function DodecahedronGeometry( radius: Float, detail: Integer ): void;
 
 radius — Radius of the dodecahedron. Default is `1`.  
 detail — Default is `0`. Setting this to a value greater than `0` adds
@@ -16,7 +16,7 @@ vertices making it no longer a dodecahedron.
 
 See the base [page:PolyhedronGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

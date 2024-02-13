@@ -1,6 +1,6 @@
 [page:Object3D] → [page:Line] →
 
-# [name]
+# LineLoop
 
 A continuous line that connects back to the start.  
   
@@ -14,7 +14,7 @@ first.
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Material material] )
+###  function LineLoop( geometry: BufferGeometry, material: Material ): void;
 
 [page:BufferGeometry geometry] — List of vertices representing points on the
 line loop.  
@@ -25,9 +25,9 @@ line loop.
 
 See the base [page:Line] class for common properties.
 
-### <br/> Boolean isLineLoop; <br/>
+###  Boolean isLineLoop;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type LineLoop.
 
 ## Methods
 

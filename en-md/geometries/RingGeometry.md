@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# RingGeometry
 
 A class for generating a two-dimensional ring geometry.
 
@@ -8,17 +8,16 @@ A class for generating a two-dimensional ring geometry.
 
   
 ```ts  
-const geometry = new THREE.RingGeometry( 1, 5, 32 );  
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00, side:
-THREE.DoubleSide } );  
-const mesh = new THREE.Mesh( geometry, material ); scene.add( mesh );  
+const geometry = new THREE.RingGeometry( 1, 5, 32 ); const material = new
+THREE.MeshBasicMaterial( { color: 0xffff00, side: THREE.DoubleSide } );const
+mesh = new THREE.Mesh( geometry, material ); scene.add( mesh );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float innerRadius], [param:Float outerRadius],
-[param:Integer thetaSegments], [param:Integer phiSegments], [param:Float
-thetaStart], [param:Float thetaLength])
+###  function RingGeometry( innerRadius: Float, outerRadius: Float,
+thetaSegments: Integer, phiSegments: Integer, thetaStart: Float, thetaLength:
+Float ): void;
 
 innerRadius — Default is `0.5`.  
 outerRadius — Default is `1`.  
@@ -32,7 +31,7 @@ thetaLength — Central angle. Default is Math.PI * 2.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

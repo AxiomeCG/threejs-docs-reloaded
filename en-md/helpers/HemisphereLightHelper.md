@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# HemisphereLightHelper
 
 Creates a visual aid consisting of a spherical [page:Mesh] for a
 [page:HemisphereLight HemisphereLight].
@@ -9,15 +9,14 @@ Creates a visual aid consisting of a spherical [page:Mesh] for a
 
   
 ```ts  
-const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );  
-const helper = new THREE.HemisphereLightHelper( light, 5 );  
-scene.add( helper );  
+const light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ); const helper
+= new THREE.HemisphereLightHelper( light, 5 ); scene.add( helper );  
 ```  
 
 ## Constructor
 
-###  [name]( [param:HemisphereLight light], [param:Number sphereSize],
-[param:Hex color] )
+###  function HemisphereLightHelper( light: HemisphereLight, sphereSize:
+Number, color: Hex ): void;
 
 [page:HemisphereLight light] -- The light being visualized.  
   
@@ -30,20 +29,20 @@ color of the light.
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> HemisphereLight light; <br/>
+###  HemisphereLight light;
 
 Reference to the HemisphereLight being visualized.
 
-### <br/> Object matrix; <br/>
+###  Object matrix;
 
 Reference to the hemisphereLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> Object matrixAutoUpdate; <br/>
+###  Object matrixAutoUpdate;
 
 See [page:Object3D.matrixAutoUpdate]. Set to `false` here as the helper is
 using the hemisphereLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> hex color; <br/>
+###  hex color;
 
 The color parameter passed in the constructor. Default is `undefined`. If this
 is changed, the helper's color will update the next time [page:.update update]
@@ -53,12 +52,12 @@ is called.
 
 See the base [page:Object3D] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the helper to match the position and direction of the [page:.light].
 

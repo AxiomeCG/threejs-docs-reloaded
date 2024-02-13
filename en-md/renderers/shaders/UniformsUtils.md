@@ -1,10 +1,10 @@
-# [name]
+# UniformsUtils
 
 Provides utility functions for managing uniforms.
 
 ## Methods
 
-### [method:Object clone]( [param:Object src] )
+###  function clone( src: Object ): Object;
 
 src -- An object representing uniform definitions.  
   
@@ -13,7 +13,7 @@ the [page:Uniform.value value] of a uniform refers to an object like a
 [page:Vector3] or [page:Texture], the cloned uniform will refer to a new
 object reference.
 
-### [method:Object merge]( [param:Array uniforms] )
+###  function merge( uniforms: Array ): Object;
 
 uniforms -- An array of objects containing uniform definitions.  
   

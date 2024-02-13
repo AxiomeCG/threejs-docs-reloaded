@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# WireframeGeometry
 
 This can be used as a helper object to view a [page:BufferGeometry geometry]
 as a wireframe.
@@ -9,16 +9,10 @@ as a wireframe.
 
   
 ```ts  
-const geometry = new THREE.SphereGeometry( 100, 100, 100 );  
-  
-const wireframe = new THREE.WireframeGeometry( geometry );  
-  
-const line = new THREE.LineSegments( wireframe );  
-line.material.depthTest = false;  
-line.material.opacity = 0.25;  
-line.material.transparent = true;  
-  
-scene.add( line );  
+const geometry = new THREE.SphereGeometry( 100, 100, 100 ); const wireframe =
+new THREE.WireframeGeometry( geometry ); const line = new THREE.LineSegments(
+wireframe ); line.material.depthTest = false; line.material.opacity = 0.25;
+line.material.transparent = true; scene.add( line );  
 ```  
 
 ## Examples
@@ -27,7 +21,7 @@ scene.add( line );
 
 ## Constructor
 
-### [name]( [param:BufferGeometry geometry] )
+###  function WireframeGeometry( geometry: BufferGeometry ): void;
 
 geometry — any geometry object.
 

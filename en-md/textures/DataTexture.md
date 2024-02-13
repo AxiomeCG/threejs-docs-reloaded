@@ -1,13 +1,12 @@
 [page:Texture] →
 
-# [name]
+# DataTexture
 
 Creates a texture directly from raw data, width and height.
 
 ## Constructor
 
-###  [name]( data, width, height, format, type, mapping, wrapS, wrapT,
-magFilter, minFilter, anisotropy, colorSpace )
+###  function DataTexture( ): void;
 
 The data argument must be an [link:https://developer.mozilla.org/en-
 US/docs/Web/API/ArrayBufferView ArrayBufferView]. Further parameters
@@ -32,54 +31,38 @@ be present.
 
   
 ```ts  
-// create a buffer with color data  
-  
-const width = 512;  
-const height = 512;  
-  
-const size = width * height;  
-const data = new Uint8Array( 4 * size );  
-const color = new THREE.Color( 0xffffff );  
-  
-const r = Math.floor( color.r * 255 );  
-const g = Math.floor( color.g * 255 );  
-const b = Math.floor( color.b * 255 );  
-  
-for ( let i = 0; i < size; i ++ ) {  
-const stride = i * 4;  
-data[ stride ] = r;  
-data[ stride + 1 ] = g;  
-data[ stride + 2 ] = b;  
-data[ stride + 3 ] = 255;  
-}  
-  
-// used the buffer to create a [name]  
-const texture = new THREE.DataTexture( data, width, height );  
-texture.needsUpdate = true;  
+// create a buffer with color data const width = 512; const height = 512;
+const size = width * height; const data = new Uint8Array( 4 * size ); const
+color = new THREE.Color( 0xffffff ); const r = Math.floor( color.r * 255 );
+const g = Math.floor( color.g * 255 ); const b = Math.floor( color.b * 255 );
+for ( let i = 0; i < size; i ++ ) { const stride = i * 4; data[ stride ] = r;
+data[ stride + 1 ] = g; data[ stride + 2 ] = b; data[ stride + 3 ] = 255; } //
+used the buffer to create a DataTexture const texture = new THREE.DataTexture(
+data, width, height ); texture.needsUpdate = true;  
 ```  
 
 ## Properties
 
 See the base [page:Texture Texture] class for common properties.
 
-### <br/> Boolean flipY; <br/>
+###  Boolean flipY;
 
 If set to `true`, the texture is flipped along the vertical axis when uploaded
 to the GPU. Default is `false`.
 
-### <br/> Boolean generateMipmaps; <br/>
+###  Boolean generateMipmaps;
 
 Whether to generate mipmaps (if possible) for a texture. False by default.
 
-### <br/> Object image; <br/>
+###  Object image;
 
 Overridden with a object holding data, width, and height.
 
-### <br/> Boolean isDataTexture; <br/>
+###  Boolean isDataTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type DataTexture.
 
-### <br/> number unpackAlignment; <br/>
+###  number unpackAlignment;
 
 `1` by default. Specifies the alignment requirements for the start of each
 pixel row in memory. The allowable values are 1 (byte-alignment), 2 (rows

@@ -1,6 +1,6 @@
 [page:Curve] →
 
-# [name]
+# EllipseCurve
 
 Creates a 2d curve in the shape of an ellipse. Setting the [page:Number
 xRadius] equal to the [page:Number yRadius] will result in a circle.
@@ -9,28 +9,19 @@ xRadius] equal to the [page:Number yRadius] will result in a circle.
 
   
 ```ts  
-const curve = new THREE.EllipseCurve(  
-0, 0, // ax, aY  
-10, 10, // xRadius, yRadius  
-0, 2 * Math.PI, // aStartAngle, aEndAngle  
-false, // aClockwise  
-0 // aRotation  
-);  
-  
-const points = curve.getPoints( 50 );  
-const geometry = new THREE.BufferGeometry().setFromPoints( points );  
-  
-const material = new THREE.LineBasicMaterial( { color: 0xff0000 } );  
-  
-// Create the final object to add to the scene  
-const ellipse = new THREE.Line( geometry, material );  
+const curve = new THREE.EllipseCurve( 0, 0, // ax, aY 10, 10, // xRadius,
+yRadius 0, 2 * Math.PI, // aStartAngle, aEndAngle false, // aClockwise 0 //
+aRotation ); const points = curve.getPoints( 50 ); const geometry = new
+THREE.BufferGeometry().setFromPoints( points ); const material = new
+THREE.LineBasicMaterial( { color: 0xff0000 } ); // Create the final object to
+add to the scene const ellipse = new THREE.Line( geometry, material );  
 ```  
 
 ## Constructor
 
-###  [name]( [param:Float aX], [param:Float aY], [param:Float xRadius],
-[param:Float yRadius], [param:Radians aStartAngle], [param:Radians aEndAngle],
-[param:Boolean aClockwise], [param:Radians aRotation] )
+###  function EllipseCurve( aX: Float, aY: Float, xRadius: Float, yRadius:
+Float, aStartAngle: Radians, aEndAngle: Radians, aClockwise: Boolean,
+aRotation: Radians ): void;
 
 [page:Float aX] – The X center of the ellipse. Default is `0`.  
 [page:Float aY] – The Y center of the ellipse. Default is `0`.  
@@ -52,35 +43,35 @@ counterclockwise from the positive X axis (optional). Default is `0`.
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Float aX; <br/>
+###  Float aX;
 
 The X center of the ellipse.
 
-### <br/> Float aY; <br/>
+###  Float aY;
 
 The Y center of the ellipse.
 
-### <br/> Radians xRadius; <br/>
+###  Radians xRadius;
 
 The radius of the ellipse in the x direction.
 
-### <br/> Radians yRadius; <br/>
+###  Radians yRadius;
 
 The radius of the ellipse in the y direction.
 
-### <br/> Float aStartAngle; <br/>
+###  Float aStartAngle;
 
 The start angle of the curve in radians starting from the middle right side.
 
-### <br/> Float aEndAngle; <br/>
+###  Float aEndAngle;
 
 The end angle of the curve in radians starting from the middle right side.
 
-### <br/> Boolean aClockwise; <br/>
+###  Boolean aClockwise;
 
 Whether the ellipse is drawn clockwise.
 
-### <br/> Float aRotation; <br/>
+###  Float aRotation;
 
 The rotation angle of the ellipse in radians, counterclockwise from the
 positive X axis (optional). Default is `0`.

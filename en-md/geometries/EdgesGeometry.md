@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# EdgesGeometry
 
 This can be used as a helper object to view the edges of a
 [page:BufferGeometry geometry].
@@ -9,11 +9,9 @@ This can be used as a helper object to view the edges of a
 
   
 ```ts  
-const geometry = new THREE.BoxGeometry( 100, 100, 100 );  
-const edges = new THREE.EdgesGeometry( geometry );  
-const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial( {
-color: 0xffffff } ) );  
-scene.add( line );  
+const geometry = new THREE.BoxGeometry( 100, 100, 100 ); const edges = new
+THREE.EdgesGeometry( geometry ); const line = new THREE.LineSegments(edges,
+new THREE.LineBasicMaterial( { color: 0xffffff } ) ); scene.add( line );  
 ```  
 
 ## Examples
@@ -22,7 +20,8 @@ scene.add( line );
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Integer thresholdAngle] )
+###  function EdgesGeometry( geometry: BufferGeometry, thresholdAngle: Integer
+): void;
 
 geometry — Any geometry object.  
 thresholdAngle — An edge is only rendered if the angle (in degrees) between
@@ -33,7 +32,7 @@ degree.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

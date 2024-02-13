@@ -1,4 +1,4 @@
-# [name]
+# KeyframeTrack
 
 A KeyframeTrack is a timed sequence of
 [link:https://en.wikipedia.org/wiki/Key_frame keyframes], which are composed
@@ -48,8 +48,8 @@ property of the animated node (done by [page:PropertyBinding]).
 
 ## Constructor
 
-### [name]( [param:String name], [param:Array times], [param:Array values],
-[param:Constant interpolation] )
+###  function KeyframeTrack( name: String, times: Array, values: Array,
+interpolation: Constant ): void;
 
 [page:String name] - the identifier for the `KeyframeTrack`.  
 [page:Array times] - an array of keyframe times, converted internally to a
@@ -64,7 +64,7 @@ US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array Float32Array].
 
 ## Properties
 
-### <br/> String name; <br/>
+###  String name;
 
 The track's name can refer to morph targets or [page:SkinnedMesh bones] or
 possibly other values within an animated object. See
@@ -93,19 +93,19 @@ can drive the same property. The result should be based on a weighted blend
 between the multiple tracks according to the weights of their respective
 actions.
 
-### <br/> Float32Array times; <br/>
+###  Float32Array times;
 
 A [link:https://developer.mozilla.org/en-
 US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array Float32Array],
 converted from the times array which is passed in the constructor.
 
-### <br/> Float32Array values; <br/>
+###  Float32Array values;
 
 A [link:https://developer.mozilla.org/en-
 US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array Float32Array],
 converted from the values array which is passed in the constructor.
 
-### <br/> Constant DefaultInterpolation; <br/>
+###  Constant DefaultInterpolation;
 
 The default interpolation type: [page:Animation InterpolateLinear].
 
@@ -123,58 +123,52 @@ the type of the buffer internally used for the values.
 
 ## Methods
 
-### [method:KeyframeTrack clone]()
+###  function clone( ): KeyframeTrack;
 
 Returns a copy of this track.
 
-### [method:Interpolant createInterpolant]()
+###  function createInterpolant( ): Interpolant;
 
 Creates a [page:LinearInterpolant LinearInterpolant], [page:CubicInterpolant
 CubicInterpolant] or [page:DiscreteInterpolant DiscreteInterpolant], depending
 on the value of the interpolation parameter passed in the constructor.
 
-### [method:Interpolant getInterpolation]()
+###  function getInterpolation( ): Interpolant;
 
 Returns the interpolation type.
 
-### [method:Number getValueSize]()
+###  function getValueSize( ): Number;
 
 Returns the size of each value (that is the length of the [page:.values
 values] array divided by the length of the [page:.times times] array).
 
-###  [method:DiscreteInterpolant InterpolantFactoryMethodDiscrete](
-[link:https://developer.mozilla.org/en-
-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array result] )
+###  function InterpolantFactoryMethodDiscrete( ): DiscreteInterpolant;
 
 Creates a new [page:DiscreteInterpolant DiscreteInterpolant] from the
 [page:KeyframeTrack.times times] and [page:KeyframeTrack.times values]. A
 Float32Array can be passed which will receive the results. Otherwise a new
 array with the appropriate size will be created automatically.
 
-###  [method:LinearInterpolant InterpolantFactoryMethodLinear](
-[link:https://developer.mozilla.org/en-
-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array result] )
+###  function InterpolantFactoryMethodLinear( ): LinearInterpolant;
 
 Creates a new [page:LinearInterpolant LinearInterpolant] from the
 [page:KeyframeTrack.times times] and [page:KeyframeTrack.times values]. A
 Float32Array can be passed which will receive the results. Otherwise a new
 array with the appropriate size will be created automatically.
 
-###  [method:CubicInterpolant InterpolantFactoryMethodSmooth](
-[link:https://developer.mozilla.org/en-
-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array result] )
+###  function InterpolantFactoryMethodSmooth( ): CubicInterpolant;
 
 Create a new [page:CubicInterpolant CubicInterpolant] from the
 [page:KeyframeTrack.times times] and [page:KeyframeTrack.times values]. A
 Float32Array can be passed which will receive the results. Otherwise a new
 array with the appropriate size will be created automatically.
 
-### <br/> function optimize( ): optimize; <br/>
+###  function optimize( ): this;
 
 Removes equivalent sequential keys, which are common in morph target
 sequences.
 
-### <br/> function scale( ): scale; <br/>
+###  function scale( ): this;
 
 Scales all keyframe times by a factor.  
   
@@ -183,23 +177,22 @@ per seconds (as it is done internally by
 [page:AnimationClip.CreateFromMorphTargetSequence
 animationClip.CreateFromMorphTargetSequence]).
 
-### <br/> function setInterpolation( interpolationType: Constant ):
-setInterpolation; <br/>
+###  function setInterpolation( interpolationType: Constant ): this;
 
 Sets the interpolation type. See [page:Animation Animation Constants] for
 choices.
 
-### <br/> function shift( timeOffsetInSeconds: Number ): shift; <br/>
+###  function shift( timeOffsetInSeconds: Number ): this;
 
 Moves all keyframes either forward or backward in time.
 
-### <br/> function trim( startTimeInSeconds: Number, endTimeInSeconds: Number
-): trim; <br/>
+###  function trim( startTimeInSeconds: Number, endTimeInSeconds: Number ):
+this;
 
 Removes keyframes before `startTime` and after `endTime`, without changing any
 values within the range [`startTime`, `endTime`].
 
-### [method:Boolean validate]()
+###  function validate( ): Boolean;
 
 Performs minimal validation on the tracks. Returns true if valid.
 
@@ -210,7 +203,7 @@ the `times` array are out of order.
 
 ## Static Methods
 
-### [method:JSON toJSON]( [param:KeyframeTrack track] )
+###  function toJSON( track: KeyframeTrack ): JSON;
 
 Converts the track to JSON.
 

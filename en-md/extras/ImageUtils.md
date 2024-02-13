@@ -1,18 +1,18 @@
-# [name]
+# ImageUtils
 
 A class containing utility functions for images.
 
 ## Methods
 
-###  [method:String getDataURL]( [param:HTMLCanvasElement image] |
-[param:HTMLImageElement image] | [param:ImageBitmap image] )
+###  function getDataURL( image: HTMLCanvasElement, image: HTMLImageElement,
+image: ImageBitmap ): String;
 
 image -- The image object.  
   
 Returns a data URI containing a representation of the given image.
 
-###  [method:Object sRGBToLinear]( [param:HTMLCanvasElement image] |
-[param:HTMLImageElement image] | [param:ImageBitmap image] )
+###  function sRGBToLinear( image: HTMLCanvasElement, image: HTMLImageElement,
+image: ImageBitmap ): Object;
 
 image -- The image object.  
   

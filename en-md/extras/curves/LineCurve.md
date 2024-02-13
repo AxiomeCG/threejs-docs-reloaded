@@ -1,12 +1,12 @@
 [page:Curve] →
 
-# [name]
+# LineCurve
 
 A curve representing a 2d line segment.
 
 ## Constructor
 
-### [name]( [param:Vector2 v1], [param:Vector2 v2] )
+###  function LineCurve( v1: Vector2, v2: Vector2 ): void;
 
 [page:Vector2 v1] – The start point.  
 [page:Vector2 v2] - The end point.
@@ -15,11 +15,11 @@ A curve representing a 2d line segment.
 
 See the base [page:Curve] class for common properties.
 
-### <br/> Vector2 v1; <br/>
+###  Vector2 v1;
 
 The start point.
 
-### <br/> Vector2 v2; <br/>
+###  Vector2 v2;
 
 The end point
 

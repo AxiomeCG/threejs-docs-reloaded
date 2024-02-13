@@ -1,23 +1,23 @@
-# [name]
+# LoaderUtils
 
 An object with several loader utility functions.
 
 ## Functions
 
-### [method:String decodeText]( [param:TypedArray array] )
+###  function decodeText( array: TypedArray ): String;
 
 [page:TypedArray array] — A stream of bytes as a typed array.
 
 The function takes a stream of bytes as input and returns a string
 representation.
 
-### [method:String extractUrlBase]( [param:String url] )
+###  function extractUrlBase( url: String ): String;
 
 [page:String url] — The url to extract the base url from.
 
 Extract the base from the URL.
 
-###  [method:String resolveURL]( [param:String url], [param:String path] )
+###  function resolveURL( url: String, path: String ): String;
 
 [page:String url] — The absolute or relative url resolve. [page:String path] —
 The base path for relative urls to be resolved against.

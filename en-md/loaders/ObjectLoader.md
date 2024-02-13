@@ -1,6 +1,6 @@
 [page:Loader] →
 
-# [name]
+# ObjectLoader
 
 A loader for loading a JSON resource in the
 [link:https://github.com/mrdoob/three.js/wiki/JSON-Object-Scene-format-4 JSON
@@ -12,35 +12,14 @@ This uses the [page:FileLoader] internally for loading files.
 
   
 ```ts  
-const loader = new THREE.ObjectLoader();  
-  
-loader.load(  
-// resource URL  
-"models/json/example.json",  
-  
-// onLoad callback  
-// Here the loaded data is assumed to be an object  
-function ( obj ) {  
-// Add the loaded object to the scene  
-scene.add( obj );  
-},  
-  
-// onProgress callback  
-function ( xhr ) {  
-console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );  
-},  
-  
-// onError callback  
-function ( err ) {  
-console.error( 'An error happened' );  
-}  
-);  
-  
-  
-// Alternatively, to parse a previously loaded JSON structure  
-const object = loader.parse( a_json_object );  
-  
-scene.add( object );  
+const loader = new THREE.ObjectLoader(); loader.load( // resource URL
+"models/json/example.json", // onLoad callback // Here the loaded data is
+assumed to be an object function ( obj ) { // Add the loaded object to the
+scene scene.add( obj ); }, // onProgress callback function ( xhr ) {
+console.log( (xhr.loaded / xhr.total * 100) + '% loaded' ); }, // onError
+callback function ( err ) { console.error( 'An error happened' ); } ); //
+Alternatively, to parse a previously loaded JSON structure const object =
+loader.parse( a_json_object ); scene.add( object );  
 ```  
 
 ## Examples
@@ -49,13 +28,13 @@ scene.add( object );
 
 ## Constructor
 
-### [name]( [param:LoadingManager manager] )
+###  function ObjectLoader( manager: LoadingManager ): void;
 
 [page:LoadingManager manager] — The [page:LoadingManager loadingManager] for
 the loader to use. Default is [page:LoadingManager
 THREE.DefaultLoadingManager].  
   
-Creates a new [name].
+Creates a new ObjectLoader.
 
 ## Properties
 
@@ -65,8 +44,8 @@ See the base [page:Loader] class for common properties.
 
 See the base [page:Loader] class for common methods.
 
-###  [method:undefined load]( [param:String url], [param:Function onLoad],
-[param:Function onProgress], [param:Function onError] )
+###  function load( url: String, onLoad: Function, onProgress: Function,
+onError: Function ): undefined;
 
 [page:String url] — the path or URL to the file. This can also be a
 [link:https://developer.mozilla.org/en-
@@ -82,7 +61,7 @@ server does not set the Content-Length header; .[page:Integer total] will be
 
 Begin loading from url and call onLoad with the parsed response content.
 
-###  [method:Object3D parse]( [param:Object json], [param:Function onLoad] )
+###  function parse( json: Object, onLoad: Function ): Object3D;
 
 [page:Object json] — required. The JSON source to parse.  
   
@@ -93,42 +72,42 @@ Parse a `JSON` structure and return a three.js object. This is used internally
 by [page:.load]() but can also be used directly to parse a previously loaded
 JSON structure.
 
-### [method:Object parseGeometries]( [param:Object json] )
+###  function parseGeometries( json: Object ): Object;
 
 [page:Object json] — required. The JSON source to parse.  
   
 This is used by [page:.parse]() to parse any [page:BufferGeometry geometries]
 in the JSON structure.
 
-### [method:Object parseMaterials]( [param:Object json] )
+###  function parseMaterials( json: Object ): Object;
 
 [page:Object json] — required. The JSON source to parse.  
   
 This is used by [page:.parse]() to parse any materials in the JSON structure
 using [page:MaterialLoader].
 
-### [method:Object parseAnimations]( [param:Object json] )
+###  function parseAnimations( json: Object ): Object;
 
 [page:Object json] — required. The JSON source to parse.  
   
 This is used by [page:.parse]() to parse any animations in the JSON structure,
 using [page:AnimationClip.parse]().
 
-### [method:Object parseImages]( [param:Object json] )
+###  function parseImages( json: Object ): Object;
 
 [page:Object json] — required. The JSON source to parse.  
   
 This is used by [page:.parse]() to parse any images in the JSON structure,
 using [page:ImageLoader].
 
-### [method:Object parseTextures]( [param:Object json] )
+###  function parseTextures( json: Object ): Object;
 
 [page:Object json] — required. The JSON source to parse.  
   
 This is used by [page:.parse]() to parse any textures in the JSON structure.
 
-###  [method:Object3D parseObject]( [param:Object json], [param:BufferGeometry
-geometries], [param:Material materials], [param:AnimationClip animations] )
+###  function parseObject( json: Object, geometries: BufferGeometry,
+materials: Material, animations: AnimationClip ): Object3D;
 
 [page:Object json] — required. The JSON source to parse.  
 [page:BufferGeometry geometries] — required. The geometries of the JSON.  

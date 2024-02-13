@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# Points
 
 A class for displaying points. The points are rendered by the
 [page:WebGLRenderer] using [link:https://developer.mozilla.org/en-
@@ -8,7 +8,7 @@ US/docs/Web/API/WebGLRenderingContext/drawElements gl.POINTS].
 
 ## Constructor
 
-###  [name]( [param:BufferGeometry geometry], [param:Material material] )
+###  function Points( geometry: BufferGeometry, material: Material ): void;
 
 [page:BufferGeometry geometry] — (optional) an instance of
 [page:BufferGeometry]. Default is a new [page:BufferGeometry].  
@@ -19,27 +19,27 @@ US/docs/Web/API/WebGLRenderingContext/drawElements gl.POINTS].
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> BufferGeometry geometry; <br/>
+###  BufferGeometry geometry;
 
 An instance of [page:BufferGeometry] (or derived classes), defining the
 object's structure.
 
-### <br/> Boolean isPoints; <br/>
+###  Boolean isPoints;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Points.
 
-### <br/> Material material; <br/>
+###  Material material;
 
 An instance of [page:Material], defining the object's appearance. Default is a
 [page:PointsMaterial].
 
-### <br/> Array morphTargetInfluences; <br/>
+###  Array morphTargetInfluences;
 
 An array of weights typically from 0-1 that specify how much of the morph is
 applied. Undefined by default, but reset to a blank array by
 [page:Points.updateMorphTargets updateMorphTargets].
 
-### <br/> Object morphTargetDictionary; <br/>
+###  Object morphTargetDictionary;
 
 A dictionary of morphTargets based on the morphTarget.name property. Undefined
 by default, but rebuilt [page:Points.updateMorphTargets updateMorphTargets].
@@ -48,17 +48,16 @@ by default, but rebuilt [page:Points.updateMorphTargets updateMorphTargets].
 
 See the base [page:Object3D] class for common methods.
 
-###  [method:undefined raycast]( [param:Raycaster raycaster], [param:Array
-intersects] )
+###  function raycast( raycaster: Raycaster, intersects: Array ): undefined;
 
 Get intersections between a casted ray and this Points.
 [page:Raycaster.intersectObject] will call this method.
 
-### [method:Points clone]()
+###  function clone( ): Points;
 
 Returns a clone of this Points object and its descendants.
 
-### [method:undefined updateMorphTargets]()
+###  function updateMorphTargets( ): undefined;
 
 Updates the morphTargets to have no influence on the object. Resets the
 [page:Points.morphTargetInfluences morphTargetInfluences] and

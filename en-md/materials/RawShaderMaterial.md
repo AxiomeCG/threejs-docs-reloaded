@@ -1,6 +1,6 @@
 [page:Material] → [page:ShaderMaterial] →
 
-# [name]
+# RawShaderMaterial
 
 This class works just like [page:ShaderMaterial], except that definitions of
 built-in uniforms and attributes are not automatically prepended to the GLSL
@@ -10,15 +10,9 @@ shader code.
 
   
 ```ts  
-const material = new THREE.RawShaderMaterial( {  
-  
-uniforms: {  
-time: { value: 1.0 }  
-},  
-vertexShader: document.getElementById( 'vertexShader' ).textContent,  
-fragmentShader: document.getElementById( 'fragmentShader' ).textContent,  
-  
-} );  
+const material = new THREE.RawShaderMaterial( { uniforms: { time: { value: 1.0
+} }, vertexShader: document.getElementById( 'vertexShader' ).textContent,
+fragmentShader: document.getElementById( 'fragmentShader' ).textContent, } );  
 ```  
 
 ## Examples
@@ -34,7 +28,7 @@ instancing / billboards]
 
 ## Constructor
 
-### [name]( [param:Object parameters] )
+###  function RawShaderMaterial( parameters: Object ): void;
 
 [page:Object parameters] - (optional) an object with one or more properties
 defining the material's appearance. Any property of the material (including

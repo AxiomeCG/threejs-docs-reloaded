@@ -1,4 +1,4 @@
-# [name]
+# Interpolant
 
 Abstract base class of interpolants over parametric samples.  
   
@@ -19,7 +19,7 @@ http://www.oodesign.com/template-method-pattern.html]
 
 ## Constructor
 
-###  [name]( parameterPositions, sampleValues, sampleSize, resultBuffer )
+###  function Interpolant( ): void;
 
 parameterPositions -- array of positions  
 sampleValues -- array of samples  
@@ -30,21 +30,21 @@ Note: This is not designed to be called directly.
 
 ## Properties
 
-### <br/> null parameterPositions; <br/>
+###  null parameterPositions;
 
-### <br/> null resultBuffer; <br/>
+###  null resultBuffer;
 
-### <br/> null sampleValues; <br/>
+###  null sampleValues;
 
-### <br/> Object settings; <br/>
+###  Object settings;
 
 Optional, subclass-specific settings structure.
 
-### <br/> null valueSize; <br/>
+###  null valueSize;
 
 ## Methods
 
-### [method:Array evaluate]( [param:Number t] )
+###  function evaluate( t: Number ): Array;
 
 Evaluate the interpolant at position *t*.
 

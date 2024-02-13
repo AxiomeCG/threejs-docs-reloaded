@@ -1,6 +1,6 @@
 [page:BufferGeometry] →
 
-# [name]
+# TorusGeometry
 
 A class for generating torus geometries.
 
@@ -8,15 +8,15 @@ A class for generating torus geometries.
 
   
 ```ts  
-const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 );  
-const material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );  
-const torus = new THREE.Mesh( geometry, material ); scene.add( torus );  
+const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 ); const material =
+new THREE.MeshBasicMaterial( { color: 0xffff00 } ); const torus = new
+THREE.Mesh( geometry, material ); scene.add( torus );  
 ```  
 
 ## Constructor
 
-###  [name]([param:Float radius], [param:Float tube], [param:Integer
-radialSegments], [param:Integer tubularSegments], [param:Float arc])
+###  function TorusGeometry( radius: Float, tube: Float, radialSegments:
+Integer, tubularSegments: Integer, arc: Float ): void;
 
 radius - Radius of the torus, from the center of the torus to the center of
 the tube. Default is `1`.  
@@ -29,7 +29,7 @@ arc — Central angle. Default is Math.PI * 2.
 
 See the base [page:BufferGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

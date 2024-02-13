@@ -1,6 +1,6 @@
 [page:Object3D] →
 
-# [name]
+# SpotLightHelper
 
 This displays a cone shaped helper object for a [page:SpotLight].
 
@@ -8,12 +8,9 @@ This displays a cone shaped helper object for a [page:SpotLight].
 
   
 ```ts  
-const spotLight = new THREE.SpotLight( 0xffffff );  
-spotLight.position.set( 10, 10, 10 );  
-scene.add( spotLight );  
-  
-const spotLightHelper = new THREE.SpotLightHelper( spotLight );  
-scene.add( spotLightHelper );  
+const spotLight = new THREE.SpotLight( 0xffffff ); spotLight.position.set( 10,
+10, 10 ); scene.add( spotLight ); const spotLightHelper = new
+THREE.SpotLightHelper( spotLight ); scene.add( spotLightHelper );  
 ```  
 
 ## Examples
@@ -22,7 +19,7 @@ scene.add( spotLightHelper );
 
 ## Constructor
 
-### [name]( [param:SpotLight light], [param:Hex color] )
+###  function SpotLightHelper( light: SpotLight, color: Hex ): void;
 
 [page:SpotLight light] -- The [page:SpotLight] to be visualized.  
   
@@ -33,24 +30,24 @@ color of the light.
 
 See the base [page:Object3D] class for common properties.
 
-### <br/> LineSegments cone; <br/>
+###  LineSegments cone;
 
 [page:LineSegments] used to visualize the light.
 
-### <br/> SpotLight light; <br/>
+###  SpotLight light;
 
 Reference to the [page:SpotLight] being visualized.
 
-### <br/> Object matrix; <br/>
+###  Object matrix;
 
 Reference to the spotLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> Object matrixAutoUpdate; <br/>
+###  Object matrixAutoUpdate;
 
 See [page:Object3D.matrixAutoUpdate]. Set to `false` here as the helper is
 using the spotLight's [page:Object3D.matrixWorld matrixWorld].
 
-### <br/> hex color; <br/>
+###  hex color;
 
 The color parameter passed in the constructor. Default is `undefined`. If this
 is changed, the helper's color will update the next time [page:.update update]
@@ -60,12 +57,12 @@ is called.
 
 See the base [page:Object3D] class for common methods.
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the light helper.
 

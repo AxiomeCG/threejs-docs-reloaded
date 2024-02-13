@@ -1,4 +1,4 @@
-# [name]
+# Plane
 
 A two dimensional surface that extends infinitely in 3d space, represented in
 [link:http://mathworld.wolfram.com/HessianNormalForm.html Hessian normal form]
@@ -6,7 +6,7 @@ by a unit length normal vector and a constant.
 
 ## Constructor
 
-### [name]( [param:Vector3 normal], [param:Float constant] )
+###  function Plane( normal: Vector3, constant: Float ): void;
 
 [page:Vector3 normal] - (optional) a unit length [page:Vector3] defining the
 normal of the plane. Default is `(1, 0, 0)`.  
@@ -15,18 +15,18 @@ plane. Default is `0`.
 
 ## Properties
 
-### <br/> Boolean isPlane; <br/>
+###  Boolean isPlane;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Plane.
 
-### <br/> Vector3 normal; <br/>
+###  Vector3 normal;
 
-### <br/> Float constant; <br/>
+###  Float constant;
 
 ## Methods
 
-### <br/> function applyMatrix4( matrix: Matrix4, optionalNormalMatrix:
-Matrix3 ): applyMatrix4; <br/>
+###  function applyMatrix4( matrix: Matrix4, optionalNormalMatrix: Matrix3 ):
+this;
 
 [page:Matrix4 matrix] - the [Page:Matrix4] to apply.  
 [page:Matrix3 optionalNormalMatrix] - (optional) pre-computed normal
@@ -40,38 +40,37 @@ so:
 const optionalNormalMatrix = new THREE.Matrix3().getNormalMatrix( matrix );  
 ```  
 
-### [method:Plane clone]()
+###  function clone( ): Plane;
 
 Returns a new plane with the same [page:.normal normal] and [page:.constant
 constant] as this one.
 
-### [method:Vector3 coplanarPoint]( [param:Vector3 target] )
+###  function coplanarPoint( target: Vector3 ): Vector3;
 
 [page:Vector3 target] — the result will be copied into this Vector3.  
   
 Returns a [page:Vector3] coplanar to the plane, by calculating the projection
 of the normal vector at the origin onto the plane.
 
-### <br/> function copy( plane: Plane ): copy; <br/>
+###  function copy( plane: Plane ): this;
 
 Copies the values of the passed plane's [page:.normal normal] and
 [page:.constant constant] properties to this plane.
 
-### [method:Float distanceToPoint]( [param:Vector3 point] )
+###  function distanceToPoint( point: Vector3 ): Float;
 
 Returns the signed distance from the [page:Vector3 point] to the plane.
 
-### [method:Float distanceToSphere]( [param:Sphere sphere] )
+###  function distanceToSphere( sphere: Sphere ): Float;
 
 Returns the signed distance from the [page:Sphere sphere] to the plane.
 
-### [method:Boolean equals]( [param:Plane plane] )
+###  function equals( plane: Plane ): Boolean;
 
 Checks to see if two planes are equal (their [page:.normal normal] and
 [page:.constant constant] properties match).
 
-###  [method:Vector3 intersectLine]( [param:Line3 line], [param:Vector3
-target] )
+###  function intersectLine( line: Line3, target: Vector3 ): Vector3;
 
 [page:Line3 line] - the [page:Line3] to check for intersection.  
 [page:Vector3 target] — the result will be copied into this Vector3.  
@@ -80,42 +79,41 @@ Returns the intersection point of the passed line and the plane. Returns null
 if the line does not intersect. Returns the line's starting point if the line
 is coplanar with the plane.
 
-### [method:Boolean intersectsBox]( [param:Box3 box] )
+###  function intersectsBox( box: Box3 ): Boolean;
 
 [page:Box3 box] - the [page:Box3] to check for intersection.  
   
 Determines whether or not this plane intersects [page:Box3 box].
 
-### [method:Boolean intersectsLine]( [param:Line3 line] )
+###  function intersectsLine( line: Line3 ): Boolean;
 
 [page:Line3 line] - the [page:Line3] to check for intersection.  
   
 Tests whether a line segment intersects with (passes through) the plane.
 
-### [method:Boolean intersectsSphere]( [param:Sphere sphere] )
+###  function intersectsSphere( sphere: Sphere ): Boolean;
 
 [page:Sphere sphere] - the [page:Sphere] to check for intersection.  
   
 Determines whether or not this plane intersects [page:Sphere sphere].
 
-### <br/> function negate( ): negate; <br/>
+###  function negate( ): this;
 
 Negates both the normal vector and the constant.
 
-### <br/> function normalize( ): normalize; <br/>
+###  function normalize( ): this;
 
 Normalizes the [page:.normal normal] vector, and adjusts the [page:.constant
 constant] value accordingly.
 
-###  [method:Vector3 projectPoint]( [param:Vector3 point], [param:Vector3
-target] )
+###  function projectPoint( point: Vector3, target: Vector3 ): Vector3;
 
 [page:Vector3 point] - the [page:Vector3] to project onto the plane.  
 [page:Vector3 target] — the result will be copied into this Vector3.  
   
 Projects a [page:Vector3 point] onto the plane.
 
-### <br/> function set( normal: Vector3, constant: Float ): set; <br/>
+###  function set( normal: Vector3, constant: Float ): this;
 
 [page:Vector3 normal] - a unit length [page:Vector3] defining the normal of
 the plane.  
@@ -125,8 +123,7 @@ Default is `0`.
 Sets this plane's [page:.normal normal] and [page:.constant constant]
 properties by copying the values from the given normal.
 
-### <br/> function setComponents( x: Float, y: Float, z: Float, w: Float ):
-setComponents; <br/>
+###  function setComponents( x: Float, y: Float, z: Float, w: Float ): this;
 
 [page:Float x] - x value of the unit length normal vector.  
 [page:Float y] - y value of the unit length normal vector.  
@@ -135,8 +132,8 @@ setComponents; <br/>
   
 Set the individual components that define the plane.
 
-### <br/> function setFromCoplanarPoints( a: Vector3, b: Vector3, c: Vector3
-): setFromCoplanarPoints; <br/>
+###  function setFromCoplanarPoints( a: Vector3, b: Vector3, c: Vector3 ):
+this;
 
 [page:Vector3 a] - first point on the plane.  
 [page:Vector3 b] - second point on the plane.  
@@ -146,8 +143,8 @@ Defines the plane based on the 3 provided points. The winding order is assumed
 to be counter-clockwise, and determines the direction of the [page:.normal
 normal].
 
-### <br/> function setFromNormalAndCoplanarPoint( normal: Vector3, point:
-Vector3 ): setFromNormalAndCoplanarPoint; <br/>
+###  function setFromNormalAndCoplanarPoint( normal: Vector3, point: Vector3
+): this;
 
 [page:Vector3 normal] - a unit length [page:Vector3] defining the normal of
 the plane.  
@@ -156,7 +153,7 @@ the plane.
 Sets the plane's properties as defined by a [page:Vector3 normal] and an
 arbitrary coplanar [page:Vector3 point].
 
-### <br/> function translate( offset: Vector3 ): translate; <br/>
+###  function translate( offset: Vector3 ): this;
 
 [page:Vector3 offset] - the amount to move the plane by.  
   

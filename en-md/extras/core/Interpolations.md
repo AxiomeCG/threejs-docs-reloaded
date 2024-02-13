@@ -1,20 +1,20 @@
-# [name]
+# Interpolations
 
-[name] contains spline and Bézier functions internally used by concrete curve
-classes.
+Interpolations contains spline and Bézier functions internally used by
+concrete curve classes.
 
 ## Methods
 
-### [method:Float CatmullRom]( [param:Float t], [param:Float p0], [param:Float
-p1], [param:Float p2], [param:Float p3] )
+###  function CatmullRom( t: Float, p0: Float, p1: Float, p2: Float, p3: Float
+): Float;
 
 t -- interpolation weight.  
 p0, p1, p2, p3 -- the points defining the spline curve.  
   
 Used internally by [page:SplineCurve SplineCurve].
 
-### [method:Float QuadraticBezier]( [param:Float t], [param:Float p0],
-[param:Float p1], [param:Float p2] )
+###  function QuadraticBezier( t: Float, p0: Float, p1: Float, p2: Float ):
+Float;
 
 t -- interpolation weight.  
 p0, p1, p2 -- the starting, control and end points defining the curve.  
@@ -22,8 +22,8 @@ p0, p1, p2 -- the starting, control and end points defining the curve.
 Used internally by [page:QuadraticBezierCurve3 QuadraticBezierCurve3] and
 [page:QuadraticBezierCurve QuadraticBezierCurve].
 
-### [method:Float CubicBezier]( [param:Float t], [param:Float p0],
-[param:Float p1], [param:Float p2], [param:Float p3] )
+###  function CubicBezier( t: Float, p0: Float, p1: Float, p2: Float, p3:
+Float ): Float;
 
 t -- interpolation weight.  
 p0, p1, p2, p3 -- the starting, control(twice) and end points defining the

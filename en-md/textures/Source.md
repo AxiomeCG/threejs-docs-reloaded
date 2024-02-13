@@ -1,43 +1,43 @@
-# [name]
+# Source
 
 Represents the data source of a texture.
 
 ## Constructor
 
-### [name]( [param:Any data] )
+###  function Source( data: Any ): void;
 
 [page:Any data] -- The data definition of a texture. Default is `null`.
 
 ## Properties
 
-### <br/> Any data; <br/>
+###  Any data;
 
 The actual data of a texture. The type of this property depends on the texture
 that uses this instance.
 
-### <br/> Boolean isSource; <br/>
+###  Boolean isSource;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type Source.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 Set this to `true` to trigger a data upload to the GPU next time the source is
 used.
 
-### <br/> String uuid; <br/>
+###  String uuid;
 
 [link:http://en.wikipedia.org/wiki/Universally_unique_identifier UUID] of this
 object instance. This gets automatically assigned, so this shouldn't be
 edited.
 
-### <br/> Integer version; <br/>
+###  Integer version;
 
 This starts at `0` and counts how many times [page:Source.needsUpdate
 .needsUpdate] is set to `true`.
 
 ## Methods
 
-### [method:Object toJSON]( [param:Object meta] )
+###  function toJSON( meta: Object ): Object;
 
 meta -- optional object containing metadata.  
 Convert the data source to three.js

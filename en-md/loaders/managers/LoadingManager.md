@@ -1,4 +1,4 @@
-# [name]
+# LoadingManager
 
 Handles and keeps track of loaded and pending data. A default global instance
 of this class is created and used by loaders if not supplied manually - see
@@ -15,29 +15,15 @@ This example shows how to use LoadingManager to track the progress of
 
   
 ```ts  
-const manager = new THREE.LoadingManager();  
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) {  
-console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + '
-of ' + itemsTotal + ' files.' );  
-};  
-  
-manager.onLoad = function ( ) {  
-console.log( 'Loading complete!');  
-};  
-  
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {  
-console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' +
-itemsTotal + ' files.' );  
-};  
-  
-manager.onError = function ( url ) {  
-console.log( 'There was an error loading ' + url );  
-};  
-  
-const loader = new THREE.OBJLoader( manager );  
-loader.load( 'file.obj', function ( object ) {  
-//  
-} );  
+const manager = new THREE.LoadingManager(); manager.onStart = function ( url,
+itemsLoaded, itemsTotal ) { console.log( 'Started loading file: ' + url +
+'.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); };
+manager.onLoad = function ( ) { console.log( 'Loading complete!'); };
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) { console.log(
+'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + '
+files.' ); }; manager.onError = function ( url ) { console.log( 'There was an
+error loading ' + url ); }; const loader = new THREE.OBJLoader( manager );
+loader.load( 'file.obj', function ( object ) { // } );  
 ```  
 
 In addition to observing progress, a LoadingManager can be used to override
@@ -47,29 +33,14 @@ load an in-memory model using Blob URLs is below.
 
   
 ```ts  
-// Blob or File objects created when dragging files into the webpage.  
-const blobs = {'fish.gltf': blob1, 'diffuse.png': blob2, 'normal.png': blob3};  
-  
-const manager = new THREE.LoadingManager();  
-  
-// Initialize loading manager with URL callback.  
-const objectURLs = [];  
-manager.setURLModifier( ( url ) => {  
-  
-url = URL.createObjectURL( blobs[ url ] );  
-objectURLs.push( url );  
-return url;  
-  
-} );  
-  
-// Load as usual, then revoke the blob URLs.  
-const loader = new THREE.GLTFLoader( manager );  
-loader.load( 'fish.gltf', (gltf) => {  
-  
-scene.add( gltf.scene );  
-objectURLs.forEach( ( url ) => URL.revokeObjectURL( url ) );  
-  
-});  
+// Blob or File objects created when dragging files into the webpage. const
+blobs = {'fish.gltf': blob1, 'diffuse.png': blob2, 'normal.png': blob3}; const
+manager = new THREE.LoadingManager(); // Initialize loading manager with URL
+callback. const objectURLs = []; manager.setURLModifier( ( url ) => { url =
+URL.createObjectURL( blobs[ url ] ); objectURLs.push( url ); return url; } );
+// Load as usual, then revoke the blob URLs. const loader = new
+THREE.GLTFLoader( manager ); loader.load( 'fish.gltf', (gltf) => { scene.add(
+gltf.scene ); objectURLs.forEach( ( url ) => URL.revokeObjectURL( url ) ); });  
 ```  
 
 ## Examples
@@ -79,8 +50,8 @@ objectURLs.forEach( ( url ) => URL.revokeObjectURL( url ) );
 
 ## Constructor
 
-###  [name]( [param:Function onLoad], [param:Function onProgress],
-[param:Function onError] )
+###  function LoadingManager( onLoad: Function, onProgress: Function, onError:
+Function ): void;
 
 [page:Function onLoad] — (optional) this function will be called when all
 loaders are done.  
@@ -88,11 +59,11 @@ loaders are done.
 item is complete.  
 [page:Function onError] — (optional) this function will be called a loader
 encounters errors.  
-Creates a new [name].
+Creates a new LoadingManager.
 
 ## Properties
 
-### <br/> Function onStart; <br/>
+###  Function onStart;
 
 This function will be called when loading starts. The arguments are:  
 [page:String url] — The url of the item just loaded.  
@@ -101,12 +72,12 @@ This function will be called when loading starts. The arguments are:
   
 By default this is undefined.
 
-### <br/> Function onLoad; <br/>
+###  Function onLoad;
 
 This function will be called when all loading is completed. By default this is
 undefined, unless passed in the constructor.
 
-### <br/> Function onProgress; <br/>
+###  Function onProgress;
 
 This function will be called when an item is complete. The arguments are:  
 [page:String url] — The url of the item just loaded.  
@@ -115,7 +86,7 @@ This function will be called when an item is complete. The arguments are:
   
 By default this is undefined, unless passed in the constructor.
 
-### <br/> Function onError; <br/>
+###  Function onError;
 
 This function will be called when any item errors, with the argument:  
 [page:String url] — The url of the item that errored.  
@@ -124,8 +95,7 @@ By default this is undefined, unless passed in the constructor.
 
 ## Methods
 
-### <br/> function addHandler( regex: Object, loader: Loader ): addHandler;
-<br/>
+###  function addHandler( regex: Object, loader: Loader ): this;
 
 [page:Object regex] — A regular expression.  
 [page:Loader loader] — The loader.
@@ -136,30 +106,30 @@ is to overwrite the default loader for textures.
 
   
 ```ts  
-// add handler for TGA textures  
-manager.addHandler( /\\.tga$/i, new TGALoader() );  
+// add handler for TGA textures manager.addHandler( /\\.tga$/i, new
+TGALoader() );  
 ```  
 
-### [method:Loader getHandler]( [param:String file] )
+###  function getHandler( file: String ): Loader;
 
 [page:String file] — The file path.
 
 Can be used to retrieve the registered loader for the given file path.
 
-### <br/> function removeHandler( regex: Object ): removeHandler; <br/>
+###  function removeHandler( regex: Object ): this;
 
 [page:Object regex] — A regular expression.
 
 Removes the loader for the given regular expression.
 
-### [method:String resolveURL]( [param:String url] )
+###  function resolveURL( url: String ): String;
 
 [page:String url] — the url to load  
   
 Given a URL, uses the URL modifier callback (if any) and returns a resolved
 URL. If no URL modifier is set, returns the original URL.
 
-### <br/> function setURLModifier( callback: Function ): setURLModifier; <br/>
+###  function setURLModifier( callback: Function ): this;
 
 [page:Function callback] — URL modifier callback. Called with [page:String
 url] argument, and must return [page:String resolvedURL].  
@@ -171,24 +141,24 @@ drag-and-drop APIs, and Data URIs.
 
   
 
-_Note: The following methods are designed to be called internally by loaders.
+ _Note: The following methods are designed to be called internally by loaders.
 You shouldn't call them directly._
 
-### [method:undefined itemStart]( [param:String url] )
+###  function itemStart( url: String ): undefined;
 
 [page:String url] — the url to load  
   
 This should be called by any loader using the manager when the loader starts
 loading an url.
 
-### [method:undefined itemEnd]( [param:String url] )
+###  function itemEnd( url: String ): undefined;
 
 [page:String url] — the loaded url  
   
 This should be called by any loader using the manager when the loader ended
 loading an url.
 
-### [method:undefined itemError]( [param:String url] )
+###  function itemError( url: String ): undefined;
 
 [page:String url] — the loaded url  
   

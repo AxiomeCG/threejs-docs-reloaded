@@ -1,12 +1,12 @@
 [page:BufferGeometry] → [page:PolyhedronGeometry] →
 
-# [name]
+# IcosahedronGeometry
 
 A class for generating an icosahedron geometry.
 
 ## Constructor
 
-### [name]([param:Float radius], [param:Integer detail])
+###  function IcosahedronGeometry( radius: Float, detail: Integer ): void;
 
 radius — Default is `1`.  
 detail — Default is `0`. Setting this to a value greater than `0` adds more
@@ -17,7 +17,7 @@ it's effectively a sphere.
 
 See the base [page:PolyhedronGeometry] class for common properties.
 
-### <br/> Object parameters; <br/>
+###  Object parameters;
 
 An object with a property for each of the constructor parameters. Any
 modification after instantiation does not change the geometry.

@@ -1,17 +1,17 @@
-# [name]
+# DataUtils
 
 A class containing utility functions for data.
 
 ## Methods
 
-### [method:Number toHalfFloat]( [param:Number val] )
+###  function toHalfFloat( val: Number ): Number;
 
 val -- A single precision floating point value.  
   
 Returns a half precision floating point value from the given single precision
 floating point value.
 
-### [method:Number fromHalfFloat]( [param:Number val] )
+###  function fromHalfFloat( val: Number ): Number;
 
 val -- A half precision floating point value.  
   

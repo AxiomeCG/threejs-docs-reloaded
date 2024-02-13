@@ -9,23 +9,18 @@ Arrays].
 
   
 ```ts  
-THREE.Float64BufferAttribute  
-THREE.Float32BufferAttribute  
-THREE.Float16BufferAttribute  
-THREE.Uint32BufferAttribute  
-THREE.Int32BufferAttribute  
-THREE.Uint16BufferAttribute  
-THREE.Int16BufferAttribute  
-THREE.Uint8ClampedBufferAttribute  
-THREE.Uint8BufferAttribute  
-THREE.Int8BufferAttribute  
+THREE.Float64BufferAttribute THREE.Float32BufferAttribute
+THREE.Float16BufferAttribute THREE.Uint32BufferAttribute
+THREE.Int32BufferAttribute THREE.Uint16BufferAttribute
+THREE.Int16BufferAttribute THREE.Uint8ClampedBufferAttribute
+THREE.Uint8BufferAttribute THREE.Int8BufferAttribute  
 ```  
 
 ## Constructor
 
 All of the above are called in the same way.
 
-###  TypedBufferAttribute( [param:Array_or_Integer array], [param:Integer
+### TypedBufferAttribute( [param:Array_or_Integer array], [param:Integer
 itemSize], [param:Boolean normalized] )
 
 array -- this can be a typed or untyped (normal) array or an integer length.

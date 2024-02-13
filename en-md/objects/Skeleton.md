@@ -1,4 +1,4 @@
-# [name]
+# Skeleton
 
 Use an array of [page:Bone bones] to create a skeleton that can be used by a
 [page:SkinnedMesh].
@@ -7,26 +7,11 @@ Use an array of [page:Bone bones] to create a skeleton that can be used by a
 
   
 ```ts  
-// Create a simple "arm"  
-  
-const bones = [];  
-  
-const shoulder = new THREE.Bone();  
-const elbow = new THREE.Bone();  
-const hand = new THREE.Bone();  
-  
-shoulder.add( elbow );  
-elbow.add( hand );  
-  
-bones.push( shoulder );  
-bones.push( elbow );  
-bones.push( hand );  
-  
-shoulder.position.y = -5;  
-elbow.position.y = 0;  
-hand.position.y = 5;  
-  
-const armSkeleton = new THREE.Skeleton( bones );  
+// Create a simple "arm" const bones = []; const shoulder = new THREE.Bone();
+const elbow = new THREE.Bone(); const hand = new THREE.Bone(); shoulder.add(
+elbow ); elbow.add( hand ); bones.push( shoulder ); bones.push( elbow );
+bones.push( hand ); shoulder.position.y = -5; elbow.position.y = 0;
+hand.position.y = 5; const armSkeleton = new THREE.Skeleton( bones );  
 ```  
 
 See the [page:SkinnedMesh] page for an example of usage with standard
@@ -34,73 +19,73 @@ See the [page:SkinnedMesh] page for an example of usage with standard
 
 ## Constructor
 
-### [name]( [param:Array bones], [param:Array boneInverses] )
+###  function Skeleton( bones: Array, boneInverses: Array ): void;
 
 [page:Array bones] - The array of [page:Bone bones]. Default is an empty
 array.  
 [page:Array boneInverses] - (optional) An array of [page:Matrix4 Matrix4s].  
   
-Creates a new [name].
+Creates a new Skeleton.
 
 ## Properties
 
-### <br/> Array bones; <br/>
+###  Array bones;
 
 The array of [page:bone bones]. Note this is a copy of the original array, not
 a reference, so you can modify the original array without effecting this one.
 
-### <br/> Array boneInverses; <br/>
+###  Array boneInverses;
 
 An array of [page:Matrix4 Matrix4s] that represent the inverse of the
 [page:Matrix4 matrixWorld] of the individual bones.
 
-### <br/> Float32Array boneMatrices; <br/>
+###  Float32Array boneMatrices;
 
 The array buffer holding the bone data when using a vertex texture.
 
-### <br/> DataTexture boneTexture; <br/>
+###  DataTexture boneTexture;
 
 The [page:DataTexture] holding the bone data when using a vertex texture.
 
-### <br/> Integer boneTextureSize; <br/>
+###  Integer boneTextureSize;
 
 The size of the [page:.boneTexture].
 
 ## Methods
 
-### [method:Skeleton clone]()
+###  function clone( ): Skeleton;
 
 Returns a clone of this Skeleton object.
 
-### [method:undefined calculateInverses]()
+###  function calculateInverses( ): undefined;
 
 Generates the [page:.boneInverses boneInverses] array if not provided in the
 constructor.
 
-### <br/> function computeBoneTexture( ): computeBoneTexture; <br/>
+###  function computeBoneTexture( ): this;
 
 Computes an instance of [page:DataTexture] in order to pass the bone data more
 efficiently to the shader. The texture is assigned to [page:.boneTexture
 boneTexture].
 
-### [method:undefined pose]()
+###  function pose( ): undefined;
 
 Returns the skeleton to the base pose.
 
-### [method:undefined update]()
+###  function update( ): undefined;
 
 Updates the [page:Float32Array boneMatrices] and [page:DataTexture
 boneTexture] after changing the bones. This is called automatically by the
 [page:WebGLRenderer] if the skeleton is used with a [page:SkinnedMesh].
 
-### [method:Bone getBoneByName]( [param:String name] )
+###  function getBoneByName( name: String ): Bone;
 
 name -- String to match to the Bone's .name property.  
   
 Searches through the skeleton's bone array and returns the first with a
 matching name.  
 
-### [method:undefined dispose]()
+###  function dispose( ): undefined;
 
 Frees the GPU-related resources allocated by this instance. Call this method
 whenever this instance is no longer used in your app.

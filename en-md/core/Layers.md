@@ -1,4 +1,4 @@
-# [name]
+# Layers
 
 A [page:Layers] object assigns an [page:Object3D] to 1 or more of 32 layers
 numbered `0` to `31` - internally the layers are stored as a
@@ -17,61 +17,61 @@ property which is an instance of this class.
 
 ## Constructor
 
-### [name]()
+###  function Layers( ): void;
 
 Create a new Layers object, with membership initially set to layer 0.
 
 ## Properties
 
-### <br/> Integer mask; <br/>
+###  Integer mask;
 
 A bit mask storing which of the 32 layers this layers object is currently a
 member of.
 
 ## Methods
 
-### [method:undefined disable]( [param:Integer layer] )
+###  function disable( layer: Integer ): undefined;
 
 layer - an integer from 0 to 31.  
   
 Remove membership of this `layer`.
 
-### [method:undefined enable]( [param:Integer layer] )
+###  function enable( layer: Integer ): undefined;
 
 layer - an integer from 0 to 31.  
   
 Add membership of this `layer`.
 
-### [method:undefined set]( [param:Integer layer] )
+###  function set( layer: Integer ): undefined;
 
 layer - an integer from 0 to 31.  
   
 Set membership to `layer`, and remove membership all other layers.
 
-### [method:Boolean test]( [param:Layers layers] )
+###  function test( layers: Layers ): Boolean;
 
 layers - a Layers object  
   
 Returns true if this and the passed `layers` object have at least one layer in
 common.
 
-### [method:Boolean isEnabled]( [param:Integer layer] )
+###  function isEnabled( layer: Integer ): Boolean;
 
 layer - an integer from 0 to 31.  
   
 Returns true if the given layer is enabled.
 
-### [method:undefined toggle]( [param:Integer layer] )
+###  function toggle( layer: Integer ): undefined;
 
 layer - an integer from 0 to 31.  
   
 Toggle membership of `layer`.
 
-### [method:undefined enableAll]()
+###  function enableAll( ): undefined;
 
 Add membership to all layers.
 
-### [method:undefined disableAll]()
+###  function disableAll( ): undefined;
 
 Remove membership from all layers.
 

@@ -4,11 +4,8 @@
 
   
 ```ts  
-THREE.UVMapping  
-THREE.CubeReflectionMapping  
-THREE.CubeRefractionMapping  
-THREE.EquirectangularReflectionMapping  
-THREE.EquirectangularRefractionMapping  
+THREE.UVMapping THREE.CubeReflectionMapping THREE.CubeRefractionMapping
+THREE.EquirectangularReflectionMapping THREE.EquirectangularRefractionMapping
 THREE.CubeUVReflectionMapping  
 ```  
 
@@ -37,9 +34,7 @@ See the [example:webgl_materials_envmaps materials / envmaps] example.
 
   
 ```ts  
-THREE.RepeatWrapping  
-THREE.ClampToEdgeWrapping  
-THREE.MirroredRepeatWrapping  
+THREE.RepeatWrapping THREE.ClampToEdgeWrapping THREE.MirroredRepeatWrapping  
 ```  
 
 These define the texture's [page:Texture.wrapS wrapS] and [page:Texture.wrapT
@@ -58,8 +53,7 @@ infinity, mirroring on each repeat.
 
   
 ```ts  
-THREE.NearestFilter  
-THREE.LinearFilter  
+THREE.NearestFilter THREE.LinearFilter  
 ```  
 
 For use with a texture's [page:Texture.magFilter magFilter] property, these
@@ -79,12 +73,9 @@ texture, depending on the values of [page:Texture.wrapS wrapS] and
 
   
 ```ts  
-THREE.NearestFilter  
-THREE.NearestMipmapNearestFilter  
-THREE.NearestMipmapLinearFilter  
-THREE.LinearFilter  
-THREE.LinearMipmapNearestFilter  
-THREE.LinearMipmapLinearFilter  
+THREE.NearestFilter THREE.NearestMipmapNearestFilter
+THREE.NearestMipmapLinearFilter THREE.LinearFilter
+THREE.LinearMipmapNearestFilter THREE.LinearMipmapLinearFilter  
 ```  
 
 For use with a texture's [page:Texture.minFilter minFilter] property, these
@@ -122,16 +113,9 @@ filters] example.
 
   
 ```ts  
-THREE.UnsignedByteType  
-THREE.ByteType  
-THREE.ShortType  
-THREE.UnsignedShortType  
-THREE.IntType  
-THREE.UnsignedIntType  
-THREE.FloatType  
-THREE.HalfFloatType  
-THREE.UnsignedShort4444Type  
-THREE.UnsignedShort5551Type  
+THREE.UnsignedByteType THREE.ByteType THREE.ShortType THREE.UnsignedShortType
+THREE.IntType THREE.UnsignedIntType THREE.FloatType THREE.HalfFloatType
+THREE.UnsignedShort4444Type THREE.UnsignedShort5551Type
 THREE.UnsignedInt248Type  
 ```  
 
@@ -144,16 +128,9 @@ correspond to the correct format. See below for details.
 
   
 ```ts  
-THREE.AlphaFormat  
-THREE.RedFormat  
-THREE.RedIntegerFormat  
-THREE.RGFormat  
-THREE.RGIntegerFormat  
-THREE.RGBAFormat  
-THREE.RGBAIntegerFormat  
-THREE.LuminanceFormat  
-THREE.LuminanceAlphaFormat  
-THREE.DepthFormat  
+THREE.AlphaFormat THREE.RedFormat THREE.RedIntegerFormat THREE.RGFormat
+THREE.RGIntegerFormat THREE.RGBAFormat THREE.RGBAIntegerFormat
+THREE.LuminanceFormat THREE.LuminanceAlphaFormat THREE.DepthFormat
 THREE.DepthStencilFormat  
 ```  
 
@@ -212,10 +189,8 @@ WebGLRenderingContext.texImage2D] for details.
 
   
 ```ts  
-THREE.RGB_S3TC_DXT1_Format  
-THREE.RGBA_S3TC_DXT1_Format  
-THREE.RGBA_S3TC_DXT3_Format  
-THREE.RGBA_S3TC_DXT5_Format  
+THREE.RGB_S3TC_DXT1_Format THREE.RGBA_S3TC_DXT1_Format
+THREE.RGBA_S3TC_DXT3_Format THREE.RGBA_S3TC_DXT5_Format  
 ```  
 
 For use with a [page:CompressedTexture CompressedTexture]'s
@@ -239,10 +214,8 @@ compression in how the alpha compression is done.
 
   
 ```ts  
-THREE.RGB_PVRTC_4BPPV1_Format  
-THREE.RGB_PVRTC_2BPPV1_Format  
-THREE.RGBA_PVRTC_4BPPV1_Format  
-THREE.RGBA_PVRTC_2BPPV1_Format  
+THREE.RGB_PVRTC_4BPPV1_Format THREE.RGB_PVRTC_2BPPV1_Format
+THREE.RGBA_PVRTC_4BPPV1_Format THREE.RGBA_PVRTC_2BPPV1_Format  
 ```  
 
 For use with a [page:CompressedTexture CompressedTexture]'s
@@ -267,9 +240,7 @@ block for each 8×4 pixels.
 
   
 ```ts  
-THREE.RGB_ETC1_Format  
-THREE.RGB_ETC2_Format  
-THREE.RGBA_ETC2_EAC_Format  
+THREE.RGB_ETC1_Format THREE.RGB_ETC2_Format THREE.RGBA_ETC2_EAC_Format  
 ```  
 
 For use with a [page:CompressedTexture CompressedTexture]'s
@@ -284,20 +255,13 @@ WEBGL_compressed_texture_etc] (ETC2) extensions.
 
   
 ```ts  
-THREE.RGBA_ASTC_4x4_Format  
-THREE.RGBA_ASTC_5x4_Format  
-THREE.RGBA_ASTC_5x5_Format  
-THREE.RGBA_ASTC_6x5_Format  
-THREE.RGBA_ASTC_6x6_Format  
-THREE.RGBA_ASTC_8x5_Format  
-THREE.RGBA_ASTC_8x6_Format  
-THREE.RGBA_ASTC_8x8_Format  
-THREE.RGBA_ASTC_10x5_Format  
-THREE.RGBA_ASTC_10x6_Format  
-THREE.RGBA_ASTC_10x8_Format  
-THREE.RGBA_ASTC_10x10_Format  
-THREE.RGBA_ASTC_12x10_Format  
-THREE.RGBA_ASTC_12x12_Format  
+THREE.RGBA_ASTC_4x4_Format THREE.RGBA_ASTC_5x4_Format
+THREE.RGBA_ASTC_5x5_Format THREE.RGBA_ASTC_6x5_Format
+THREE.RGBA_ASTC_6x6_Format THREE.RGBA_ASTC_8x5_Format
+THREE.RGBA_ASTC_8x6_Format THREE.RGBA_ASTC_8x8_Format
+THREE.RGBA_ASTC_10x5_Format THREE.RGBA_ASTC_10x6_Format
+THREE.RGBA_ASTC_10x8_Format THREE.RGBA_ASTC_10x10_Format
+THREE.RGBA_ASTC_12x10_Format THREE.RGBA_ASTC_12x12_Format  
 ```  
 
 For use with a [page:CompressedTexture CompressedTexture]'s
@@ -323,13 +287,8 @@ EXT_texture_compression_bptc] extension.
 
   
 ```ts  
-THREE.NeverCompare  
-THREE.LessCompare  
-THREE.EqualCompare  
-THREE.LessEqualCompare  
-THREE.GreaterCompare  
-THREE.NotEqualCompare  
-THREE.GreaterEqualCompare  
+THREE.NeverCompare THREE.LessCompare THREE.EqualCompare THREE.LessEqualCompare
+THREE.GreaterCompare THREE.NotEqualCompare THREE.GreaterEqualCompare
 THREE.AlwaysCompare  
 ```  
 
@@ -337,66 +296,15 @@ THREE.AlwaysCompare
 
   
 ```ts  
-'ALPHA'  
-'RGB'  
-'RGBA'  
-'LUMINANCE'  
-'LUMINANCE_ALPHA'  
-'RED_INTEGER'  
-'R8'  
-'R8_SNORM'  
-'R8I'  
-'R8UI'  
-'R16I'  
-'R16UI'  
-'R16F'  
-'R32I'  
-'R32UI'  
-'R32F'  
-'RG8'  
-'RG8_SNORM'  
-'RG8I'  
-'RG8UI'  
-'RG16I'  
-'RG16UI'  
-'RG16F'  
-'RG32I'  
-'RG32UI'  
-'RG32F'  
-'RGB565'  
-'RGB8'  
-'RGB8_SNORM'  
-'RGB8I'  
-'RGB8UI'  
-'RGB16I'  
-'RGB16UI'  
-'RGB16F'  
-'RGB32I'  
-'RGB32UI'  
-'RGB32F'  
-'RGB9_E5'  
-'SRGB8'  
-'R11F_G11F_B10F'  
-'RGBA4'  
-'RGBA8'  
-'RGBA8_SNORM'  
-'RGBA8I'  
-'RGBA8UI'  
-'RGBA16I'  
-'RGBA16UI'  
-'RGBA16F'  
-'RGBA32I'  
-'RGBA32UI'  
-'RGBA32F'  
-'RGB5_A1'  
-'RGB10_A2'  
-'RGB10_A2UI'  
-'SRGB8_ALPHA8'  
-'DEPTH_COMPONENT16'  
-'DEPTH_COMPONENT24'  
-'DEPTH_COMPONENT32F'  
-'DEPTH24_STENCIL8'  
-'DEPTH32F_STENCIL8'  
+'ALPHA' 'RGB' 'RGBA' 'LUMINANCE' 'LUMINANCE_ALPHA' 'RED_INTEGER' 'R8'
+'R8_SNORM' 'R8I' 'R8UI' 'R16I' 'R16UI' 'R16F' 'R32I' 'R32UI' 'R32F' 'RG8'
+'RG8_SNORM' 'RG8I' 'RG8UI' 'RG16I' 'RG16UI' 'RG16F' 'RG32I' 'RG32UI' 'RG32F'
+'RGB565' 'RGB8' 'RGB8_SNORM' 'RGB8I' 'RGB8UI' 'RGB16I' 'RGB16UI' 'RGB16F'
+'RGB32I' 'RGB32UI' 'RGB32F' 'RGB9_E5' 'SRGB8' 'R11F_G11F_B10F' 'RGBA4' 'RGBA8'
+'RGBA8_SNORM' 'RGBA8I' 'RGBA8UI' 'RGBA16I' 'RGBA16UI' 'RGBA16F' 'RGBA32I'
+'RGBA32UI' 'RGBA32F' 'RGB5_A1' 'RGB10_A2' 'RGB10_A2UI' 'SRGB8_ALPHA8'
+'DEPTH_COMPONENT16' 'DEPTH_COMPONENT24' 'DEPTH_COMPONENT32F'
+'DEPTH24_STENCIL8' 'DEPTH32F_STENCIL8'  
 ```  
 
 Heads up: changing the internal format of a texture will only affect the
@@ -582,8 +490,7 @@ OpenGL ES 3.0 Specification].
 
   
 ```ts  
-THREE.BasicDepthPacking  
-THREE.RGBADepthPacking  
+THREE.BasicDepthPacking THREE.RGBADepthPacking  
 ```  
 
 For use with the [page:MeshDepthMaterial.depthPacking depthPacking] property
@@ -593,8 +500,7 @@ of `MeshDepthMaterial`.
 
   
 ```ts  
-THREE.NoColorSpace = ""  
-THREE.SRGBColorSpace = "srgb"  
+THREE.NoColorSpace = "" THREE.SRGBColorSpace = "srgb"
 THREE.LinearSRGBColorSpace = "srgb-linear"  
 ```  
 

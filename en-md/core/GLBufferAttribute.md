@@ -1,4 +1,4 @@
-# [name]
+# GLBufferAttribute
 
 This buffer attribute class does not construct a VBO. Instead, it uses
 whatever VBO is passed in constructor and can later be altered via the
@@ -13,8 +13,8 @@ interferes or even produces the VBOs in question.
 
 ## Constructor
 
-### [name]( [param:WebGLBuffer buffer], [param:GLenum type], [param:Integer
-itemSize], [param:Integer elementSize], [param:Integer count] )
+###  function GLBufferAttribute( buffer: WebGLBuffer, type: GLenum, itemSize:
+Integer, elementSize: Integer, count: Integer ): void;
 
 `buffer` — Must be a [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WebGLBuffer WebGLBuffer].  
@@ -38,34 +38,34 @@ vector (such as a position, normal, or color), then itemSize should be 3.
 
 ## Properties
 
-### <br/> WebGLBuffer buffer; <br/>
+###  WebGLBuffer buffer;
 
 The current [link:https://developer.mozilla.org/en-US/docs/Web/API/WebGLBuffer
 WebGLBuffer] instance.
 
-### <br/> Integer count; <br/>
+###  Integer count;
 
 The expected number of vertices in VBO.
 
-### <br/> Boolean isGLBufferAttribute; <br/>
+###  Boolean isGLBufferAttribute;
 
 Read-only. Always `true`.
 
-### <br/> Integer itemSize; <br/>
+###  Integer itemSize;
 
 How many values make up each item (vertex).
 
-### <br/> Integer elementSize; <br/>
+###  Integer elementSize;
 
 Stores the corresponding size in bytes for the current `type` property value.
 
 See above (constructor) for a list of known type sizes.
 
-### <br/> String name; <br/>
+###  String name;
 
 Optional name for this attribute instance. Default is an empty string.
 
-### <br/> GLenum type; <br/>
+###  GLenum type;
 
 A [link:https://developer.mozilla.org/en-
 US/docs/Web/API/WebGL_API/Constants#Data_types WebGL Data Type] describing the
@@ -76,28 +76,28 @@ the `setType` method.
 
 ## Methods
 
-### <br/> function setBuffer( ): setBuffer; <br/>
+###  function setBuffer( ): this;
 
 Sets the `buffer` property.
 
-### <br/> function setType( ): setType; <br/>
+###  function setType( ): this;
 
 Sets the both `type` and `elementSize` properties.
 
-### <br/> function setItemSize( ): setItemSize; <br/>
+###  function setItemSize( ): this;
 
 Sets the `itemSize` property.
 
-### <br/> function setCount( ): setCount; <br/>
+###  function setCount( ): this;
 
 Sets the `count` property.
 
-### <br/> Integer version; <br/>
+###  Integer version;
 
 A version number, incremented every time the needsUpdate property is set to
 true.
 
-### <br/> Boolean needsUpdate; <br/>
+###  Boolean needsUpdate;
 
 Default is `false`. Setting this to true increments
 [page:GLBufferAttribute.version version].

@@ -1,9 +1,9 @@
 [page:Texture] →
 
-# [name]
+# DepthTexture
 
 This class can be used to automatically save the depth information of a
-rendering into a texture. When using a WebGL 1 rendering context, [name]
+rendering into a texture. When using a WebGL 1 rendering context, DepthTexture
 requires support for the
 [link:https://www.khronos.org/registry/webgl/extensions/WEBGL_depth_texture/
 WEBGL_depth_texture] extension.
@@ -14,10 +14,9 @@ WEBGL_depth_texture] extension.
 
 ## Constructor
 
-###  [name]( [param:Number width], [param:Number height], [param:Constant
-type], [param:Constant mapping], [param:Constant wrapS], [param:Constant
-wrapT], [param:Constant magFilter], [param:Constant minFilter], [param:Number
-anisotropy], [param:Constant format] )
+###  function DepthTexture( width: Number, height: Number, type: Constant,
+mapping: Constant, wrapS: Constant, wrapT: Constant, magFilter: Constant,
+minFilter: Constant, anisotropy: Number, format: Constant ): void;
 
 [page:Number width] -- width of the texture.  
 [page:Number height] -- height of the texture.  
@@ -88,11 +87,11 @@ Depth textures do not need to be flipped so this is `false` by default.
 
 Depth textures do not use mipmaps.
 
-### <br/> Boolean isDepthTexture; <br/>
+###  Boolean isDepthTexture;
 
-Read-only flag to check if a given object is of type [name].
+Read-only flag to check if a given object is of type DepthTexture.
 
-### <br/> number compareFunction; <br/>
+###  number compareFunction;
 
 This is used to define the comparison function used when comparing texels in
 the depth texture to the value in the depth buffer. Default is `null` which
